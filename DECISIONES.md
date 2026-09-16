@@ -131,3 +131,25 @@ los cuatro.
 **D-24. Los mensajes de commit de la rutina empiezan por `lote:` o `metricas:`.** Nunca por
 `hitl:`, que está reservado a la web y hace que Vercel omita el despliegue. Una rutina que
 publicara con ese prefijo dejaría la web congelada sin que nada pareciera fallar.
+
+**D-25. El clasificador confundía dificultad de resolución con ambigüedad de clasificación.**
+Detectado al ejecutar la rutina por primera vez: en la primera pasada, **8 de 10**
+solicitudes quedaron por debajo del umbral de confianza de 0,75 y habrían escalado por H06.
+Al revisar los casos, la mayoría de esas confianzas bajas no respondían a duda sobre la
+categoría, sino a que el caso era grave, caro o le faltaban pruebas: un toallero eléctrico
+que da corriente es una incidencia sin ninguna duda, y un desistimiento de un producto a
+medida es un desistimiento sin ninguna duda.
+
+El efecto habría sido una demo en la que el sistema escala casi todo, y además por el motivo
+equivocado: H06 (baja confianza) en lugar de H03 (seguridad) o H05 (responsabilidad dudosa),
+que es lo que de verdad corresponde y lo que la persona necesita leer en la ficha de
+escalado.
+
+Se corrigió la regla 3 de `.claude/agents/clasificador.md` para separar de forma explícita
+las dos cosas: la `confianza` mide **solo** si se ha acertado la categoría; la gravedad se
+expresa en `prioridad`, la falta de pruebas la valora el analista de política y el escalado
+por riesgo lo decide el enrutador. Se enumeran los motivos que **no** deben bajar la
+confianza, porque la tendencia natural del modelo es curarse en salud.
+
+Es el tipo de fallo que solo aparece al ejecutar el sistema de punta a punta: cada agente
+por separado parecía razonable.

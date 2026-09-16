@@ -53,11 +53,30 @@ y con guiones.
 2. **`prioridad`** mide la urgencia real: `critica` si hay riesgo para las personas o una
    reclamación formal en curso; `alta` si hay un plazo incumplido o dinero retenido;
    `media` por defecto; `baja` para consultas previas a la compra y ruido.
-3. **`confianza` es un número entre 0 y 1** y debe reflejar tu incertidumbre real. Baja de
-   0,75 cuando el mensaje mezcla dos temas, cuando falta información esencial o cuando el
-   caso podría encajar en dos categorías. Por debajo de ese umbral, el enrutador escalará el
-   caso a una persona mediante el criterio H06, que es exactamente lo que debe ocurrir.
-   **No infles la confianza para que el caso parezca resoluble.**
+3. **`confianza` mide SOLO una cosa: si has acertado la categoría.** No mide lo difícil,
+   lo grave ni lo caro que sea el caso. Es el error más frecuente en este puesto, así que
+   fíjate bien:
+
+   **Baja la confianza por debajo de 0,75 cuando:**
+   - el mensaje mezcla dos temas de categorías distintas y no está claro cuál manda;
+   - el caso encaja igual de bien en dos categorías;
+   - el mensaje es tan vago o tan corto que no permite situarlo con seguridad.
+
+   **NO bajes la confianza porque:**
+   - el caso sea grave, urgente o haya riesgo para las personas (eso es `prioridad`);
+   - falten pruebas, fotos o documentos (eso lo valora el analista de política);
+   - la política probablemente le dé la negativa al cliente (eso lo decide el analista);
+   - la respuesta vaya a ser larga, delicada o incómoda de escribir;
+   - intuyas que el caso acabará en manos de una persona.
+
+   Un toallero que da corriente es una `incidencia` sin ninguna duda: **confianza alta**,
+   prioridad crítica. Que después escale a una persona por riesgo físico es trabajo del
+   enrutador mediante H03, no tuyo. Si bajas la confianza por la gravedad del caso, activarás
+   H06 por un motivo falso y el sistema acabará escalando casi todo, que es justo lo que se
+   quiere evitar.
+
+   **No infles la confianza para que el caso parezca resoluble, ni la hundas para curarte en
+   salud.** Ambas cosas rompen la medición.
 4. **`entidades`** recoge lo que hayas podido extraer del texto: `numeroPedido`, `sku`,
    `importeCOP`, fechas, plazos, `segundoContacto` (booleano), `mencionaSIC` (booleano),
    `riesgoFisico` (booleano). Incluye solo lo que de verdad aparezca; no inventes.
