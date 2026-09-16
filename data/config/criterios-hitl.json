@@ -1,0 +1,74 @@
+[
+  {
+    "codigo": "H01",
+    "nombre": "Importe relevante",
+    "descripcion": "El caso implica un reembolso o compensación superior a 1.500.000 COP, una cotización superior a 15.000.000 COP, o una solicitud de crédito. El dinero en juego exige criterio humano.",
+    "ejemplo": "Un cliente pide el reembolso completo de una mampara a medida de 3.200.000 COP."
+  },
+  {
+    "codigo": "H02",
+    "nombre": "Reclamación formal o riesgo reputacional",
+    "descripcion": "El cliente menciona la SIC, un abogado, una demanda o una denuncia, o amenaza con publicar el caso en redes sociales. La respuesta puede acabar siendo una prueba.",
+    "ejemplo": "«Si no me responden hoy pongo la queja en la SIC y lo publico en Twitter.»"
+  },
+  {
+    "codigo": "H03",
+    "nombre": "Seguridad de las personas",
+    "descripcion": "Hay riesgo físico: vidrio templado que estalló, lesión de una persona, fuga de agua con daños a terceros o riesgo eléctrico. Prevalece la seguridad sobre el procedimiento comercial.",
+    "ejemplo": "«El vidrio de la mampara estalló solo de madrugada y mi hija se cortó el pie.»"
+  },
+  {
+    "codigo": "H04",
+    "nombre": "Excepción a la política con motivo atendible",
+    "descripcion": "El caso está fuera de política pero hay razones para estudiar una excepción: cliente recurrente, probable error de la empresa, o incumplimiento del plazo por solo uno o dos días.",
+    "ejemplo": "Cliente que compra desde hace cuatro años pide devolver en el día 16, dos días fuera del plazo de DEV-01."
+  },
+  {
+    "codigo": "H05",
+    "nombre": "Responsabilidad dudosa en daños",
+    "descripcion": "No está claro si el daño es de transporte, de instalación o de fabricación, y decidirlo exige valorar pruebas (fotos, guía de transportadora, informe del instalador).",
+    "ejemplo": "Plato de ducha con una fisura que el cliente reporta a los 10 días de instalarlo."
+  },
+  {
+    "codigo": "H06",
+    "nombre": "Baja confianza o desacuerdo entre agentes",
+    "descripcion": "La confianza del clasificador es inferior a 0,75, o los agentes llegan a conclusiones incompatibles entre sí. Si el sistema no está seguro, decide una persona.",
+    "ejemplo": "Un mensaje que mezcla una queja de entrega con una consulta de medidas y no encaja claramente en ninguna categoría."
+  },
+  {
+    "codigo": "H07",
+    "nombre": "Cliente muy molesto en segundo contacto",
+    "descripcion": "El sentimiento es igual o inferior a -2 y además es el segundo contacto del cliente por el mismo tema. Repetir una respuesta automática empeoraría la relación.",
+    "ejemplo": "«Es la tercera vez que escribo por lo mismo y nadie me resuelve nada.»"
+  },
+  {
+    "codigo": "H08",
+    "nombre": "Datos sensibles o riesgo de fraude",
+    "descripcion": "Se pide cambiar el titular o el NIT después de emitida la factura, cambiar la cuenta de destino del reembolso, o el pedido presenta señales de fraude.",
+    "ejemplo": "«Devuélvanme el dinero a otra cuenta bancaria, no a la tarjeta con la que pagué.»"
+  },
+  {
+    "codigo": "H09",
+    "nombre": "Borrador rechazado dos veces por el supervisor",
+    "descripcion": "El supervisor de calidad devolvió el borrador en dos iteraciones consecutivas. Se agota el margen de corrección automática y pasa a una persona.",
+    "ejemplo": "El redactor insiste en prometer un plazo de reembolso que no respalda DEV-10."
+  },
+  {
+    "codigo": "H10",
+    "nombre": "Cliente profesional estratégico",
+    "descripcion": "Cliente profesional con valor histórico superior a 50.000.000 COP, ante cualquier incidencia. La relación comercial vale más que el ahorro de automatizar la respuesta.",
+    "ejemplo": "Constructora con 120.000.000 COP de compras acumuladas reporta un faltante en una entrega."
+  },
+  {
+    "codigo": "H11",
+    "nombre": "Fuera de ámbito pero no es spam",
+    "descripcion": "El mensaje es legítimo pero no corresponde al servicio de atención al cliente: postulaciones de empleo, ofertas de proveedores, propuestas comerciales.",
+    "ejemplo": "«Envío mi hoja de vida para la vacante de asesor comercial.»"
+  },
+  {
+    "codigo": "D01",
+    "nombre": "Descarte automático por spam",
+    "descripcion": "Spam o contenido sin ninguna relación con el negocio. Se registra con su justificación y NO se responde. Es el único caso de descarte automático sin intervención humana.",
+    "ejemplo": "«GANE DINERO DESDE CASA!!! Clic aquí para invertir en criptomonedas.»"
+  }
+]

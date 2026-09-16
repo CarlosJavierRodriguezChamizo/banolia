@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PendienteDeFase from '../components/PendienteDeFase.astro';
+export const prerender = false;
+---
+<Base titulo="Cola humana">
+  <h1 class="mb-6 text-2xl font-bold tracking-tight text-slate-900">Cola humana</h1>
+  <PendienteDeFase fase={3} descripcion="Listado de solicitudes pendientes de respuesta humana, ordenadas por prioridad y por SLA restante con semáforo, mostrando la ficha de escalado de cada caso." />
+</Base>

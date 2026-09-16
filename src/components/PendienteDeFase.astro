@@ -1,0 +1,12 @@
+---
+/**
+ * Marcador para las vistas que se construyen en fases posteriores.
+ * Evita enlaces rotos en la navegación mientras avanza el proyecto.
+ */
+interface Props { fase: number; descripcion: string; }
+const { fase, descripcion } = Astro.props;
+---
+<div class="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center">
+  <p class="text-sm font-semibold text-marca-oscuro">Se construye en la fase {fase}</p>
+  <p class="mx-auto mt-2 max-w-xl text-sm text-slate-600">{descripcion}</p>
+</div>

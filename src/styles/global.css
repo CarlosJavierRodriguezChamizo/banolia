@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/*
+  Tokens de tema. Los colores de marca reflejan data/config/marca.json.
+  Si allí se cambia la paleta, hay que reflejarlo aquí (el CSS no puede leer JSON).
+*/
+@theme {
+  --color-marca: #0E7490;
+  --color-marca-oscuro: #155E75;
+  --color-marca-claro: #ECFEFF;
+  --color-acento: #B45309;
+  --color-superficie: #F8FAFC;
+  --color-tinta: #0F172A;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-superficie);
+    color: var(--color-tinta);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Foco siempre visible: requisito de accesibilidad del proyecto. */
+  :focus-visible {
+    outline: 3px solid var(--color-marca);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* Respeta a quien pide menos movimiento. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Enlace de salto para navegación por teclado. */
+  .salto-contenido {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50
+           focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg;
+  }
+}

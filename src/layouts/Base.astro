@@ -1,0 +1,94 @@
+---
+/**
+ * Layout general de la demo: cabecera, navegación, contenido y pie.
+ */
+import '../styles/global.css';
+import { marca } from '../lib/datos.ts';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+}
+
+const { titulo, descripcion } = Astro.props;
+const rutaActual = Astro.url.pathname;
+
+const navegacion = [
+  { href: '/', texto: 'Tablero' },
+  { href: '/humano', texto: 'Cola humana' },
+  { href: '/lotes', texto: 'Lotes' },
+  { href: '/metricas', texto: 'Métricas' },
+  { href: '/como-funciona', texto: 'Cómo funciona' },
+];
+
+const esActiva = (href: string) =>
+  href === '/' ? rutaActual === '/' : rutaActual.startsWith(href);
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo} · {marca.nombre}</title>
+    {descripcion && <meta name="description" content={descripcion} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="robots" content="noindex" />
+  </head>
+
+  <body class="min-h-screen flex flex-col font-sans">
+    <a href="#contenido" class="salto-contenido">Saltar al contenido</a>
+
+    <header class="bg-marca-oscuro text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex items-center justify-between gap-4 py-4">
+          <a href="/" class="flex items-center gap-3 rounded-md">
+            <span
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/15 text-lg font-bold"
+              aria-hidden="true">B</span>
+            <span>
+              <span class="block text-lg font-semibold leading-tight">{marca.nombre}</span>
+              <span class="block text-xs text-cyan-100/80">Servicio al Cliente</span>
+            </span>
+          </a>
+
+          <span class="hidden rounded-full bg-amber-400/20 px-3 py-1 text-xs font-medium text-amber-100 ring-1 ring-amber-300/40 sm:inline-block">
+            Demo docente · datos ficticios
+          </span>
+        </div>
+
+        <nav aria-label="Navegación principal" class="-mb-px overflow-x-auto">
+          <ul class="flex gap-1 text-sm">
+            {navegacion.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={esActiva(item.href) ? 'page' : undefined}
+                  class:list={[
+                    'inline-block whitespace-nowrap rounded-t-md px-3 py-2 font-medium transition-colors',
+                    esActiva(item.href)
+                      ? 'bg-superficie text-marca-oscuro'
+                      : 'text-cyan-50/90 hover:bg-white/10',
+                  ]}>{item.texto}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6">
+      <slot />
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-6 text-sm text-slate-600 sm:px-6">
+        <p class="font-medium text-slate-800">{marca.avisoDemo}</p>
+        <p class="mt-1">
+          Ejercicio de la asignatura <em>Automatización de Procesos</em> · Máster en Liderazgo
+          y Transformación Digital · CESA, Bogotá.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1629 @@
+{
+  "id": "LOTE-20260916-01",
+  "fecha": "2026-09-16",
+  "origen": "manual",
+  "iniciadoEn": "2026-09-16T09:05:00-05:00",
+  "finalizadoEn": "2026-09-16T09:41:00-05:00",
+  "totales": {
+    "solicitudes": 10,
+    "ia": 6,
+    "humano": 3,
+    "descartado": 1
+  },
+  "alertas": [],
+  "solicitudes": [
+    {
+      "id": "SOL-20260916-0001",
+      "recibidaEn": "2026-09-16T08:12:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0119",
+        "nombre": "Paula Rodríguez Acosta",
+        "ciudad": "Barranquilla",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104233",
+        "fecha": "2026-09-08",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-MUE-001",
+            "cantidad": 1,
+            "precioCOP": 1890000
+          }
+        ],
+        "totalCOP": 1890000,
+        "fechaEntrega": null
+      },
+      "asunto": "Consulta por demora de pedido",
+      "mensaje": "bnas tardes, ya va como una semana y el mueble no me llega. me dijeron q eran pocos dias. me pueden decir q paso porfa? el pedido es BN-104233. gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "estado-pedido",
+        "prioridad": "media",
+        "sentimiento": -1,
+        "confianza": 0.94,
+        "entidades": {
+          "numeroPedido": "BN-104233",
+          "sku": "BN-MUE-001",
+          "diasHabilesTranscurridos": 6
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "A",
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "diasHabilesTranscurridos": 6,
+          "dentroDePlazo": true
+        },
+        "riesgos": [
+          "Si la entrega supera el día hábil 8 el caso pasa a incidencia de entrega"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Con mucho gusto, Paula!\n\nSu pedido BN-104233 (Mueble suspendido Aracena 80 cm, roble natural) está en tránsito hacia Barranquilla. Lo despachamos el 8 de septiembre y, para la zona A, nuestro plazo de entrega es de 3 a 8 días hábiles. A la fecha han transcurrido 6 días hábiles, así que su pedido está dentro del plazo previsto y debería llegarle en los próximos días.\n\nLe pedimos estar pendiente del celular: la transportadora se comunica antes de la entrega. Si el día hábil 8 se cumple y el mueble no ha llegado, escríbanos de nuevo por este mismo medio y abrimos de inmediato una incidencia de entrega para rastrearlo con la transportadora.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "¡Con mucho gusto, Paula!\n\nSu pedido BN-104233 (Mueble suspendido Aracena 80 cm, roble natural) está en tránsito hacia Barranquilla. Lo despachamos el 8 de septiembre y, para la zona A, nuestro plazo de entrega es de 3 a 8 días hábiles. A la fecha han transcurrido 6 días hábiles, así que su pedido está dentro del plazo previsto y debería llegarle en los próximos días.\n\nLe pedimos estar pendiente del celular: la transportadora se comunica antes de la entrega. Si el día hábil 8 se cumple y el mueble no ha llegado, escríbanos de nuevo por este mismo medio y abrimos de inmediato una incidencia de entrega para rastrearlo con la transportadora.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Solicitud de estado de pedido por canal WhatsApp, registro informal",
+          "justificacion": "Se buscaba un caso frecuente y de baja complejidad, con lenguaje coloquial y abreviaturas, para comprobar que el clasificador no depende de un registro formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos / estado-pedido · prioridad media · sentimiento -1",
+          "justificacion": "El mensaje pregunta explícitamente por el paradero de un pedido identificado (BN-104233). El tono muestra impaciencia leve pero sin hostilidad, por lo que el sentimiento es -1. La confianza es alta (0,94) porque la intención es inequívoca.",
+          "confianza": 0.94,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Dentro de plazo: 6 días hábiles de los 3 a 8 previstos en zona A",
+          "justificacion": "ENV-01 fija 3 a 8 días hábiles para la zona A y Barranquilla pertenece a esa zona. Entre el despacho (8 de septiembre) y hoy han transcurrido 6 días hábiles, así que no hay incumplimiento. PQR-01 obliga a responder la consulta en 24 horas hábiles.",
+          "confianza": 0.96,
+          "reglas": [
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "No se activa ningún criterio de escalado: no hay importe relevante, ni reclamación formal, ni riesgo de seguridad, y la confianza del clasificador supera el umbral de 0,75 de H06. El caso se resuelve citando ENV-01.",
+          "confianza": 0.95,
+          "reglas": [
+            "ENV-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador con fecha de despacho, plazo aplicable y siguiente paso",
+          "justificacion": "Se informa el plazo real de ENV-01 sin prometer una fecha exacta de entrega, que Bañolia no controla. Se cierra indicando qué hacer si se supera el día hábil 8, para que la clienta no tenga que volver a preguntar.",
+          "confianza": 0.92,
+          "reglas": [
+            "ENV-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "El borrador es veraz frente a los datos del pedido, no promete plazos fuera de ENV-01, usa el trato de usted y español de Colombia, e incluye la firma de marca. No se detecta información inventada.",
+          "confianza": 0.93,
+          "reglas": [
+            "ENV-01"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0002",
+      "recibidaEn": "2026-09-16T08:34:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0091",
+        "nombre": "Alejandro López Arango",
+        "ciudad": "Barranquilla",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104298",
+        "fecha": "2026-09-14",
+        "estado": "Despachado",
+        "lineas": [
+          {
+            "sku": "BN-SAN-001",
+            "cantidad": 1,
+            "precioCOP": 1180000
+          }
+        ],
+        "totalCOP": 1180000,
+        "fechaEntrega": null
+      },
+      "asunto": "Solicitud de cambio de dirección de entrega - pedido BN-104298",
+      "mensaje": "Buenos días.\n\nRealicé el pedido BN-104298 el pasado 14 de septiembre con destino a mi residencia en el barrio Alto Prado. Por motivos laborales no podré recibirlo allí. ¿Es posible redirigir la entrega a la dirección de mi oficina, en el mismo sector? Agradezco me indiquen el procedimiento.\n\nCordialmente,\nAlejandro López Arango",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "modificacion-pedido",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.89,
+        "entidades": {
+          "numeroPedido": "BN-104298",
+          "tipoCambio": "direccion-de-entrega",
+          "estadoPedido": "Despachado"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "CAN-01",
+          "DEV-11"
+        ],
+        "cumple": true,
+        "calculos": {
+          "yaDespachado": true,
+          "mismaCiudad": true,
+          "requiereConfirmacionTransportadora": true
+        },
+        "riesgos": [
+          "Si la dirección nueva resulta errónea o inaccesible, DEV-11 traslada los gastos al cliente"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Alejandro.\n\n¡Con mucho gusto le ayudamos! Su pedido BN-104298 ya fue despachado, pero al tratarse de un cambio dentro de la misma ciudad podemos solicitar la redirección a la transportadora antes del primer intento de entrega.\n\nPara gestionarlo necesitamos que responda a este correo con la dirección completa de la oficina (incluyendo nombre de la empresa, piso u oficina y un punto de referencia) y un número de celular de contacto en ese lugar.\n\nDos precisiones importantes:\n\n1. La redirección queda sujeta a la confirmación de la transportadora, que le informaremos el mismo día.\n2. Le agradecemos revisar con cuidado los datos: si la dirección resulta errónea, incompleta o inaccesible para el vehículo de reparto, los gastos de una nueva entrega corren por cuenta del cliente.\n\nQuedamos atentos a su respuesta para dejarlo gestionado hoy mismo.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera iteración devuelta: afirmaba que el cambio quedaba confirmado, cuando depende de la transportadora. Corregido a redirección sujeta a confirmación y añadida la advertencia de DEV-11."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Alejandro.\n\n¡Con mucho gusto le ayudamos! Su pedido BN-104298 ya fue despachado, pero al tratarse de un cambio dentro de la misma ciudad podemos solicitar la redirección a la transportadora antes del primer intento de entrega.\n\nPara gestionarlo necesitamos que responda a este correo con la dirección completa de la oficina (incluyendo nombre de la empresa, piso u oficina y un punto de referencia) y un número de celular de contacto en ese lugar.\n\nDos precisiones importantes:\n\n1. La redirección queda sujeta a la confirmación de la transportadora, que le informaremos el mismo día.\n2. Le agradecemos revisar con cuidado los datos: si la dirección resulta errónea, incompleta o inaccesible para el vehículo de reparto, los gastos de una nueva entrega corren por cuenta del cliente.\n\nQuedamos atentos a su respuesta para dejarlo gestionado hoy mismo.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Modificación de pedido ya despachado, registro formal por correo",
+          "justificacion": "Contrapunto deliberado al caso anterior: mismo cliente tipo particular pero registro formal y petición de modificación, para contrastar cómo cambia el tono de la respuesta.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos / modificacion-pedido · prioridad media · sentimiento 0",
+          "justificacion": "La petición es un cambio de dirección sobre un pedido identificado. El tono es neutro y cortés, sin queja, por lo que el sentimiento es 0. La confianza baja a 0,89 porque roza la frontera con una incidencia de entrega.",
+          "confianza": 0.89,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Modificación viable con confirmación de transportadora; advertir DEV-11",
+          "justificacion": "CAN-01 regula qué ocurre tras el despacho y no prohíbe redirigir dentro de la misma ciudad. DEV-11 es relevante porque traslada al cliente los gastos si la dirección resulta errónea o inaccesible, de modo que debe advertirse antes de aceptar el cambio.",
+          "confianza": 0.88,
+          "reglas": [
+            "CAN-01",
+            "DEV-11"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "El importe (1.180.000 COP) está por debajo del umbral de H01 y la confianza de 0,89 supera el mínimo de H06. No hay señales de fraude que activen H08, ya que no cambia el titular ni la cuenta de reembolso, solo la dirección dentro de la misma ciudad.",
+          "confianza": 0.9,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador con datos requeridos y advertencia de DEV-11",
+          "justificacion": "Se pide la información mínima necesaria en una sola interacción y se advierte del riesgo económico de DEV-11 antes de que el cliente asuma que el cambio es gratuito e inmediato.",
+          "confianza": 0.85,
+          "reglas": [
+            "CAN-01",
+            "DEV-11"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "El primer borrador daba el cambio por confirmado, lo que es una promesa que Bañolia no puede garantizar porque depende de la transportadora. Se devolvió con esa observación y la segunda versión ya lo presenta como sujeto a confirmación e incorpora DEV-11.",
+          "confianza": 0.91,
+          "reglas": [
+            "DEV-11"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0003",
+      "recibidaEn": "2026-09-16T08:47:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0042",
+        "nombre": "Juliana Cardona Cárdenas",
+        "ciudad": "Riohacha",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104102",
+        "fecha": "2026-08-31",
+        "estado": "En reparto",
+        "lineas": [
+          {
+            "sku": "BN-GRI-005",
+            "cantidad": 2,
+            "precioCOP": 890000
+          }
+        ],
+        "totalCOP": 1780000,
+        "fechaEntrega": null
+      },
+      "asunto": "No me han entregado y dicen que no había nadie",
+      "mensaje": "Buenas. La transportadora dice que intentó entregar dos veces y que no había nadie, pero yo he estado en la casa toda la semana y nunca sonó el citófono. Necesito que me reprogramen la entrega, por favor. Pedido BN-104102.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "incidencia-entrega",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.91,
+        "entidades": {
+          "numeroPedido": "BN-104102",
+          "intentosEntregaReportados": 2,
+          "zona": "B"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "DEV-11",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "B",
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "diasHabilesTranscurridos": 11,
+          "dentroDePlazo": true,
+          "intentosEntrega": 2,
+          "umbralDEV11": 2
+        },
+        "riesgos": [
+          "DEV-11 solo traslada los gastos al cliente si los intentos fallidos le son imputables, y eso está en disputa",
+          "Un tercer intento fallido sí activaría el cobro"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, Juliana.\n\nLamentamos la molestia. Ya solicitamos a la transportadora la reprogramación de la entrega de su pedido BN-104102 (dos grifos termostáticos Aqualinde de ducha) y le confirmaremos la nueva fecha por este mismo medio.\n\nComo los intentos anteriores no pudieron completarse, le pedimos dos datos para asegurar que esta vez llegue bien: un número de celular alterno y un horario en el que con seguridad haya alguien en la vivienda. Con esa información la transportadora coordina directamente con usted antes de salir a ruta.\n\nQueremos ser transparentes en un punto: nuestra política prevé que, cuando la entrega falla por causas atribuibles al cliente después de más de dos intentos, los gastos de un nuevo envío los asume el comprador. En su caso hemos dejado constancia de que usted estuvo en la vivienda y que el citófono no sonó, así que esta reprogramación no le genera ningún costo.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, Juliana.\n\nLamentamos la molestia. Ya solicitamos a la transportadora la reprogramación de la entrega de su pedido BN-104102 (dos grifos termostáticos Aqualinde de ducha) y le confirmaremos la nueva fecha por este mismo medio.\n\nComo los intentos anteriores no pudieron completarse, le pedimos dos datos para asegurar que esta vez llegue bien: un número de celular alterno y un horario en el que con seguridad haya alguien en la vivienda. Con esa información la transportadora coordina directamente con usted antes de salir a ruta.\n\nQueremos ser transparentes en un punto: nuestra política prevé que, cuando la entrega falla por causas atribuibles al cliente después de más de dos intentos, los gastos de un nuevo envío los asume el comprador. En su caso hemos dejado constancia de que usted estuvo en la vivienda y que el citófono no sonó, así que esta reprogramación no le genera ningún costo.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Incidencia de entrega con versiones contradictorias entre cliente y transportadora",
+          "justificacion": "Caso intermedio a propósito: hay un conflicto de versiones, pero todavía no alcanza el umbral de DEV-11 que trasladaría el costo al cliente, de modo que la IA puede resolverlo sin escalar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias / incidencia-entrega · prioridad alta · sentimiento -1",
+          "justificacion": "La clienta reporta intentos de entrega fallidos y pide reprogramación, lo que corresponde a una incidencia de entrega. La prioridad es alta porque el pedido lleva 11 días hábiles y un tercer fallo tendría consecuencias económicas para ella.",
+          "confianza": 0.91,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Dentro del plazo de zona B; DEV-11 aún no aplica",
+          "justificacion": "Riohacha es zona B, cuyo plazo según ENV-01 es de 8 a 15 días hábiles, y van 11, así que no hay incumplimiento de plazo. DEV-11 exige más de dos intentos fallidos imputables al cliente para trasladarle los gastos, y aquí hay exactamente dos y con la responsabilidad en disputa, por lo que la reprogramación no debe cobrarse.",
+          "confianza": 0.87,
+          "reglas": [
+            "ENV-01",
+            "DEV-11"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "Aunque hay versiones enfrentadas, no se trata de valorar pruebas de un daño, así que H05 no aplica. El importe está muy por debajo de H01 y es el primer contacto de la clienta por este tema, por lo que tampoco se activa H07.",
+          "confianza": 0.88,
+          "reglas": [
+            "DEV-11"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador con reprogramación, datos requeridos y aclaración de costos",
+          "justificacion": "Se resuelve la petición principal (reprogramar) y se explica DEV-11 de forma preventiva, dejando claro que en esta ocasión no hay cobro. Así la clienta conoce la regla antes de un eventual tercer intento fallido.",
+          "confianza": 0.86,
+          "reglas": [
+            "DEV-11"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "La respuesta no culpa a la clienta ni a la transportadora, explica la regla aplicable sin usar lenguaje jurídico y confirma que la reprogramación es gratuita, que es la información que la clienta necesita. Tono y tratamiento correctos.",
+          "confianza": 0.9,
+          "reglas": [
+            "DEV-11"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0004",
+      "recibidaEn": "2026-09-16T09:02:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0133",
+        "nombre": "Sebastián Muñoz Rojas",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104051",
+        "fecha": "2026-08-28",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-001",
+            "cantidad": 1,
+            "precioCOP": 780000
+          }
+        ],
+        "totalCOP": 780000,
+        "fechaEntrega": "2026-09-03"
+      },
+      "asunto": "Deseo devolver un espejo - pedido BN-104051",
+      "mensaje": "Buenos días. Compré el espejo con luz LED de 80x60 y finalmente no me funciona para el espacio donde lo quería poner. Sigue en su caja, no lo hemos instalado ni sacado del empaque. Quisiera devolverlo. ¿Qué debo hacer y cuánto me devuelven? Pedido BN-104051.",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Foto de la caja del espejo cerrada, con el precinto original intacto"
+        }
+      ],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-104051",
+          "sku": "BN-ESP-001",
+          "fechaRecepcion": "2026-09-03",
+          "diasCalendarioTranscurridos": 13
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "diasCalendarioTranscurridos": 13,
+          "plazoDEV01": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 1,
+          "tipologiaDevolucion": "espejos-led",
+          "zona": "A",
+          "gastoRecogidaCOP": 180000,
+          "importePagadoCOP": 780000,
+          "reembolsoEstimadoCOP": 600000,
+          "plazoReembolsoDias": 14
+        },
+        "riesgos": [
+          "Queda solo 1 día del plazo de DEV-01: si el cliente no confirma hoy o mañana, pierde el derecho de desistimiento",
+          "El espejo LED requiere estiba y fotos según DEV-07; sin ellas el seguro no cubre daños"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Sebastián.\n\n¡Con mucho gusto le explicamos! Su solicitud sí procede: recibió el pedido BN-104051 el 3 de septiembre, hoy es el día 13 de los 14 días calendario que damos para desistir, y el espejo sigue sin instalar y en su embalaje original. Le pedimos confirmarnos a más tardar mañana para no perder el plazo.\n\nCuánto se le reembolsa:\n\n· Valor pagado: $ 780.000\n· Gastos de recogida (espejo con LED, zona A): $ 180.000\n· Total a reembolsar: $ 600.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso.\n\nCómo continuamos. Si nos confirma, programamos la recogida con nuestra transportadora. Es indispensable que el espejo viaje sobre estiba y que nos envíe fotografías antes y después de embalarlo: sin estiba o sin fotos el seguro de transporte no cubre los daños y, si llega roto, no podríamos emitir el reembolso.\n\nUna vez recibamos y verifiquemos el producto, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nSi prefiere gestionar usted mismo el envío, cuéntenos y le enviamos la dirección y las instrucciones.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Sebastián.\n\n¡Con mucho gusto le explicamos! Su solicitud sí procede: recibió el pedido BN-104051 el 3 de septiembre, hoy es el día 13 de los 14 días calendario que damos para desistir, y el espejo sigue sin instalar y en su embalaje original. Le pedimos confirmarnos a más tardar mañana para no perder el plazo.\n\nCuánto se le reembolsa:\n\n· Valor pagado: $ 780.000\n· Gastos de recogida (espejo con LED, zona A): $ 180.000\n· Total a reembolsar: $ 600.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso.\n\nCómo continuamos. Si nos confirma, programamos la recogida con nuestra transportadora. Es indispensable que el espejo viaje sobre estiba y que nos envíe fotografías antes y después de embalarlo: sin estiba o sin fotos el seguro de transporte no cubre los daños y, si llega roto, no podríamos emitir el reembolso.\n\nUna vez recibamos y verifiquemos el producto, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nSi prefiere gestionar usted mismo el envío, cuéntenos y le enviamos la dirección y las instrucciones.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Desistimiento en el día 13 de 14, con producto sin instalar",
+          "justificacion": "Caso límite deliberado: cumple todos los requisitos pero queda a un solo día de vencer el plazo, lo que obliga al sistema a calcular bien la fecha y a avisar de la urgencia.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "devoluciones / desistimiento · prioridad media · sentimiento 0",
+          "justificacion": "El cliente pide devolver por cambio de opinión, no por defecto, lo que corresponde a un desistimiento. Aporta número de pedido y una foto del embalaje intacto, por lo que la confianza es muy alta (0,95).",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Procede · reembolso estimado 600.000 COP tras descontar 180.000 de recogida",
+          "justificacion": "Se cumplen DEV-01 (día 13 de 14), DEV-02 y DEV-03 (sin instalar y en embalaje original, acreditado con la foto), DEV-04 y DEV-05 (el espejo no es a medida). Según la tabla de DEV-08, la tipología espejos con LED en zona A descuenta 180.000 COP, de modo que sobre los 780.000 pagados el reembolso queda en 600.000. DEV-14 confirma que los costes los asume el cliente al no existir error de la empresa.",
+          "confianza": 0.94,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-08",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "El reembolso de 600.000 COP queda muy por debajo del umbral de 1.500.000 de H01, el caso cumple la política sin necesidad de excepción, así que H04 no aplica, y la confianza de 0,95 descarta H06. Es un caso resoluble por la IA pese a ser un límite temporal.",
+          "confianza": 0.93,
+          "reglas": [
+            "DEV-01",
+            "DEV-08"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador con desglose del reembolso y requisitos de DEV-07",
+          "justificacion": "Se desglosa el cálculo para que el cliente entienda por qué no recibe los 780.000 completos, y se advierte de la urgencia porque solo queda un día de plazo. Se detallan los requisitos de estiba y fotografías de DEV-07 antes de que embale, no después.",
+          "confianza": 0.91,
+          "reglas": [
+            "DEV-07",
+            "DEV-08",
+            "DEV-10"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Las cifras del borrador coinciden con la tabla de DEV-08 y con el importe real del pedido. El aviso del plazo es correcto y no se promete ninguna excepción. Se ofrece además la opción B de DEV-09, lo que evita un segundo contacto.",
+          "confianza": 0.94,
+          "reglas": [
+            "DEV-08",
+            "DEV-09"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0005",
+      "recibidaEn": "2026-09-16T09:11:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0078",
+        "nombre": "Iván Gómez Mejía",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Duda sobre medidas de mampara",
+      "mensaje": "hola, tengo un baño con una ducha de 118 cm de ancho. la mampara de 120 me sirve o me quedo corto? y viene con tratamiento antical?",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.92,
+        "entidades": {
+          "medidaHuecoCm": 118,
+          "productoConsultado": "mampara frontal 120 cm",
+          "atributoConsultado": "antical"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PQR-01",
+          "DEV-05",
+          "INS-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "anchoHuecoCm": 118,
+          "rangoAjusteMamparaCm": [
+            115,
+            120
+          ],
+          "encajaEnEstandar": true
+        },
+        "riesgos": [
+          "Si el cliente mide mal y pide una mampara a medida, DEV-05 impide devolverla"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, Iván! Con mucho gusto le ayudamos.\n\nSí le sirve. Nuestra mampara frontal Bruma de 120 cm es corredera y cuenta con perfiles de ajuste, de modo que se adapta a huecos de entre 115 y 120 cm. Con sus 118 cm queda dentro del rango sin problema.\n\nSobre el antical: la mampara frontal Bruma de 120 cm no trae tratamiento antical de fábrica. Si le interesa esa característica, el panel fijo Hidrosur sí lo incluye en su versión a medida.\n\nUn consejo antes de comprar: tome la medida en tres puntos (arriba, en la mitad y abajo), porque los muros rara vez son perfectamente paralelos y lo que manda es la medida más pequeña. Si las tres medidas le dan diferencias mayores a 2 cm, cuéntenos y revisamos si le conviene una solución a medida.\n\nTenga en cuenta que los productos fabricados a medida no admiten devolución, así que en ese caso conviene confirmar bien las medidas antes de ordenar.\n\nSi desea, también podemos cotizarle la instalación con nuestros aliados en Cali.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, Iván! Con mucho gusto le ayudamos.\n\nSí le sirve. Nuestra mampara frontal Bruma de 120 cm es corredera y cuenta con perfiles de ajuste, de modo que se adapta a huecos de entre 115 y 120 cm. Con sus 118 cm queda dentro del rango sin problema.\n\nSobre el antical: la mampara frontal Bruma de 120 cm no trae tratamiento antical de fábrica. Si le interesa esa característica, el panel fijo Hidrosur sí lo incluye en su versión a medida.\n\nUn consejo antes de comprar: tome la medida en tres puntos (arriba, en la mitad y abajo), porque los muros rara vez son perfectamente paralelos y lo que manda es la medida más pequeña. Si las tres medidas le dan diferencias mayores a 2 cm, cuéntenos y revisamos si le conviene una solución a medida.\n\nTenga en cuenta que los productos fabricados a medida no admiten devolución, así que en ese caso conviene confirmar bien las medidas antes de ordenar.\n\nSi desea, también podemos cotizarle la instalación con nuestros aliados en Cali.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Consulta de producto por chat, mensaje corto y sin datos de pedido",
+          "justificacion": "Se buscaba una solicitud sin pedido asociado y de registro muy breve, para comprobar que los agentes no dependen de tener un histórico del cliente.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "consultas / consulta-producto · prioridad baja · sentimiento 0",
+          "justificacion": "Son dos preguntas previas a la compra sobre medidas y acabado, sin pedido de por medio. La prioridad es baja porque no hay incidencia ni dinero comprometido todavía.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Consulta comercial; advertir DEV-05 ante la opción a medida",
+          "justificacion": "No hay una regla de devolución en juego todavía, pero DEV-05 es pertinente de forma preventiva: si la conversación deriva en un producto a medida, el cliente debe saber de antemano que no podrá devolverlo. PQR-01 fija el plazo de respuesta en 24 horas hábiles.",
+          "confianza": 0.85,
+          "reglas": [
+            "DEV-05",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "Es una consulta de producto sin importe comprometido, por lo que no se activa H01, y la confianza de 0,92 está muy por encima del umbral de H06. No hay ningún elemento de reclamación ni de riesgo.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador con respuesta a ambas preguntas y consejo de medición",
+          "justificacion": "Se responden las dos preguntas por separado y se admite abiertamente que ese modelo no trae antical, en vez de esquivarlo. Se añade el consejo de medir en tres puntos porque es el error que más devoluciones genera, y se advierte de DEV-05 por si opta por la versión a medida.",
+          "confianza": 0.89,
+          "reglas": [
+            "DEV-05"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Los datos de producto coinciden con el catálogo y no se inventan características: se dice con claridad que la mampara Bruma no lleva antical. La advertencia sobre DEV-05 es correcta y el cierre con INS-01 es coherente porque Cali es una de las tres ciudades con instalación.",
+          "confianza": 0.9,
+          "reglas": [
+            "DEV-05",
+            "INS-01"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0006",
+      "recibidaEn": "2026-09-16T09:18:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0063",
+        "nombre": "Juan Vargas Hernández",
+        "ciudad": "Medellín",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Cotización para remodelación de baño principal",
+      "mensaje": "Buenas tardes. Estoy remodelando el baño principal de mi apartamento y quisiera una cotización de: un mueble suspendido de 80 cm en roble, una mampara frontal de 120 cm, un plato de ducha de 120x70 y un grifo termostático de ducha. ¿Me pueden indicar el valor total y si el envío a Medellín tiene costo? Gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-proyecto",
+        "prioridad": "media",
+        "sentimiento": 1,
+        "confianza": 0.93,
+        "entidades": {
+          "productos": [
+            "BN-MUE-001",
+            "BN-MAM-001",
+            "BN-PLA-001",
+            "BN-GRI-005"
+          ],
+          "ciudad": "Medellín",
+          "tipoProyecto": "remodelación baño principal"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PRO-01",
+          "PAG-01",
+          "INS-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "lineas": [
+            {
+              "sku": "BN-MUE-001",
+              "cantidad": 1,
+              "precioCOP": 1890000
+            },
+            {
+              "sku": "BN-MAM-001",
+              "cantidad": 1,
+              "precioCOP": 1680000
+            },
+            {
+              "sku": "BN-PLA-001",
+              "cantidad": 1,
+              "precioCOP": 980000
+            },
+            {
+              "sku": "BN-GRI-005",
+              "cantidad": 1,
+              "precioCOP": 890000
+            }
+          ],
+          "subtotalCOP": 5440000,
+          "descuentoAplicadoCOP": 0,
+          "motivoSinDescuento": "PRO-01 aplica únicamente a clientes profesionales; este cliente es particular",
+          "envioGratis": true,
+          "umbralEnvioGratisCOP": 1500000,
+          "totalCOP": 5440000
+        },
+        "riesgos": [
+          "La mampara de 120 cm exige verificar el ancho real del hueco antes de ordenar"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Juan.\n\n¡Con mucho gusto! Esta es la cotización para la remodelación de su baño principal:\n\n· Mueble suspendido Aracena 80 cm, dos cajones, roble natural — $ 1.890.000\n· Mampara frontal Bruma 120 cm, corredera, perfil cromado — $ 1.680.000\n· Plato de ducha resina Tierravera 120x70 cm, pizarra blanco — $ 980.000\n· Grifo termostático Aqualinde de ducha, cromo — $ 890.000\n\nSubtotal: $ 5.440.000\nEnvío a Medellín: sin costo\nTotal: $ 5.440.000\n\nEl envío es gratuito porque su compra supera los $ 1.500.000. Medellín es zona A, así que el plazo de entrega estimado es de 3 a 8 días hábiles.\n\nDos recomendaciones antes de ordenar:\n\n1. Verifique el ancho del hueco de la ducha midiendo en tres puntos (arriba, mitad y abajo). La mampara de 120 cm se ajusta a huecos de 115 a 120 cm.\n2. El plato de ducha y la mampara deben instalarse de forma coordinada. Si lo desea, cotizamos la instalación con nuestros aliados en Medellín.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señor Juan.\n\n¡Con mucho gusto! Esta es la cotización para la remodelación de su baño principal:\n\n· Mueble suspendido Aracena 80 cm, dos cajones, roble natural — $ 1.890.000\n· Mampara frontal Bruma 120 cm, corredera, perfil cromado — $ 1.680.000\n· Plato de ducha resina Tierravera 120x70 cm, pizarra blanco — $ 980.000\n· Grifo termostático Aqualinde de ducha, cromo — $ 890.000\n\nSubtotal: $ 5.440.000\nEnvío a Medellín: sin costo\nTotal: $ 5.440.000\n\nEl envío es gratuito porque su compra supera los $ 1.500.000. Medellín es zona A, así que el plazo de entrega estimado es de 3 a 8 días hábiles.\n\nDos recomendaciones antes de ordenar:\n\n1. Verifique el ancho del hueco de la ducha midiendo en tres puntos (arriba, mitad y abajo). La mampara de 120 cm se ajusta a huecos de 115 a 120 cm.\n2. El plato de ducha y la mampara deben instalarse de forma coordinada. Si lo desea, cotizamos la instalación con nuestros aliados en Medellín.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Cotización de cuatro productos para un cliente particular",
+          "justificacion": "Se eligió un importe intermedio (por encima del envío gratis de ENV-01 pero por debajo del umbral de escalado de H01) para que la IA deba aplicar una regla a favor del cliente y descartar otra que no le corresponde.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "cotizaciones / cotizacion-proyecto · prioridad media · sentimiento +1",
+          "justificacion": "El cliente enumera productos concretos y pide un valor total, lo que es una cotización de proyecto. El sentimiento es +1 porque hay intención de compra y el tono es cordial.",
+          "confianza": 0.93,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Subtotal 5.440.000 COP · sin descuento · envío gratuito",
+          "justificacion": "La suma de los cuatro productos del catálogo da 5.440.000 COP. PRO-01 contempla un 8 % desde 5.000.000, pero solo para clientes profesionales, y este es particular, así que no se aplica descuento. ENV-01 sí concede envío gratuito porque la compra supera 1.500.000 COP.",
+          "confianza": 0.94,
+          "reglas": [
+            "ENV-01",
+            "PRO-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta ia · SLA 24 h",
+          "justificacion": "H01 escala las cotizaciones superiores a 15.000.000 COP y esta es de 5.440.000, muy por debajo. No hay solicitud de crédito ni condiciones especiales, y la confianza de 0,93 descarta H06.",
+          "confianza": 0.93,
+          "reglas": [
+            "PRO-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Cotización con líneas, total, plazo, medios de pago y vigencia",
+          "justificacion": "Se detalla línea a línea con el nombre real del catálogo para que el cliente pueda contrastar. Se informan medios de pago según PAG-01 y se ofrece instalación por INS-01, ya que Medellín es una de las ciudades cubiertas.",
+          "confianza": 0.9,
+          "reglas": [
+            "ENV-01",
+            "PAG-01",
+            "INS-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Los precios coinciden uno a uno con el catálogo y la suma es correcta. No se ofrece el descuento de PRO-01, que habría sido un error frente a un cliente particular. Se indica con claridad que no hay pago contraentrega, conforme a PAG-01.",
+          "confianza": 0.92,
+          "reglas": [
+            "PRO-01",
+            "PAG-01"
+          ],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0007",
+      "recibidaEn": "2026-09-16T09:24:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0104",
+        "nombre": "Gloria Sánchez Hernández",
+        "ciudad": "Cartagena",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-103902",
+        "fecha": "2026-06-20",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-MAM-005",
+            "cantidad": 1,
+            "precioCOP": 1290000
+          }
+        ],
+        "totalCOP": 1290000,
+        "fechaEntrega": "2026-07-01"
+      },
+      "asunto": "URGENTE: el vidrio de la mampara estalló solo",
+      "mensaje": "Buenos dias, necesito ayuda urgente. Anoche como a las 2 de la mañana escuchamos una explosión en el baño y el vidrio de la mampara que les compré se reventó en mil pedazos, solo, sin que nadie lo tocara. Por fortuna no había nadie adentro pero el baño quedó lleno de esquirlas y mi hija pequeña casi entra descalza. Esto es muy peligroso. La compré en junio. Necesito que alguien me responda YA.",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Piso del baño cubierto de fragmentos pequeños de vidrio templado"
+        },
+        {
+          "tipo": "foto",
+          "descripcion": "Perfil de la mampara con el vidrio desprendido por completo"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-danado",
+        "prioridad": "critica",
+        "sentimiento": -2,
+        "confianza": 0.96,
+        "entidades": {
+          "numeroPedido": "BN-103902",
+          "sku": "BN-MAM-005",
+          "fechaEntrega": "2026-07-01",
+          "mesesDesdeEntrega": 2,
+          "riesgoFisico": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "GAR-01",
+          "DEV-14",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "garantiaMeses": 24,
+          "mesesTranscurridos": 2,
+          "dentroDeGarantia": true,
+          "importeProductoCOP": 1290000
+        },
+        "riesgos": [
+          "Riesgo físico real: quedan esquirlas de vidrio templado en una vivienda con una menor de edad",
+          "La causa de la rotura espontánea requiere peritaje: puede ser defecto de fabricación, daño en el canto durante la instalación o tensión del montaje",
+          "Una respuesta automática que niegue o prejuzgue la responsabilidad agravaría el caso"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H03",
+          "H05"
+        ],
+        "slaHoras": 4,
+        "fichaEscalado": {
+          "queDecidir": "Si Bañolia asume la reposición inmediata de la mampara antes de determinar la causa de la rotura, y si envía a un técnico a retirar los restos de vidrio de la vivienda.",
+          "opciones": [
+            "Reposición inmediata sin peritaje previo, asumiendo el costo como gesto de seguridad, y peritaje posterior con el fabricante Hidrosur",
+            "Peritaje técnico primero (visita en 24-48 h) y reposición condicionada al resultado",
+            "Reposición inmediata más retiro profesional de los restos de vidrio a cargo de Bañolia"
+          ],
+          "riesgos": [
+            "Demorar la respuesta con una menor de edad en la vivienda es un riesgo de seguridad y reputacional",
+            "Asumir la reposición sin peritaje sienta un precedente frente al fabricante",
+            "La rotura espontánea de vidrio templado suele deberse a inclusiones de sulfuro de níquel, que es un defecto de fabricación cubierto por GAR-01"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Gloria.\n\nLamentamos muchísimo lo ocurrido y entendemos su preocupación. Lo primero y más importante: por favor no permita que nadie entre descalzo al baño y mantenga a su hija alejada del área hasta que los fragmentos estén completamente retirados. El vidrio templado se fragmenta en trozos pequeños que son difíciles de ver sobre el piso.\n\nHemos clasificado su caso como prioritario y ya está en manos de una persona de nuestro equipo, que se comunicará con usted dentro de las próximas 4 horas hábiles.\n\nSu mampara fue entregada el 1 de julio de 2026 y cuenta con 24 meses de garantía, así que está plenamente cubierta. La rotura espontánea del vidrio templado, sin impacto previo, es un fenómeno conocido y en la mayoría de los casos responde a un defecto del material, no a un mal uso.\n\nLas fotografías que nos envió son suficientes para iniciar el proceso; le agradecemos conservarlas y no desechar los restos hasta que le confirmemos los pasos a seguir.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Aprobado como borrador sugerido para la persona que atienda el caso. No debe enviarse de forma automática: la decisión sobre reposición y peritaje corresponde a una persona (H03, H05)."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Rotura espontánea de vidrio templado con riesgo para una menor",
+          "justificacion": "Caso límite deliberado que combina riesgo físico y responsabilidad técnica dudosa, los dos supuestos que el sistema nunca debe resolver de forma automática.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias / producto-danado · prioridad crítica · sentimiento -2",
+          "justificacion": "El mensaje describe la rotura de un producto entregado y un riesgo físico concreto en la vivienda. La prioridad es crítica por la presencia de esquirlas y de una menor de edad, y el sentimiento -2 por la angustia expresada y el uso de mayúsculas.",
+          "confianza": 0.96,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Dentro de garantía (2 de 24 meses); causa por determinar",
+          "justificacion": "GAR-01 otorga 24 meses de garantía a las mamparas y solo han transcurrido 2 meses desde la entrega del 1 de julio, así que la cobertura no está en discusión. GAR-01 excluye los golpes, pero la clienta afirma que no hubo impacto, de modo que determinar la causa exige valorar pruebas y no puede resolverse por norma.",
+          "confianza": 0.89,
+          "reglas": [
+            "GAR-01",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta humano · SLA 4 h · criterios H03 y H05",
+          "justificacion": "H03 se activa de forma inequívoca: hay vidrio templado estallado y riesgo de lesión para una menor de edad. Además se activa H05, porque atribuir la rotura a un defecto de fabricación, a la instalación o al transporte exige valorar pruebas. El SLA se reduce a 4 horas por el riesgo físico.",
+          "confianza": 0.95,
+          "reglas": [
+            "GAR-01"
+          ],
+          "criterios": [
+            "H03",
+            "H05"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador de acuse con instrucción de seguridad, sin comprometer la solución",
+          "justificacion": "Se prioriza la instrucción de seguridad antes que cualquier consideración comercial. Se confirma la cobertura de GAR-01, que es un hecho verificable, pero no se promete reposición ni se atribuye responsabilidad, porque esa decisión corresponde a la persona que atienda el caso.",
+          "confianza": 0.87,
+          "reglas": [
+            "GAR-01"
+          ],
+          "criterios": [
+            "H03"
+          ]
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado como borrador sugerido, no como respuesta automática",
+          "justificacion": "El borrador no promete nada fuera de política y antepone la seguridad de las personas. Se aprueba únicamente como punto de partida para la persona responsable, dejando constancia de que no debe enviarse de forma automática.",
+          "confianza": 0.91,
+          "reglas": [
+            "GAR-01"
+          ],
+          "criterios": [
+            "H03",
+            "H05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0008",
+      "recibidaEn": "2026-09-16T09:29:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0031",
+        "nombre": "Claudia Valencia Cárdenas",
+        "ciudad": "San Andrés",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-103780",
+        "fecha": "2026-08-10",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-SAN-001",
+            "cantidad": 1,
+            "precioCOP": 1180000
+          }
+        ],
+        "totalCOP": 1180000,
+        "fechaEntrega": null
+      },
+      "asunto": "Segunda reclamación formal - pedido BN-103780 - radicaré queja ante la SIC",
+      "mensaje": "Señores Bañolia.\n\nEs la segunda vez que escribo por el mismo asunto y la primera vez ni siquiera obtuve una respuesta concreta. Realicé el pedido BN-103780 el 10 de agosto y a hoy, 16 de septiembre, sigue apareciendo \"en tránsito\". Han pasado más de cinco semanas.\n\nEsta es una reclamación formal. Exijo una fecha cierta de entrega o la devolución total de mi dinero en un plazo máximo de 48 horas. De lo contrario radicaré la queja ante la Superintendencia de Industria y Comercio y lo haré público en redes sociales.\n\nClaudia Valencia Cárdenas",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "reclamaciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "reclamaciones",
+        "subcategoria": "reclamacion-formal",
+        "prioridad": "critica",
+        "sentimiento": -2,
+        "confianza": 0.97,
+        "entidades": {
+          "numeroPedido": "BN-103780",
+          "segundoContacto": true,
+          "mencionaSIC": true,
+          "amenazaRedes": true,
+          "diasHabilesTranscurridos": 27
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "CAN-01",
+          "PQR-01",
+          "DEV-14"
+        ],
+        "cumple": false,
+        "calculos": {
+          "zona": "B",
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "diasHabilesTranscurridos": 27,
+          "excesoDiasHabiles": 12,
+          "dentroDePlazo": false,
+          "plazoReclamacionFormalDiasHabiles": 15
+        },
+        "riesgos": [
+          "Incumplimiento objetivo del plazo de ENV-01: 27 días hábiles frente a los 15 máximos de zona B",
+          "Es el segundo contacto y el primero quedó sin respuesta concreta, lo que agrava el incumplimiento de PQR-01",
+          "San Andrés tiene restricciones logísticas propias que pueden volver a retrasar cualquier fecha que se prometa"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H02",
+          "H07"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "Si se ofrece cancelación con reembolso total inmediato, una fecha cierta de entrega respaldada por la transportadora, o una compensación adicional por el incumplimiento y por la falta de respuesta al primer contacto.",
+          "opciones": [
+            "Cancelación inmediata con reembolso total del pedido (1.180.000 COP), sin gastos para la clienta por tratarse de error imputable a Bañolia",
+            "Fecha cierta de entrega confirmada por escrito con la transportadora, más una compensación comercial por la demora",
+            "Ofrecer ambas alternativas y dejar que la clienta elija"
+          ],
+          "riesgos": [
+            "El incumplimiento del plazo es objetivo y está documentado: la posición de Bañolia es débil ante una eventual queja en la SIC",
+            "Prometer una fecha que la logística de San Andrés no pueda sostener convertiría este caso en un tercer contacto y en una queja segura",
+            "DEV-14 impide cobrar cualquier gasto de devolución, ya que el error es imputable a la empresa"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Estimada señora Claudia.\n\nAntes que nada le ofrecemos una disculpa. Tiene toda la razón: su pedido BN-103780 debió entregarse dentro de los 15 días hábiles previstos para San Andrés y hoy acumula 27 días hábiles. Además, su primer mensaje no recibió la respuesta concreta que merecía, lo que tampoco es aceptable.\n\nSu caso está siendo atendido de forma directa por una persona de nuestro equipo de servicio al cliente, que se comunicará con usted dentro de las próximas 8 horas hábiles con una respuesta en firme, no con otra respuesta general.\n\nQueremos ser claros desde ahora en un punto: el retraso es responsabilidad nuestra, de modo que cualquier alternativa que elija, incluida la cancelación con reembolso total, no le generará ningún costo.\n\nAgradecemos su paciencia y lamentamos sinceramente la situación.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Aprobado solo como borrador sugerido. La elección entre reembolso, fecha cierta o compensación corresponde a una persona (H02)."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Reclamación formal en segundo contacto con mención a la SIC",
+          "justificacion": "Caso deliberado de riesgo reputacional con incumplimiento real de la empresa, para mostrar que el sistema reconoce cuándo Bañolia está objetivamente en falta.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "reclamaciones / reclamacion-formal · prioridad crítica · sentimiento -2",
+          "justificacion": "La clienta califica expresamente su mensaje como reclamación formal, exige un plazo y anuncia acciones ante la SIC. Es además el segundo contacto por el mismo asunto. La confianza es muy alta (0,97) por lo explícito del texto.",
+          "confianza": 0.97,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Incumplimiento confirmado: 27 días hábiles frente a los 15 de zona B",
+          "justificacion": "ENV-01 fija un máximo de 15 días hábiles para la zona B, donde está San Andrés, y desde el 10 de agosto han transcurrido 27, con un exceso de 12 días hábiles. CAN-01 permite la cancelación con reembolso total mientras el pedido no haya sido entregado, y DEV-14 impide cobrar gastos porque el error es imputable a Bañolia.",
+          "confianza": 0.95,
+          "reglas": [
+            "ENV-01",
+            "CAN-01",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta humano · SLA 8 h · criterios H02 y H07",
+          "justificacion": "H02 se activa porque la clienta menciona expresamente la SIC y amenaza con publicar el caso en redes sociales. H07 se activa de forma independiente, ya que el sentimiento es -2 y se trata del segundo contacto por el mismo asunto. Ninguna respuesta automática es apropiada cuando la empresa está objetivamente en falta.",
+          "confianza": 0.96,
+          "reglas": [
+            "ENV-01"
+          ],
+          "criterios": [
+            "H02",
+            "H07"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador que reconoce el incumplimiento sin cerrar la compensación",
+          "justificacion": "Se reconoce el error de forma explícita porque negarlo sería insostenible y agravaría el riesgo de H02. Se adelanta que no habrá costos para la clienta, que se deriva directamente de DEV-14, pero se deja abierta la elección entre reembolso y fecha cierta, que corresponde a una persona.",
+          "confianza": 0.88,
+          "reglas": [
+            "DEV-14",
+            "CAN-01"
+          ],
+          "criterios": [
+            "H02"
+          ]
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado como borrador sugerido, no como respuesta automática",
+          "justificacion": "El borrador no promete una fecha de entrega que Bañolia no puede garantizar hoy, ni cuantifica una compensación, que son precisamente las dos decisiones reservadas a la persona. El reconocimiento del incumplimiento es veraz y está respaldado por el cálculo de ENV-01.",
+          "confianza": 0.93,
+          "reglas": [
+            "ENV-01",
+            "DEV-14"
+          ],
+          "criterios": [
+            "H02",
+            "H07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0009",
+      "recibidaEn": "2026-09-16T09:33:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0008",
+        "nombre": "Constructora El Portal",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "profesional"
+      },
+      "pedido": {
+        "numero": "BN-104120",
+        "fecha": "2026-09-09",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-LAV-005",
+            "cantidad": 4,
+            "precioCOP": 2180000
+          }
+        ],
+        "totalCOP": 8720000,
+        "fechaEntrega": "2026-09-14"
+      },
+      "asunto": "Corrección de NIT en factura electrónica - pedido BN-104120",
+      "mensaje": "Cordial saludo.\n\nLa factura electrónica del pedido BN-104120, emitida el 14 de septiembre a las 6:20 p. m., quedó a nombre de nuestra matriz. Por temas contables del proyecto necesitamos que se emita a nombre de nuestra filial, con un NIT distinto.\n\nAgradecemos la corrección a la mayor brevedad, pues debemos legalizar la compra esta semana.\n\nÁrea Administrativa\nConstructora El Portal",
+      "adjuntos": [
+        {
+          "tipo": "documento",
+          "descripcion": "Certificado de cámara de comercio de la filial con el NIT solicitado"
+        }
+      ],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "facturacion",
+        "prioridad": "alta",
+        "sentimiento": 0,
+        "confianza": 0.91,
+        "entidades": {
+          "numeroPedido": "BN-104120",
+          "facturaEmitidaEn": "2026-09-14T18:20:00-05:00",
+          "horasDesdeEmision": 39,
+          "cambioSolicitado": "NIT y razón social",
+          "valorHistoricoClienteCOP": 142000000
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "FAC-01",
+          "PRO-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "ventanaCambioHoras": 24,
+          "horasTranscurridas": 39,
+          "dentroDeVentana": false,
+          "excesoHoras": 15,
+          "requiereNotaCredito": true
+        },
+        "riesgos": [
+          "El cambio de NIT tras la ventana de 24 horas obliga a nota crédito y refacturación, con implicaciones tributarias ante la DIAN",
+          "Cambiar el titular de una factura es un supuesto sensible: debe verificarse la relación societaria entre matriz y filial",
+          "Es un cliente profesional estratégico con 142.000.000 COP de compras acumuladas"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H08",
+          "H10"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "Si se aprueba la anulación por nota crédito y la refacturación a nombre de la filial, y qué documentación societaria se exige para acreditar la relación entre las dos empresas.",
+          "opciones": [
+            "Emitir nota crédito y refacturar a la filial, previa validación del certificado de cámara de comercio por el área contable",
+            "Solicitar documentación adicional que acredite la relación matriz-filial antes de cualquier movimiento",
+            "Rechazar el cambio por estar fuera de la ventana de FAC-01 y mantener la factura original"
+          ],
+          "riesgos": [
+            "Refacturar a un tercero sin validar la relación societaria es un riesgo de fraude y tributario",
+            "Rechazar sin más a un cliente con 142.000.000 COP de histórico compromete una relación comercial relevante",
+            "La solicitud llega 15 horas después de vencida la ventana de 24 horas de FAC-01: es un caso límite"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Cordial saludo, equipo de Constructora El Portal.\n\nGracias por comunicarse y por adjuntar el certificado de cámara de comercio; eso agiliza la gestión.\n\nLe confirmamos que hemos recibido su solicitud de corrección del NIT de la factura del pedido BN-104120. Como la factura se emitió el 14 de septiembre a las 6:20 p. m. y nuestra política permite ajustes de razón social o NIT únicamente dentro de las 24 horas siguientes a la emisión, la corrección debe tramitarse mediante nota crédito y una nueva factura, lo cual requiere la validación de nuestra área contable.\n\nSu caso ya fue asignado a una persona de nuestro equipo, que se comunicará con usted dentro de las próximas 8 horas hábiles para confirmarle el procedimiento y la documentación necesaria.\n\nEntendemos que necesitan legalizar la compra esta semana y lo hemos marcado con prioridad.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Aprobado como borrador sugerido. La aprobación de la nota crédito y la validación societaria exigen decisión humana (H08)."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Cambio de NIT solicitado 39 horas después de emitida la factura",
+          "justificacion": "Caso límite deliberado: la solicitud llega apenas 15 horas después de vencer la ventana de 24 horas de FAC-01, y proviene de un cliente profesional estratégico, de modo que se activan dos criterios de escalado a la vez.",
+          "confianza": null,
+          "reglas": [
+            "FAC-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos / facturacion · prioridad alta · sentimiento 0",
+          "justificacion": "La solicitud es administrativa y se refiere a la corrección de una factura electrónica ya emitida. El tono es neutro y profesional. La confianza es 0,91 porque el asunto es claro, aunque roza la frontera con una modificación de pedido.",
+          "confianza": 0.91,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Fuera de la ventana de 24 h de FAC-01 por 15 horas: exige nota crédito",
+          "justificacion": "FAC-01 permite cambios de razón social o NIT solo dentro de las 24 horas siguientes a la emisión. La factura se emitió el 14 de septiembre a las 18:20 y la solicitud llega el 16 a las 09:33, es decir 39 horas después, por lo que la ventana está vencida y procede nota crédito con gestión humana.",
+          "confianza": 0.93,
+          "reglas": [
+            "FAC-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta humano · SLA 8 h · criterios H08 y H10",
+          "justificacion": "H08 se activa porque se solicita un cambio de NIT después de emitida la factura, que es un supuesto sensible con riesgo tributario y de fraude. H10 se activa de forma independiente, ya que se trata de un cliente profesional con 142.000.000 COP de valor histórico, por encima del umbral de 50.000.000.",
+          "confianza": 0.94,
+          "reglas": [
+            "FAC-01"
+          ],
+          "criterios": [
+            "H08",
+            "H10"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador que explica FAC-01 y anuncia la gestión humana",
+          "justificacion": "Se explica con transparencia por qué el cambio no es inmediato citando la ventana de FAC-01, sin negar la solicitud, ya que la decisión final corresponde al área contable. Se reconoce la urgencia expresada por el cliente sin comprometer un plazo de resolución.",
+          "confianza": 0.88,
+          "reglas": [
+            "FAC-01"
+          ],
+          "criterios": [
+            "H08"
+          ]
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado como borrador sugerido, no como respuesta automática",
+          "justificacion": "El borrador no aprueba ni rechaza la refacturación, que es exactamente lo que debe decidir una persona, y explica la regla aplicable con la hora exacta de emisión, que es verificable. El tono es adecuado para un cliente profesional estratégico.",
+          "confianza": 0.92,
+          "reglas": [
+            "FAC-01"
+          ],
+          "criterios": [
+            "H08",
+            "H10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0010",
+      "recibidaEn": "2026-09-16T09:38:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0057",
+        "nombre": "Natalia Escobar López",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "OPORTUNIDAD UNICA DE INVERSION!!!",
+      "mensaje": "GANE DINERO DESDE CASA!!! Nuestra plataforma de criptomonedas le garantiza rendimientos del 300% mensual SIN RIESGO. Cupos limitados!!! Escriba YA al enlace y duplique su capital en 7 dias. No deje pasar esta OPORTUNIDAD UNICA!!!",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "ruido",
+        "rutaEsperada": "descartado"
+      },
+      "clasificacion": {
+        "categoria": "ruido",
+        "subcategoria": "spam",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.98,
+        "entidades": {
+          "señales": [
+            "promesa de rendimiento garantizado",
+            "urgencia artificial",
+            "mayúsculas y signos de exclamación repetidos",
+            "sin relación con productos de baño"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [],
+        "cumple": null,
+        "calculos": {},
+        "riesgos": []
+      },
+      "decision": {
+        "ruta": "descartado",
+        "criterios": [
+          "D01"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": null,
+      "revision": null,
+      "respuestaFinal": null,
+      "estado": "descartado",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "Mensaje de spam enviado a través del formulario público",
+          "justificacion": "El formulario web es público, así que el sistema debe saber descartar contenido sin relación con el negocio. Se incluye un caso de ruido en el lote para demostrar el descarte automático.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "ruido / spam · prioridad baja · sentimiento 0",
+          "justificacion": "El mensaje promete rendimientos garantizados, usa urgencia artificial y no guarda ninguna relación con muebles de baño ni con un pedido. La confianza es 0,98 por la acumulación de señales inequívocas de spam.",
+          "confianza": 0.98,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Ruta descartado · criterio D01",
+          "justificacion": "Se aplica el descarte automático D01 por tratarse de spam sin relación con el negocio. No se activa H11, que está reservado a mensajes legítimos fuera de ámbito como una hoja de vida. El caso se registra con su justificación y no se responde.",
+          "confianza": 0.98,
+          "reglas": [],
+          "criterios": [
+            "D01"
+          ]
+        }
+      ]
+    }
+  ]
+}

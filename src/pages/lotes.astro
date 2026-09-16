@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PendienteDeFase from '../components/PendienteDeFase.astro';
+export const prerender = false;
+---
+<Base titulo="Lotes">
+  <h1 class="mb-6 text-2xl font-bold tracking-tight text-slate-900">Lotes</h1>
+  <PendienteDeFase fase={3} descripcion="Historial de ejecuciones del orquestador con origen, hora, totales y alertas, más el botón para lanzar un lote manual (fase 4)." />
+</Base>

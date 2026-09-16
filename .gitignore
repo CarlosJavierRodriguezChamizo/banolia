@@ -1,0 +1,16 @@
+# dependencias
+node_modules/
+
+# salida de build
+dist/
+.astro/
+.vercel/
+
+# entorno (nunca subir secretos al repositorio)
+.env
+.env.local
+.env.*.local
+
+# sistema
+.DS_Store
+*.log

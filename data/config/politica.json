@@ -1,0 +1,177 @@
+[
+  {
+    "id": "DEV-01",
+    "titulo": "Plazo de desistimiento: 14 días calendario",
+    "texto": "El cliente dispone de 14 días calendario desde la recepción del pedido para desistir de la compra. Este plazo es una mejora voluntaria de Bañolia: supera el mínimo legal de retracto en ventas a distancia previsto en la Ley 1480 de 2011 (Estatuto del Consumidor), que es de 5 días hábiles.",
+    "fuente": "original-adaptada",
+    "parametros": { "diasCalendario": 14, "minimoLegalDiasHabiles": 5, "normaLegal": "Ley 1480 de 2011" }
+  },
+  {
+    "id": "DEV-02",
+    "titulo": "El producto no puede haber sido instalado ni usado",
+    "texto": "Solo se acepta la devolución si el producto no ha sido instalado, usado ni manipulado. Un producto ya instalado, aunque se desmonte después, no es elegible para desistimiento.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-03",
+    "titulo": "Embalaje original y en buen estado",
+    "texto": "El producto debe devolverse en su embalaje original y en buen estado de conservación. El embalaje deteriorado o sustituido puede dar lugar a depreciación (ver DEV-09).",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-04",
+    "titulo": "Producto completo con todas sus piezas",
+    "texto": "La devolución debe incluir el producto completo: todas sus piezas, accesorios, tornillería, manuales y elementos de montaje entregados originalmente.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-05",
+    "titulo": "Los productos a medida no admiten devolución",
+    "texto": "No admiten devolución ni desistimiento los productos fabricados a medida o personalizados, por estar confeccionados conforme a especificaciones del cliente. Esta condición se indica expresamente en la ficha del producto antes de la compra.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-06",
+    "titulo": "Contacto previo obligatorio",
+    "texto": "Es obligatorio contactar antes con Bañolia a través del formulario web, indicando el número de pedido y los productos que se desean devolver. No se aceptan envíos de devolución sin autorización previa.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-07",
+    "titulo": "Opción A: recogida gestionada por Bañolia, con estiba y fotos",
+    "texto": "Bañolia puede gestionar la recogida con su transportadora. La mayoría de productos voluminosos o frágiles deben viajar estibados (sobre estiba o palé). Son obligatorias fotografías del producto antes y después de embalar. Sin estiba o sin fotos, el seguro de transporte no cubre los daños y no procede el reembolso si la mercancía llega dañada.",
+    "fuente": "original-adaptada",
+    "parametros": { "requiereFotosAntesYDespues": true, "requiereEstibaSiProductoLoExige": true }
+  },
+  {
+    "id": "DEV-08",
+    "titulo": "Gastos de recogida descontados del reembolso, por tipología y zona",
+    "texto": "Del importe a reembolsar se descuentan los gastos de recogida según la tipología del producto y la zona de envío. Zona A: Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Cartagena, Pereira y sus áreas metropolitanas. Zona B: resto del país y San Andrés. Importes en pesos colombianos.",
+    "fuente": "original-adaptada",
+    "parametros": {
+      "moneda": "COP",
+      "factorConversionAplicado": "4.500 COP por euro, redondeado a miles",
+      "zonaA": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Bucaramanga", "Cartagena", "Pereira"],
+      "tarifas": {
+        "accesorios": { "A": [27000, 68000], "B": [68000, 90000] },
+        "baneras": { "A": [270000, 270000], "B": [405000, 405000] },
+        "bides": { "A": [203000, 203000], "B": [248000, 248000] },
+        "columnas-hidromasaje": { "A": [180000, 180000], "B": [338000, 338000] },
+        "columnas-auxiliares": { "A": [225000, 225000], "B": [248000, 248000] },
+        "espejos-led": { "A": [180000, 180000], "B": [315000, 315000] },
+        "espejos-sin-led": { "A": [113000, 113000], "B": [180000, 180000] },
+        "griferia": { "A": [113000, 113000], "B": [135000, 135000] },
+        "inodoros": { "A": [203000, 203000], "B": [248000, 248000] },
+        "lavabos-2-senos": { "A": [270000, 270000], "B": [360000, 360000] },
+        "lavabos-1-seno": { "A": [180000, 180000], "B": [225000, 225000] },
+        "mamparas-con-flejes": { "A": [248000, 248000], "B": [315000, 315000] },
+        "mamparas-sin-flejes": { "A": [441000, 441000], "B": [531000, 531000] },
+        "muebles-bano": { "A": [248000, 248000], "B": [405000, 405000] },
+        "platos-ducha": { "A": [248000, 248000], "B": [315000, 315000] },
+        "radiadores": { "A": [113000, 113000], "B": [180000, 180000] }
+      }
+    }
+  },
+  {
+    "id": "DEV-09",
+    "titulo": "Opción B: el cliente gestiona el envío de la devolución",
+    "texto": "El cliente puede gestionar por su cuenta el envío. Bañolia le facilita la dirección y las instrucciones. Se recomienda contratar seguro todo riesgo. El paquete debe ir rotulado 'Devolución – Bañolia – N.º de pedido', el cliente debe enviar fotografías del embalaje y avisar el mismo día del envío. Si al recibir se detectan anomalías, puede aplicarse una depreciación sobre el importe, que siempre se informa al cliente antes de emitir el reembolso.",
+    "fuente": "original-adaptada",
+    "parametros": { "rotuloObligatorio": "Devolución – Bañolia – N.º de pedido", "avisoMismoDia": true }
+  },
+  {
+    "id": "DEV-10",
+    "titulo": "Plazo de reembolso: 14 días calendario",
+    "texto": "El reembolso se emite por el mismo medio de pago utilizado en la compra, en un máximo de 14 días calendario desde que Bañolia recibe y verifica el producto devuelto.",
+    "fuente": "original-adaptada",
+    "parametros": { "diasCalendario": 14, "medio": "mismo medio de pago" }
+  },
+  {
+    "id": "DEV-11",
+    "titulo": "Incidencias de entrega no imputables a Bañolia",
+    "texto": "Cuando la devolución se origina por una incidencia de entrega no imputable a Bañolia (cliente ausente tras más de dos intentos de entrega, dirección errónea o incompleta, o dirección inaccesible para el vehículo de reparto), los gastos de envío y devolución los asume el cliente.",
+    "fuente": "original-adaptada",
+    "parametros": { "intentosEntregaMinimos": 2 }
+  },
+  {
+    "id": "DEV-12",
+    "titulo": "Rechazo de la mercancía sin causa justificada",
+    "texto": "Si el cliente rechaza la mercancía en el momento de la entrega sin causa justificada, asume los costes de envío y de devolución, más un cargo de manipulación y gestión que va desde 90.000 COP hasta 441.000 COP en zona A y hasta 531.000 COP en zona B, según la tipología del producto.",
+    "fuente": "original-adaptada",
+    "parametros": { "cargoMinimoCOP": 90000, "cargoMaximoZonaACOP": 441000, "cargoMaximoZonaBCOP": 531000 }
+  },
+  {
+    "id": "DEV-13",
+    "titulo": "Los costes pueden variar por factores externos",
+    "texto": "Los costes de recogida y devolución pueden variar por factores externos como el precio del combustible o las tarifas de la transportadora. Cualquier variación se comunica al cliente antes de aplicarla.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "DEV-14",
+    "titulo": "Quién asume los costes directos de devolución",
+    "texto": "El cliente asume los costes directos de la devolución, salvo cuando exista error imputable a Bañolia (producto equivocado, referencia distinta a la pedida) o el producto sea defectuoso. En esos casos Bañolia asume la totalidad de los costes.",
+    "fuente": "original-adaptada"
+  },
+  {
+    "id": "ENV-01",
+    "titulo": "Plazos de entrega y envío gratis",
+    "texto": "Plazos estimados de entrega: 3 a 8 días hábiles en zona A y 8 a 15 días hábiles en zona B. Los productos fabricados a medida requieren de 20 a 30 días hábiles. El envío es gratuito para pedidos desde 1.500.000 COP.",
+    "fuente": "inventada-razonada",
+    "parametros": { "zonaADiasHabiles": [3, 8], "zonaBDiasHabiles": [8, 15], "aMedidaDiasHabiles": [20, 30], "envioGratisDesdeCOP": 1500000 }
+  },
+  {
+    "id": "ENV-02",
+    "titulo": "Daños ocasionados en el transporte",
+    "texto": "Los daños ocasionados durante el transporte deben reportarse en un máximo de 48 horas desde la entrega, aportando fotografías. Es imprescindible dejar la novedad anotada en la guía de la transportadora en el momento de recibir, ya que es la prueba que permite reclamar al seguro.",
+    "fuente": "inventada-razonada",
+    "parametros": { "plazoReporteHoras": 48, "requiereNovedadEnGuia": true, "requiereFotos": true }
+  },
+  {
+    "id": "CAN-01",
+    "titulo": "Cancelación de pedidos",
+    "texto": "La cancelación solicitada antes del despacho da lugar a reembolso total. Una vez despachado el pedido, aplica la política de devolución (DEV-01 a DEV-14). Los productos fabricados a medida no admiten cancelación una vez iniciada la fabricación.",
+    "fuente": "inventada-razonada"
+  },
+  {
+    "id": "GAR-01",
+    "titulo": "Garantía legal por tipo de producto",
+    "texto": "Garantía legal conforme a la Ley 1480 de 2011: muebles de baño y mamparas 24 meses; grifería 36 meses; sistema LED de espejos 24 meses. La garantía no cubre daños por mala instalación, incrustaciones de cal por agua dura, uso de productos químicos abrasivos ni golpes posteriores a la entrega.",
+    "fuente": "inventada-razonada",
+    "parametros": { "mueblesYMamparasMeses": 24, "griferiaMeses": 36, "ledEspejosMeses": 24, "normaLegal": "Ley 1480 de 2011" }
+  },
+  {
+    "id": "PAG-01",
+    "titulo": "Medios de pago admitidos",
+    "texto": "Bañolia acepta PSE, tarjeta de crédito o débito, transferencia bancaria y financiación a través de aliado financiero. No se ofrece pago contraentrega.",
+    "fuente": "inventada-razonada",
+    "parametros": { "medios": ["PSE", "tarjeta", "transferencia", "financiación con aliado"], "contraentrega": false }
+  },
+  {
+    "id": "FAC-01",
+    "titulo": "Factura electrónica DIAN",
+    "texto": "Se emite factura electrónica validada ante la DIAN y se envía al correo registrado. Los cambios de razón social o de NIT solo pueden realizarse dentro de las 24 horas siguientes a la emisión. Pasado ese plazo se requiere nota crédito, que exige gestión humana y validación del área contable.",
+    "fuente": "inventada-razonada",
+    "parametros": { "ventanaCambioHoras": 24, "despuesRequiereNotaCredito": true }
+  },
+  {
+    "id": "PRO-01",
+    "titulo": "Condiciones para clientes profesionales",
+    "texto": "Los clientes profesionales (remodeladores, constructoras, arquitectos y hoteles) acceden a 8 % de descuento en compras desde 5.000.000 COP y 12 % desde 20.000.000 COP. El crédito a 30 días requiere estudio previo y aprobación del área financiera.",
+    "fuente": "inventada-razonada",
+    "parametros": { "descuento8DesdeCOP": 5000000, "descuento12DesdeCOP": 20000000, "creditoRequiereEstudio": true }
+  },
+  {
+    "id": "INS-01",
+    "titulo": "Servicio de instalación con aliados",
+    "texto": "Bañolia ofrece instalación a través de aliados certificados en Bogotá, Medellín y Cali. El servicio requiere cotización previa y no está incluido en el precio de los productos.",
+    "fuente": "inventada-razonada",
+    "parametros": { "ciudades": ["Bogotá", "Medellín", "Cali"], "requiereCotizacion": true }
+  },
+  {
+    "id": "PQR-01",
+    "titulo": "Plazos de respuesta a peticiones, quejas y reclamos",
+    "texto": "Las consultas se responden en un máximo de 24 horas hábiles. Las reclamaciones formales se resuelven en un máximo de 15 días hábiles. Todos los plazos se cuentan en días hábiles de Colombia, excluyendo festivos nacionales.",
+    "fuente": "inventada-razonada",
+    "parametros": { "consultaHorasHabiles": 24, "reclamacionDiasHabiles": 15 }
+  }
+]

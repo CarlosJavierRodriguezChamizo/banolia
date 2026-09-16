@@ -1,0 +1,26 @@
+{
+  "name": "banolia",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Demo docente: orquestador de agentes para atencion al cliente de Banolia (CESA)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "validar": "node scripts/validar.mjs",
+    "crear-hash": "node scripts/crear-hash.mjs"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^11.0.10",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "bcryptjs": "^3.0.3",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

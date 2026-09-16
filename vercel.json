@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "ignoreCommand": "echo \"$VERCEL_GIT_COMMIT_MESSAGE\" | grep -q '^hitl:' && exit 0 || exit 1"
+}

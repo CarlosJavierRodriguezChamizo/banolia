@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PendienteDeFase from '../components/PendienteDeFase.astro';
+export const prerender = false;
+---
+<Base titulo="Cómo funciona">
+  <h1 class="mb-6 text-2xl font-bold tracking-tight text-slate-900">Cómo funciona</h1>
+  <PendienteDeFase fase={3} descripcion="Diagrama del orquestador, ficha de cada uno de los ocho agentes, política completa y criterios de escalado. Es la página que se usa en clase." />
+</Base>

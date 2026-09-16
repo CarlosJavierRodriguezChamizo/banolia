@@ -1,0 +1,111 @@
+---
+/**
+ * Tablero: indicadores del día y kanban por estado.
+ * En la fase 3 se añaden filtros por sección, prioridad, fecha y búsqueda.
+ */
+import Base from '../layouts/Base.astro';
+import TarjetaSolicitud from '../components/TarjetaSolicitud.astro';
+import {
+  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo, sinReferencia,
+} from '../lib/datos.ts';
+import { ETIQUETA_ESTADO, fechaLarga } from '../lib/formato.ts';
+
+// Esta página NO puede prerenderizarse: a partir de la fase 4 fusiona las
+// respuestas humanas leídas en vivo desde GitHub.
+export const prerender = false;
+
+const respuestas = indexarRespuestas(respuestasDelBuild);
+
+const conEstado = solicitudes.map((s) => ({
+  solicitud: sinReferencia(s),
+  estado: estadoEfectivo(s, respuestas),
+}));
+
+const COLUMNAS = ['resuelto_ia', 'pendiente_humano', 'respondido_humano', 'descartado'] as const;
+const TONO_COLUMNA: Record<string, string> = {
+  resuelto_ia: 'border-t-emerald-500',
+  pendiente_humano: 'border-t-amber-500',
+  respondido_humano: 'border-t-sky-500',
+  descartado: 'border-t-slate-400',
+};
+
+const porColumna = Object.fromEntries(
+  COLUMNAS.map((c) => [c, conEstado.filter((x) => x.estado === c)]),
+) as Record<(typeof COLUMNAS)[number], typeof conEstado>;
+
+// Indicadores sobre el conjunto visible.
+const total = conEstado.length;
+const pct = (n: number) => (total ? Math.round((n / total) * 100) : 0);
+const nIa = porColumna.resuelto_ia.length;
+const nPendiente = porColumna.pendiente_humano.length;
+const nRespondido = porColumna.respondido_humano.length;
+
+// Tiempo medio desde que se recibió la solicitud hasta la respuesta humana.
+const tiempos = solicitudes
+  .map((s) => {
+    const r = respuestas.get(s.id);
+    if (!r) return null;
+    return (new Date(r.respondidaEn).getTime() - new Date(s.recibidaEn).getTime()) / 3600_000;
+  })
+  .filter((h): h is number => h !== null);
+const tiempoMedio = tiempos.length
+  ? `${(tiempos.reduce((a, b) => a + b, 0) / tiempos.length).toFixed(1)} h`
+  : '—';
+
+const ultimaFecha = solicitudes[0]?.recibidaEn;
+
+const KPIS = [
+  { etiqueta: 'Solicitudes recibidas', valor: String(total), detalle: 'en los lotes publicados' },
+  { etiqueta: 'Resueltas por IA', valor: `${pct(nIa)} %`, detalle: `${nIa} solicitudes` },
+  { etiqueta: 'Pendientes de humano', valor: `${pct(nPendiente)} %`, detalle: `${nPendiente} en cola` },
+  { etiqueta: 'Tiempo medio a respuesta humana', valor: tiempoMedio, detalle: `${nRespondido} respondidas` },
+];
+---
+
+<Base titulo="Tablero" descripcion="Estado de las solicitudes de atención al cliente de Bañolia">
+  <header class="mb-6">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900">Tablero de atención</h1>
+    <p class="mt-1 text-sm text-slate-600">
+      {ultimaFecha
+        ? `Última solicitud recibida el ${fechaLarga(ultimaFecha)}.`
+        : 'Todavía no hay lotes publicados.'}
+    </p>
+  </header>
+
+  <section aria-label="Indicadores del día" class="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+    {KPIS.map((k) => (
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">{k.etiqueta}</p>
+        <p class="mt-1.5 text-2xl font-bold text-marca-oscuro">{k.valor}</p>
+        <p class="text-xs text-slate-500">{k.detalle}</p>
+      </div>
+    ))}
+  </section>
+
+  <section aria-label="Solicitudes por estado">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {COLUMNAS.map((columna) => (
+        <div class:list={['rounded-xl border border-slate-200 border-t-4 bg-slate-50/60 p-3', TONO_COLUMNA[columna]]}>
+          <h2 class="mb-3 flex items-center justify-between text-sm font-semibold text-slate-800">
+            {ETIQUETA_ESTADO[columna]}
+            <span class="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200">
+              {porColumna[columna].length}
+            </span>
+          </h2>
+
+          {porColumna[columna].length === 0 ? (
+            <p class="rounded-lg border border-dashed border-slate-300 px-3 py-6 text-center text-xs text-slate-400">
+              Sin solicitudes
+            </p>
+          ) : (
+            <ul class="space-y-2">
+              {porColumna[columna].map(({ solicitud }) => (
+                <li><TarjetaSolicitud solicitud={solicitud} /></li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

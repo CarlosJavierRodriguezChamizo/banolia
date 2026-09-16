@@ -1,0 +1,3 @@
+Las respuestas humanas se crean aquí desde la web (fase 4), como
+data/respuestas-humanas/AAAA-MM/{idSolicitud}.json, mediante commits [hitl]
+a través de la API de GitHub. La rutina NUNCA escribe en esta carpeta.

@@ -1,0 +1,33 @@
+{
+  "actualizadoEn": "2026-09-16T09:41:00-05:00",
+  "dias": [
+    {
+      "fecha": "2026-09-16",
+      "recibidas": 10,
+      "ia": 6,
+      "humano": 3,
+      "descartado": 1,
+      "respondidasPorHumano": 0,
+      "porCategoria": {
+        "pedidos": 3,
+        "incidencias": 2,
+        "devoluciones": 1,
+        "consultas": 1,
+        "cotizaciones": 1,
+        "reclamaciones": 1,
+        "ruido": 1
+      },
+      "criteriosFrecuentes": {
+        "H03": 1,
+        "H05": 1,
+        "H02": 1,
+        "H07": 1,
+        "H08": 1,
+        "H10": 1,
+        "D01": 1
+      },
+      "precisionClasificador": 1,
+      "tasaAprobacionBorrador": null
+    }
+  ]
+}

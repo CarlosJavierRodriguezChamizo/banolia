@@ -1,0 +1,31 @@
+{
+  "nombre": "Bañolia",
+  "eslogan": "Su baño, bien hecho desde el primer día",
+  "tonoDeVoz": [
+    "Cercano pero profesional: se trata al cliente de usted, siempre.",
+    "Resolutivo: se dice qué va a pasar, quién lo hace y cuándo.",
+    "Honesto con los límites: si algo no se puede, se explica por qué y se ofrece alternativa.",
+    "Español de Colombia: celular, cotización, transportadora, domicilio, remodelador.",
+    "Nunca se prometen plazos, descuentos ni excepciones que no estén en la política."
+  ],
+  "firmaCorreos": "Equipo de Servicio al Cliente Bañolia",
+  "canales": ["formulario", "correo", "whatsapp", "chat"],
+  "horarioAtencion": {
+    "entreSemana": "Lunes a viernes de 8:00 a 18:00",
+    "sabados": "Sábados de 9:00 a 13:00",
+    "zonaHoraria": "America/Bogota"
+  },
+  "ciudadesCobertura": [
+    "Bogotá", "Medellín", "Cali", "Barranquilla", "Bucaramanga", "Cartagena",
+    "Pereira", "Manizales", "Ibagué", "Cúcuta", "Villavicencio", "Santa Marta",
+    "Armenia", "Neiva", "Popayán", "Pasto", "Montería", "Valledupar", "Sincelejo", "Tunja"
+  ],
+  "paleta": {
+    "primario": "#0E7490",
+    "primarioOscuro": "#155E75",
+    "acento": "#B45309",
+    "superficie": "#F8FAFC",
+    "texto": "#0F172A"
+  },
+  "avisoDemo": "Demo docente con datos 100 % ficticios. Bañolia no es una empresa real."
+}
