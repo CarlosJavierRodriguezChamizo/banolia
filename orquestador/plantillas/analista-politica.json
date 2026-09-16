@@ -1,0 +1,21 @@
+{
+  "reglasAplicables": ["DEV-01", "DEV-02", "DEV-03", "DEV-04", "DEV-05", "DEV-08", "DEV-10", "DEV-14"],
+  "cumple": true,
+  "calculos": {
+    "diasCalendarioTranscurridos": 13,
+    "plazoDEV01": 14,
+    "dentroDePlazo": true,
+    "diasRestantes": 1,
+    "tipologiaDevolucion": "espejos-led",
+    "zona": "A",
+    "gastoRecogidaCOP": 180000,
+    "importePagadoCOP": 780000,
+    "reembolsoEstimadoCOP": 600000,
+    "plazoReembolsoDias": 14
+  },
+  "riesgos": [
+    "Queda solo 1 día del plazo de DEV-01: si el cliente no confirma hoy o mañana, pierde el derecho de desistimiento",
+    "El espejo LED requiere estiba y fotos según DEV-07; sin ellas el seguro no cubre daños"
+  ],
+  "justificacion": "Se cumplen DEV-01 (día 13 de 14), DEV-02 y DEV-03 (sin instalar y en embalaje original) y DEV-05 (el espejo no es a medida). Según la tabla de DEV-08, la tipología espejos con LED en zona A descuenta 180.000 COP, de modo que sobre los 780.000 pagados el reembolso queda en 600.000."
+}

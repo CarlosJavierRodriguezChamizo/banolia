@@ -90,3 +90,44 @@ una alerta que lo explique.
 **D-17. El caso de spam se atribuye a un cliente del maestro.** El esquema exige un cliente
 en toda solicitud y el formulario web es público, así que el spam aparece asociado al
 registro de un cliente existente. Es un artefacto del modelo de datos, no un descuido.
+
+## Fase 2 — Orquestador y agentes
+
+**D-18. Cada agente devuelve `justificacion`, pero no se guarda donde podría parecer.**
+La justificación de 2 a 4 frases va al paso correspondiente de `traza`, no dentro de
+`clasificacion`, `analisisPolitica` ni `decision`. Así la línea de tiempo de la web tiene
+el relato completo y los objetos de datos quedan limpios, sin campos de prosa mezclados con
+los que se usan para calcular métricas.
+
+**D-19. Los subagentes se registran al iniciar la sesión.** Los archivos de
+`.claude/agents/` creados a mitad de sesión no se pueden invocar por su nombre hasta que la
+sesión se reinicia. En la rutina de la nube no es un problema, porque el repositorio se
+clona antes de arrancar la sesión. Para la ejecución local de la fase 2 se invocó a cada
+agente pidiéndole que leyera primero su propia definición y actuara conforme a ella, lo que
+conserva el aislamiento de contexto y, de paso, comprueba que los `.md` funcionan como
+instrucciones.
+
+**D-20. El generador guarda `_referencia` y el orquestador la aparta de inmediato.**
+La etiqueta de control viaja del generador al archivo del lote sin pasar por ningún otro
+agente. Si el clasificador la viera, la medición de precisión dejaría de significar nada.
+Es el punto donde más fácil sería hacer trampa sin darse cuenta.
+
+**D-21. El supervisor aprueba lo correcto aunque sea mejorable.** Devolver un borrador tiene
+un coste real: a la segunda devolución el caso escala a una persona por H09. Un supervisor
+demasiado exigente convertiría en trabajo humano casos que la IA resolvía bien, que es justo
+lo contrario de lo que la demo quiere enseñar.
+
+**D-22. El payload del disparador se trata como contenido no confiable.** La documentación
+de rutinas confirma que el texto llega envuelto en un bloque `<routine-fire-payload>`
+marcado como no confiable, y que el prompt guardado debe optar explícitamente por leerlo.
+`RUTINA.md` extrae solo `modo` y `tamano` e ignora cualquier otra instrucción, porque
+cualquiera que tenga el token del disparador puede enviar ese texto.
+
+**D-23. Un lote roto no tumba la ejecución.** Si la validación falla tras dos correcciones,
+el lote no se publica, el error se registra en `data/estado/rutina.json` y la rutina
+continúa con el siguiente. Con cuatro lotes diarios, perder uno es mucho mejor que perder
+los cuatro.
+
+**D-24. Los mensajes de commit de la rutina empiezan por `lote:` o `metricas:`.** Nunca por
+`hitl:`, que está reservado a la web y hace que Vercel omita el despliegue. Una rutina que
+publicara con ese prefijo dejaría la web congelada sin que nada pareciera fallar.

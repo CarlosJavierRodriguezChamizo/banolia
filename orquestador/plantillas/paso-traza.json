@@ -1,0 +1,10 @@
+{
+  "orden": 3,
+  "agente": "analista-politica",
+  "accion": "contrastar-politica",
+  "resultado": "Procede · reembolso estimado 600.000 COP tras descontar 180.000 de recogida",
+  "justificacion": "Se cumplen DEV-01 (día 13 de 14), DEV-02 y DEV-03. Según la tabla de DEV-08, la tipología espejos con LED en zona A descuenta 180.000 COP sobre los 780.000 pagados.",
+  "confianza": 0.94,
+  "reglas": ["DEV-01", "DEV-02", "DEV-03", "DEV-08"],
+  "criterios": []
+}

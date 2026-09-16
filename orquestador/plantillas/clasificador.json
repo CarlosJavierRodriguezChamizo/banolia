@@ -1,0 +1,14 @@
+{
+  "categoria": "devoluciones",
+  "subcategoria": "desistimiento",
+  "prioridad": "media",
+  "sentimiento": 0,
+  "confianza": 0.95,
+  "entidades": {
+    "numeroPedido": "BN-104051",
+    "sku": "BN-ESP-001",
+    "fechaRecepcion": "2026-09-03",
+    "diasCalendarioTranscurridos": 13
+  },
+  "justificacion": "El cliente pide devolver por cambio de opinión, no por defecto, lo que corresponde a un desistimiento. Aporta número de pedido y una foto del embalaje intacto, por lo que la confianza es muy alta."
+}

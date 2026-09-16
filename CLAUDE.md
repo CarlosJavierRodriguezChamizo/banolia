@@ -77,7 +77,7 @@ npm run crear-hash -- "clave"    # hash bcrypt para src/config/usuarios.ts
 ## Estado por fases
 
 - [x] **Fase 1** — esqueleto, datos ficticios, esquemas, validador, lote semilla, tablero y detalle.
-- [ ] **Fase 2** — los ocho subagentes y `orquestador/RUTINA.md`.
+- [x] **Fase 2** — los ocho subagentes, `orquestador/RUTINA.md` y las plantillas de salida.
 - [ ] **Fase 3** — web completa (filtros, secciones, cola humana, lotes, cómo funciona).
 - [ ] **Fase 4** — login, HITL con API de GitHub y botón de lanzar lote.
 - [ ] **Fase 5** — métricas, bucle de aprendizaje y documentación.

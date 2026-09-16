@@ -1,0 +1,8 @@
+{
+  "aprobado": false,
+  "observaciones": [
+    "El borrador afirma que el cambio de dirección «queda confirmado», pero la redirección depende de la transportadora. Debe presentarse como sujeta a confirmación.",
+    "Falta advertir de DEV-11: si la dirección nueva resulta errónea o inaccesible, los gastos de una nueva entrega los asume el cliente."
+  ],
+  "justificacion": "Se comprobaron las cifras y las fechas, que son correctas, pero el borrador compromete un resultado que Bañolia no controla y omite una consecuencia económica prevista en la política. Ambas cosas son promesas fuera de política, así que se devuelve para una segunda iteración."
+}

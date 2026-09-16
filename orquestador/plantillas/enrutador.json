@@ -1,0 +1,18 @@
+{
+  "ruta": "humano",
+  "criterios": ["H03", "H05"],
+  "slaHoras": 4,
+  "fichaEscalado": {
+    "queDecidir": "Si Bañolia asume la reposición inmediata de la mampara antes de determinar la causa de la rotura, y si envía a un técnico a retirar los restos de vidrio de la vivienda.",
+    "opciones": [
+      "Reposición inmediata sin peritaje previo y peritaje posterior con el fabricante",
+      "Peritaje técnico primero (visita en 24-48 h) y reposición condicionada al resultado",
+      "Reposición inmediata más retiro profesional de los restos a cargo de Bañolia"
+    ],
+    "riesgos": [
+      "Demorar la respuesta con una menor de edad en la vivienda es un riesgo de seguridad y reputacional",
+      "Asumir la reposición sin peritaje sienta un precedente frente al fabricante"
+    ]
+  },
+  "justificacion": "H03 se activa de forma inequívoca: hay vidrio templado estallado y riesgo de lesión para una menor de edad. Además se activa H05, porque atribuir la rotura a un defecto de fabricación, a la instalación o al transporte exige valorar pruebas. El SLA se reduce a 4 horas por el riesgo físico."
+}

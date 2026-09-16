@@ -1,0 +1,25 @@
+{
+  "id": "SOL-20260916-0004",
+  "recibidaEn": "2026-09-16T09:02:00-05:00",
+  "canal": "formulario",
+  "cliente": {
+    "id": "CLI-0133",
+    "nombre": "Sebastián Muñoz Rojas",
+    "ciudad": "Cali",
+    "zona": "A",
+    "tipo": "particular"
+  },
+  "pedido": {
+    "numero": "BN-104051",
+    "fecha": "2026-08-28",
+    "estado": "Entregado",
+    "lineas": [{ "sku": "BN-ESP-001", "cantidad": 1, "precioCOP": 780000 }],
+    "totalCOP": 780000,
+    "fechaEntrega": "2026-09-03"
+  },
+  "asunto": "Deseo devolver un espejo - pedido BN-104051",
+  "mensaje": "Buenos días. Compré el espejo con luz LED de 80x60 y finalmente no me funciona para el espacio donde lo quería poner. Sigue en su caja, no lo hemos instalado ni sacado del empaque. Quisiera devolverlo. ¿Qué debo hacer y cuánto me devuelven? Pedido BN-104051.",
+  "adjuntos": [{ "tipo": "foto", "descripcion": "Foto de la caja del espejo cerrada, con el precinto original intacto" }],
+  "_referencia": { "categoria": "devoluciones", "rutaEsperada": "ia" },
+  "justificacion": "Caso límite deliberado: cumple todos los requisitos pero queda a un solo día de vencer el plazo, lo que obliga al sistema a calcular bien la fecha y a avisar de la urgencia."
+}
