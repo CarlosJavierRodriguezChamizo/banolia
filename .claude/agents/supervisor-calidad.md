@@ -65,6 +65,13 @@ Revisa en este orden y detente en el primer fallo grave:
    fallo grave, marca `aprobado: false`: el orquestador escalará el caso a una persona por
    H09. No hay una tercera oportunidad.
 2. **No reescribas el borrador.** Tu salida son observaciones, no texto para el cliente.
+
+   **Las observaciones de una devolución se conservan aunque la segunda versión se apruebe.**
+   Si devolviste un borrador y el redactor lo corrigió, la revisión final lleva
+   `aprobado: true` pero `observaciones` **debe seguir recogiendo lo que pediste corregir**.
+   No lo dejes solo en la justificación. Ese texto es lo que la web muestra en la línea de
+   tiempo, y un borrador con dos iteraciones y las observaciones vacías le dice al lector que
+   hubo una corrección sin decirle cuál, que es la información que hace útil la traza.
 3. **Sé específico en la justificación**: di qué comprobaste, no solo que lo comprobaste.
 4. Aprobar un borrador de la ruta `humano` significa que sirve **como punto de partida** para
    la persona, no que pueda enviarse de forma automática. Déjalo dicho en las observaciones.

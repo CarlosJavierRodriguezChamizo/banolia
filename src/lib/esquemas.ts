@@ -132,6 +132,17 @@ export const Producto = z.object({
   tipologiaDevolucion: TipologiaDevolucion,
   precioCOP: z.number().int().positive(),
   aMedida: z.boolean(),
+  /**
+   * Rango de anchos de hueco, en centimetros, al que se adapta el producto
+   * gracias a sus perfiles de ajuste: [minimo, maximo].
+   *
+   * Solo lo tienen las mamparas. Es `null` en el resto de productos y tambien en
+   * las mamparas a medida, que se fabrican a la medida exacta del hueco.
+   *
+   * Existe porque es el dato que mas piden los clientes antes de comprar y, sin
+   * el, los redactores tendrian que inventarselo para poder responder.
+   */
+  rangoAjusteCm: z.tuple([z.number().int().positive(), z.number().int().positive()]).nullable(),
   plazoEntregaDiasHabiles: z.number().int().positive(),
   requiereEstiba: z.boolean(),
   garantiaMeses: z.number().int().positive(),

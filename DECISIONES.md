@@ -186,3 +186,28 @@ empresa, o uno o dos días fuera de plazo), pero el enrutador lo aplicaba tambi�
 política simplemente no cubría el caso con claridad. Nunca cambió una ruta por sí solo, así
 que no se ha tocado la definición todavía; queda anotado para revisarlo con más lotes, en la
 fase 5, cuando las métricas muestren la frecuencia real de cada criterio.
+
+**D-28. Un ejemplo de mi propia definición de agente enseñaba a inventar datos.**
+Detectado por el redactor comercial durante la ejecución: el ejemplo 2 de
+`.claude/agents/redactor-comercial.md` afirmaba que una mampara de 120 cm «se adapta a
+huecos de entre 115 y 120 cm», pero **el catálogo no tenía ese dato**. El mismo texto estaba
+en el lote semilla de la fase 1.
+
+Es el fallo más incómodo de los tres, porque estaba en el material que se usa para enseñar
+al agente a no inventar. El agente lo detectó, se negó a copiarlo y respondió solo con lo
+que sí constaba, que es el comportamiento correcto; pero un agente menos cuidadoso lo habría
+replicado, y el supervisor no tenía cómo distinguirlo.
+
+Había dos salidas: empobrecer la respuesta o completar el dato. Se eligió lo segundo, porque
+saber si una mampara encaja en un hueco es la pregunta que más hacen los clientes antes de
+comprar y una respuesta evasiva ahí no sirve de nada. Se añadió el campo `rangoAjusteCm`
+(`[mínimo, máximo]` en centímetros, `null` cuando no aplica) al esquema y al catálogo, con
+valores para las siete mamparas estándar; la mampara a medida queda en `null` porque se
+fabrica a la medida exacta del hueco.
+
+La regla 5 de `redactor-comercial.md` ahora manda usar ese campo y, cuando vale `null`,
+decirlo y ofrecer confirmarlo en lugar de deducir un rango a partir de la medida nominal.
+
+Lección: cuando un agente necesita un dato para responder bien, la solución no es prohibirle
+responder, sino poner el dato en los datos. Un valor inventado que suena verosímil es más
+peligroso que una respuesta incompleta, porque nadie lo verifica.

@@ -1,0 +1,1736 @@
+{
+  "id": "LOTE-20260916-02",
+  "fecha": "2026-09-16",
+  "origen": "manual",
+  "iniciadoEn": "2026-09-16T15:52:00-05:00",
+  "finalizadoEn": "2026-09-16T16:18:00-05:00",
+  "totales": {
+    "solicitudes": 10,
+    "ia": 7,
+    "humano": 2,
+    "descartado": 1
+  },
+  "alertas": [
+    "20 % a humano, fuera del rango orientativo del 25-35 %. El lote se compone mayoritariamente de consultas y pedidos rutinarios que la política resuelve sin excepción; no se ajustó ninguna decisión para cuadrar el porcentaje."
+  ],
+  "solicitudes": [
+    {
+      "id": "SOL-20260916-0011",
+      "recibidaEn": "2026-09-16T08:05:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0097",
+        "nombre": "Fernando Gutiérrez Hernández",
+        "ciudad": "Montería",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-105412",
+        "fecha": "2026-09-08",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-ESP-001",
+            "cantidad": 1,
+            "precioCOP": 780000
+          },
+          {
+            "sku": "BN-ACC-002",
+            "cantidad": 2,
+            "precioCOP": 68000
+          }
+        ],
+        "totalCOP": 916000,
+        "fechaEntrega": null
+      },
+      "asunto": "Consulta por el estado del pedido BN-105412",
+      "mensaje": "buenos dias, queria saber por donde va mi pedido BN-105412. lo hice el 8 de septiembre y en la pagina me sale en transito pero no me dice nada mas. es el espejo y dos portarrollos. vivo en monteria. gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "estado-pedido",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-105412",
+          "fechaPedido": "2026-09-08",
+          "estadoPedido": "En tránsito",
+          "sku": [
+            "BN-ESP-001",
+            "BN-ACC-002"
+          ],
+          "importeCOP": 916000,
+          "ciudad": "Montería",
+          "zona": "B"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "B",
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "fechaPedido": "2026-09-08",
+          "fechaHoy": "2026-09-16",
+          "diasHabilesTranscurridos": 6,
+          "dentroDePlazo": true,
+          "diasHabilesRestantesHastaMaximo": 9,
+          "fechaEntregaMinimaEstimada": "2026-09-18",
+          "fechaEntregaMaximaEstimada": "2026-09-29",
+          "totalPedidoCOP": 916000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El pedido lleva 6 días hábiles y aún no alcanza el mínimo de 8 de ENV-01 para zona B: no hay incumplimiento, pero tampoco se puede prometer entrega inmediata",
+          "Si no se entrega antes del 2026-09-29 se incumple el máximo de 15 días hábiles de ENV-01 y el caso pasa a ser una incidencia de entrega",
+          "El pedido no tiene fechaEntrega asignada, así que cualquier fecha que se dé al cliente debe confirmarse antes con la transportadora",
+          "Cliente recurrente (5 pedidos previos, 10.181.000 COP de histórico): un retraso adicional pesa más de lo habitual",
+          "El total de 916.000 COP no alcanza el umbral de envío gratis de ENV-01 (1.500.000 COP); no debe ofrecerse compensación de envío como si fuera gratuito"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Buenos días, señor Fernando! Con mucho gusto le contamos cómo va.\n\nSu pedido BN-105412 (Espejo Lumnia con luz LED 80x60 cm antivaho y dos portarrollos Bruma) lo registramos el 8 de septiembre y hoy figura en tránsito hacia Montería.\n\nMontería está en nuestra zona B, donde el plazo estimado de entrega es de 8 a 15 días hábiles. A hoy, 16 de septiembre, han transcurrido 6 días hábiles, así que su pedido va dentro del plazo y todavía no llega siquiera al mínimo de 8 días hábiles. Por eso preferimos no darle una fecha exacta: el día puntual de la entrega lo define la transportadora y no queremos comprometerle algo que no está en nuestras manos.\n\nLe sugerimos estar pendiente del celular, porque la transportadora se comunica antes de entregar.\n\nSi se cumple el día hábil 15 (hacia el 29 de septiembre) y su pedido aún no ha llegado, escríbanos por este mismo chat con el número BN-105412 y abrimos de inmediato una incidencia de entrega para rastrearlo con la transportadora. No tiene que esperar más allá de esa fecha ni volver a explicarnos el caso desde cero.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "¡Buenos días, señor Fernando! Con mucho gusto le contamos cómo va.\n\nSu pedido BN-105412 (Espejo Lumnia con luz LED 80x60 cm antivaho y dos portarrollos Bruma) lo registramos el 8 de septiembre y hoy figura en tránsito hacia Montería.\n\nMontería está en nuestra zona B, donde el plazo estimado de entrega es de 8 a 15 días hábiles. A hoy, 16 de septiembre, han transcurrido 6 días hábiles, así que su pedido va dentro del plazo y todavía no llega siquiera al mínimo de 8 días hábiles. Por eso preferimos no darle una fecha exacta: el día puntual de la entrega lo define la transportadora y no queremos comprometerle algo que no está en nuestras manos.\n\nLe sugerimos estar pendiente del celular, porque la transportadora se comunica antes de entregar.\n\nSi se cumple el día hábil 15 (hacia el 29 de septiembre) y su pedido aún no ha llegado, escríbanos por este mismo chat con el número BN-105412 y abrimos de inmediato una incidencia de entrega para rastrearlo con la transportadora. No tiene que esperar más allá de esa fecha ni volver a explicarnos el caso desde cero.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "pedidos por canal whatsapp",
+          "justificacion": "Caso rutinario de estado de pedido en zona B, con cinco días hábiles transcurridos sobre un plazo de 8 a 15 días hábiles de ENV-01: está claramente dentro de plazo. Escrito en registro coloquial de WhatsApp y sin tildes, para comprobar que el clasificador identifica la intención sin depender de un lenguaje formal. No se activa ningún criterio de escalado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta de seguimiento del pedido BN-105412, en tránsito y sin fecha de entrega visible.",
+          "justificacion": "El cliente pide explícitamente saber por dónde va un pedido identificado (BN-105412) y describe su contenido, sin reclamar ni reportar defecto alguno. El tono es cortés y neutro, sin impaciencia hostil, de ahí sentimiento 0. La confianza es alta porque la intención es inequívoca y solo hay un tema en el mensaje; la prioridad es media al no haber todavía plazo incumplido evidente.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Pedido dentro de plazo: 6 días hábiles de los 8 a 15 que ENV-01 fija para zona B, con entrega estimada entre el 18 y el 29 de septiembre.",
+          "justificacion": "ENV-01 fija 8 a 15 días hábiles para la zona B, donde está Montería, y desde el 8 de septiembre han transcurrido 6 días hábiles hasta hoy 16 de septiembre, sin festivos nacionales en ese tramo. Por tanto el pedido está dentro de plazo y la ventana de entrega va del 2026-09-18 al 2026-09-29. PQR-01 obliga a responder esta consulta en un máximo de 24 horas hábiles. El total de 916.000 COP queda por debajo del umbral de envío gratis de ENV-01.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de estado de pedido en tránsito y dentro del plazo de ENV-01: la responde la IA.",
+          "justificacion": "No hay importe relevante (916.000 COP, muy por debajo del umbral de H01) ni reclamación, ni riesgo físico, ni datos sensibles. La confianza del clasificador es 0,95 y no hay desacuerdo entre agentes, así que H06 no aplica. El pedido lleva 6 días hábiles de los 8 a 15 de zona B, es decir dentro de plazo, por lo que no hay excepción a la política que valorar y H04 no se activa. Es un caso rutinario que la política resuelve de forma limpia.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se informa el plazo de ENV-01 para zona B (8 a 15 días hábiles) y los 6 días hábiles transcurridos, sin prometer una fecha de entrega que depende de la transportadora, y se dice de forma explícita por qué no se da esa fecha. Se cierra indicando qué hacer si se cumple el día hábil 15 sin recibir el pedido, para que el cliente no tenga que volver a explicar el caso. Se evitó mencionar el envío gratuito, porque los 916.000 COP del pedido no alcanzan el umbral de 1.500.000 COP de ENV-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Comprobé las cifras y fechas contra los datos del pedido: fecha 8 de septiembre, estado en tránsito, Montería en zona B y 6 días hábiles transcurridos, todo coincide con los cálculos del analista. El borrador no promete fecha de entrega: el 29 de septiembre aparece solo como el límite del día hábil 15 de ENV-01 a partir del cual se abre incidencia de entrega, no como fecha de llegada. No hay compensación de envío ni excepciones fuera de política, los productos corresponden al catálogo del pedido, el trato de usted y la firma son correctos, así que se aprueba en la primera iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0012",
+      "recibidaEn": "2026-09-16T08:31:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0139",
+        "nombre": "Andrea Castro Valencia",
+        "ciudad": "Manizales",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Duda de medida antes de comprar",
+      "mensaje": "Hola. Tengo un hueco de ducha de 118 cm de ancho. La mampara frontal Bruma de 120 cm corredera me sirve o me queda grande?",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.93,
+        "entidades": {
+          "producto": "Mampara frontal Bruma 120 cm corredera",
+          "sku": "BN-MAM-001",
+          "medidaHuecoCm": 118,
+          "medidaProductoCm": 120,
+          "preCompra": true,
+          "ciudad": "Manizales",
+          "zona": "B"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PQR-01",
+          "ENV-01",
+          "DEV-01",
+          "DEV-05",
+          "DEV-08"
+        ],
+        "cumple": true,
+        "calculos": {
+          "skuConsultado": "BN-MAM-001",
+          "precioCOP": 1680000,
+          "medidaHuecoCm": 118,
+          "medidaNominalProductoCm": 120,
+          "diferenciaCm": 2,
+          "aMedida": false,
+          "zona": "B",
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "envioGratis": true,
+          "tipologiaDevolucion": "mamparas-con-flejes",
+          "gastoRecogidaSiDevuelveCOP": 315000,
+          "plazoDesistimientoDiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El catálogo no registra el rango de ajuste de la mampara BN-MAM-001, solo su medida nominal de 120 cm: afirmar que encaja en 118 cm sin confirmarlo con Bruma es el riesgo principal del caso",
+          "Si la medida falla y la cliente desiste, DEV-01 da 14 días calendario desde la recepción y DEV-08 descuenta 315.000 COP por tipología mamparas-con-flejes en zona B, más de la quinta parte del valor del producto",
+          "DEV-05 no bloquea nada aquí porque BN-MAM-001 no es a medida, pero el panel a medida BN-MAM-007 sí quedaría excluido de devolución si se le propone esa alternativa",
+          "Una recomendación errónea antes de la compra sienta el precedente de asumir Bañolia el coste de recogida, que DEV-14 deja en el cliente cuando no hay error de producto"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Andrea.\n\n¡Con mucho gusto! Le cuento lo que sabemos con certeza y lo que conviene confirmar antes de que ordene.\n\nLa mampara frontal Bruma 120 cm, corredera, perfil cromado tiene un precio de $ 1.680.000. Su medida nominal es de 120 cm, y ese es el único dato de ancho que registra su ficha: no tenemos publicado el rango exacto de ajuste, así que preferimos no afirmarle que encaja en un hueco de 118 cm sin verificarlo. Si nos lo permite, lo confirmamos con el fabricante y le respondemos con el dato exacto; este tipo de consultas las resolvemos dentro de las 24 horas hábiles.\n\nMientras tanto, una recomendación que le va a servir en cualquier caso: mida el hueco en tres puntos (arriba, a la mitad y abajo) y quédese con la medida más pequeña. Los muros casi nunca quedan paralelos y esa es la causa más frecuente de devoluciones de mamparas. Si entre las tres medidas hay diferencias notables, cuéntenos y revisamos juntos la mejor solución.\n\nSi la diferencia resultara grande, en el catálogo tenemos el panel fijo a medida Hidrosur, hasta 140 cm, antical, que se fabrica según sus medidas. Tenga en cuenta dos cosas: es un panel fijo, no una corredera, y los productos fabricados a medida no admiten devolución ni desistimiento, así que en ese caso hay que confirmar muy bien las medidas antes de ordenar.\n\nSobre el envío: como la mampara supera los $ 1.500.000, el despacho hasta Manizales no tiene costo. Manizales es zona B, de modo que el plazo estimado de entrega es de 8 a 15 días hábiles.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nUn último dato, por si la medida no resultara: si recibe el producto y decide desistir, tiene 14 días calendario desde la recepción para solicitarlo, y del reembolso se descuentan los gastos de recogida, que para una mampara en zona B son de $ 315.000. Por eso insistimos en confirmar la medida antes y no después.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señora Andrea.\n\n¡Con mucho gusto! Le cuento lo que sabemos con certeza y lo que conviene confirmar antes de que ordene.\n\nLa mampara frontal Bruma 120 cm, corredera, perfil cromado tiene un precio de $ 1.680.000. Su medida nominal es de 120 cm, y ese es el único dato de ancho que registra su ficha: no tenemos publicado el rango exacto de ajuste, así que preferimos no afirmarle que encaja en un hueco de 118 cm sin verificarlo. Si nos lo permite, lo confirmamos con el fabricante y le respondemos con el dato exacto; este tipo de consultas las resolvemos dentro de las 24 horas hábiles.\n\nMientras tanto, una recomendación que le va a servir en cualquier caso: mida el hueco en tres puntos (arriba, a la mitad y abajo) y quédese con la medida más pequeña. Los muros casi nunca quedan paralelos y esa es la causa más frecuente de devoluciones de mamparas. Si entre las tres medidas hay diferencias notables, cuéntenos y revisamos juntos la mejor solución.\n\nSi la diferencia resultara grande, en el catálogo tenemos el panel fijo a medida Hidrosur, hasta 140 cm, antical, que se fabrica según sus medidas. Tenga en cuenta dos cosas: es un panel fijo, no una corredera, y los productos fabricados a medida no admiten devolución ni desistimiento, así que en ese caso hay que confirmar muy bien las medidas antes de ordenar.\n\nSobre el envío: como la mampara supera los $ 1.500.000, el despacho hasta Manizales no tiene costo. Manizales es zona B, de modo que el plazo estimado de entrega es de 8 a 15 días hábiles.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nUn último dato, por si la medida no resultara: si recibe el producto y decide desistir, tiene 14 días calendario desde la recepción para solicitarlo, y del reembolso se descuentan los gastos de recogida, que para una mampara en zona B son de $ 315.000. Por eso insistimos en confirmar la medida antes y no después.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal chat",
+          "justificacion": "Consulta previa a la compra, muy corta y de un solo tema: si una mampara de 120 cm encaja en un hueco de 118 cm. Es exactamente el tipo de pregunta que la ficha de producto resuelve sola. Sirve para comprobar que un mensaje de chat de dos líneas basta para clasificar bien y que el pedido se deja en null.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta técnica previa a la compra sobre si la mampara Bruma de 120 cm encaja en un hueco de 118 cm.",
+          "justificacion": "Es una pregunta de compatibilidad dimensional formulada antes de comprar, sin pedido asociado ni incidencia. Encaja en consultas/consulta-producto y la prioridad es baja por tratarse de una duda precompra. La confianza es alta: solo hay un tema y la intención comercial es clara; que la respuesta exija verificar medidas es asunto del analista, no de la clasificación.",
+          "confianza": 0.93,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Consulta técnica sin compromiso de política incumplido; el riesgo está en confirmar el ajuste real de la mampara antes de que compre.",
+          "justificacion": "PQR-01 obliga a responder en 24 horas hábiles y no hay ninguna regla incumplida porque todavía no existe pedido. DEV-05 no aplica como bloqueo: BN-MAM-001 no es a medida, de modo que conservaría el desistimiento de DEV-01, 14 días calendario desde la recepción. Si tuviera que devolverla, DEV-08 descuenta 315.000 COP por la tipología mamparas-con-flejes en zona B (Manizales), y ENV-01 sitúa la entrega en 8 a 15 días hábiles con envío gratuito por superar los 1.500.000 COP.",
+          "confianza": null,
+          "reglas": [
+            "PQR-01",
+            "ENV-01",
+            "DEV-01",
+            "DEV-05",
+            "DEV-08"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta pre-compra de medida de mampara: la responde la IA, confirmando el rango de ajuste con el fabricante antes de afirmar que encaja.",
+          "justificacion": "Es una consulta previa a la compra, sin pedido, sin importe en juego y sin incidencia: no se activa H01, H03, H05 ni H08. La confianza es 0,93 y los agentes coinciden, así que H06 no aplica. La laguna sobre el rango de ajuste del SKU BN-MAM-001 es una limitación de dato de catálogo que la respuesta debe reconocer, no una excepción a la política con motivo atendible, por lo que no procede activar H04.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "El precio de $ 1.680.000 se toma literal de la ficha de BN-MAM-001 y se usa el nombre exacto del catálogo. La decisión central fue no afirmar que la mampara encaja en 118 cm: la ficha solo registra la medida nominal de 120 cm y no publica rango de ajuste, así que se dice lo que sí consta y se ofrece confirmarlo con el fabricante dentro de las 24 horas hábiles de PQR-01. Se añade el consejo de medir en tres puntos y se cuantifican de antemano las consecuencias de un desistimiento (14 días de DEV-01 y $ 315.000 de recogida por DEV-08 en zona B) para que la clienta mida antes y no después. No se ofrece instalación porque Manizales no está entre las tres ciudades de INS-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se contrastó $ 1.680.000 con la ficha de BN-MAM-001 y $ 315.000 con la tarifa de mamparas-con-flejes en zona B de DEV-08: ambos coinciden. Se verificó que el borrador no inventa el rango de ajuste de la mampara, que era el riesgo principal señalado por el analista, y que el plazo se da como rango de 8 a 15 días hábiles de ENV-01 y no como fecha cerrada. Se comprobó que no se ofrece el descuento de PRO-01 a una clienta particular ni instalación en Manizales, y que la alternativa a medida va acompañada de la advertencia de DEV-05. Aprobado a la primera.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0013",
+      "recibidaEn": "2026-09-16T09:14:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0053",
+        "nombre": "Iván Agudelo Hoyos",
+        "ciudad": "Villavicencio",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Costo y tiempo de envío a Villavicencio",
+      "mensaje": "Buenos días.\n\nEstoy interesado en el mueble suspendido Aracena de 100 cm en blanco mate. Antes de hacer el pedido quisiera confirmar dos cosas: cuánto me cuesta el envío hasta Villavicencio y en cuántos días me llegaría.\n\nAgradezco su respuesta.\n\nCordialmente,\nIván Agudelo Hoyos",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-envio",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.92,
+        "entidades": {
+          "producto": "Mueble suspendido Aracena 100 cm blanco mate",
+          "sku": "BN-MUE-002",
+          "ciudad": "Villavicencio",
+          "zona": "B",
+          "preCompra": true,
+          "temasSecundarios": [
+            "consulta-producto"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01",
+          "DEV-01",
+          "DEV-08"
+        ],
+        "cumple": true,
+        "calculos": {
+          "sku": "BN-MUE-002",
+          "precioCOP": 2240000,
+          "zona": "B",
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "costoEnvioCOP": 0,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "fechaHoy": "2026-09-16",
+          "fechaEntregaMinimaSiPideHoy": "2026-09-28",
+          "fechaEntregaMaximaSiPideHoy": "2026-10-07",
+          "plazoFabricanteDiasHabiles": 8,
+          "aMedida": false,
+          "tipologiaDevolucion": "muebles-bano",
+          "gastoRecogidaSiDevuelveCOP": 405000,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El plazo que se comunique debe darse como rango de ENV-01 (8 a 15 días hábiles, es decir 2026-09-28 a 2026-10-07 si pide hoy) y no como fecha cerrada: comprometer el extremo bajo convierte un envío normal en incumplimiento",
+          "Villavicencio es zona B y no aparece en la lista de zona A de DEV-08, así que no puede aplicarse la tarifa ni el plazo de zona A por cercanía a Bogotá",
+          "Si después desiste, DEV-08 descuenta 405.000 COP por tipología muebles-bano en zona B pese a que el envío de ida fue gratuito; conviene advertirlo antes de comprar",
+          "El mueble requiere estiba y fotos según DEV-07 en caso de recogida; sin ellas el seguro no cubre daños"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Iván.\n\n¡Con mucho gusto! Le respondo sus dos preguntas sobre el mueble suspendido Aracena 100 cm, dos cajones, blanco mate, cuyo precio es de $ 2.240.000.\n\n1. Costo del envío: sin costo. El envío es gratuito para pedidos desde $ 1.500.000 y su compra supera ese monto, así que el despacho hasta Villavicencio no le representa ningún valor adicional.\n\n2. Tiempo de entrega: Villavicencio es zona B, de modo que el plazo estimado es de 8 a 15 días hábiles desde la confirmación del pedido. Es un rango estimado y no una fecha cerrada, porque el tramo final depende de la transportadora.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nDos cosas más que conviene que sepa antes de ordenar:\n\n· El mueble tiene una garantía de 24 meses.\n· Si después de recibirlo decidiera desistir de la compra, tiene 14 días calendario desde la recepción. En ese caso, del reembolso se descuentan los gastos de recogida, que para un mueble de baño en zona B son de $ 405.000, aunque el envío de ida haya sido gratuito. Además, por ser un producto voluminoso debe viajar estibado y con fotografías antes y después de embalar; sin esos dos requisitos el seguro de transporte no cubre eventuales daños.\n\nQuedamos atentos a su pedido.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Iván.\n\n¡Con mucho gusto! Le respondo sus dos preguntas sobre el mueble suspendido Aracena 100 cm, dos cajones, blanco mate, cuyo precio es de $ 2.240.000.\n\n1. Costo del envío: sin costo. El envío es gratuito para pedidos desde $ 1.500.000 y su compra supera ese monto, así que el despacho hasta Villavicencio no le representa ningún valor adicional.\n\n2. Tiempo de entrega: Villavicencio es zona B, de modo que el plazo estimado es de 8 a 15 días hábiles desde la confirmación del pedido. Es un rango estimado y no una fecha cerrada, porque el tramo final depende de la transportadora.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nDos cosas más que conviene que sepa antes de ordenar:\n\n· El mueble tiene una garantía de 24 meses.\n· Si después de recibirlo decidiera desistir de la compra, tiene 14 días calendario desde la recepción. En ese caso, del reembolso se descuentan los gastos de recogida, que para un mueble de baño en zona B son de $ 405.000, aunque el envío de ida haya sido gratuito. Además, por ser un producto voluminoso debe viajar estibado y con fotografías antes y después de embalar; sin esos dos requisitos el seguro de transporte no cubre eventuales daños.\n\nQuedamos atentos a su pedido.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal correo",
+          "justificacion": "Pregunta previa a la compra sobre costo y plazo de envío a una ciudad de zona B. ENV-01 la resuelve de forma limpia: el mueble supera los 1.500.000 COP, así que el envío es gratuito, y el plazo de zona B es de 8 a 15 días hábiles. Registro de correo formal, para contrastar con los mensajes coloquiales del lote.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta precompra sobre costo y tiempo de envío del mueble Aracena 100 cm a Villavicencio.",
+          "justificacion": "El cliente identifica un producto concreto y pregunta solo dos cosas, costo de envío y plazo de entrega, antes de pedir. La categoría consultas es inequívoca; se usa la subcategoría consulta-envio por no existir una exacta en la tabla. Prioridad baja por ser previo a la compra y sentimiento 0 por el tono formal y cordial.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Envío gratuito por superar 1.500.000 COP y entrega estimada entre el 28 de septiembre y el 7 de octubre si el pedido se hace hoy.",
+          "justificacion": "El mueble BN-MUE-002 cuesta 2.240.000 COP y supera el umbral de 1.500.000 COP de ENV-01, por lo que el envío a Villavicencio es gratuito. ENV-01 fija 8 a 15 días hábiles para zona B: contando desde hoy 16 de septiembre sin festivos nacionales, la entrega caería entre el 2026-09-28 y el 2026-10-07. PQR-01 obliga a responder en 24 horas hábiles. A título informativo, un eventual desistimiento bajo DEV-01 descontaría 405.000 COP según la tabla de DEV-08 para muebles-bano en zona B.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01",
+            "DEV-01",
+            "DEV-08"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de costo y plazo de envío a Villavicencio: envío gratis por superar el umbral y plazo de zona B, resoluble por la IA.",
+          "justificacion": "ENV-01 resuelve el caso sin ambigüedad: 2.240.000 COP supera el umbral de envío gratis de 1.500.000 y Villavicencio es zona B con plazo de 8 a 15 días hábiles. No hay reembolso, compensación ni cotización que active H01, ni incidencia alguna. Confianza 0,92 y sin desacuerdo, de modo que H06 no aplica. Ningún criterio de escalado se activa.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se responden las dos preguntas numeradas y en el mismo orden en que las hizo el cliente, para que no quede ninguna sin atender. El plazo se comunica como el rango de 8 a 15 días hábiles de ENV-01 para zona B, diciendo expresamente que no es una fecha cerrada, en lugar de las fechas concretas que calculó el analista. Se advierte por anticipado del descuento de recogida de $ 405.000 de DEV-08 y del requisito de estiba y fotos de DEV-07, porque el cliente puede dar por hecho que la devolución también es gratuita si el envío de ida lo fue.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se verificó $ 2.240.000 contra la ficha de BN-MUE-002, los 24 meses de garantía contra el catálogo y GAR-01, y los $ 405.000 contra la tarifa de muebles-bano en zona B de DEV-08. El envío gratuito está bien fundado porque 2.240.000 supera el umbral de 1.500.000 de ENV-01. Se comprobó que no se promete ninguna fecha concreta de entrega, que se atienden las dos preguntas del correo y que no se ofrece instalación en Villavicencio, ciudad no cubierta por INS-01. Aprobado a la primera.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0014",
+      "recibidaEn": "2026-09-16T09:47:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0018",
+        "nombre": "Remodelaciones La Ceiba",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "profesional"
+      },
+      "pedido": null,
+      "asunto": "Cotización para remodelación de tres baños",
+      "mensaje": "Buenos días, equipo de Bañolia.\n\nEstamos remodelando tres baños iguales en un apartamento en Cali y necesitamos una cotización por los siguientes productos:\n\n- 3 muebles suspendidos Camino de 60 cm en grafito\n- 3 lavabos bajo encimera de 50 cm en blanco\n- 3 grifos de lavamanos monomando en cromo\n\nSomos remodeladores y quisiéramos saber si aplica algún descuento por volumen. La obra empieza a mediados de octubre, así que no tenemos afán con la entrega.\n\nQuedo atento.\n\nRemodelaciones La Ceiba",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-profesional",
+        "prioridad": "media",
+        "sentimiento": 1,
+        "confianza": 0.92,
+        "entidades": {
+          "sku": [
+            "BN-MUE-003",
+            "BN-LAV-003",
+            "BN-GRI-001"
+          ],
+          "cantidades": [
+            3,
+            3,
+            3
+          ],
+          "tipoCliente": "profesional",
+          "subtipo": "remodelador",
+          "ciudad": "Cali",
+          "zona": "A",
+          "solicitaDescuentoVolumen": true,
+          "inicioObra": "mediados de octubre",
+          "temasSecundarios": [
+            "cotizacion-proyecto"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PRO-01",
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "profesional",
+          "zona": "A",
+          "lineas": [
+            {
+              "sku": "BN-MUE-003",
+              "cantidad": 3,
+              "precioUnitarioCOP": 1420000,
+              "subtotalCOP": 4260000
+            },
+            {
+              "sku": "BN-LAV-003",
+              "cantidad": 3,
+              "precioUnitarioCOP": 480000,
+              "subtotalCOP": 1440000
+            },
+            {
+              "sku": "BN-GRI-001",
+              "cantidad": 3,
+              "precioUnitarioCOP": 320000,
+              "subtotalCOP": 960000
+            }
+          ],
+          "subtotalCOP": 6660000,
+          "umbralDescuento8COP": 5000000,
+          "umbralDescuento12COP": 20000000,
+          "porcentajeDescuentoAplicable": 8,
+          "descuentoCOP": 532800,
+          "totalConDescuentoCOP": 6127200,
+          "envioGratis": true,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "fechaEntregaMinimaSiPideHoy": "2026-09-21",
+          "fechaEntregaMaximaSiPideHoy": "2026-09-28",
+          "aMedidaEnElPedido": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El 8 % de PRO-01 depende del subtotal: con 6.660.000 COP hay margen de 1.660.000 sobre el umbral, pero si el cliente retira la línea de muebles el pedido cae a 2.400.000 y pierde el descuento; hay que condicionar la oferta al alcance cotizado",
+          "El 12 % de PRO-01 exige 20.000.000 COP y este pedido no se acerca: no debe insinuarse",
+          "Los precios salen del catálogo vigente y la obra empieza a mediados de octubre; conviene fijar una validez explícita de la cotización",
+          "Si piden crédito a 30 días, PRO-01 exige estudio previo y aprobación del área financiera, que no puede resolverse de forma automática",
+          "No solicitan instalación, pero Cali sí está cubierta por INS-01 y ese servicio requiere cotización aparte y no va incluido en el precio de los productos"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, equipo de Remodelaciones La Ceiba.\n\n¡Con mucho gusto! Esta es la cotización para los tres baños del apartamento en Cali:\n\n· Mueble suspendido Camino 60 cm, un cajón, grafito — 3 unidades × $ 1.420.000 = $ 4.260.000\n· Lavabo bajo encimera Cerámicas Quindío 50 cm, blanco — 3 unidades × $ 480.000 = $ 1.440.000\n· Grifo de lavamanos Aqualinde monomando, cromo — 3 unidades × $ 320.000 = $ 960.000\n\nSubtotal: $ 6.660.000\nDescuento cliente profesional (8 %): − $ 532.800\nEnvío a Cali: sin costo\nTotal: $ 6.127.200\n\nSobre el descuento por el que preguntan: sí aplica. Como remodeladores, ustedes acceden al 8 % de descuento en compras desde $ 5.000.000, y este subtotal de $ 6.660.000 supera ese umbral, así que ya lo dejamos aplicado en el total. Una precisión importante: el descuento se calcula sobre el alcance aquí cotizado. Si más adelante se retira alguna línea y el subtotal baja de $ 5.000.000, el descuento dejaría de aplicar.\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Cali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles desde la confirmación del pedido. Como la obra empieza a mediados de octubre, tienen margen suficiente para coordinar el despacho cuando más les convenga.\n\nSi les interesa, en Cali contamos con instalación a través de aliados certificados. Ese servicio requiere cotización previa y no está incluido en el precio de los productos; si nos lo piden, se la preparamos.\n\nPueden pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario, es decir, hasta el 1 de octubre de 2026.\n\nQuedamos atentos a sus comentarios.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, equipo de Remodelaciones La Ceiba.\n\n¡Con mucho gusto! Esta es la cotización para los tres baños del apartamento en Cali:\n\n· Mueble suspendido Camino 60 cm, un cajón, grafito — 3 unidades × $ 1.420.000 = $ 4.260.000\n· Lavabo bajo encimera Cerámicas Quindío 50 cm, blanco — 3 unidades × $ 480.000 = $ 1.440.000\n· Grifo de lavamanos Aqualinde monomando, cromo — 3 unidades × $ 320.000 = $ 960.000\n\nSubtotal: $ 6.660.000\nDescuento cliente profesional (8 %): − $ 532.800\nEnvío a Cali: sin costo\nTotal: $ 6.127.200\n\nSobre el descuento por el que preguntan: sí aplica. Como remodeladores, ustedes acceden al 8 % de descuento en compras desde $ 5.000.000, y este subtotal de $ 6.660.000 supera ese umbral, así que ya lo dejamos aplicado en el total. Una precisión importante: el descuento se calcula sobre el alcance aquí cotizado. Si más adelante se retira alguna línea y el subtotal baja de $ 5.000.000, el descuento dejaría de aplicar.\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Cali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles desde la confirmación del pedido. Como la obra empieza a mediados de octubre, tienen margen suficiente para coordinar el despacho cuando más les convenga.\n\nSi les interesa, en Cali contamos con instalación a través de aliados certificados. Ese servicio requiere cotización previa y no está incluido en el precio de los productos; si nos lo piden, se la preparamos.\n\nPueden pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario, es decir, hasta el 1 de octubre de 2026.\n\nQuedamos atentos a sus comentarios.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal correo",
+          "justificacion": "Cotización mediana de 6.660.000 COP, muy por debajo del umbral de 15.000.000 COP de H01, de un cliente profesional pequeño con 3.623.000 COP de valor histórico, lejos del umbral de H10. Cae limpiamente en el tramo de 8 % de descuento de PRO-01. Pone a prueba que el sistema cotice y aplique el descuento sin escalar por el simple hecho de que el cliente sea profesional.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Remodelador profesional solicita cotización de nueve referencias para tres baños en Cali y pregunta por descuento por volumen.",
+          "justificacion": "El mensaje pide expresamente una cotización con líneas y cantidades definidas y menciona la condición profesional del solicitante al preguntar por descuento por volumen, lo que sitúa el caso en cotizaciones/cotizacion-profesional. El tono es cordial y sin urgencia ('no tenemos afán'), de ahí sentimiento +1 y prioridad media. La confianza es alta porque la categoría es inequívoca, aunque el caso también podría etiquetarse como cotizacion-proyecto por tratarse de una obra.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Cotización profesional de 6.660.000 COP que activa el 8 % de PRO-01: descuento de 532.800 COP y total de 6.127.200 COP con envío gratuito.",
+          "justificacion": "Las nueve unidades corresponden a BN-MUE-003, BN-LAV-003 y BN-GRI-001 del catálogo y suman 6.660.000 COP, por encima del umbral de 5.000.000 COP de PRO-01, que da 8 % (532.800 COP) y deja el total en 6.127.200 COP; el tramo del 12 % exige 20.000.000 COP y no se alcanza. El cliente es profesional (remodelador), condición que PRO-01 requiere para el descuento. ENV-01 aplica envío gratuito por superar 1.500.000 COP y sitúa la entrega en Cali (zona A) entre 3 y 8 días hábiles, es decir del 2026-09-21 al 2026-09-28 si confirman hoy, muy por delante del inicio de obra. PQR-01 fija 24 horas hábiles de respuesta.",
+          "confianza": null,
+          "reglas": [
+            "PRO-01",
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Cotización profesional de 6.660.000 COP con descuento del 8 % de PRO-01 ya calculado: la emite la IA.",
+          "justificacion": "El subtotal de 6.660.000 COP está muy por debajo del umbral de cotización de 15.000.000 de H01 y el cliente no pide crédito, solo descuento por volumen, que PRO-01 resuelve con el tramo del 8 % sobre 5.000.000. Es cliente profesional, pero su valor histórico de 3.623.000 COP queda lejos de los 50.000.000 que exige H10. Confianza 0,92 sin desacuerdo, así que H06 no aplica y el caso es automatizable condicionando la oferta al alcance cotizado y fijando validez.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La cotización se desglosa línea a línea con el nombre exacto del catálogo, la cantidad y el precio unitario, para que el cliente pueda contrastar cada cifra. Se aplica el 8 % de PRO-01 porque es un remodelador y el subtotal de $ 6.660.000 supera los $ 5.000.000, y se advierte de que el descuento está atado al alcance cotizado; no se menciona el tramo del 12 %, que exige $ 20.000.000 y queda lejos. Se ofrece instalación porque Cali sí está cubierta por INS-01, dejando claro que se cotiza aparte, y se fija la vigencia de 15 días calendario con fecha explícita porque la obra empieza a mediados de octubre.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se rehízo la aritmética completa: 3 × 1.420.000 = 4.260.000, 3 × 480.000 = 1.440.000 y 3 × 320.000 = 960.000 suman un subtotal de 6.660.000; el 8 % son 532.800 y el total 6.127.200, exactamente lo que dice el borrador. Los tres precios unitarios coinciden con las fichas de BN-MUE-003, BN-LAV-003 y BN-GRI-001. Se confirmó que el descuento de PRO-01 es legítimo por tratarse de un cliente profesional sobre el umbral de 5.000.000, que no se insinúa el tramo del 12 %, que el plazo es el rango de zona A de ENV-01 y que la instalación se ofrece solo porque Cali figura en INS-01. Aprobado a la primera.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0015",
+      "recibidaEn": "2026-09-16T10:20:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0128",
+        "nombre": "Adriana Pineda Quintero",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Garantía de la grifería",
+      "mensaje": "hola buenos dias, cuantos meses de garantia tiene el grifo termostatico de ducha? es que estoy comparando y quiero saber antes de comprar. gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.86,
+        "entidades": {
+          "producto": "Grifo termostático de ducha",
+          "sku": [
+            "BN-GRI-005",
+            "BN-GRI-006"
+          ],
+          "preCompra": true,
+          "consultaGarantiaMeses": true,
+          "ciudad": "Cali",
+          "zona": "A"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "GAR-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "categoriaProducto": "griferia",
+          "skusCompatiblesConLaConsulta": [
+            "BN-GRI-005",
+            "BN-GRI-006"
+          ],
+          "garantiaGriferiaMeses": 36,
+          "garantiaMueblesYMamparasMeses": 24,
+          "garantiaLedEspejosMeses": 24,
+          "coincideGarantiaCatalogoYPolitica": true,
+          "normaLegal": "Ley 1480 de 2011",
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "La respuesta debe incluir las exclusiones de GAR-01 (mala instalación, incrustaciones de cal por agua dura, químicos abrasivos y golpes posteriores a la entrega); omitirlas genera una expectativa de cobertura total que después se discute",
+          "La clienta no precisa el modelo: BN-GRI-005 (termostático de ducha) y BN-GRI-006 (termostático empotrado) tienen ambos 36 meses, así que la cifra no cambia, pero sí el precio si la consulta deriva en compra",
+          "Si se trata de la columna termostática BN-GRI-007, la garantía sigue siendo de 36 meses, pero su tipología de devolución es columnas-hidromasaje y no grifería, lo que cambiaría los gastos de DEV-08 en un eventual desistimiento"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, señora Adriana! Buenos días, con mucho gusto le ayudamos.\n\nToda nuestra grifería tiene 36 meses de garantía, conforme a la Ley 1480 de 2011. Ese plazo cubre los dos grifos termostáticos del catálogo: el grifo termostático Aqualinde de ducha, cromo ($ 890.000) y el grifo termostático Aqualinde empotrado, negro mate ($ 1.240.000). Si lo que está comparando es la columna de ducha Verdaluz termostática, cromo ($ 1.480.000), la garantía también es de 36 meses.\n\nPara que la comparación le quede completa, la garantía no cubre daños por mala instalación, incrustaciones de cal por agua dura, uso de productos químicos abrasivos ni golpes posteriores a la entrega.\n\nSobre el envío, para que no le sorprenda al momento de pagar: es gratuito para pedidos desde $ 1.500.000. Los tres modelos que le mencioné están por debajo de ese monto, así que, si compra solo el grifo, el envío sí tiene costo y se lo calculamos al confirmar el pedido. Si su compra completa llega o supera los $ 1.500.000, el despacho queda sin costo. Cali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nY como está en Cali, si más adelante quiere instalación, trabajamos con aliados certificados en su ciudad. Ese servicio se cotiza aparte y no viene incluido en el precio del producto.\n\nSi nos cuenta cuál modelo le interesa, le confirmamos lo que necesite.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera iteración devuelta: el borrador mencionaba el envío gratuito desde $ 1.500.000 junto a productos de $ 890.000 y $ 1.240.000 sin aclarar que ninguno alcanza el umbral, lo que podía leerse como envío gratis garantizado. La segunda versión lo corrige de forma expresa."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, señora Adriana! Buenos días, con mucho gusto le ayudamos.\n\nToda nuestra grifería tiene 36 meses de garantía, conforme a la Ley 1480 de 2011. Ese plazo cubre los dos grifos termostáticos del catálogo: el grifo termostático Aqualinde de ducha, cromo ($ 890.000) y el grifo termostático Aqualinde empotrado, negro mate ($ 1.240.000). Si lo que está comparando es la columna de ducha Verdaluz termostática, cromo ($ 1.480.000), la garantía también es de 36 meses.\n\nPara que la comparación le quede completa, la garantía no cubre daños por mala instalación, incrustaciones de cal por agua dura, uso de productos químicos abrasivos ni golpes posteriores a la entrega.\n\nSobre el envío, para que no le sorprenda al momento de pagar: es gratuito para pedidos desde $ 1.500.000. Los tres modelos que le mencioné están por debajo de ese monto, así que, si compra solo el grifo, el envío sí tiene costo y se lo calculamos al confirmar el pedido. Si su compra completa llega o supera los $ 1.500.000, el despacho queda sin costo. Cali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nY como está en Cali, si más adelante quiere instalación, trabajamos con aliados certificados en su ciudad. Ese servicio se cotiza aparte y no viene incluido en el precio del producto.\n\nSi nos cuenta cuál modelo le interesa, le confirmamos lo que necesite.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal whatsapp",
+          "justificacion": "Pregunta de un solo dato que GAR-01 responde directamente: la grifería tiene 36 meses de garantía legal. Es una consulta previa a la compra, así que el pedido va en null. Comprueba que el sistema responde preguntas cortas de política sin inventar condiciones ni escalar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta precompra sobre los meses de garantía del grifo termostático de ducha.",
+          "justificacion": "Pregunta por la duración de la garantía comparando antes de comprar, sin producto adquirido ni reclamación abierta, por lo que es una consulta comercial y no devoluciones/garantia. La confianza se sitúa en 0,86 porque la palabra 'garantía' hace que el caso roce esa segunda categoría, aunque el marcador 'antes de comprar' la resuelve. Prioridad baja y sentimiento 0 por tratarse de una duda previa y de tono neutro.",
+          "confianza": 0.86,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "La grifería tiene 36 meses de garantía legal según GAR-01, cifra que coincide con la ficha de catálogo.",
+          "justificacion": "GAR-01 fija la garantía legal conforme a la Ley 1480 de 2011 en 36 meses para grifería, frente a los 24 meses de muebles, mamparas y sistema LED, y el catálogo confirma garantiaMeses 36 tanto en BN-GRI-005 como en BN-GRI-006. No hay incumplimiento porque se trata de una consulta previa a la compra sin producto adquirido. PQR-01 obliga a responderla en un máximo de 24 horas hábiles.",
+          "confianza": null,
+          "reglas": [
+            "GAR-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de garantía de grifería termostática: 36 meses según GAR-01, la responde la IA.",
+          "justificacion": "Es una consulta informativa previa a la compra, sin importe, sin incidencia y sin datos sensibles. La confianza es 0,86, por encima del umbral de 0,75 de H06, y no hay desacuerdo entre agentes. La ambigüedad sobre el modelo exacto no cambia la respuesta, porque los tres SKU candidatos tienen los mismos 36 meses de garantía. Ningún criterio se activa.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se responde primero la pregunta concreta (36 meses, según GAR-01 y confirmado en las fichas de BN-GRI-005, BN-GRI-006 y BN-GRI-007) y se cubren los tres modelos termostáticos posibles, porque la clienta no precisó cuál, indicando el precio de cada uno para que pueda comparar. Se incluyen las exclusiones de GAR-01 para no dejar una expectativa de cobertura total. En la segunda iteración se corrigió el bloque de envío: la primera versión enunciaba el umbral de $ 1.500.000 de forma ambigua y ahora se dice explícitamente que los tres grifos quedan por debajo y que el envío sí tendría costo si compra solo el grifo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se contrastaron los 36 meses con GAR-01 y con el campo de garantía de las tres fichas, y los precios $ 890.000, $ 1.240.000 y $ 1.480.000 con BN-GRI-005, BN-GRI-006 y BN-GRI-007: todos exactos. En la primera revisión se devolvió el borrador porque mencionaba el envío gratuito desde $ 1.500.000 junto a productos de $ 890.000 y $ 1.240.000 sin aclarar que ninguno alcanza el umbral, lo que podía leerse como envío gratis garantizado; la segunda versión lo corrige de forma expresa. Se comprobó también que no se ofrece el descuento de PRO-01 a una clienta particular y que la instalación se menciona solo porque Cali está en INS-01. Aprobado en la segunda iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0016",
+      "recibidaEn": "2026-09-16T11:05:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0087",
+        "nombre": "Tatiana Cárdenas Ceballos",
+        "ciudad": "Barranquilla",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104988",
+        "fecha": "2026-08-28",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-SAN-001",
+            "cantidad": 1,
+            "precioCOP": 1180000
+          },
+          {
+            "sku": "BN-ACC-005",
+            "cantidad": 1,
+            "precioCOP": 95000
+          }
+        ],
+        "totalCOP": 1275000,
+        "fechaEntrega": "2026-09-04"
+      },
+      "asunto": "Reenvío de factura electrónica del pedido BN-104988",
+      "mensaje": "Buenos días.\n\nCompré un inodoro suspendido y un sifón el 28 de agosto, pedido BN-104988, y me llegaron el 4 de septiembre. Por error borré el correo con la factura electrónica y ahora la necesito para la declaración de la copropiedad.\n\n¿Me la pueden reenviar al mismo correo que tengo registrado? Los datos de la factura están bien, solo necesito el archivo.\n\nMuchas gracias,\nTatiana Cárdenas",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "facturacion",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-104988",
+          "sku": [
+            "BN-SAN-001",
+            "BN-ACC-005"
+          ],
+          "importeCOP": 1275000,
+          "fechaPedido": "2026-08-28",
+          "fechaEntrega": "2026-09-04",
+          "solicitaReenvioFactura": true,
+          "datosFacturaCorrectos": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "FAC-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaPedido": "2026-08-28",
+          "fechaEntrega": "2026-09-04",
+          "fechaHoy": "2026-09-16",
+          "diasCalendarioDesdeEntrega": 12,
+          "horasDesdeEntrega": 288,
+          "ventanaCambioDatosHorasFAC01": 24,
+          "solicitaCambioRazonSocialONit": false,
+          "requiereNotaCredito": false,
+          "plazoRespuestaConsultaHorasHabiles": 24,
+          "importeFacturadoCOP": 1275000
+        },
+        "riesgos": [
+          "El reenvío debe ir al correo registrado del cliente CLI-0087; enviarlo a otra dirección expondría datos fiscales de la copropiedad",
+          "Si más adelante pidiera cambiar razón social o NIT, la ventana de 24 h de FAC-01 ya está vencida (288 h desde la entrega) y haría falta nota crédito con validación contable",
+          "No consta en el pedido la fecha exacta de emisión de la factura electrónica; hay que confirmarla antes de reemitir el envío"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Tatiana.\n\n¡Con mucho gusto le ayudamos! Tranquila, que reenviarle la factura no requiere ningún trámite adicional.\n\nComo usted nos confirma que los datos de la factura están correctos y lo que necesita es la copia del archivo, le reenviamos la factura electrónica de su pedido BN-104988 (Inodoro suspendido Cerámicas Quindío con tapa amortiguada y Sifón extraplano Tecnograf), por un total de 1.275.000 COP, tal como se emitió y validada ante la DIAN.\n\nDos precisiones para que quede todo claro:\n\n1. El reenvío se hace al mismo correo que usted tiene registrado con nosotros y únicamente a esa dirección, para proteger los datos fiscales de la copropiedad. Lo tendrá en su bandeja dentro de las próximas 24 horas hábiles; si no lo ve, por favor revise la carpeta de correo no deseado antes de escribirnos.\n\n2. Como no hay ningún cambio de NIT ni de razón social, no hace falta nota crédito ni ninguna otra gestión. Si más adelante sí necesitara modificar esos datos, cuéntenos y le explicamos el procedimiento, que es distinto de un simple reenvío.\n\nSi al recibirla necesita algo más, quedamos atentos por este mismo medio.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señora Tatiana.\n\n¡Con mucho gusto le ayudamos! Tranquila, que reenviarle la factura no requiere ningún trámite adicional.\n\nComo usted nos confirma que los datos de la factura están correctos y lo que necesita es la copia del archivo, le reenviamos la factura electrónica de su pedido BN-104988 (Inodoro suspendido Cerámicas Quindío con tapa amortiguada y Sifón extraplano Tecnograf), por un total de 1.275.000 COP, tal como se emitió y validada ante la DIAN.\n\nDos precisiones para que quede todo claro:\n\n1. El reenvío se hace al mismo correo que usted tiene registrado con nosotros y únicamente a esa dirección, para proteger los datos fiscales de la copropiedad. Lo tendrá en su bandeja dentro de las próximas 24 horas hábiles; si no lo ve, por favor revise la carpeta de correo no deseado antes de escribirnos.\n\n2. Como no hay ningún cambio de NIT ni de razón social, no hace falta nota crédito ni ninguna otra gestión. Si más adelante sí necesitara modificar esos datos, cuéntenos y le explicamos el procedimiento, que es distinto de un simple reenvío.\n\nSi al recibirla necesita algo más, quedamos atentos por este mismo medio.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "pedidos por canal correo",
+          "justificacion": "Reenvío de factura al mismo correo registrado, sin ningún cambio de razón social ni de NIT, de modo que no se activa la ventana de 24 horas de FAC-01 ni el criterio H08 de datos sensibles. Es un trámite administrativo rutinario que el sistema debe resolver solo. Se incluye para cubrir la franja de facturación y pagos de la distribución objetivo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Solicitud de reenvío de la factura electrónica del pedido BN-104988 al correo ya registrado, sin corrección de datos.",
+          "justificacion": "El cliente pide expresamente que se le reenvíe el archivo de la factura electrónica de un pedido identificado y entregado, y aclara que los datos fiscales son correctos. Es un trámite administrativo sobre un pedido cerrado, por lo que encaja en pedidos/facturacion sin competir con ninguna otra categoría. El tono es cordial y neutro, y no hay incidencia, defecto ni plazo incumplido, así que la prioridad es media.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Reenvío de factura procedente: FAC-01 lo permite sin trámite adicional porque no se piden cambios de datos, y PQR-01 fija 24 horas hábiles de respuesta.",
+          "justificacion": "FAC-01 establece que la factura electrónica validada ante la DIAN se envía al correo registrado, de modo que un reenvío al mismo correo es un trámite ordinario. La ventana de 24 h de FAC-01 solo restringe los cambios de razón social o NIT, y la clienta confirma que los datos están correctos, por lo que no se activa ni hace falta nota crédito. PQR-01 obliga a responder esta consulta en un máximo de 24 horas hábiles. No hay reglas de devolución ni de entrega en juego.",
+          "confianza": null,
+          "reglas": [
+            "FAC-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Reenvío de la factura electrónica al correo ya registrado del cliente: trámite administrativo que resuelve la IA.",
+          "justificacion": "H08 no se activa porque la clienta no pide cambiar titular, razón social, NIT ni cuenta de destino: los datos de la factura son correctos y el reenvío va al mismo correo registrado, sin exposición de datos a terceros. No hay reembolso ni compensación, así que H01 queda descartado, y la confianza de 0,95 descarta H06. La ventana de 24 h de FAC-01 solo sería relevante si pidiera modificar datos, que no es el caso.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se resolvió como lo que es, una gestión sencilla: la cliente solo pide una copia y no un cambio de NIT o razón social, así que la ventana de 24 horas de FAC-01 no se activa y se dice con claridad que no hace falta nota crédito. No se cita hora de emisión porque no consta en los datos del pedido y no se podía inventar. Se deja explícito que el reenvío va solo al correo registrado, por protección de los datos fiscales de la copropiedad, y se menciona el trámite del cambio de datos solo como información para el futuro, sin convertirlo en una negativa.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Verifiqué el importe de 1.275.000 COP y los dos productos contra las líneas del pedido BN-104988, y ambos coinciden. Comprobé que el borrador no inventa fecha ni hora de emisión de la factura, dato que no consta en el expediente, y que no exige nota crédito, coherente con que FAC-01 no se activa al no haber cambio de NIT ni de razón social. También revisé que el reenvío se limite al correo registrado y que el plazo anunciado sean las 24 horas hábiles de PQR-01, sin promesas adicionales; el tono es cercano y resolutivo y la firma es la de marca, así que se aprueba en la primera iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0017",
+      "recibidaEn": "2026-09-16T11:48:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0065",
+        "nombre": "Carlos Ramírez Rodríguez",
+        "ciudad": "Cartagena",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-105077",
+        "fecha": "2026-09-01",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-004",
+            "cantidad": 1,
+            "precioCOP": 340000
+          }
+        ],
+        "totalCOP": 340000,
+        "fechaEntrega": "2026-09-07"
+      },
+      "asunto": "Desistimiento del espejo del pedido BN-105077",
+      "mensaje": "Buenas tardes. Quiero desistir de la compra del espejo sin luz de 80x60 con marco negro, pedido BN-105077. Me llegó el 7 de septiembre y al ponerlo contra la pared nos dimos cuenta de que el marco negro no combina con el resto del baño.\n\nEl espejo sigue dentro de su caja original, no lo instalamos ni lo colgamos, tiene todos los tornillos y los soportes, y el embalaje está intacto. Prefiero que ustedes gestionen la recogida.\n\n¿Cuánto me devolverían después de descontar la recogida? Quedo atento para hacer lo que haga falta.",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Caja original cerrada con el precinto de fábrica intacto"
+        }
+      ],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.96,
+        "entidades": {
+          "numeroPedido": "BN-105077",
+          "sku": "BN-ESP-004",
+          "importeCOP": 340000,
+          "fechaEntrega": "2026-09-07",
+          "motivo": "el marco negro no combina con el baño",
+          "productoSinInstalar": true,
+          "embalajeOriginalIntacto": true,
+          "solicitaRecogidaPorLaEmpresa": true,
+          "preguntaImporteADevolver": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-10",
+          "DEV-13",
+          "DEV-14",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaEntrega": "2026-09-07",
+          "fechaHoy": "2026-09-16",
+          "diasCalendarioTranscurridos": 9,
+          "plazoDEV01DiasCalendario": 14,
+          "fechaLimiteDesistimiento": "2026-09-21",
+          "dentroDePlazo": true,
+          "diasRestantes": 5,
+          "sku": "BN-ESP-004",
+          "aMedida": false,
+          "requiereEstiba": true,
+          "tipologiaDevolucion": "espejos-sin-led",
+          "zona": "A",
+          "gastoRecogidaCOP": 113000,
+          "importePagadoCOP": 340000,
+          "reembolsoEstimadoCOP": 227000,
+          "porcentajeDescontado": 33.24,
+          "plazoReembolsoDiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Quedan 5 días del plazo de DEV-01: el límite es el 21 de septiembre de 2026 y la recogida debe autorizarse antes",
+          "DEV-07 exige estiba y fotos antes y después de embalar porque BN-ESP-004 tiene requiereEstiba true; el cliente solo aporta una foto de la caja precintada, falta la posterior al embalaje o el seguro de transporte no cubre daños",
+          "El gasto de recogida de 113.000 COP se lleva el 33 % del importe pagado; conviene informarlo por escrito antes de la recogida para evitar una queja posterior",
+          "DEV-13 permite que la tarifa varíe por factores externos, así que la cifra debe darse como estimada y comunicarse cualquier cambio antes de aplicarlo",
+          "Si el espejo llega con el vidrio roto, DEV-09 y DEV-07 abren la puerta a depreciación o a no reembolsar"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buen día, señor Carlos.\n\n¡Con mucho gusto le explicamos! Su solicitud de desistimiento sí procede: recibió el pedido BN-105077 el 7 de septiembre, hoy es el día 9 de los 14 días calendario que damos para desistir, y el espejo sigue sin instalar, en su caja original y con todos los tornillos y soportes. Tiene hasta el 21 de septiembre para confirmarnos.\n\nCuánto se le reembolsa:\n\n· Valor pagado: $ 340.000\n· Gastos de recogida (espejo sin LED, zona A): $ 113.000\n· Total a reembolsar: $ 227.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso. Esa tarifa es la vigente hoy y puede variar por factores externos, como el precio del combustible o las tarifas de la transportadora; si llegara a cambiar, se lo informamos antes de aplicarla.\n\nAntes de que embale, dos requisitos importantes. El espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin esas fotos, el seguro de transporte no cubre los daños y, si el espejo llega roto, no podríamos emitir el reembolso. La fotografía de la caja precintada que ya nos envió nos sirve como la de «antes»; nos faltaría la de «después», con el espejo listo sobre la estiba.\n\nCómo continuamos. Si nos confirma que sigue adelante, programamos la recogida con nuestra transportadora. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago con el que compró, en un máximo de 14 días calendario.\n\nSi prefiere gestionar usted mismo el envío, cuéntenos y le enviamos la dirección y las instrucciones.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buen día, señor Carlos.\n\n¡Con mucho gusto le explicamos! Su solicitud de desistimiento sí procede: recibió el pedido BN-105077 el 7 de septiembre, hoy es el día 9 de los 14 días calendario que damos para desistir, y el espejo sigue sin instalar, en su caja original y con todos los tornillos y soportes. Tiene hasta el 21 de septiembre para confirmarnos.\n\nCuánto se le reembolsa:\n\n· Valor pagado: $ 340.000\n· Gastos de recogida (espejo sin LED, zona A): $ 113.000\n· Total a reembolsar: $ 227.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso. Esa tarifa es la vigente hoy y puede variar por factores externos, como el precio del combustible o las tarifas de la transportadora; si llegara a cambiar, se lo informamos antes de aplicarla.\n\nAntes de que embale, dos requisitos importantes. El espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin esas fotos, el seguro de transporte no cubre los daños y, si el espejo llega roto, no podríamos emitir el reembolso. La fotografía de la caja precintada que ya nos envió nos sirve como la de «antes»; nos faltaría la de «después», con el espejo listo sobre la estiba.\n\nCómo continuamos. Si nos confirma que sigue adelante, programamos la recogida con nuestra transportadora. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago con el que compró, en un máximo de 14 días calendario.\n\nSi prefiere gestionar usted mismo el envío, cuéntenos y le enviamos la dirección y las instrucciones.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal formulario",
+          "justificacion": "Desistimiento de manual: día 9 de los 14 de DEV-01, producto sin instalar (DEV-02), embalaje original (DEV-03) y completo (DEV-04), y no es a medida (DEV-05). Solo hay que aplicar la tarifa de recogida de espejos sin LED en zona A y calcular el reembolso, que queda muy por debajo del umbral de H01. Comprueba que el sistema hace la aritmética de DEV-08 en lugar de escalar por defecto cualquier devolución.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Desistimiento voluntario del espejo BN-ESP-004 sin usar ni instalar, con recogida a cargo de la empresa y consulta del importe neto a devolver.",
+          "justificacion": "El cliente usa el término desistir y el motivo es puramente estético, no un defecto del producto, lo que descarta devolucion-defecto y garantia. Declara que el espejo sigue embalado, sin instalar y con todos los accesorios, y aporta foto del precinto intacto. La única pregunta añadida (cuánto se le devuelve tras descontar la recogida) forma parte del mismo trámite, así que no hay mezcla de temas y la confianza es alta.",
+          "confianza": 0.96,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Desistimiento procedente en el día 9 de 14; reembolso estimado de 227.000 COP tras descontar 113.000 COP de recogida.",
+          "justificacion": "Se cumple DEV-01 (día 9 de los 14 días calendario, con vencimiento el 21 de septiembre de 2026), DEV-02 y DEV-03 porque el espejo no se instaló y el embalaje sigue precintado, DEV-04 porque conserva tornillería y soportes, DEV-05 porque BN-ESP-004 no es a medida y DEV-06 porque el contacto previo llegó por el formulario web. La tabla de DEV-08 fija 113.000 COP para la tipología espejos-sin-led en zona A (Cartagena), de modo que sobre los 340.000 pagados el reembolso queda en 227.000, y DEV-14 confirma que esos costes los asume el cliente al no existir error de Bañolia ni defecto. DEV-07 obliga a estiba y fotos antes y después de embalar, y DEV-10 da 14 días calendario para reembolsar desde la verificación del producto.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-10",
+            "DEV-13",
+            "DEV-14",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Desistimiento en plazo del espejo BN-105077 con reembolso estimado de 227.000 COP tras la recogida: lo gestiona la IA.",
+          "justificacion": "El desistimiento entra en el día 9 de los 14 de DEV-01, con el producto sin instalar y el embalaje intacto, de modo que cumple la política y no hace falta excepción: H04 no aplica. El reembolso estimado de 227.000 COP está muy por debajo del umbral de H01 y la confianza de 0,96 descarta H06. La respuesta debe dejar por escrito que los 113.000 COP de recogida son estimados según DEV-13 y exigir las fotos de DEV-07 antes y después del embalaje.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se confirma el desistimiento y se desglosa el dinero línea por línea (340.000 pagados, 113.000 de recogida de espejos-sin-led en zona A y 227.000 a reembolsar) para que el cliente entienda por qué no recibe el importe completo, y se explica que el descuento procede de DEV-08 y DEV-14 al no haber error de Bañolia. Los requisitos de estiba y de fotografías antes y después de DEV-07 se anteponen al embalaje, no se dejan para después, y se le indica que la foto de la caja precintada cubre el «antes» y falta el «después». Se cierra con el siguiente paso, el plazo de 14 días calendario de DEV-10 y la fecha límite del 21 de septiembre de DEV-01, más la opción B de DEV-09 por si prefiere enviarlo él mismo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se recalcularon las cifras contra el análisis: 340.000 menos 113.000 dan los 227.000 anunciados, y la tarifa corresponde a la tipología espejos-sin-led en zona A. Se verificaron las fechas (entrega el 7 de septiembre, día 9 de 14, límite el 21 de septiembre) y que el plazo de reembolso citado sean los 14 días calendario de DEV-10, no uno menor. No hay promesas fuera de política, transportadoras con nombre ni fechas de entrega inventadas, y la advertencia de estiba y fotos aparece antes de que el cliente embale, como exige DEV-07. Se aprueba para envío.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0018",
+      "recibidaEn": "2026-09-16T13:12:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0033",
+        "nombre": "Diego Correa Castro",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "GANE HASTA 8 MILLONES SEMANALES DESDE SU CASA",
+      "mensaje": "!!!OPORTUNIDAD UNICA!!! Plataforma certificada de trading de criptomonedas con rendimientos GARANTIZADOS del 300% mensual. Cupos LIMITADOS. Escriba YA al numero que aparece en el enlace y un asesor le activa su cuenta en 10 minutos. NO DEJE PASAR ESTA OPORTUNIDAD. Retiros inmediatos. bit-inversion-rapida.example.com",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "ruido",
+        "rutaEsperada": "descartado"
+      },
+      "clasificacion": {
+        "categoria": "ruido",
+        "subcategoria": "spam",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.99,
+        "entidades": {
+          "enlaceSospechoso": "bit-inversion-rapida.example.com",
+          "reclamoPublicitario": "rendimientos garantizados del 300% mensual",
+          "relacionConElServicio": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [],
+        "cumple": null,
+        "calculos": {},
+        "riesgos": [
+          "El mensaje contiene un enlace externo de captación; no debe reenviarse ni abrirse desde equipos de la empresa",
+          "El remitente figura como CLI-0033 en la base de clientes con 0 pedidos previos: conviene verificar si la cuenta fue suplantada antes de descartar sin más"
+        ]
+      },
+      "decision": {
+        "ruta": "descartado",
+        "criterios": [
+          "D01"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": null,
+      "revision": null,
+      "respuestaFinal": null,
+      "estado": "descartado",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "ruido por canal formulario",
+          "justificacion": "Spam publicitario sin ninguna relación con el negocio, que entra por el formulario web asociado a un cliente registrado. Corresponde al descarte automático D01: se registra con su justificación y no se responde. Es el único supuesto del sistema en el que no interviene ni la IA redactora ni una persona.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Publicidad no solicitada de una supuesta plataforma de trading de criptomonedas con enlace externo; descarte automático.",
+          "justificacion": "El mensaje es publicidad masiva con mayúsculas, promesas de rendimiento garantizado, urgencia artificial y un enlace de captación, patrón inequívoco de spam. No hay pedido asociado ni ninguna petición dirigida a Bañolia. Se clasifica como ruido/spam y no como fuera-de-ambito porque no es un mensaje legítimo ajeno al servicio, sino correo basura.",
+          "confianza": 0.99,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Spam publicitario sin relación con el servicio: no hay ninguna regla de política en juego.",
+          "justificacion": "El mensaje no contiene petición alguna sobre un pedido, un producto ni una factura de Bañolia, por lo que no se activa ninguna regla de devoluciones, envíos, facturación ni PQR. Al no haber política aplicable, `cumple` es null y `reglasAplicables` queda vacío. El único elemento a registrar es de seguridad, no de política comercial.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Spam de captación para inversión en criptomonedas, sin relación con el negocio: se descarta sin responder.",
+          "justificacion": "El mensaje es publicidad de una supuesta plataforma de trading con rendimientos garantizados del 300 % mensual y un enlace externo de captación, sin ninguna relación con baños, pedidos ni servicio al cliente. Encaja exactamente en D01 y no en H11, que está reservado a mensajes legítimos fuera de ámbito como hojas de vida u ofertas de proveedores. Se registra con su justificación y no se responde; queda anotado que el remitente figura como CLI-0033 con 0 pedidos, por si procede revisar una posible suplantación por la vía interna.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "D01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0019",
+      "recibidaEn": "2026-09-16T14:30:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0111",
+        "nombre": "Óscar Cortés Quintero",
+        "ciudad": "Pereira",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104871",
+        "fecha": "2026-08-25",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-PLA-001",
+            "cantidad": 1,
+            "precioCOP": 980000
+          }
+        ],
+        "totalCOP": 980000,
+        "fechaEntrega": "2026-09-01"
+      },
+      "asunto": "Devolución del plato de ducha del pedido BN-104871",
+      "mensaje": "Buenas tardes.\n\nLes escribo por el plato de ducha de resina 120x70 en blanco del pedido BN-104871, que recibí el 1 de septiembre. El maestro nos dijo la semana pasada que el desagüe del apartamento queda del otro lado y que ese plato no nos sirve, pero entre el puente y unas vueltas del trabajo se me pasó escribirles antes.\n\nEl plato está sin abrir, en su caja y sobre la estiba en la que llegó, tal cual quedó el día de la entrega. Sé que ya me pasé de los 14 días, es culpa mía, pero llevo comprando con ustedes desde hace rato y les pido que por favor miren si me pueden recibir la devolución.\n\nGracias por su comprensión.\nÓscar Cortés",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Plato de ducha embalado sobre su estiba, con la caja sin abrir"
+        }
+      ],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.94,
+        "entidades": {
+          "numeroPedido": "BN-104871",
+          "sku": "BN-PLA-001",
+          "importeCOP": 980000,
+          "fechaEntrega": "2026-09-01",
+          "diasCalendarioDesdeEntrega": 15,
+          "motivo": "el desagüe del apartamento queda del otro lado, el plato no le sirve",
+          "productoSinAbrir": true,
+          "embalajeOriginalIntacto": true,
+          "reconoceFueraDePlazo": true,
+          "apelaAntiguedadComoCliente": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-10",
+          "DEV-13",
+          "DEV-14",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "fechaEntrega": "2026-09-01",
+          "fechaHoy": "2026-09-16",
+          "diasCalendarioTranscurridos": 15,
+          "plazoDEV01DiasCalendario": 14,
+          "fechaLimiteDesistimiento": "2026-09-15",
+          "dentroDePlazo": false,
+          "diasDeExceso": 1,
+          "minimoLegalDiasHabiles": 5,
+          "fechaLimiteMinimoLegal": "2026-09-08",
+          "diasHabilesTranscurridos": 11,
+          "sku": "BN-PLA-001",
+          "aMedida": false,
+          "requiereEstiba": true,
+          "tipologiaDevolucion": "platos-ducha",
+          "zona": "A",
+          "gastoRecogidaCOP": 248000,
+          "importePagadoCOP": 980000,
+          "reembolsoSiSeAceptaraExcepcionCOP": 732000,
+          "plazoReembolsoDiasCalendario": 14,
+          "pedidosPreviosCliente": 3,
+          "valorHistoricoClienteCOP": 6889000
+        },
+        "riesgos": [
+          "Incumplimiento de DEV-01 por un solo día: el plazo venció el 15 de septiembre de 2026 y la solicitud entra el 16, motivo atendible que el enrutador puede valorar bajo H04",
+          "También está vencido el mínimo legal de 5 días hábiles de la Ley 1480 de 2011 que cita DEV-01, que expiraba el 8 de septiembre de 2026, así que no hay respaldo legal al que acogerse",
+          "Todos los demás requisitos se cumplen (DEV-02, DEV-03, DEV-04, DEV-05), lo que hace la negativa difícil de sostener ante el cliente y aumenta el riesgo de queja",
+          "Cliente recurrente CLI-0111 con 3 pedidos previos y 6.889.000 COP de histórico; una negativa seca tiene coste de relación",
+          "Aceptar por un día sienta precedente sobre la rigidez del plazo de DEV-01 y debe documentarse como excepción, no como criterio",
+          "Si se acepta, DEV-07 exige estiba y fotos antes y después porque BN-PLA-001 tiene requiereEstiba true, y DEV-14 mantiene el gasto a cargo del cliente por no haber error de Bañolia"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H04"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "¿Se acepta como excepción la devolución del plato BN-PLA-001 presentada un día después de vencer el plazo de 14 días de DEV-01, con el gasto de recogida de 248.000 COP a cargo del cliente?",
+          "opciones": [
+            "Aceptar la excepción y autorizar la recogida con reembolso de 732.000 COP, documentándola como caso puntual y no como criterio",
+            "Aceptar la excepción pero sin recogida a domicilio: el cliente lleva el plato al punto acordado y se le reembolsan los 980.000 COP íntegros",
+            "Denegar por incumplimiento de DEV-01 y ofrecer una alternativa comercial, como el cambio por un plato con el desagüe del lado correcto o un bono equivalente",
+            "Denegar la devolución sin contrapartida, amparándose en que también venció el mínimo legal de 5 días hábiles"
+          ],
+          "riesgos": [
+            "El exceso es de un solo día y todos los demás requisitos de DEV-02 a DEV-05 se cumplen (caja sin abrir, sobre su estiba original), lo que hace la negativa difícil de sostener ante el cliente y eleva el riesgo de queja formal",
+            "El mínimo legal de 5 días hábiles de la Ley 1480 de 2011 expiró el 8 de septiembre, así que no hay obligación legal: lo que se decide es una concesión comercial, no un derecho del cliente",
+            "Cliente recurrente con 3 pedidos y 6.889.000 COP de histórico; una negativa seca tiene coste de relación desproporcionado frente al importe en juego",
+            "Aceptar sienta precedente sobre la rigidez del plazo de DEV-01 y debe quedar documentado como excepción para que no se invoque en casos futuros",
+            "Si se acepta, DEV-07 exige estiba y fotos antes y después de embalar, y DEV-14 mantiene el gasto de recogida a cargo del cliente por no haber error de Bañolia"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Óscar.\n\nGracias por escribirnos y por contarnos con tanta claridad lo que pasó con el plato de ducha del pedido BN-104871.\n\nLe confirmamos lo que tenemos verificado hasta ahora. El pedido se entregó el 1 de septiembre, y el plazo de 14 días calendario que damos para desistir venció el 15 de septiembre, de modo que su solicitud entró un día después; por eso no podemos resolverla de forma automática. También le confirmamos que las demás condiciones sí las cumple: el plato está sin abrir, en su embalaje original y sobre la estiba en la que llegó, tal como se ve en la fotografía que nos envió.\n\nSu caso ya está en manos de una persona de nuestro equipo, que lo revisará y se comunicará con usted dentro de las próximas 24 horas hábiles.\n\nMientras tanto le pedimos un favor: conserve el plato tal como está, sin abrir la caja y sobre su estiba, y guarde la fotografía que nos envió. El estado del producto es determinante para cualquier alternativa que podamos ofrecerle.\n\nGracias por su confianza y por la paciencia mientras revisamos su caso.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Borrador sugerido para la ruta humano: sirve como punto de partida para la persona que atienda el caso, no debe enviarse de forma automática."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal correo",
+          "justificacion": "Caso límite deliberado: la entrega fue el 1 de septiembre, así que el plazo de 14 días calendario de DEV-01 venció el 15 y la solicitud llega en el día 15, un solo día tarde. Todo lo demás cumple: sin abrir, embalaje original, no es a medida. Es el supuesto exacto de H04, excepción a la política con motivo atendible, y sirve para comprobar que el sistema no la resuelve ni concediéndola ni negándola por su cuenta.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Desistimiento del plato de ducha BN-PLA-001 sin abrir, presentado a los 15 días de la entrega y por tanto fuera del plazo, con petición de excepción.",
+          "justificacion": "El cliente pide devolver un producto que no le sirve por un problema de distribución de su baño, no por un defecto, lo que lo sitúa en desistimiento y no en devolucion-defecto. Él mismo reconoce que se pasó de los 14 días y pide que se valore una excepción por antigüedad como cliente. La intención es inequívoca, así que la confianza es alta; que el plazo esté vencido es una cuestión de política, no de clasificación.",
+          "confianza": 0.94,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Desistimiento fuera de plazo por un día: DEV-01 no se cumple, aunque DEV-02 a DEV-05 sí; de aceptarse como excepción, el reembolso sería de 732.000 COP.",
+          "justificacion": "DEV-01 concede 14 días calendario desde la recepción: la entrega fue el 1 de septiembre de 2026 y el plazo venció el 15, mientras que la solicitud llega el 16, es decir, el día 15 y con un día de exceso, por lo que `cumple` es false. El mínimo legal de 5 días hábiles de la Ley 1480 de 2011 que la propia DEV-01 menciona también está vencido desde el 8 de septiembre. El resto de condiciones sí se satisfacen: DEV-02 y DEV-03 (sin abrir, en caja y sobre su estiba), DEV-04 (completo), DEV-05 (BN-PLA-001 no es a medida) y DEV-06 (contacto previo). Si se concediera la excepción, la tabla de DEV-08 descuenta 248.000 COP por la tipología platos-ducha en zona A (Pereira) sobre los 980.000 pagados, dejando 732.000 COP, con DEV-14 cargando el coste al cliente y DEV-10 dando 14 días calendario para el reembolso.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-10",
+            "DEV-13",
+            "DEV-14",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Desistimiento un día fuera de plazo de un cliente recurrente: escala a una persona para decidir la excepción.",
+          "justificacion": "H04 se activa con las dos señales que el criterio describe: el plazo de DEV-01 venció el 15 de septiembre y la solicitud entra el 16, un solo día de exceso, y el solicitante es cliente recurrente con 3 pedidos y 6.889.000 COP de histórico. No es un caso de política poco clara, sino de política clara que el caso incumple por margen mínimo con un motivo atendible, que es justo el supuesto de H04. No se activa H01, porque el reembolso de 732.000 COP no llega al umbral de 1.500.000, ni H06, con confianza de 0,94. El SLA es de 24 horas por no haber riesgo físico, reclamación formal, fraude ni cliente estratégico.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H04"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Al ir por ruta humano el texto acusa recibo y solo afirma hechos verificables: la entrega del 1 de septiembre, el vencimiento del plazo de DEV-01 el 15 de septiembre y el cumplimiento del resto de condiciones (DEV-02 a DEV-05). No se promete la excepción ni se anticipan cifras de reembolso o de recogida, porque esa decisión está reservada a la persona. Se anuncia el contacto dentro de las 24 horas hábiles del SLA y se pide conservar el plato sin abrir y sobre su estiba, que es lo único que el cliente puede hacer ahora y condiciona cualquier alternativa.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se comprobó que el borrador no cierra la decisión reservada a la persona: no promete la excepción de plazo, no cuantifica el reembolso de 732.000 ni el gasto de recogida de 248.000, y no compromete una recogida. Las fechas coinciden con los cálculos del analista (entrega 1 de septiembre, límite 15 de septiembre, un día de exceso) y el plazo anunciado son las 24 horas hábiles del SLA y de PQR-01. El tono reconoce lo que el cliente sí cumple sin lenguaje jurídico defensivo y la firma es la de marca. Se aprueba como punto de partida.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260916-0020",
+      "recibidaEn": "2026-09-16T15:52:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0044",
+        "nombre": "Nicolás Bedoya Ospina",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104702",
+        "fecha": "2026-08-24",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-PLA-003",
+            "cantidad": 1,
+            "precioCOP": 1050000
+          }
+        ],
+        "totalCOP": 1050000,
+        "fechaEntrega": "2026-09-02"
+      },
+      "asunto": "Fisura en el plato de ducha del pedido BN-104702",
+      "mensaje": "buenas tardes, les escribo por el plato de ducha negro de 100x80 del pedido BN-104702. el maestro lo instalo la semana pasada y hoy cuando destapamos la obra le vimos una fisura en toda la esquina del desague, como de 15 cm. no sabemos si venia asi de fabrica, si se golpeo en el camion o si el maestro le metio mucha fuerza al pegarlo. el dia que lo recibimos firmamos la guia normal porque la caja se veia bien por fuera y no revisamos. les mando fotos. que procede en este caso?",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Fisura de unos 15 cm en la esquina del desagüe, con el plato ya instalado y emboquillado"
+        },
+        {
+          "tipo": "foto",
+          "descripcion": "Vista general del plato instalado con la ducha todavía sin enchapar"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-danado",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.64,
+        "entidades": {
+          "numeroPedido": "BN-104702",
+          "sku": "BN-PLA-003",
+          "importeCOP": 1050000,
+          "fechaEntrega": "2026-09-02",
+          "defectoReportado": "fisura de unos 15 cm en la esquina del desagüe",
+          "productoYaInstalado": true,
+          "fechaDeteccion": "2026-09-16",
+          "diasCalendarioDesdeEntrega": 14,
+          "guiaFirmadaSinReserva": true,
+          "causaIndeterminada": true,
+          "riesgoFisico": false,
+          "temasSecundarios": [
+            "devolucion-defecto",
+            "garantia"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-02",
+          "DEV-02",
+          "DEV-14",
+          "GAR-01",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "fechaEntrega": "2026-09-02",
+          "fechaHoy": "2026-09-16",
+          "diasCalendarioDesdeEntrega": 14,
+          "horasDesdeEntrega": 336,
+          "plazoReporteDanoTransporteHoras": 48,
+          "dentroDePlazoENV02": false,
+          "excesoHoras": 288,
+          "novedadAnotadaEnGuia": false,
+          "fotosAportadas": 2,
+          "productoInstalado": true,
+          "sku": "BN-PLA-003",
+          "importePagadoCOP": 1050000,
+          "garantiaMesesProducto": 24,
+          "mesesTranscurridosDesdeEntrega": 0,
+          "dentroDeGarantia": true,
+          "plazoReclamacionFormalDiasHabiles": 15,
+          "diasHabilesDesdeEntrega": 10,
+          "pedidosPreviosCliente": 2,
+          "valorHistoricoClienteCOP": 3801000
+        },
+        "riesgos": [
+          "La causa de la fisura está en disputa entre defecto de fábrica, golpe en transporte y fuerza excesiva del instalador; sin peritaje no hay forma de imputar responsabilidad",
+          "La vía de ENV-02 está cerrada por partida doble: 336 horas frente a las 48 del plazo y guía firmada sin novedad, que es la prueba exigida para reclamar al seguro",
+          "DEV-02 excluye la devolución porque el plato ya está instalado y emboquillado; desmontarlo no lo reintegra al supuesto",
+          "GAR-01 cubre 24 meses pero excluye expresamente la mala instalación y los golpes posteriores a la entrega, justo las dos hipótesis que el propio cliente plantea",
+          "La obra está detenida sin enchapar y el importe es de 1.050.000 COP; una negativa sin peritaje puede derivar en reclamación formal, que PQR-01 obliga a resolver en 15 días hábiles",
+          "Si el peritaje concluye defecto de fábrica, DEV-14 obliga a Bañolia a asumir la totalidad de los costes, incluida la reposición"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H05",
+          "H06"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "¿Bañolia asume la reposición del plato BN-PLA-003 antes de determinar la causa de la fisura, o condiciona cualquier solución a un peritaje técnico previo?",
+          "opciones": [
+            "Peritaje técnico en sitio (visita en 24-48 h) y solución condicionada a su resultado, informando al cliente del plazo y de las tres hipótesis",
+            "Reposición inmediata del plato como gesto comercial, sin reconocer responsabilidad, y reclamación posterior al fabricante o al instalador",
+            "Solución repartida: Bañolia aporta el plato de reposición y el cliente asume la mano de obra de desmontaje y reinstalación",
+            "Denegar amparándose en el vencimiento de ENV-02, la guía firmada sin novedad y la exclusión de instalación de GAR-01"
+          ],
+          "riesgos": [
+            "La causa está genuinamente en disputa entre defecto de fábrica, golpe en transporte y fuerza excesiva del instalador, y solo un peritaje puede imputar responsabilidad",
+            "La vía de ENV-02 está cerrada por partida doble: 336 horas frente al plazo de 48 y guía firmada sin novedad, que es la prueba que exige el seguro de transporte",
+            "DEV-02 excluye la devolución porque el plato ya está instalado y emboquillado, y GAR-01, aunque cubre 24 meses, excluye la mala instalación y los golpes posteriores a la entrega",
+            "La obra está detenida sin enchapar: cada día de demora aumenta el perjuicio del cliente y la probabilidad de una reclamación formal, que PQR-01 obliga a resolver en 15 días hábiles",
+            "Si el peritaje concluye defecto de fábrica, DEV-14 obliga a Bañolia a asumir la totalidad de los costes, incluida la reposición, por lo que denegar de plano ahora puede salir más caro después"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Nicolás.\n\nLamentamos lo que ocurrió con el plato de ducha del pedido BN-104702 y entendemos lo incómodo que resulta con la obra detenida.\n\nLas dos fotografías que nos envió ya quedaron incorporadas a su caso. Le agradecemos conservarlas y, por ahora, no intervenir el plato ni continuar con el enchape de la ducha: que la fisura pueda revisarse tal como está hoy es lo que más ayuda a determinar su origen.\n\nHemos clasificado su caso como prioritario y ya está en manos de una persona de nuestro equipo, que se comunicará con usted dentro de las próximas 24 horas hábiles.\n\nLe contamos con franqueza en qué punto estamos. El plato está dentro de los 24 meses de garantía, eso no está en discusión. Lo que todavía no se puede determinar es la causa de la fisura: usted mismo plantea tres posibilidades, un defecto de fábrica, un golpe durante el transporte o la fuerza aplicada al instalarlo, y la garantía cubre el defecto de fábrica pero no la instalación defectuosa ni los golpes posteriores a la entrega. Por eso la persona que tome su caso necesita establecer primero el origen antes de definir la solución; preferimos no adelantarle una salida que después no podamos sostener.\n\nPara esa revisión nos ayuda mucho que, cuando se comuniquen con usted, nos indique la fecha en que se instaló el plato, quién hizo la instalación y, si las tienen, fotografías adicionales de la esquina del desagüe y del plato antes de emboquillarlo.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Borrador sugerido para la ruta humano: sirve como punto de partida para la persona que atienda el caso, no debe enviarse de forma automática."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal whatsapp",
+          "justificacion": "Caso límite claro de H05: no se puede saber si la fisura es de fabricación, de transporte o de instalación, y decidirlo exige valorar las fotos y el proceder del instalador. Además la guía se firmó sin novedad y ya pasaron las 48 horas de ENV-02, así que negar sin más también sería arriesgado. El importe de 1.050.000 COP queda por debajo de H01 para que el escalado dependa del criterio técnico y no del dinero.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Fisura de 15 cm detectada tras la instalación de un plato de ducha entregado el 2 de septiembre, con causa indeterminada entre fábrica, transporte e instalación.",
+          "justificacion": "El cliente reporta un producto dañado y aporta dos fotos, lo que apunta a incidencias/producto-danado. La confianza baja a 0,64 porque el caso encaja igual de bien en devoluciones bajo devolucion-defecto o garantia: el daño se detecta ya instalado, catorce días después de la entrega y con la guía firmada sin reserva, y el propio cliente admite que no sabe si venía de fábrica, se golpeó en el transporte o lo causó el maestro. Esa ambigüedad es de categoría, no de gravedad; la prioridad es alta por el importe y por la obra detenida.",
+          "confianza": 0.64,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Fisura reportada a las 336 horas de la entrega, con el plato ya instalado y la guía firmada sin novedad: ENV-02 y DEV-02 no se cumplen y solo queda la vía de GAR-01 previo peritaje.",
+          "justificacion": "ENV-02 exige reportar los daños de transporte en un máximo de 48 horas desde la entrega y dejar la novedad anotada en la guía; aquí han pasado 336 horas desde el 2 de septiembre de 2026, un exceso de 288 horas, y el cliente reconoce haber firmado la guía sin reserva, por lo que esa vía queda cerrada y `cumple` es false. DEV-02 impide además cualquier devolución porque el plato ya está instalado y emboquillado, aunque se desmonte después. Queda abierta GAR-01, cuya garantía de 24 meses está plenamente vigente sobre BN-PLA-003, pero excluye los daños por mala instalación y los golpes posteriores a la entrega, que son dos de las tres hipótesis de causa; hace falta peritaje para determinarla. Si ese peritaje concluyera defecto de fábrica, DEV-14 obligaría a Bañolia a asumir la totalidad de los costes, y PQR-01 fija 15 días hábiles si el caso escala a reclamación formal.",
+          "confianza": null,
+          "reglas": [
+            "ENV-02",
+            "DEV-02",
+            "DEV-14",
+            "GAR-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Fisura de causa indeterminada en un plato ya instalado, con baja confianza del clasificador: escala a una persona.",
+          "justificacion": "H05 se activa de forma inequívoca: el propio cliente plantea tres hipótesis de responsabilidad (fabricación, transporte e instalación) y decidir entre ellas exige valorar fotos y, previsiblemente, un peritaje. También se activa H06, porque la confianza del clasificador es 0,64, por debajo del umbral de 0,75. No se activa H03, ya que la ficha marca riesgoFisico false y no hay vidrio estallado, lesión ni fuga, ni H01, porque el importe de 1.050.000 COP no alcanza el umbral. El SLA se mantiene en 24 horas al no concurrir riesgo físico, reclamación formal, fraude ni cliente estratégico.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H05",
+            "H06"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se evita el saludo alegre porque hay un daño de por medio y la obra está detenida. Solo se afirma lo verificable: la vigencia de los 24 meses de garantía de GAR-01 y sus exclusiones de instalación defectuosa y golpes posteriores, sin atribuir responsabilidad ni prometer reposición, peritaje ni fecha, porque esa decisión corresponde a la persona escalada por H05 y H06. Se pide conservar el plato sin intervenir y sin continuar el enchape para preservar la evidencia, y se anuncia el contacto dentro de las 24 horas hábiles del SLA.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se verificó que el borrador no promete reposición, ni peritaje, ni compensación, ni fecha distinta del SLA de 24 horas hábiles, que es lo que exige la ruta humano con H05 y H06. La cobertura de 24 meses que se afirma coincide con el dato del analista (garantía vigente, 0 meses transcurridos) y las exclusiones citadas son literalmente las de GAR-01, sin inventar procedimientos ni nombres de transportadora. No se activó H03 y el riesgo físico está marcado como falso, así que no procedía una instrucción de seguridad de apertura. Se aprueba como punto de partida.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    }
+  ]
+}

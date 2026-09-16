@@ -7,6 +7,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 1890000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -19,6 +20,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 2240000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -31,6 +33,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 1420000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -43,6 +46,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 2680000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -55,6 +59,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 1980000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -67,6 +72,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 4350000,
     "aMedida": true,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 25,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -79,6 +85,7 @@
     "tipologiaDevolucion": "muebles-bano",
     "precioCOP": 5900000,
     "aMedida": true,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 28,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -91,6 +98,7 @@
     "tipologiaDevolucion": "columnas-auxiliares",
     "precioCOP": 1150000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -103,6 +111,7 @@
     "tipologiaDevolucion": "columnas-auxiliares",
     "precioCOP": 940000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -115,6 +124,10 @@
     "tipologiaDevolucion": "mamparas-con-flejes",
     "precioCOP": 1680000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      115,
+      120
+    ],
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -127,6 +140,10 @@
     "tipologiaDevolucion": "mamparas-con-flejes",
     "precioCOP": 1940000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      135,
+      140
+    ],
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -139,6 +156,10 @@
     "tipologiaDevolucion": "mamparas-con-flejes",
     "precioCOP": 2180000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      85,
+      90
+    ],
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -151,6 +172,10 @@
     "tipologiaDevolucion": "mamparas-con-flejes",
     "precioCOP": 2340000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      75,
+      80
+    ],
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -163,6 +188,10 @@
     "tipologiaDevolucion": "mamparas-sin-flejes",
     "precioCOP": 1290000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      95,
+      100
+    ],
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -175,6 +204,10 @@
     "tipologiaDevolucion": "mamparas-sin-flejes",
     "precioCOP": 1620000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      115,
+      120
+    ],
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -187,6 +220,7 @@
     "tipologiaDevolucion": "mamparas-sin-flejes",
     "precioCOP": 2480000,
     "aMedida": true,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 22,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -199,6 +233,10 @@
     "tipologiaDevolucion": "mamparas-con-flejes",
     "precioCOP": 1560000,
     "aMedida": false,
+    "rangoAjusteCm": [
+      145,
+      150
+    ],
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -211,6 +249,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 980000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -223,6 +262,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 1280000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -235,6 +275,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 1050000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -247,6 +288,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 2260000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -259,6 +301,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 2740000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -271,6 +314,7 @@
     "tipologiaDevolucion": "platos-ducha",
     "precioCOP": 3180000,
     "aMedida": true,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 26,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -283,6 +327,7 @@
     "tipologiaDevolucion": "lavabos-1-seno",
     "precioCOP": 420000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -295,6 +340,7 @@
     "tipologiaDevolucion": "lavabos-1-seno",
     "precioCOP": 560000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -307,6 +353,7 @@
     "tipologiaDevolucion": "lavabos-1-seno",
     "precioCOP": 480000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -319,6 +366,7 @@
     "tipologiaDevolucion": "lavabos-1-seno",
     "precioCOP": 1340000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -331,6 +379,7 @@
     "tipologiaDevolucion": "lavabos-2-senos",
     "precioCOP": 2180000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -343,6 +392,7 @@
     "tipologiaDevolucion": "lavabos-2-senos",
     "precioCOP": 2560000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -355,6 +405,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 320000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -367,6 +418,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 480000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -379,6 +431,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 620000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -391,6 +444,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 390000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -403,6 +457,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 890000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -415,6 +470,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 1240000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -427,6 +483,7 @@
     "tipologiaDevolucion": "columnas-hidromasaje",
     "precioCOP": 1480000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 36
@@ -439,6 +496,7 @@
     "tipologiaDevolucion": "columnas-hidromasaje",
     "precioCOP": 2380000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 36
@@ -451,6 +509,7 @@
     "tipologiaDevolucion": "griferia",
     "precioCOP": 285000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 36
@@ -463,6 +522,7 @@
     "tipologiaDevolucion": "espejos-led",
     "precioCOP": 780000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -475,6 +535,7 @@
     "tipologiaDevolucion": "espejos-led",
     "precioCOP": 1120000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -487,6 +548,7 @@
     "tipologiaDevolucion": "espejos-led",
     "precioCOP": 860000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -499,6 +561,7 @@
     "tipologiaDevolucion": "espejos-sin-led",
     "precioCOP": 340000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -511,6 +574,7 @@
     "tipologiaDevolucion": "espejos-sin-led",
     "precioCOP": 290000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -523,6 +587,7 @@
     "tipologiaDevolucion": "espejos-sin-led",
     "precioCOP": 520000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -535,6 +600,7 @@
     "tipologiaDevolucion": "inodoros",
     "precioCOP": 1180000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -547,6 +613,7 @@
     "tipologiaDevolucion": "inodoros",
     "precioCOP": 760000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -559,6 +626,7 @@
     "tipologiaDevolucion": "inodoros",
     "precioCOP": 790000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -571,6 +639,7 @@
     "tipologiaDevolucion": "inodoros",
     "precioCOP": 940000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -583,6 +652,7 @@
     "tipologiaDevolucion": "bides",
     "precioCOP": 680000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -595,6 +665,7 @@
     "tipologiaDevolucion": "bides",
     "precioCOP": 540000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 6,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -607,6 +678,7 @@
     "tipologiaDevolucion": "baneras",
     "precioCOP": 4680000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -619,6 +691,7 @@
     "tipologiaDevolucion": "baneras",
     "precioCOP": 4120000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 12,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -631,6 +704,7 @@
     "tipologiaDevolucion": "baneras",
     "precioCOP": 1980000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 10,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -643,6 +717,7 @@
     "tipologiaDevolucion": "baneras",
     "precioCOP": 6450000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 15,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -655,6 +730,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 245000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -667,6 +743,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 68000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 3,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -679,6 +756,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 185000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 4,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -691,6 +769,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 320000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 5,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -703,6 +782,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 95000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 3,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -715,6 +795,7 @@
     "tipologiaDevolucion": "accesorios",
     "precioCOP": 78000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 3,
     "requiereEstiba": false,
     "garantiaMeses": 24
@@ -727,6 +808,7 @@
     "tipologiaDevolucion": "radiadores",
     "precioCOP": 680000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -739,6 +821,7 @@
     "tipologiaDevolucion": "radiadores",
     "precioCOP": 1140000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
@@ -751,6 +834,7 @@
     "tipologiaDevolucion": "radiadores",
     "precioCOP": 890000,
     "aMedida": false,
+    "rangoAjusteCm": null,
     "plazoEntregaDiasHabiles": 8,
     "requiereEstiba": true,
     "garantiaMeses": 24
