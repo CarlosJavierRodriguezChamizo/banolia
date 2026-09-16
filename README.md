@@ -61,8 +61,10 @@ El modo programado publica **4 lotes de 10 solicitudes**. El tamaño está param
 
 ## Estado
 
-Fases 1 y 2 completadas: esqueleto, datos ficticios, esquemas, validador, vistas de tablero
-y detalle, los ocho subagentes de `.claude/agents/` y la rutina de `orquestador/RUTINA.md`.
+Fases 1 a 3 completadas: esqueleto, datos ficticios, esquemas y validador; los ocho
+subagentes de `.claude/agents/` y la rutina de `orquestador/RUTINA.md`; y la web completa
+con tablero filtrable, secciones, detalle con la línea de tiempo de los agentes, cola humana
+con semáforo de SLA, historial de lotes y la página «Cómo funciona».
 
 Las guías de montaje para el profesor y de «constrúyelo tú» para los alumnos, junto con el
 prompt de la rutina, se añaden en la fase 5.

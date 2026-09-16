@@ -15,14 +15,18 @@ const rutaActual = Astro.url.pathname;
 
 const navegacion = [
   { href: '/', texto: 'Tablero' },
+  { href: '/seccion/pedidos', texto: 'Secciones' },
   { href: '/humano', texto: 'Cola humana' },
   { href: '/lotes', texto: 'Lotes' },
   { href: '/metricas', texto: 'Métricas' },
   { href: '/como-funciona', texto: 'Cómo funciona' },
 ];
 
+// Se compara el primer segmento de la ruta, para que «Secciones» quede marcado
+// en cualquiera de las secciones, no solo en la que apunta el enlace.
+const primerSegmento = (ruta: string) => ruta.split('/')[1] ?? '';
 const esActiva = (href: string) =>
-  href === '/' ? rutaActual === '/' : rutaActual.startsWith(href);
+  href === '/' ? rutaActual === '/' : primerSegmento(href) === primerSegmento(rutaActual);
 ---
 
 <!doctype html>

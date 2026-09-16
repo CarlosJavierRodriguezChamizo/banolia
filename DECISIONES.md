@@ -211,3 +211,37 @@ decirlo y ofrecer confirmarlo en lugar de deducir un rango a partir de la medida
 Lección: cuando un agente necesita un dato para responder bien, la solución no es prohibirle
 responder, sino poner el dato en los datos. Un valor inventado que suena verosímil es más
 peligroso que una respuesta incompleta, porque nadie lo verifica.
+
+## Fase 3 — Web completa
+
+**D-29. Los filtros se resuelven en el servidor, no con JavaScript.** El tablero y las
+secciones usan un formulario GET normal. Así los filtros funcionan sin scripts, se pueden
+compartir por enlace, quedan en el historial del navegador y no hay estado que sincronizar.
+La web entera sigue sin una sola línea de JavaScript de cliente.
+
+**D-30. La página «Cómo funciona» lee las fichas de `.claude/agents/*.md`.** No hay una copia
+de la documentación que pueda quedarse desfasada: lo que se explica en clase es exactamente
+lo que ejecuta el orquestador. Se comprobó que Vite resuelve el glob pese a estar el
+directorio oculto por el punto inicial, que era el riesgo.
+
+**D-31. Las secciones muestran todo el histórico por defecto; el tablero, 7 días.** Son usos
+distintos: el tablero responde a «qué está pasando ahora» y las secciones a «encuéntrame
+aquel caso». Un filtro de 7 días en un listado de consulta esconde justo lo que se busca.
+
+**D-32. Desbordamiento horizontal en móvil por `min-width: auto`.** Detectado con Chromium a
+390 px: el detalle de una cotización se salía 238 px de la pantalla. La causa era una cadena
+de 250 caracteres sin espacios (el volcado con `JSON.stringify` de las líneas de la
+cotización) que ensanchaba la columna, porque los elementos de una rejilla CSS tienen
+`min-width: auto` por defecto y no se encogen por debajo de su contenido.
+
+Se corrigieron las dos cosas: `min-w-0` en las columnas, que es la protección estructural
+frente a cualquier texto largo futuro, y una presentación propia de los cálculos en lugar del
+volcado JSON. Ahora los importes salen como `$ 6.660.000`, los booleanos como «sí» y «no»,
+los rangos como «3 a 8» y las listas de líneas una por renglón. El arreglo de maquetación
+mejoró además lo que se ve en clase, que es donde esos cálculos se miran de verdad.
+
+**D-33. La comprobación del navegador es parte de la aceptación, no un extra.** El criterio
+de la fase pedía navegación en móvil y sin errores de consola, así que se verificó con
+Chromium en 390 px y 1280 px sobre nueve rutas, midiendo desbordamiento horizontal, errores
+de consola y enlaces de navegación alcanzables. El único fallo real de la fase salió de ahí,
+y no se habría visto revisando el código.

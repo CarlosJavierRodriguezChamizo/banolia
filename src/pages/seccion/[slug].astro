@@ -1,0 +1,87 @@
+---
+/**
+ * Listado de una sección concreta (pedidos, incidencias, devoluciones...).
+ */
+import Base from '../../layouts/Base.astro';
+import FilaSolicitud from '../../components/FilaSolicitud.astro';
+import Filtros from '../../components/Filtros.astro';
+import {
+  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo, sinReferencia,
+} from '../../lib/datos.ts';
+import { ETIQUETA_CATEGORIA, ETIQUETA_ESTADO, SECCIONES } from '../../lib/formato.ts';
+import { leerFiltros, aplicarFiltros } from '../../lib/filtros.ts';
+import type { Categoria } from '../../lib/esquemas.ts';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const seccionesValidas = [...SECCIONES, 'ruido'];
+
+if (!slug || !seccionesValidas.includes(slug as never)) {
+  return new Response('Sección no encontrada', { status: 404 });
+}
+const seccion = slug as Categoria;
+
+const respuestas = indexarRespuestas(respuestasDelBuild);
+const estados = new Map(solicitudes.map((s) => [s.id, estadoEfectivo(s, respuestas)]));
+
+// El filtro de sección lo fija la ruta; el resto se lee de la URL.
+// En las secciones se muestra todo el histórico por defecto: son listados de consulta.
+const filtros = { ...leerFiltros(Astro.url, null), seccion };
+const deLaSeccion = solicitudes.filter((s) => s.clasificacion.categoria === seccion);
+const visibles = aplicarFiltros(solicitudes, filtros, estados);
+
+const contadores = (['resuelto_ia', 'pendiente_humano', 'respondido_humano', 'descartado'] as const)
+  .map((e) => ({ estado: e, n: visibles.filter((s) => estados.get(s.id) === e).length }))
+  .filter((c) => c.n > 0);
+---
+
+<Base titulo={ETIQUETA_CATEGORIA[seccion]} descripcion={`Solicitudes de la sección ${ETIQUETA_CATEGORIA[seccion]}`}>
+  <nav aria-label="Ruta de navegación" class="mb-4 text-sm">
+    <a href="/" class="text-marca hover:underline">Tablero</a>
+    <span class="mx-1.5 text-slate-400">/</span>
+    <span class="text-slate-600">{ETIQUETA_CATEGORIA[seccion]}</span>
+  </nav>
+
+  <header class="mb-6">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900">{ETIQUETA_CATEGORIA[seccion]}</h1>
+    <div class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600">
+      {contadores.map((c) => (
+        <span>{ETIQUETA_ESTADO[c.estado]}: <strong class="text-slate-900">{c.n}</strong></span>
+      ))}
+    </div>
+  </header>
+
+  <nav aria-label="Otras secciones" class="mb-6 flex flex-wrap gap-2">
+    {seccionesValidas.map((s) => (
+      <a href={`/seccion/${s}`}
+        aria-current={s === seccion ? 'page' : undefined}
+        class:list={[
+          'rounded-full px-3 py-1 text-sm font-medium ring-1 ring-inset transition',
+          s === seccion
+            ? 'bg-marca text-white ring-marca'
+            : 'bg-white text-slate-700 ring-slate-300 hover:bg-slate-50',
+        ]}>
+        {ETIQUETA_CATEGORIA[s]}
+        <span class="ml-1 opacity-70">
+          {solicitudes.filter((x) => x.clasificacion.categoria === s).length}
+        </span>
+      </a>
+    ))}
+  </nav>
+
+  <Filtros filtros={filtros} accion={`/seccion/${seccion}`} ocultarSeccion
+    total={deLaSeccion.length} mostradas={visibles.length} />
+
+  {visibles.length === 0 ? (
+    <p class="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-12 text-center text-sm text-slate-500">
+      No hay solicitudes en esta sección con los filtros seleccionados.
+    </p>
+  ) : (
+    <ul class="space-y-2">
+      {visibles.map((s) => (
+        <FilaSolicitud solicitud={sinReferencia(s)} estado={estados.get(s.id)!} />
+      ))}
+    </ul>
+  )}
+</Base>

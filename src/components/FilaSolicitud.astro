@@ -1,0 +1,48 @@
+---
+/**
+ * Fila compacta de una solicitud, para los listados de sección y de cola humana.
+ * Recibe la solicitud YA sin `_referencia`.
+ */
+import Insignia from './Insignia.astro';
+import {
+  ETIQUETA_CATEGORIA, ETIQUETA_PRIORIDAD, ETIQUETA_ESTADO, fechaHora,
+} from '../lib/formato.ts';
+import type { Solicitud, EstadoSolicitud } from '../lib/esquemas.ts';
+
+interface Props {
+  solicitud: Omit<Solicitud, '_referencia'>;
+  estado: EstadoSolicitud;
+  /** Texto del semáforo de SLA, solo en la cola humana. */
+  sla?: { texto: string; tono: string } | null;
+}
+
+const { solicitud: s, estado, sla = null } = Astro.props;
+
+const TONO_ESTADO: Record<string, 'ia' | 'humano' | 'respondido' | 'descartado'> = {
+  resuelto_ia: 'ia', pendiente_humano: 'humano',
+  respondido_humano: 'respondido', descartado: 'descartado',
+};
+---
+<li class="rounded-lg border border-slate-200 bg-white transition hover:border-marca hover:shadow-sm">
+  <a href={`/solicitud/${s.id}`} class="flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:gap-4">
+    <div class="min-w-0 flex-1">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="font-mono text-xs text-slate-500">{s.id}</span>
+        <Insignia texto={ETIQUETA_CATEGORIA[s.clasificacion.categoria]} tono="marca" />
+        <Insignia texto={ETIQUETA_PRIORIDAD[s.clasificacion.prioridad]} tono={s.clasificacion.prioridad} />
+        {s.decision.criterios.map((c) => <Insignia texto={c} tono="humano" />)}
+      </div>
+      <h3 class="mt-1 truncate text-sm font-semibold text-slate-900">{s.asunto}</h3>
+      <p class="truncate text-xs text-slate-600">
+        {s.cliente.nombre} · {s.cliente.ciudad} · {fechaHora(s.recibidaEn)}
+      </p>
+    </div>
+
+    <div class="flex shrink-0 items-center gap-2">
+      {sla && (
+        <span class:list={['rounded-md px-2 py-1 text-xs font-medium', sla.tono]}>{sla.texto}</span>
+      )}
+      <Insignia texto={ETIQUETA_ESTADO[estado]} tono={TONO_ESTADO[estado]} />
+    </div>
+  </a>
+</li>

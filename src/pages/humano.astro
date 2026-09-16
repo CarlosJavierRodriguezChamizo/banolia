@@ -1,9 +1,145 @@
 ---
+/**
+ * Cola humana: lo que está esperando a que una persona lo resuelva.
+ * Se ordena por urgencia real (SLA restante) dentro de cada nivel de prioridad.
+ */
 import Base from '../layouts/Base.astro';
-import PendienteDeFase from '../components/PendienteDeFase.astro';
+import Insignia from '../components/Insignia.astro';
+import {
+  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo,
+  criterioPorCodigo,
+} from '../lib/datos.ts';
+import {
+  ETIQUETA_CATEGORIA, ETIQUETA_PRIORIDAD, fechaHora, horasRestantesSla, semaforoSla,
+} from '../lib/formato.ts';
+
 export const prerender = false;
+
+const respuestas = indexarRespuestas(respuestasDelBuild);
+const ahora = new Date();
+
+const ORDEN_PRIORIDAD = { critica: 0, alta: 1, media: 2, baja: 3 } as const;
+
+const pendientes = solicitudes
+  .filter((s) => estadoEfectivo(s, respuestas) === 'pendiente_humano')
+  .map((s) => {
+    const horas = horasRestantesSla(s.recibidaEn, s.decision.slaHoras, ahora);
+    return { s, horas, semaforo: semaforoSla(horas) };
+  })
+  .sort((a, b) =>
+    ORDEN_PRIORIDAD[a.s.clasificacion.prioridad] - ORDEN_PRIORIDAD[b.s.clasificacion.prioridad] ||
+    a.horas - b.horas);
+
+const SEMAFORO = {
+  vencido:  { clase: 'bg-red-100 text-red-800 ring-red-300',       etiqueta: 'SLA vencido' },
+  critico:  { clase: 'bg-orange-100 text-orange-900 ring-orange-300', etiqueta: 'Menos de 2 h' },
+  atencion: { clase: 'bg-amber-100 text-amber-900 ring-amber-300',  etiqueta: 'Menos de 6 h' },
+  ok:       { clase: 'bg-emerald-100 text-emerald-800 ring-emerald-300', etiqueta: 'En plazo' },
+} as const;
+
+const textoRestante = (h: number) =>
+  h < 0 ? `vencido hace ${Math.abs(h).toFixed(1)} h` : `quedan ${h.toFixed(1)} h`;
+
+const resumen = (['vencido', 'critico', 'atencion', 'ok'] as const)
+  .map((k) => ({ k, n: pendientes.filter((p) => p.semaforo === k).length }))
+  .filter((x) => x.n > 0);
 ---
-<Base titulo="Cola humana">
-  <h1 class="mb-6 text-2xl font-bold tracking-tight text-slate-900">Cola humana</h1>
-  <PendienteDeFase fase={3} descripcion="Listado de solicitudes pendientes de respuesta humana, ordenadas por prioridad y por SLA restante con semáforo, mostrando la ficha de escalado de cada caso." />
+
+<Base titulo="Cola humana" descripcion="Solicitudes pendientes de respuesta humana">
+  <header class="mb-6">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900">Cola humana</h1>
+    <p class="mt-1 text-sm text-slate-600">
+      {pendientes.length === 0
+        ? 'No hay solicitudes pendientes. El sistema resolvió todo lo que le correspondía.'
+        : `${pendientes.length} solicitudes esperando decisión de una persona, ordenadas por prioridad y por tiempo restante de SLA.`}
+    </p>
+  </header>
+
+  {resumen.length > 0 && (
+    <div class="mb-6 flex flex-wrap gap-2">
+      {resumen.map(({ k, n }) => (
+        <span class:list={['rounded-lg px-3 py-1.5 text-sm font-medium ring-1 ring-inset', SEMAFORO[k].clase]}>
+          {SEMAFORO[k].etiqueta}: {n}
+        </span>
+      ))}
+    </div>
+  )}
+
+  {pendientes.length === 0 ? (
+    <p class="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-12 text-center text-sm text-slate-500">
+      La cola está vacía.
+    </p>
+  ) : (
+    <ul class="space-y-4">
+      {pendientes.map(({ s, horas, semaforo }) => (
+        <li class="rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div class="border-b border-slate-100 p-4">
+            <div class="flex flex-wrap items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="font-mono text-xs text-slate-500">{s.id}</span>
+                  <Insignia texto={ETIQUETA_CATEGORIA[s.clasificacion.categoria]} tono="marca" />
+                  <Insignia texto={ETIQUETA_PRIORIDAD[s.clasificacion.prioridad]} tono={s.clasificacion.prioridad} />
+                </div>
+                <h2 class="mt-1 text-base font-semibold text-slate-900">
+                  <a href={`/solicitud/${s.id}`} class="hover:text-marca hover:underline">{s.asunto}</a>
+                </h2>
+                <p class="text-xs text-slate-600">
+                  {s.cliente.nombre} · {s.cliente.ciudad} (zona {s.cliente.zona}) · recibida el {fechaHora(s.recibidaEn)}
+                </p>
+              </div>
+
+              <div class="text-right">
+                <span class:list={['inline-block rounded-lg px-3 py-1.5 text-sm font-semibold ring-1 ring-inset', SEMAFORO[semaforo].clase]}>
+                  {SEMAFORO[semaforo].etiqueta}
+                </span>
+                <p class="mt-1 text-xs text-slate-500">
+                  SLA {s.decision.slaHoras} h · {textoRestante(horas)}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {s.decision.criterios.map((c) => (
+                <Insignia texto={`${c} · ${criterioPorCodigo.get(c)?.nombre ?? ''}`} tono="humano" />
+              ))}
+            </div>
+          </div>
+
+          {s.decision.fichaEscalado && (
+            <div class="grid gap-4 p-4 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Qué debe decidir</h3>
+                <p class="mt-1 text-sm font-medium text-slate-800">{s.decision.fichaEscalado.queDecidir}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Opciones</h3>
+                <ul class="mt-1 list-decimal space-y-1 pl-5 text-sm text-slate-700">
+                  {s.decision.fichaEscalado.opciones.map((o) => <li>{o}</li>)}
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Riesgos</h3>
+                <ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                  {s.decision.fichaEscalado.riesgos.map((r) => <li>{r}</li>)}
+                </ul>
+              </div>
+            </div>
+          )}
+
+          <div class="border-t border-slate-100 px-4 py-3">
+            <a href={`/solicitud/${s.id}`}
+              class="inline-block rounded-lg bg-marca px-4 py-2 text-sm font-medium text-white hover:bg-marca-oscuro">
+              Ver el caso completo
+            </a>
+            <span class="ml-3 text-xs text-slate-500">
+              El formulario para responder se habilita en la fase 4.
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
 </Base>

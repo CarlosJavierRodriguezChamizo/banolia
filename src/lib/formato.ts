@@ -107,3 +107,67 @@ export function semaforoSla(horas: number): 'vencido' | 'critico' | 'atencion' |
   if (horas < 6) return 'atencion';
   return 'ok';
 }
+
+/* --- Presentación de los cálculos del analista de política --------------- */
+
+/**
+ * Convierte un valor del objeto `calculos` en una o varias líneas legibles.
+ *
+ * Los agentes devuelven ahí números, booleanos, rangos y listas de líneas de
+ * pedido. Volcarlos con `JSON.stringify` produce cadenas larguísimas sin espacios
+ * que rompen la maquetación en móvil, y además son ilegibles en clase, que es
+ * justo donde se miran.
+ *
+ * Los importes se detectan por el sufijo `COP` de la clave y se formatean como
+ * moneda.
+ */
+export function formatearCalculo(clave: string, valor: unknown): string[] {
+  const esImporte = /COP$/.test(clave);
+
+  const simple = (v: unknown): string => {
+    if (v === null) return '—';
+    if (typeof v === 'boolean') return v ? 'sí' : 'no';
+    if (typeof v === 'number') return esImporte ? pesos(v) : String(v);
+    return String(v);
+  };
+
+  if (Array.isArray(valor)) {
+    // Lista de objetos: una línea por elemento (p. ej. las líneas de una cotización).
+    if (valor.length > 0 && typeof valor[0] === 'object' && valor[0] !== null) {
+      return valor.map((el) =>
+        Object.entries(el as Record<string, unknown>)
+          .map(([k, v]) => `${k}: ${formatearCalculo(k, v)[0]}`)
+          .join(' · '));
+    }
+    // Rango o lista de valores simples.
+    return [valor.map(simple).join(valor.length === 2 ? ' a ' : ' · ')];
+  }
+
+  if (valor !== null && typeof valor === 'object') {
+    return Object.entries(valor as Record<string, unknown>)
+      .map(([k, v]) => `${k}: ${formatearCalculo(k, v)[0]}`);
+  }
+
+  return [simple(valor)];
+}
+
+/**
+ * Convierte una clave en camelCase en una etiqueta legible.
+ * `gastoRecogidaCOP` → `Gasto recogida` · `plazoZonaADiasHabiles` → `Plazo zona A dias habiles`
+ */
+export function etiquetaCalculo(clave: string): string {
+  const palabras = clave
+    .replace(/COP$/, '')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')       // camelCase
+    .replace(/([A-Za-z])(\d)/g, '$1 $2')       // descuento8 -> descuento 8
+    .replace(/(\d)([A-Za-z])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2') // ADias -> A Dias
+    .trim()
+    .split(/\s+/)
+    // Se conservan las siglas y las letras sueltas (la zona A, por ejemplo).
+    .map((p) => (p.length > 1 && /^[A-Z][a-z]+$/.test(p) ? p.toLowerCase() : p));
+
+  if (palabras.length === 0) return clave;
+  palabras[0] = palabras[0].charAt(0).toUpperCase() + palabras[0].slice(1);
+  return palabras.join(' ');
+}

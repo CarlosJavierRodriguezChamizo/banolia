@@ -1,24 +1,29 @@
 ---
 /**
- * Tablero: indicadores del día y kanban por estado.
- * En la fase 3 se añaden filtros por sección, prioridad, fecha y búsqueda.
+ * Tablero: indicadores del día, filtros y kanban por estado.
  */
 import Base from '../layouts/Base.astro';
 import TarjetaSolicitud from '../components/TarjetaSolicitud.astro';
+import Filtros from '../components/Filtros.astro';
 import {
   solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo, sinReferencia,
 } from '../lib/datos.ts';
 import { ETIQUETA_ESTADO, fechaLarga } from '../lib/formato.ts';
+import { leerFiltros, aplicarFiltros } from '../lib/filtros.ts';
 
-// Esta página NO puede prerenderizarse: a partir de la fase 4 fusiona las
-// respuestas humanas leídas en vivo desde GitHub.
+// No se prerenderiza: a partir de la fase 4 fusiona las respuestas humanas
+// leídas en vivo desde GitHub.
 export const prerender = false;
 
 const respuestas = indexarRespuestas(respuestasDelBuild);
+const estados = new Map(solicitudes.map((s) => [s.id, estadoEfectivo(s, respuestas)]));
 
-const conEstado = solicitudes.map((s) => ({
+const filtros = leerFiltros(Astro.url);
+const visibles = aplicarFiltros(solicitudes, filtros, estados);
+
+const conEstado = visibles.map((s) => ({
   solicitud: sinReferencia(s),
-  estado: estadoEfectivo(s, respuestas),
+  estado: estados.get(s.id)!,
 }));
 
 const COLUMNAS = ['resuelto_ia', 'pendiente_humano', 'respondido_humano', 'descartado'] as const;
@@ -33,29 +38,27 @@ const porColumna = Object.fromEntries(
   COLUMNAS.map((c) => [c, conEstado.filter((x) => x.estado === c)]),
 ) as Record<(typeof COLUMNAS)[number], typeof conEstado>;
 
-// Indicadores sobre el conjunto visible.
 const total = conEstado.length;
 const pct = (n: number) => (total ? Math.round((n / total) * 100) : 0);
 const nIa = porColumna.resuelto_ia.length;
 const nPendiente = porColumna.pendiente_humano.length;
 const nRespondido = porColumna.respondido_humano.length;
 
-// Tiempo medio desde que se recibió la solicitud hasta la respuesta humana.
-const tiempos = solicitudes
+// Tiempo medio desde que se recibe la solicitud hasta que una persona responde.
+const tiempos = visibles
   .map((s) => {
     const r = respuestas.get(s.id);
-    if (!r) return null;
-    return (new Date(r.respondidaEn).getTime() - new Date(s.recibidaEn).getTime()) / 3600_000;
+    return r ? (new Date(r.respondidaEn).getTime() - new Date(s.recibidaEn).getTime()) / 3600_000 : null;
   })
   .filter((h): h is number => h !== null);
 const tiempoMedio = tiempos.length
   ? `${(tiempos.reduce((a, b) => a + b, 0) / tiempos.length).toFixed(1)} h`
   : '—';
 
-const ultimaFecha = solicitudes[0]?.recibidaEn;
+const ultima = visibles[0]?.recibidaEn;
 
 const KPIS = [
-  { etiqueta: 'Solicitudes recibidas', valor: String(total), detalle: 'en los lotes publicados' },
+  { etiqueta: 'Solicitudes', valor: String(total), detalle: 'en el periodo filtrado' },
   { etiqueta: 'Resueltas por IA', valor: `${pct(nIa)} %`, detalle: `${nIa} solicitudes` },
   { etiqueta: 'Pendientes de humano', valor: `${pct(nPendiente)} %`, detalle: `${nPendiente} en cola` },
   { etiqueta: 'Tiempo medio a respuesta humana', valor: tiempoMedio, detalle: `${nRespondido} respondidas` },
@@ -66,13 +69,15 @@ const KPIS = [
   <header class="mb-6">
     <h1 class="text-2xl font-bold tracking-tight text-slate-900">Tablero de atención</h1>
     <p class="mt-1 text-sm text-slate-600">
-      {ultimaFecha
-        ? `Última solicitud recibida el ${fechaLarga(ultimaFecha)}.`
-        : 'Todavía no hay lotes publicados.'}
+      {ultima
+        ? `Última solicitud recibida el ${fechaLarga(ultima)}.`
+        : 'No hay solicitudes que cumplan los filtros seleccionados.'}
     </p>
   </header>
 
-  <section aria-label="Indicadores del día" class="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+  <Filtros filtros={filtros} accion="/" total={solicitudes.length} mostradas={total} />
+
+  <section aria-label="Indicadores" class="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
     {KPIS.map((k) => (
       <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
         <p class="text-xs font-medium uppercase tracking-wide text-slate-500">{k.etiqueta}</p>

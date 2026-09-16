@@ -1,9 +1,260 @@
 ---
+/**
+ * Página docente: explica el sistema completo.
+ *
+ * Las fichas de los agentes se leen de `.claude/agents/*.md`, y la política y los
+ * criterios de `data/config/`. Lo que se explica en clase es EXACTAMENTE lo que
+ * ejecuta el orquestador: no hay una copia que pueda quedarse desfasada.
+ */
 import Base from '../layouts/Base.astro';
-import PendienteDeFase from '../components/PendienteDeFase.astro';
+import Insignia from '../components/Insignia.astro';
+import { agentes } from '../lib/agentes.ts';
+import { politica, criteriosHitl, marca, catalogo, clientes, lotes } from '../lib/datos.ts';
+
 export const prerender = false;
+
+const ETAPAS = ['Entrada', 'Análisis', 'Decisión', 'Redacción', 'Control'];
+const porEtapa = ETAPAS.map((e) => ({ etapa: e, agentes: agentes.filter((a) => a.etapa === e) }));
+
+const adaptadas = politica.filter((r) => r.fuente === 'original-adaptada');
+const inventadas = politica.filter((r) => r.fuente === 'inventada-razonada');
+const criteriosEscalado = criteriosHitl.filter((c) => c.codigo.startsWith('H'));
+const criteriosDescarte = criteriosHitl.filter((c) => c.codigo.startsWith('D'));
+
+const INDICE = [
+  { href: '#flujo', texto: 'El flujo' },
+  { href: '#agentes', texto: 'Los agentes' },
+  { href: '#criterios', texto: 'Criterios de escalado' },
+  { href: '#politica', texto: 'La política' },
+  { href: '#datos', texto: 'Los datos' },
+];
 ---
-<Base titulo="Cómo funciona">
-  <h1 class="mb-6 text-2xl font-bold tracking-tight text-slate-900">Cómo funciona</h1>
-  <PendienteDeFase fase={3} descripcion="Diagrama del orquestador, ficha de cada uno de los ocho agentes, política completa y criterios de escalado. Es la página que se usa en clase." />
+
+<Base titulo="Cómo funciona" descripcion="Cómo está construido el orquestador de agentes de Bañolia">
+  <header class="mb-8">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900">Cómo funciona</h1>
+    <p class="mt-2 max-w-3xl text-sm leading-relaxed text-slate-700">
+      Cada día, una rutina de Claude Code ejecutada en la nube genera solicitudes ficticias de
+      clientes, las clasifica, las contrasta con la política de la empresa y decide cuáles
+      puede responder la IA y cuáles necesitan a una persona. Todo lo que ve en esta web sale
+      de archivos JSON de este mismo repositorio: no hay base de datos.
+    </p>
+    <nav aria-label="Índice" class="mt-4 flex flex-wrap gap-2">
+      {INDICE.map((i) => (
+        <a href={i.href}
+          class="rounded-full bg-white px-3 py-1 text-sm font-medium text-marca ring-1 ring-inset ring-slate-300 hover:bg-slate-50">
+          {i.texto}
+        </a>
+      ))}
+    </nav>
+  </header>
+
+  <!-- ============ EL FLUJO ============ -->
+  <section id="flujo" class="mb-12 scroll-mt-4">
+    <h2 class="mb-4 text-lg font-bold text-slate-900">El flujo</h2>
+
+    <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <ol class="grid gap-3 lg:grid-cols-5">
+        {porEtapa.map(({ etapa, agentes: lista }, i) => (
+          <li class="relative rounded-lg border border-slate-200 bg-slate-50/70 p-3">
+            <div class="mb-2 flex items-center gap-2">
+              <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-marca text-xs font-bold text-white">
+                {i + 1}
+              </span>
+              <h3 class="text-sm font-semibold text-slate-900">{etapa}</h3>
+            </div>
+            <ul class="space-y-1">
+              {lista.map((a) => (
+                <li>
+                  <a href={`#agente-${a.nombre}`}
+                    class="block rounded bg-white px-2 py-1 font-mono text-xs text-slate-700 ring-1 ring-slate-200 hover:text-marca">
+                    {a.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-5 grid gap-3 border-t border-slate-100 pt-5 sm:grid-cols-3">
+        <div class="rounded-lg bg-emerald-50 p-3 ring-1 ring-emerald-200">
+          <p class="text-sm font-semibold text-emerald-900">Ruta IA</p>
+          <p class="mt-1 text-xs leading-relaxed text-emerald-800">
+            No se activa ningún criterio de escalado. El redactor escribe, el supervisor aprueba
+            y la respuesta se publica con autor <strong>ia</strong>.
+          </p>
+        </div>
+        <div class="rounded-lg bg-amber-50 p-3 ring-1 ring-amber-200">
+          <p class="text-sm font-semibold text-amber-900">Ruta humano</p>
+          <p class="mt-1 text-xs leading-relaxed text-amber-800">
+            Se activó al menos un criterio. La IA deja un <strong>borrador sugerido</strong> y una
+            <strong>ficha de escalado</strong> para que la persona no parta de cero.
+          </p>
+        </div>
+        <div class="rounded-lg bg-slate-100 p-3 ring-1 ring-slate-300">
+          <p class="text-sm font-semibold text-slate-800">Ruta descartado</p>
+          <p class="mt-1 text-xs leading-relaxed text-slate-700">
+            Solo para spam (D01). Se registra con su justificación y no se responde.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h3 class="text-sm font-semibold text-slate-900">Quién escribe qué</h3>
+        <p class="mt-1 text-sm leading-relaxed text-slate-700">
+          La rutina y la web nunca tocan el mismo archivo. La rutina escribe los lotes, las
+          métricas y su propio estado; la web escribe las respuestas humanas y el registro de
+          lanzamientos, mediante commits a través de la API de GitHub.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h3 class="text-sm font-semibold text-slate-900">Por qué responder no despliega</h3>
+        <p class="mt-1 text-sm leading-relaxed text-slate-700">
+          Los commits de la web empiezan por <code class="rounded bg-slate-100 px-1 text-xs">hitl:</code>
+          y Vercel los ignora. Con veinte personas respondiendo a la vez, cada respuesta
+          generaría un despliegue y se agotaría el límite diario.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOS AGENTES ============ -->
+  <section id="agentes" class="mb-12 scroll-mt-4">
+    <h2 class="mb-1 text-lg font-bold text-slate-900">Los agentes</h2>
+    <p class="mb-4 text-sm text-slate-600">
+      Fichas leídas directamente de <code class="rounded bg-slate-100 px-1 text-xs">.claude/agents/</code>,
+      que es lo que ejecuta el orquestador. Cada uno declara solo las herramientas que necesita.
+    </p>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      {agentes.map((a) => (
+        <article id={`agente-${a.nombre}`} class="scroll-mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-mono text-sm font-semibold text-marca-oscuro">{a.nombre}</h3>
+            <Insignia texto={a.etapa} tono="marca" />
+          </div>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">{a.descripcion}</p>
+          <div class="mt-3 flex flex-wrap items-center gap-1.5">
+            <span class="text-xs text-slate-500">Herramientas:</span>
+            {a.herramientas.length > 0
+              ? a.herramientas.map((h) => <Insignia texto={h} tono="neutro" />)
+              : <span class="text-xs text-slate-400">ninguna</span>}
+          </div>
+          {a.secciones.length > 0 && (
+            <p class="mt-2 text-xs text-slate-500">
+              Su ficha define: {a.secciones.join(' · ')}
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ CRITERIOS ============ -->
+  <section id="criterios" class="mb-12 scroll-mt-4">
+    <h2 class="mb-1 text-lg font-bold text-slate-900">Criterios de escalado a humano</h2>
+    <p class="mb-4 text-sm text-slate-600">
+      Si se activa <strong>al menos uno</strong>, la solicitud pasa a una persona. El objetivo
+      orientativo es que entre el 25 % y el 35 % de las solicitudes escalen, pero la cifra no
+      se fuerza: si un lote se sale del rango, se registra como alerta.
+    </p>
+
+    <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+      <ul class="divide-y divide-slate-100">
+        {criteriosEscalado.map((c) => (
+          <li class="p-4">
+            <h3 class="text-sm font-semibold text-slate-900">
+              <span class="font-mono text-marca">{c.codigo}</span> · {c.nombre}
+            </h3>
+            <p class="mt-1 text-sm leading-relaxed text-slate-700">{c.descripcion}</p>
+            <p class="mt-1 text-sm italic text-slate-500">Ejemplo: {c.ejemplo}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-4 overflow-hidden rounded-xl border border-slate-300 bg-slate-50 shadow-sm">
+      <ul class="divide-y divide-slate-200">
+        {criteriosDescarte.map((c) => (
+          <li class="p-4">
+            <h3 class="text-sm font-semibold text-slate-900">
+              <span class="font-mono text-slate-600">{c.codigo}</span> · {c.nombre}
+            </h3>
+            <p class="mt-1 text-sm leading-relaxed text-slate-700">{c.descripcion}</p>
+            <p class="mt-1 text-sm italic text-slate-500">Ejemplo: {c.ejemplo}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ POLÍTICA ============ -->
+  <section id="politica" class="mb-12 scroll-mt-4">
+    <h2 class="mb-1 text-lg font-bold text-slate-900">La política de {marca.nombre}</h2>
+    <p class="mb-4 text-sm text-slate-600">
+      {politica.length} reglas con identificador. Los agentes <strong>deben citar los
+      identificadores</strong> en su justificación, y la validación falla si citan uno que no
+      existe. Es lo que hace auditable cada decisión.
+    </p>
+
+    <h3 class="mb-2 mt-4 text-sm font-semibold uppercase tracking-wide text-slate-500">
+      Adaptadas de una política real ({adaptadas.length})
+    </h3>
+    <ul class="space-y-2">
+      {adaptadas.map((r) => (
+        <li>
+          <details class="rounded-lg border border-slate-200 bg-white">
+            <summary class="cursor-pointer list-none px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-50">
+              <span class="font-mono text-marca">{r.id}</span> · {r.titulo}
+            </summary>
+            <p class="border-t border-slate-100 px-4 py-3 text-sm leading-relaxed text-slate-700">{r.texto}</p>
+          </details>
+        </li>
+      ))}
+    </ul>
+
+    <h3 class="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-500">
+      Inventadas de forma razonada ({inventadas.length})
+    </h3>
+    <ul class="space-y-2">
+      {inventadas.map((r) => (
+        <li>
+          <details class="rounded-lg border border-slate-200 bg-white">
+            <summary class="cursor-pointer list-none px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-50">
+              <span class="font-mono text-acento">{r.id}</span> · {r.titulo}
+            </summary>
+            <p class="border-t border-slate-100 px-4 py-3 text-sm leading-relaxed text-slate-700">{r.texto}</p>
+          </details>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ============ DATOS ============ -->
+  <section id="datos" class="mb-8 scroll-mt-4">
+    <h2 class="mb-4 text-lg font-bold text-slate-900">Los datos</h2>
+    <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      {[
+        { e: 'Productos', v: catalogo.length, d: 'en el catálogo ficticio' },
+        { e: 'Clientes', v: clientes.length, d: '80 % particulares' },
+        { e: 'Reglas de política', v: politica.length, d: 'todas con identificador' },
+        { e: 'Lotes publicados', v: lotes.length, d: 'una ejecución cada uno' },
+      ].map((k) => (
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <p class="text-xs font-medium uppercase tracking-wide text-slate-500">{k.e}</p>
+          <p class="mt-1.5 text-2xl font-bold text-marca-oscuro">{k.v}</p>
+          <p class="text-xs text-slate-500">{k.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-700">
+      Cada solicitud lleva además una etiqueta de control con la categoría y la ruta que se
+      esperaban. <strong>Nunca se le pasa a ningún agente</strong> y se elimina en el servidor
+      antes de construir la página, así que no aparece en el código fuente. Solo sirve para
+      medir la precisión del sistema, que se verá en la página de métricas.
+    </p>
+  </section>
 </Base>
