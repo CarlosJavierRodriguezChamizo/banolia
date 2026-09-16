@@ -59,11 +59,36 @@ Devuelve **solo** un array JSON, sin texto alrededor y sin bloque de código:
    devolución o desistimiento 12 % · cotización 14 % · consulta de producto 14 % ·
    reclamación 8 % · facturación y pagos 6 % · cancelación o modificación 4 % · ruido 2 %.
    Con lotes pequeños redondea y prioriza la variedad sobre el ajuste exacto.
-5. **Alrededor del 15 % deben ser casos límite deliberados.** Por ejemplo: día 14 o 15 del
-   plazo de desistimiento; producto a medida que el cliente quiere devolver; cliente que ya
-   instaló el producto; faltan las fotos que exige la política; segundo contacto de un
+5. **La mayoría de los casos deben ser RUTINARIOS.** Es la regla que más se incumple en
+   este puesto y la que más daño hace.
+
+   La atención al cliente real es aburrida: la mayor parte son preguntas que la política
+   resuelve de forma limpia. Como mínimo **dos tercios del lote** deben ser casos que un
+   agente pueda responder solo, sin que se active ningún criterio de escalado. Por ejemplo:
+
+   - «¿Dónde va mi pedido?», despachado hace pocos días y dentro del plazo de ENV-01.
+   - «¿Esta mampara me sirve para un hueco de 118 cm?»
+   - «¿Qué medios de pago aceptan?» o «¿tienen pago contraentrega?»
+   - «¿Cuánto vale llevarlo a Neiva y en cuánto llega?»
+   - Una cotización pequeña o mediana, muy por debajo del umbral de escalado.
+   - «Se me perdió la factura, ¿me la reenvían?», dentro de plazo.
+   - Un desistimiento que cumple todos los requisitos y solo hay que calcular el reembolso.
+   - «¿Cuántos meses de garantía tiene la grifería?»
+
+   **Alrededor del 15 % —no más— deben ser casos límite deliberados.** Por ejemplo: día 14 o
+   15 del plazo de desistimiento; producto a medida que el cliente quiere devolver; cliente
+   que ya instaló el producto; faltan las fotos que exige la política; segundo contacto de un
    cliente enfadado; cotización enorme; mención de la SIC; dos temas mezclados en un mismo
    mensaje; solicitud que llega pocas horas después de vencer un plazo.
+
+   **Comprobación obligatoria antes de entregar.** Recorre tus solicitudes y cuenta en
+   cuántas pondrías `rutaEsperada: "humano"`. Si son **más de un tercio**, el lote está mal
+   construido: sustituye las que sobren por casos rutinarios y vuelve a contar. Un lote donde
+   casi todo escala no demuestra nada, porque el sistema existe justamente para automatizar
+   lo que se puede automatizar.
+
+   Resiste la tentación de hacer interesante cada caso. Un lote con ocho preguntas normales y
+   dos casos espinosos es mucho mejor material que diez dramas seguidos.
 6. **Varía el registro.** Mezcla mensajes formales de correo, mensajes de WhatsApp con
    abreviaturas y sin tildes, mensajes de chat muy cortos y correos largos. Incluye alguna
    falta de ortografía ocasional: los clientes reales escriben así.

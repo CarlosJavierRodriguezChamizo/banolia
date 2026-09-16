@@ -153,3 +153,36 @@ confianza, porque la tendencia natural del modelo es curarse en salud.
 
 Es el tipo de fallo que solo aparece al ejecutar el sistema de punta a punta: cada agente
 por separado parecía razonable.
+
+**D-26. El generador fabricaba lotes donde casi todo escalaba.** Segundo hallazgo de la
+primera ejecución completa: **8 de cada 10** solicitudes acababan en ruta humana, muy por
+encima del rango orientativo del 25-35 %.
+
+Se comprobó que las decisiones individuales del enrutador eran correctas. Cada uno de los
+ocho escalados se sostenía por un criterio propio e inequívoco al margen de H04: dos por
+confianza baja (H06), tres por importe o crédito (H01), uno por seguridad y reclamación
+formal (H02 y H03), uno por responsabilidad dudosa (H05) y uno por estar fuera de ámbito
+(H11). El problema no estaba en el enrutador.
+
+Estaba en el generador, que había fabricado un lote con un 60 % de casos límite cuando la
+especificación pide alrededor del 15 %: riesgo eléctrico, quemadura a un menor, cotización
+de 197 millones con solicitud de crédito, dos devoluciones fuera de política. La tendencia
+del modelo es hacer interesante cada caso, y la atención al cliente real es mayoritariamente
+rutinaria.
+
+Se reescribió la regla 5 de `.claude/agents/generador-solicitudes.md` para exigir que **al
+menos dos tercios** del lote sean casos que la política resuelva de forma limpia, con
+ejemplos concretos de preguntas normales, y se añadió una **comprobación obligatoria antes
+de entregar**: contar cuántas solicitudes llevarían `rutaEsperada: "humano"` y, si superan
+un tercio, sustituirlas por casos rutinarios y volver a contar.
+
+Lección para clase: un lote donde casi todo escala no demuestra nada, porque el sistema
+existe justamente para automatizar lo automatizable. El fallo no estaba donde parecía.
+
+**D-27. H04 se está usando como comodín.** En la primera ejecución fue el criterio más
+activado, 6 veces de 10 solicitudes, por delante de H01 y H05 (3 cada uno). H04 está
+definido para excepciones con motivo atendible (cliente recurrente, probable error de la
+empresa, o uno o dos días fuera de plazo), pero el enrutador lo aplicaba también cuando la
+política simplemente no cubría el caso con claridad. Nunca cambió una ruta por sí solo, así
+que no se ha tocado la definición todavía; queda anotado para revisarlo con más lotes, en la
+fase 5, cuando las métricas muestren la frecuencia real de cada criterio.
