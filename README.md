@@ -59,12 +59,66 @@ Termina con un resumen: lotes, solicitudes, % IA, % humano, alertas y commits re
 El modo programado publica **4 lotes de 10 solicitudes**. El tamaño está parametrizado en
 `orquestador/RUTINA.md` por si conviene subirlo.
 
+## Configuración para responder desde la web
+
+El tablero funciona sin configurar nada. Para **responder solicitudes** y **lanzar lotes**
+hacen falta estas variables, que se definen en Vercel (Project Settings → Environment
+Variables) o en un archivo `.env` local:
+
+| Variable | Para qué | Sin ella |
+|---|---|---|
+| `SESSION_SECRET` | Firmar la cookie de sesión | No se puede iniciar sesión |
+| `GITHUB_TOKEN` | Guardar respuestas y leer en vivo | No se pueden guardar respuestas |
+| `GITHUB_REPO` | Repositorio destino, `usuario/repositorio` | Igual que la anterior |
+| `GITHUB_BRANCH` | Rama, por defecto `main` | Usa `main` |
+| `ROUTINE_FIRE_URL` | Disparador API de la rutina | El botón avisa de que falta |
+| `ROUTINE_FIRE_TOKEN` | Token del disparador | Igual que la anterior |
+
+Genere el secreto con `openssl rand -hex 32`.
+
+### Dos advertencias importantes
+
+**El `GITHUB_TOKEN` debe pertenecer a la misma cuenta que ejecuta la rutina.** Claude Code
+rechaza publicar en una rama que contenga commits de otra persona, así que si las respuestas
+de la web quedan atribuidas a otra identidad, la rutina perderá la capacidad de publicar en
+`main`. Use un token *fine-grained* con permiso **Contents: Read & Write** limitado a este
+repositorio.
+
+**No proteja la rama `main`.** Por el mismo motivo: la rutina no podría publicar.
+
+## Usuarios de la demostración
+
+| Usuario | Rol | Contraseña |
+|---|---|---|
+| `profesor` | admin | `profesor-banolia-2026` |
+| `equipo1` … `equipo5` | agente | `equipoN-banolia-2026` |
+
+El rol `admin` ve además la **etiqueta de control** de cada solicitud, con el acierto o
+fallo del clasificador.
+
+> Son contraseñas de demostración sobre datos ficticios, publicadas para que la clase pueda
+> entrar sin configurar nada. Regenérelas con `npm run crear-hash -- "la clave"` y
+> actualice `src/config/usuarios.ts` antes de cualquier otro uso.
+
+## Por qué responder no dispara un despliegue
+
+Los commits que hace la web empiezan por `hitl:` y `vercel.json` los ignora con
+`ignoreCommand`. Con veinte personas respondiendo a la vez, cada respuesta generaría un
+despliegue y se agotaría el límite diario del plan.
+
+Para que las respuestas se vean igualmente al instante, la web lista el árbol del
+repositorio mediante la API de GitHub, descarta los identificadores que ya venían en el
+build y descarga solo los archivos nuevos, con una caché de 30 segundos por instancia.
+
 ## Estado
 
-Fases 1 a 3 completadas: esqueleto, datos ficticios, esquemas y validador; los ocho
-subagentes de `.claude/agents/` y la rutina de `orquestador/RUTINA.md`; y la web completa
-con tablero filtrable, secciones, detalle con la línea de tiempo de los agentes, cola humana
-con semáforo de SLA, historial de lotes y la página «Cómo funciona».
+**MVP cerrado** (fases 1 a 4): esqueleto, datos ficticios, esquemas y validador; los ocho
+subagentes y la rutina del orquestador; la web completa con tablero filtrable, secciones,
+detalle con la línea de tiempo de los agentes, cola humana con semáforo de SLA, historial de
+lotes y la página «Cómo funciona»; e inicio de sesión, respuesta humana contra la API de
+GitHub y botón de lanzar lote.
+
+Queda la fase 5: página de métricas, bucle de aprendizaje y las dos guías del README.
 
 Las guías de montaje para el profesor y de «constrúyelo tú» para los alumnos, junto con el
 prompt de la rutina, se añaden en la fase 5.

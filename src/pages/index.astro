@@ -6,8 +6,10 @@ import Base from '../layouts/Base.astro';
 import TarjetaSolicitud from '../components/TarjetaSolicitud.astro';
 import Filtros from '../components/Filtros.astro';
 import {
-  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo, sinReferencia,
+  solicitudes, indexarRespuestas, estadoEfectivo, sinReferencia,
 } from '../lib/datos.ts';
+import { respuestasHumanas } from '../lib/vivo.ts';
+import { configGithub } from '../lib/config.ts';
 import { ETIQUETA_ESTADO, fechaLarga } from '../lib/formato.ts';
 import { leerFiltros, aplicarFiltros } from '../lib/filtros.ts';
 
@@ -15,7 +17,10 @@ import { leerFiltros, aplicarFiltros } from '../lib/filtros.ts';
 // leídas en vivo desde GitHub.
 export const prerender = false;
 
-const respuestas = indexarRespuestas(respuestasDelBuild);
+// Se fusionan las respuestas del build con las que se leen en vivo desde GitHub:
+// los commits `hitl:` no despliegan, así que sin esto no se verían hasta el siguiente.
+const { respuestas: listaRespuestas, aviso: avisoVivo } = await respuestasHumanas(configGithub());
+const respuestas = indexarRespuestas(listaRespuestas);
 const estados = new Map(solicitudes.map((s) => [s.id, estadoEfectivo(s, respuestas)]));
 
 const filtros = leerFiltros(Astro.url);

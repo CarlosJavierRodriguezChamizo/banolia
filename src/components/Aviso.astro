@@ -1,0 +1,13 @@
+---
+/** Mensaje de resultado tras una acción (guardado, error, límite...). */
+interface Props { tono: 'exito' | 'error' | 'info'; children?: unknown }
+const { tono } = Astro.props;
+const TONOS = {
+  exito: 'bg-emerald-50 text-emerald-900 ring-emerald-200',
+  error: 'bg-red-50 text-red-900 ring-red-200',
+  info: 'bg-sky-50 text-sky-900 ring-sky-200',
+};
+---
+<p role="status" class:list={['mb-6 rounded-lg px-4 py-3 text-sm ring-1', TONOS[tono]]}>
+  <slot />
+</p>

@@ -6,9 +6,13 @@
 import Base from '../../layouts/Base.astro';
 import Insignia from '../../components/Insignia.astro';
 import {
-  solicitudPorId, respuestasDelBuild, indexarRespuestas, estadoEfectivo,
+  solicitudPorId, indexarRespuestas, estadoEfectivo, acierto,
   reglaPorId, criterioPorCodigo, productoPorSku, clientePorId,
 } from '../../lib/datos.ts';
+import { respuestasHumanas } from '../../lib/vivo.ts';
+import { configGithub } from '../../lib/config.ts';
+import FormularioHitl from '../../components/FormularioHitl.astro';
+import Aviso from '../../components/Aviso.astro';
 import {
   ETIQUETA_CATEGORIA, ETIQUETA_PRIORIDAD, ETIQUETA_ESTADO, ETIQUETA_CANAL,
   ETIQUETA_AGENTE, etiquetaSentimiento, pesos, fechaHora, fechaCorta,
@@ -24,10 +28,34 @@ if (!solicitud) {
   return new Response('Solicitud no encontrada', { status: 404 });
 }
 
-const respuestas = indexarRespuestas(respuestasDelBuild);
+// Se fusionan las respuestas del build con las leídas en vivo desde GitHub: los
+// commits `hitl:` no despliegan, así que una respuesta recién guardada solo se ve
+// gracias a esta lectura.
+const { respuestas: listaRespuestas } = await respuestasHumanas(configGithub());
+const respuestas = indexarRespuestas(listaRespuestas);
 const estado = estadoEfectivo(solicitud, respuestas);
 const respuestaHumana = respuestas.get(solicitud.id);
 const clienteCompleto = clientePorId.get(solicitud.cliente.id);
+
+const sesion = Astro.locals.sesion;
+const esAdmin = sesion?.rol === 'admin';
+
+// Mensajes de resultado de la acción anterior.
+const guardado = Astro.url.searchParams.get('guardado');
+const error = Astro.url.searchParams.get('error');
+const detalle = Astro.url.searchParams.get('detalle');
+
+const MENSAJES_ERROR: Record<string, string> = {
+  'ya-respondida': 'Esta solicitud ya fue respondida por otra persona. Se conserva la primera respuesta.',
+  'sin-github': 'Falta configurar GITHUB_TOKEN y GITHUB_REPO en el servidor, así que no se puede guardar.',
+  'accion': 'La acción indicada no es válida.',
+  'validacion': `La respuesta no pasó la validación: ${detalle ?? 'datos incompletos'}.`,
+  'github': `GitHub devolvió un error (${detalle ?? 'desconocido'}). Inténtelo de nuevo en unos segundos.`,
+  'desconocido': 'Ocurrió un error inesperado al guardar. Inténtelo de nuevo.',
+};
+
+// La etiqueta de control solo se calcula si quien mira es administrador.
+const aciertos = esAdmin ? acierto(solicitud) : null;
 
 const TONO_ESTADO: Record<string, 'ia' | 'humano' | 'respondido' | 'descartado'> = {
   resuelto_ia: 'ia',
@@ -36,14 +64,17 @@ const TONO_ESTADO: Record<string, 'ia' | 'humano' | 'respondido' | 'descartado'>
   descartado: 'descartado',
 };
 
-// `_referencia` no se pasa a la plantilla: se mostrará solo a administradores
-// en la fase 4, cuando exista sesión.
+// `_referencia` se elimina aquí, en el servidor. Ocultarla con CSS la dejaría
+// visible en el código fuente de la página.
 const { _referencia, ...s } = solicitud;
 
 const calculos = Object.entries(s.analisisPolitica.calculos);
 ---
 
 <Base titulo={`Solicitud ${s.id}`} descripcion={s.asunto}>
+  {guardado && <Aviso tono="exito">Respuesta guardada. Ya aparece publicada aquí abajo, sin esperar a ningún despliegue.</Aviso>}
+  {error && <Aviso tono="error">{MENSAJES_ERROR[error] ?? 'No se pudo completar la acción.'}</Aviso>}
+
   <nav aria-label="Ruta de navegación" class="mb-4 text-sm">
     <a href="/" class="text-marca hover:underline">Tablero</a>
     <span class="mx-1.5 text-slate-400">/</span>
@@ -226,6 +257,20 @@ const calculos = Object.entries(s.analisisPolitica.calculos);
         </section>
       )}
 
+      {respuestaHumana && respuestaHumana.accion !== 'descartar' && (
+        <section class="rounded-xl border-2 border-sky-300 bg-sky-50/50 p-5 shadow-sm">
+          <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-sky-800">
+            Respuesta enviada al cliente
+            <span class="ml-2 font-normal normal-case text-sky-700">
+              (escrita por {respuestaHumana.usuario})
+            </span>
+          </h2>
+          <p class="whitespace-pre-line break-words rounded-lg bg-white p-4 text-sm leading-relaxed text-slate-800">
+            {respuestaHumana.respuestaFinal}
+          </p>
+        </section>
+      )}
+
       {s.respuestaFinal && (
         <section class="rounded-xl border-2 border-emerald-200 bg-emerald-50/50 p-5 shadow-sm">
           <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-emerald-800">
@@ -241,10 +286,16 @@ const calculos = Object.entries(s.analisisPolitica.calculos);
       )}
 
       {estado === 'pendiente_humano' && (
-        <p class="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
-          Esta solicitud está pendiente de respuesta humana. El formulario para responderla
-          se habilita en la fase 4, al añadir el inicio de sesión.
-        </p>
+        sesion
+          ? <FormularioHitl solicitud={s} usuario={sesion.usuario} />
+          : (
+            <p class="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+              Esta solicitud está pendiente de respuesta humana.
+              <a href={`/login?destino=${encodeURIComponent(`/solicitud/${s.id}`)}`}
+                class="ml-1 font-medium text-marca underline">Inicie sesión</a>
+              para responderla.
+            </p>
+          )
       )}
     </div>
 
@@ -385,6 +436,38 @@ const calculos = Object.entries(s.analisisPolitica.calculos);
         </section>
       )}
 
+      {esAdmin && aciertos && (
+        <section class="rounded-xl border border-violet-200 bg-violet-50/60 p-5 shadow-sm">
+          <h2 class="mb-1 text-sm font-semibold uppercase tracking-wide text-violet-800">
+            Etiqueta de control
+          </h2>
+          <p class="mb-3 text-xs text-violet-700">
+            Solo visible para administradores. Es la respuesta correcta con la que se mide la
+            precisión del sistema, y nunca se le pasa a ningún agente.
+          </p>
+          <dl class="space-y-1.5 text-sm">
+            <div class="flex justify-between gap-2">
+              <dt class="text-violet-700">Categoría esperada</dt>
+              <dd class="text-right font-medium text-violet-900">
+                {ETIQUETA_CATEGORIA[_referencia.categoria]}
+                <span class={aciertos.categoria ? 'text-emerald-700' : 'text-red-700'}>
+                  {aciertos.categoria ? ' · acierto' : ' · fallo'}
+                </span>
+              </dd>
+            </div>
+            <div class="flex justify-between gap-2">
+              <dt class="text-violet-700">Ruta esperada</dt>
+              <dd class="text-right font-medium text-violet-900">
+                {_referencia.rutaEsperada}
+                <span class={aciertos.ruta ? 'text-emerald-700' : 'text-red-700'}>
+                  {aciertos.ruta ? ' · acierto' : ' · fallo'}
+                </span>
+              </dd>
+            </div>
+          </dl>
+        </section>
+      )}
+
       {respuestaHumana && (
         <section class="rounded-xl border border-sky-200 bg-sky-50/60 p-5 shadow-sm">
           <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-sky-800">Intervención humana</h2>
@@ -402,6 +485,11 @@ const calculos = Object.entries(s.analisisPolitica.calculos);
               <dd class="text-right text-sky-900">{fechaHora(respuestaHumana.respondidaEn)}</dd>
             </div>
           </dl>
+          {respuestaHumana.motivo && (
+            <p class="mt-2 border-t border-sky-200 pt-2 text-sm text-sky-900">
+              <span class="font-medium">Motivo:</span> {respuestaHumana.motivo}
+            </p>
+          )}
         </section>
       )}
     </aside>

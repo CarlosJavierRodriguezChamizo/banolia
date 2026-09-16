@@ -6,16 +6,20 @@
 import Base from '../layouts/Base.astro';
 import Insignia from '../components/Insignia.astro';
 import {
-  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo,
-  criterioPorCodigo,
+  solicitudes, indexarRespuestas, estadoEfectivo, criterioPorCodigo,
 } from '../lib/datos.ts';
+import { respuestasHumanas } from '../lib/vivo.ts';
+import { configGithub } from '../lib/config.ts';
 import {
   ETIQUETA_CATEGORIA, ETIQUETA_PRIORIDAD, fechaHora, horasRestantesSla, semaforoSla,
 } from '../lib/formato.ts';
 
 export const prerender = false;
 
-const respuestas = indexarRespuestas(respuestasDelBuild);
+// Se fusionan las respuestas del build con las que se leen en vivo desde GitHub:
+// los commits `hitl:` no despliegan, así que sin esto no se verían hasta el siguiente.
+const { respuestas: listaRespuestas, aviso: avisoVivo } = await respuestasHumanas(configGithub());
+const respuestas = indexarRespuestas(listaRespuestas);
 const ahora = new Date();
 
 const ORDEN_PRIORIDAD = { critica: 0, alta: 1, media: 2, baja: 3 } as const;

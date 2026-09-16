@@ -5,8 +5,10 @@
  */
 import Base from '../layouts/Base.astro';
 import Insignia from '../components/Insignia.astro';
+import Aviso from '../components/Aviso.astro';
 import { lotes } from '../lib/datos.ts';
-import { fechaLarga, fechaHora, hora } from '../lib/formato.ts';
+import { fechaLarga, hora } from '../lib/formato.ts';
+import { configRutina } from '../lib/config.ts';
 
 export const prerender = false;
 
@@ -17,9 +19,36 @@ const pct = (n: number) => (totalSolicitudes ? Math.round((n / totalSolicitudes)
 
 const duracion = (a: string, b: string) =>
   `${Math.round((new Date(b).getTime() - new Date(a).getTime()) / 60000)} min`;
+
+const sesion = Astro.locals.sesion;
+const hayRutina = configRutina() !== null;
+
+const lanzado = Astro.url.searchParams.get('lanzado');
+const error = Astro.url.searchParams.get('error');
+const detalle = Astro.url.searchParams.get('detalle');
+const urlSesion = Astro.url.searchParams.get('sesion');
+
+const MENSAJES_ERROR: Record<string, string> = {
+  'sin-rutina': 'Faltan ROUTINE_FIRE_URL y ROUTINE_FIRE_TOKEN en el servidor, así que no se puede disparar la rutina.',
+  'limite': detalle ?? 'Se alcanzó un límite de lanzamientos.',
+  'rutina': detalle ?? 'La rutina no aceptó el disparo.',
+};
 ---
 
 <Base titulo="Lotes" descripcion="Historial de ejecuciones del orquestador">
+  {lanzado && (
+    <Aviso tono="exito">
+      Lote en marcha con {lanzado} solicitudes. Tardará unos minutos; la web se actualizará
+      sola al desplegarse.
+      {urlSesion && (
+        <> <a href={urlSesion} target="_blank" rel="noopener" class="font-medium underline">
+          Ver la sesión de la rutina
+        </a>.</>
+      )}
+    </Aviso>
+  )}
+  {error && <Aviso tono="error">{MENSAJES_ERROR[error] ?? 'No se pudo lanzar el lote.'}</Aviso>}
+
   <header class="mb-6">
     <h1 class="text-2xl font-bold tracking-tight text-slate-900">Lotes publicados</h1>
     <p class="mt-1 text-sm text-slate-600">
@@ -43,14 +72,47 @@ const duracion = (a: string, b: string) =>
     ))}
   </section>
 
-  <div class="mb-6 rounded-xl border border-dashed border-slate-300 bg-white p-4">
-    <p class="text-sm font-medium text-slate-700">Lanzar un lote manual</p>
-    <p class="mt-1 text-sm text-slate-600">
-      El botón para disparar la rutina bajo demanda se habilita en la fase 4, junto con el
-      inicio de sesión. Requiere las variables <code class="rounded bg-slate-100 px-1 text-xs">ROUTINE_FIRE_URL</code>
-      y <code class="rounded bg-slate-100 px-1 text-xs">ROUTINE_FIRE_TOKEN</code>.
-    </p>
-  </div>
+  <section class="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h2 class="text-sm font-semibold text-slate-900">Lanzar un lote manual</h2>
+
+    {!sesion ? (
+      <p class="mt-1 text-sm text-slate-600">
+        <a href="/login?destino=%2Flotes" class="font-medium text-marca underline">Inicie sesión</a>
+        para disparar la rutina bajo demanda.
+      </p>
+    ) : !hayRutina ? (
+      <p class="mt-1 text-sm text-slate-600">
+        Faltan <code class="rounded bg-slate-100 px-1 text-xs">ROUTINE_FIRE_URL</code> y
+        <code class="rounded bg-slate-100 px-1 text-xs">ROUTINE_FIRE_TOKEN</code> en el servidor.
+        Se obtienen al añadir un disparador de tipo API a la rutina; el token se muestra una sola vez.
+      </p>
+    ) : (
+      <>
+        <p class="mt-1 text-sm text-slate-600">
+          La rutina genera el lote y lo publica en su propio commit. Tarda unos minutos y el
+          tablero se actualiza solo al desplegarse. Máximo 3 lanzamientos al día y uno cada
+          10 minutos.
+        </p>
+        <form method="post" action="/api/lotes/lanzar" class="mt-3 flex flex-wrap items-end gap-3">
+          <div>
+            <label for="tamano" class="mb-1 block text-xs font-medium text-slate-600">
+              Solicitudes
+            </label>
+            <select id="tamano" name="tamano"
+              class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <button type="submit"
+            class="rounded-lg bg-marca px-4 py-2 text-sm font-medium text-white hover:bg-marca-oscuro">
+            Lanzar lote
+          </button>
+        </form>
+      </>
+    )}
+  </section>
 
   {lotes.length === 0 ? (
     <p class="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-12 text-center text-sm text-slate-500">

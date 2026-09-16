@@ -1,0 +1,93 @@
+---
+/**
+ * Formulario para responder una solicitud pendiente.
+ *
+ * Sin JavaScript: todos los campos están visibles y cada uno explica cuándo se
+ * usa. Es más claro que mostrar y ocultar campos según la acción elegida, y el
+ * servidor valida de todas formas con los mismos esquemas zod.
+ */
+import { ETIQUETA_CATEGORIA, SECCIONES } from '../lib/formato.ts';
+import type { Solicitud } from '../lib/esquemas.ts';
+
+interface Props {
+  solicitud: Omit<Solicitud, '_referencia'>;
+  usuario: string;
+}
+
+const { solicitud: s, usuario } = Astro.props;
+
+const ACCIONES = [
+  { valor: 'aprobar_borrador', texto: 'Aprobar el borrador tal cual' },
+  { valor: 'editar_borrador', texto: 'Editar el borrador y enviar' },
+  { valor: 'reescribir', texto: 'Reescribir la respuesta desde cero' },
+  { valor: 'reclasificar', texto: 'Reclasificar (indique la categoría abajo)' },
+  { valor: 'descartar', texto: 'Descartar (indique el motivo abajo)' },
+];
+---
+
+<section class="rounded-xl border-2 border-marca bg-white p-5 shadow-sm">
+  <h2 class="text-sm font-semibold uppercase tracking-wide text-marca-oscuro">
+    Responder esta solicitud
+  </h2>
+  <p class="mt-1 text-sm text-slate-600">
+    Responde como <strong class="text-slate-900">{usuario}</strong>. Solo se admite una
+    respuesta por solicitud: si otra persona se adelanta, se le avisará.
+  </p>
+
+  <form method="post" action="/api/hitl/responder" class="mt-4 space-y-4">
+    <input type="hidden" name="idSolicitud" value={s.id} />
+
+    <div>
+      <label for="accion" class="mb-1 block text-sm font-medium text-slate-700">Acción</label>
+      <select id="accion" name="accion" required
+        class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
+        {ACCIONES.map((a) => <option value={a.valor}>{a.texto}</option>)}
+      </select>
+    </div>
+
+    <div>
+      <label for="respuestaFinal" class="mb-1 block text-sm font-medium text-slate-700">
+        Respuesta al cliente
+      </label>
+      <p class="mb-1.5 text-xs text-slate-500">
+        Viene con el borrador sugerido por la IA. Déjelo tal cual si lo aprueba, modifíquelo si
+        lo edita, o reemplácelo si lo reescribe. Se ignora al descartar.
+      </p>
+      <textarea id="respuestaFinal" name="respuestaFinal" rows="14"
+        class="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-xs leading-relaxed"
+      >{s.borrador?.texto ?? ''}</textarea>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="categoriaCorregida" class="mb-1 block text-sm font-medium text-slate-700">
+          Categoría corregida
+        </label>
+        <p class="mb-1.5 text-xs text-slate-500">Solo si reclasifica.</p>
+        <select id="categoriaCorregida" name="categoriaCorregida"
+          class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
+          <option value="">Sin cambio ({ETIQUETA_CATEGORIA[s.clasificacion.categoria]})</option>
+          {[...SECCIONES, 'ruido'].map((c) => (
+            <option value={c}>{ETIQUETA_CATEGORIA[c]}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label for="motivo" class="mb-1 block text-sm font-medium text-slate-700">Motivo</label>
+        <p class="mb-1.5 text-xs text-slate-500">
+          Obligatorio al descartar. En el resto, opcional pero muy útil: es lo que aprenden
+          los agentes en la siguiente ejecución.
+        </p>
+        <input id="motivo" name="motivo" type="text"
+          placeholder="Por ejemplo: se concede excepción por cliente recurrente"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+      </div>
+    </div>
+
+    <button type="submit"
+      class="w-full rounded-lg bg-marca px-4 py-2.5 text-sm font-medium text-white hover:bg-marca-oscuro sm:w-auto">
+      Guardar la respuesta
+    </button>
+  </form>
+</section>

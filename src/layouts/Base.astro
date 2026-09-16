@@ -12,6 +12,7 @@ interface Props {
 
 const { titulo, descripcion } = Astro.props;
 const rutaActual = Astro.url.pathname;
+const sesion = Astro.locals.sesion;
 
 const navegacion = [
   { href: '/', texto: 'Tablero' },
@@ -56,9 +57,29 @@ const esActiva = (href: string) =>
             </span>
           </a>
 
-          <span class="hidden rounded-full bg-amber-400/20 px-3 py-1 text-xs font-medium text-amber-100 ring-1 ring-amber-300/40 sm:inline-block">
-            Demo docente · datos ficticios
-          </span>
+          <div class="flex items-center gap-3">
+            <span class="hidden rounded-full bg-amber-400/20 px-3 py-1 text-xs font-medium text-amber-100 ring-1 ring-amber-300/40 lg:inline-block">
+              Demo docente · datos ficticios
+            </span>
+
+            {sesion ? (
+              <form method="post" action="/api/sesion/salir" class="flex items-center gap-2">
+                <span class="text-xs text-cyan-50">
+                  <strong class="font-semibold">{sesion.usuario}</strong>
+                  <span class="text-cyan-200/80"> · {sesion.rol}</span>
+                </span>
+                <button type="submit"
+                  class="rounded-md bg-white/15 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/25">
+                  Salir
+                </button>
+              </form>
+            ) : (
+              <a href={`/login?destino=${encodeURIComponent(rutaActual)}`}
+                class="rounded-md bg-white/15 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/25">
+                Iniciar sesión
+              </a>
+            )}
+          </div>
         </div>
 
         <nav aria-label="Navegación principal" class="-mb-px overflow-x-auto">

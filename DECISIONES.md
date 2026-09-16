@@ -245,3 +245,52 @@ de la fase pedía navegación en móvil y sin errores de consola, así que se ve
 Chromium en 390 px y 1280 px sobre nueve rutas, midiendo desbordamiento horizontal, errores
 de consola y enlaces de navegación alcanzables. El único fallo real de la fase salió de ahí,
 y no se habría visto revisando el código.
+
+## Fase 4 — Login, HITL y botón de lanzar lote
+
+**D-34. APIs web en lugar de las de Node, para no añadir una dependencia.** La firma de la
+cookie y la codificación base64 se implementaron con `crypto.subtle`, `TextEncoder` y
+`btoa`/`atob` en vez de `node:crypto` y `Buffer`. Usar las de Node habría obligado a añadir
+`@types/node`, y la regla del proyecto es no añadir dependencias sin permiso. El resultado
+es además más portable.
+
+**D-35. El presupuesto de reintentos tiene que caber en el tiempo de la función.** La primera
+versión hacía 5 intentos con esperas de hasta 4 segundos: medido contra un servidor falso,
+el peor caso eran **13,3 segundos**. El límite por defecto de una función serverless en
+Vercel es de 10, así que el usuario habría visto un 504 en lugar del mensaje de error
+preparado, que es bastante peor. Se bajó a 4 intentos con tope de 1.500 ms por espera, y el
+peor caso medido queda en **4,5 segundos**.
+
+Es un detalle que no se ve leyendo el código: hubo que medirlo.
+
+**D-36. Node solo borra tipos, no transforma código.** `ErrorGithub` usaba *parameter
+properties* (`constructor(readonly estado: number)`), que Node rechaza al importar
+TypeScript porque exigen generar código, no solo quitar anotaciones. Se reescribió con
+campos explícitos. Conviene recordarlo: cualquier módulo que deba poder importarse desde un
+script de Node tiene que limitarse a sintaxis que se pueda borrar.
+
+**D-37. Astro trae protección CSRF y está activa.** Se descubrió al probar: los `POST` sin
+cabecera `Origin` coincidente reciben 403. Los formularios reales del navegador la envían
+siempre, así que no hay que hacer nada, pero conviene saberlo porque desconcierta al probar
+los endpoints con `curl`. Queda como comprobación explícita en las pruebas.
+
+**D-38. Se publican contraseñas de demostración, apartándose del enunciado.** El enunciado
+pedía dejar los hashes como marcadores. Se decidió lo contrario: hashes reales de
+contraseñas documentadas (`usuario-banolia-2026`), porque con marcadores **nadie podría
+entrar el primer día de clase** y veinte alumnos necesitan poder responder desde el minuto
+uno. Los datos son ficticios y la web no expone nada real. El archivo y el README avisan de
+que hay que regenerarlas para cualquier otro uso.
+
+**D-39. El formulario HITL no oculta campos según la acción.** Se valoró usar `:has()` de CSS
+para mostrar y ocultar campos según la acción elegida, sin JavaScript. Se descartó: cuatro
+campos siempre visibles, cada uno con una línea que explica cuándo se usa, es más claro para
+quien lo ve por primera vez. El servidor valida igual con los mismos esquemas zod.
+
+**D-40. `modificoBorrador` se calcula en el servidor, no se pregunta al formulario.** El
+endpoint compara el texto recibido con el borrador original. Es el dato con el que se mide
+la tasa de aprobación del borrador, una de las métricas de la fase 5, y no debe depender de
+lo que envíe el cliente.
+
+**D-41. La lectura en vivo degrada, nunca rompe.** Si GitHub falla o falta el token, la web
+devuelve lo que venía en el build y sigue funcionando. La lectura en vivo es una mejora para
+que las respuestas se vean sin desplegar, no un requisito para que la página cargue.

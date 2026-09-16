@@ -6,8 +6,10 @@ import Base from '../../layouts/Base.astro';
 import FilaSolicitud from '../../components/FilaSolicitud.astro';
 import Filtros from '../../components/Filtros.astro';
 import {
-  solicitudes, respuestasDelBuild, indexarRespuestas, estadoEfectivo, sinReferencia,
+  solicitudes, indexarRespuestas, estadoEfectivo, sinReferencia,
 } from '../../lib/datos.ts';
+import { respuestasHumanas } from '../../lib/vivo.ts';
+import { configGithub } from '../../lib/config.ts';
 import { ETIQUETA_CATEGORIA, ETIQUETA_ESTADO, SECCIONES } from '../../lib/formato.ts';
 import { leerFiltros, aplicarFiltros } from '../../lib/filtros.ts';
 import type { Categoria } from '../../lib/esquemas.ts';
@@ -22,7 +24,10 @@ if (!slug || !seccionesValidas.includes(slug as never)) {
 }
 const seccion = slug as Categoria;
 
-const respuestas = indexarRespuestas(respuestasDelBuild);
+// Se fusionan las respuestas del build con las que se leen en vivo desde GitHub:
+// los commits `hitl:` no despliegan, así que sin esto no se verían hasta el siguiente.
+const { respuestas: listaRespuestas, aviso: avisoVivo } = await respuestasHumanas(configGithub());
+const respuestas = indexarRespuestas(listaRespuestas);
 const estados = new Map(solicitudes.map((s) => [s.id, estadoEfectivo(s, respuestas)]));
 
 // El filtro de sección lo fija la ruta; el resto se lee de la URL.

@@ -1,0 +1,77 @@
+---
+/**
+ * Inicio de sesión.
+ * Las páginas son públicas; la sesión hace falta para responder y para lanzar lotes.
+ */
+import Base from '../layouts/Base.astro';
+import { usuarios } from '../config/usuarios.ts';
+
+export const prerender = false;
+
+// Si ya hay sesión, no tiene sentido mostrar el formulario.
+if (Astro.locals.sesion) return Astro.redirect('/');
+
+const error = Astro.url.searchParams.get('error');
+const destino = Astro.url.searchParams.get('destino') ?? '/';
+
+const MENSAJES: Record<string, string> = {
+  credenciales: 'Usuario o contraseña incorrectos.',
+  configuracion: 'Falta configurar SESSION_SECRET en el servidor. Avise al profesor.',
+  sesion: 'Su sesión caducó. Vuelva a entrar.',
+};
+---
+
+<Base titulo="Iniciar sesión">
+  <div class="mx-auto max-w-md">
+    <h1 class="mb-1 text-2xl font-bold tracking-tight text-slate-900">Iniciar sesión</h1>
+    <p class="mb-6 text-sm text-slate-600">
+      Hace falta para responder solicitudes de la cola humana y para lanzar lotes.
+      El resto de la web es de consulta libre.
+    </p>
+
+    {error && (
+      <p role="alert" class="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800 ring-1 ring-red-200">
+        {MENSAJES[error] ?? 'No se pudo iniciar sesión.'}
+      </p>
+    )}
+
+    <form method="post" action="/api/sesion/entrar"
+      class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <input type="hidden" name="destino" value={destino} />
+
+      <label for="usuario" class="mb-1 block text-sm font-medium text-slate-700">Usuario</label>
+      <input id="usuario" name="usuario" type="text" required autocomplete="username" autofocus
+        class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+
+      <label for="contrasena" class="mb-1 block text-sm font-medium text-slate-700">Contraseña</label>
+      <input id="contrasena" name="contrasena" type="password" required autocomplete="current-password"
+        class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+
+      <button type="submit"
+        class="w-full rounded-lg bg-marca px-4 py-2.5 text-sm font-medium text-white hover:bg-marca-oscuro">
+        Entrar
+      </button>
+    </form>
+
+    <details class="mt-4 rounded-xl border border-dashed border-slate-300 bg-white p-4">
+      <summary class="cursor-pointer text-sm font-medium text-slate-700">
+        Usuarios de la demostración
+      </summary>
+      <p class="mt-2 text-sm text-slate-600">
+        Contraseña: el nombre de usuario seguido de <code class="rounded bg-slate-100 px-1 text-xs">-banolia-2026</code>.
+        Por ejemplo, <code class="rounded bg-slate-100 px-1 text-xs">equipo1-banolia-2026</code>.
+      </p>
+      <ul class="mt-2 flex flex-wrap gap-1.5">
+        {usuarios.map((u) => (
+          <li class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+            {u.usuario} <span class="text-slate-500">({u.rol})</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-2 text-xs text-slate-500">
+        Son contraseñas de demostración sobre datos ficticios. Regenérelas con
+        <code class="rounded bg-slate-100 px-1">npm run crear-hash</code> antes de cualquier otro uso.
+      </p>
+    </details>
+  </div>
+</Base>
