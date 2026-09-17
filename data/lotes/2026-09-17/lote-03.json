@@ -1,0 +1,1804 @@
+{
+  "id": "LOTE-20260917-03",
+  "fecha": "2026-09-17",
+  "origen": "programado",
+  "iniciadoEn": "2026-09-17T12:00:00-05:00",
+  "finalizadoEn": "2026-09-17T12:35:00-05:00",
+  "totales": {
+    "solicitudes": 10,
+    "ia": 7,
+    "humano": 3,
+    "descartado": 0
+  },
+  "alertas": [],
+  "solicitudes": [
+    {
+      "id": "SOL-20260917-0021",
+      "recibidaEn": "2026-09-17T08:14:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0079",
+        "nombre": "Alejandro Torres Salazar",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Cotización plato de ducha, grifo y sifón",
+      "mensaje": "Buenos días. Estoy cambiando la ducha del baño principal y quiero una cotización de tres cosas: el plato de ducha de resina Tierravera de 100x80 en pizarra negro, el grifo de ducha Aqualinde monomando en cromo y el sifón extraplano Tecnograf. Es para mi apartamento en Cali. ¿Me pueden enviar el valor total y decirme si el envío tiene algún costo adicional? Muchas gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-proyecto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.94,
+        "entidades": {
+          "sku": [
+            "BN-PLA-003",
+            "BN-GRI-004",
+            "BN-ACC-005"
+          ],
+          "ciudad": "Cali",
+          "zona": "A",
+          "tipoCliente": "particular",
+          "preguntaCostoEnvio": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "particular",
+          "zona": "A",
+          "lineas": [
+            {
+              "sku": "BN-PLA-003",
+              "nombre": "Plato de ducha resina Tierravera 100x80 cm, pizarra negro",
+              "cantidad": 1,
+              "precioUnitarioCOP": 1050000,
+              "subtotalLineaCOP": 1050000,
+              "plazoEntregaDiasHabiles": 8
+            },
+            {
+              "sku": "BN-GRI-004",
+              "nombre": "Grifo de ducha Aqualinde monomando, cromo",
+              "cantidad": 1,
+              "precioUnitarioCOP": 390000,
+              "subtotalLineaCOP": 390000,
+              "plazoEntregaDiasHabiles": 4
+            },
+            {
+              "sku": "BN-ACC-005",
+              "nombre": "Sifón extraplano Tecnograf para plato de ducha",
+              "cantidad": 1,
+              "precioUnitarioCOP": 95000,
+              "subtotalLineaCOP": 95000,
+              "plazoEntregaDiasHabiles": 3
+            }
+          ],
+          "subtotalCOP": 1535000,
+          "descuentoProfesionalAplicable": false,
+          "descuentoCOP": 0,
+          "totalCOP": 1535000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "margenSobreUmbralEnvioGratisCOP": 35000,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoMaximoProductoDiasHabiles": 8,
+          "plazoPrometibleDiasHabiles": [
+            3,
+            8
+          ],
+          "hayProductosAMedida": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "CLI-0079 es particular: no procede ningún descuento de PRO-01. Ofrecérselo sería un error grave",
+          "El envío gratis de ENV-01 se sostiene por solo 35.000 COP de margen; si el cliente retira el sifón BN-ACC-005 (95.000 COP) el pedido baja a 1.440.000 COP y el envío deja de ser gratuito",
+          "El plato BN-PLA-003 tiene un plazo de fabricación de 8 días hábiles, justo el tope de la zona A en ENV-01: cualquier demora del proveedor rompe el plazo prometido",
+          "El cliente no indica las medidas del hueco de la ducha; el plato de 100x80 cm no es a medida y no admite ajuste, y una equivocación abriría una devolución con gastos a su cargo"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Alejandro.\n\n¡Con mucho gusto! Esta es la cotización de los tres productos que nos solicitó:\n\n· Plato de ducha resina Tierravera 100x80 cm, pizarra negro — $ 1.050.000\n· Grifo de ducha Aqualinde monomando, cromo — $ 390.000\n· Sifón extraplano Tecnograf para plato de ducha — $ 95.000\n\nSubtotal: $ 1.535.000\nEnvío a Cali: sin costo\nTotal: $ 1.535.000\n\nSobre su pregunta del envío: no tiene ningún costo adicional, porque el pedido supera los $ 1.500.000. Le señalo un detalle para que lo tenga presente: el total queda apenas $ 35.000 por encima de ese umbral, así que si retira alguna de las tres líneas (por ejemplo el sifón) el pedido baja de $ 1.500.000 y el envío dejaría de ser gratuito.\n\nCali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles. El plato de ducha es la línea con mayor tiempo de preparación, 8 días hábiles, y es la que marca el despacho del pedido completo.\n\nUna recomendación antes de ordenar: el plato Tierravera de 100x80 cm es de medida fija y en su ficha no publicamos ningún rango de ajuste, así que el espacio donde va debe corresponder a esas medidas. Le sugerimos medir el hueco en tres puntos (al fondo, en la mitad y al frente) y compartirnos los resultados antes de ordenar. Una medida equivocada es la causa más frecuente de devoluciones en platos de ducha, y en ese caso los gastos de recogida corren por cuenta del cliente. Si nos envía las tres medidas, le confirmamos si esta referencia le sirve o si le conviene otra del catálogo.\n\nSi lo desea, podemos cotizarle aparte la instalación con nuestros aliados certificados en Cali. Es un servicio que requiere cotización previa y no está incluido en los valores anteriores.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador afirmaba que el plato BN-PLA-003 «no admite ajuste». El catálogo trae rangoAjusteCm en null, que significa que no hay rango publicado, no que se haya verificado que no exista ninguno. Se reformuló como «es de medida fija y en su ficha no publicamos ningún rango de ajuste» y se ofreció confirmar con las medidas del cliente."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Alejandro.\n\n¡Con mucho gusto! Esta es la cotización de los tres productos que nos solicitó:\n\n· Plato de ducha resina Tierravera 100x80 cm, pizarra negro — $ 1.050.000\n· Grifo de ducha Aqualinde monomando, cromo — $ 390.000\n· Sifón extraplano Tecnograf para plato de ducha — $ 95.000\n\nSubtotal: $ 1.535.000\nEnvío a Cali: sin costo\nTotal: $ 1.535.000\n\nSobre su pregunta del envío: no tiene ningún costo adicional, porque el pedido supera los $ 1.500.000. Le señalo un detalle para que lo tenga presente: el total queda apenas $ 35.000 por encima de ese umbral, así que si retira alguna de las tres líneas (por ejemplo el sifón) el pedido baja de $ 1.500.000 y el envío dejaría de ser gratuito.\n\nCali es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles. El plato de ducha es la línea con mayor tiempo de preparación, 8 días hábiles, y es la que marca el despacho del pedido completo.\n\nUna recomendación antes de ordenar: el plato Tierravera de 100x80 cm es de medida fija y en su ficha no publicamos ningún rango de ajuste, así que el espacio donde va debe corresponder a esas medidas. Le sugerimos medir el hueco en tres puntos (al fondo, en la mitad y al frente) y compartirnos los resultados antes de ordenar. Una medida equivocada es la causa más frecuente de devoluciones en platos de ducha, y en ese caso los gastos de recogida corren por cuenta del cliente. Si nos envía las tres medidas, le confirmamos si esta referencia le sirve o si le conviene otra del catálogo.\n\nSi lo desea, podemos cotizarle aparte la instalación con nuestros aliados certificados en Cali. Es un servicio que requiere cotización previa y no está incluido en los valores anteriores.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia bancaria o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal formulario",
+          "justificacion": "Cotización pequeña de un particular, de 1.535.000 COP, muy por debajo del umbral de 15.000.000 de H01 y sin ninguna petición de crédito. Comprueba que el sistema sabe sumar tres referencias del catálogo y aplicar ENV-01 (envío gratis desde 1.500.000 COP y plazo de 3 a 8 días hábiles en zona A) sin escalar a una persona.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Particular de Cali pide cotización de plato de ducha, grifo de ducha y sifón, y pregunta si el envío tiene costo.",
+          "justificacion": "El cliente pide expresamente «una cotización» de tres productos identificables del catálogo y el valor total, lo que sitúa el caso en cotizaciones sin ambigüedad. Es un particular sin pedido previo, de modo que la subcategoría es cotizacion-proyecto y no cotizacion-profesional. La prioridad es baja porque se trata de una consulta previa a la compra sin plazo incumplido, y el tono es cordial y neutro. La confianza es alta porque la intención comercial es inequívoca.",
+          "confianza": 0.94,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Cotización de 1.535.000 COP sin descuento por ser particular, con envío gratuito por ENV-01 y entrega estimada de 3 a 8 días hábiles en Cali.",
+          "justificacion": "Las tres líneas suman 1.535.000 COP (BN-PLA-003 1.050.000 + BN-GRI-004 390.000 + BN-ACC-005 95.000). PRO-01 no se cita como aplicable porque el maestro de clientes clasifica a CLI-0079 como particular y el descuento del 8 % se reserva a clientes profesionales. ENV-01 sitúa el pedido por encima del umbral de 1.500.000 COP, así que el envío es gratuito, y fija de 3 a 8 días hábiles para la zona A, plazo que se puede sostener porque el producto más lento del carrito son los 8 días hábiles del plato. PQR-01 obliga a responder esta consulta en un máximo de 24 horas hábiles.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Cotización de tres referencias por 1.535.000 COP con envío gratis: la responde la IA.",
+          "justificacion": "La cotización asciende a 1.535.000 COP, muy por debajo del umbral de 15.000.000 de H01, y no hay ninguna solicitud de crédito. El caso cumple la política sin necesidad de excepción, así que H04 no aplica, y la confianza de 0,94 descarta H06. El cliente es particular y las advertencias del análisis (margen de 35.000 COP sobre el envío gratis y medidas del hueco) se comunican en la propia respuesta.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se desglosa línea a línea con el nombre exacto del catálogo para que el cliente pueda contrastar cada precio, y se responde de forma directa la pregunta del costo de envío aplicando ENV-01: gratuito por superar los $ 1.500.000 y de 3 a 8 días hábiles por ser Cali zona A. Se advierte de manera explícita que el margen sobre el umbral es de solo $ 35.000, porque retirar el sifón dejaría el envío con costo y el cliente merece saberlo antes de decidir. No se menciona ni se insinúa ningún descuento, ya que CLI-0079 es particular y las condiciones de PRO-01 son exclusivas de remodeladores, constructoras, arquitectos y hoteles. Se ofrece instalación porque Cali es una de las tres ciudades de INS-01, siempre con cotización previa, y se cierra con los medios de pago de PAG-01 y la vigencia de 15 días.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se verificaron los tres precios y el total contra el catálogo y los cálculos del analista, sin desviaciones. Se corrigió una deducción indebida sobre el rango de ajuste del plato y se confirmó que el plazo prometido es el rango de ENV-01 y no una fecha concreta. Queda aprobado: no hay descuento ofrecido a un particular, la instalación solo se propone en una ciudad cubierta por INS-01 y el plazo de respuesta a consultas de PQR-01 se respeta en el compromiso de revisar las medidas.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0022",
+      "recibidaEn": "2026-09-17T08:47:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0010",
+        "nombre": "Hotel Boutique La Ceiba",
+        "ciudad": "Bucaramanga",
+        "zona": "A",
+        "tipo": "profesional"
+      },
+      "pedido": null,
+      "asunto": "Solicitud de cotización para renovación de seis baños",
+      "mensaje": "Cordial saludo. Estamos renovando seis habitaciones del hotel y quisiéramos recibir una cotización formal por los siguientes elementos, seis unidades de cada uno: lavabo sobre encimera Cerámicas Quindío redondo de 40 cm (BN-LAV-001), grifo de lavamanos Aqualinde monomando en cromo (BN-GRI-001) y espejo Lumnia sin luz de 80x60 cm con marco de aluminio negro (BN-ESP-004). Agradecemos indicar el valor total, el descuento que nos corresponde como cliente profesional y el plazo de entrega a Bucaramanga. Quedamos atentos. Administración, Hotel Boutique La Ceiba.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-profesional",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.96,
+        "entidades": {
+          "sku": [
+            "BN-LAV-001",
+            "BN-GRI-001",
+            "BN-ESP-004"
+          ],
+          "unidadesPorSku": 6,
+          "ciudad": "Bucaramanga",
+          "zona": "A",
+          "tipoCliente": "profesional",
+          "solicitaDescuentoProfesional": true,
+          "solicitaPlazoEntrega": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PRO-01",
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "profesional",
+          "subtipoCliente": "hotel",
+          "zona": "A",
+          "ciudad": "Bucaramanga",
+          "lineas": [
+            {
+              "sku": "BN-LAV-001",
+              "nombre": "Lavabo sobre encimera Cerámicas Quindío redondo 40 cm",
+              "cantidad": 6,
+              "precioUnitarioCOP": 420000,
+              "subtotalLineaCOP": 2520000,
+              "plazoEntregaDiasHabiles": 5
+            },
+            {
+              "sku": "BN-GRI-001",
+              "nombre": "Grifo de lavamanos Aqualinde monomando, cromo",
+              "cantidad": 6,
+              "precioUnitarioCOP": 320000,
+              "subtotalLineaCOP": 1920000,
+              "plazoEntregaDiasHabiles": 4
+            },
+            {
+              "sku": "BN-ESP-004",
+              "nombre": "Espejo Lumnia sin luz 80x60 cm, marco aluminio negro",
+              "cantidad": 6,
+              "precioUnitarioCOP": 340000,
+              "subtotalLineaCOP": 2040000,
+              "plazoEntregaDiasHabiles": 5
+            }
+          ],
+          "subtotalCOP": 6480000,
+          "tramoPRO01Aplicado": "8 % desde 5.000.000 COP",
+          "porcentajeDescuento": 8,
+          "descuentoCOP": 518400,
+          "totalCOP": 5961600,
+          "faltaParaTramo12COP": 13520000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoMaximoProductoDiasHabiles": 5,
+          "plazoPrometibleDiasHabiles": [
+            3,
+            8
+          ],
+          "hayProductosAMedida": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El tramo del 12 % de PRO-01 queda a 13.520.000 COP de distancia: conviene decirlo para no generar la expectativa de un descuento mayor sobre esta cotización",
+          "Son 18 unidades de tres referencias; el catálogo no publica existencias, así que el plazo de ENV-01 solo se puede prometer si hay inventario confirmado para el lote completo",
+          "Si el hotel pide crédito a 30 días, PRO-01 exige estudio previo y aprobación del área financiera: no se puede conceder desde la respuesta",
+          "Una cotización formal para un cliente profesional con NIT quedará ligada a facturación electrónica (FAC-01): conviene confirmar razón social y NIT antes de emitir, porque después solo hay 24 horas para corregirlos"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Cordial saludo, equipo de Hotel Boutique La Ceiba.\n\n¡Con mucho gusto! Esta es la cotización formal para la renovación de las seis habitaciones:\n\n· Lavabo sobre encimera Cerámicas Quindío redondo 40 cm — 6 unidades × $ 420.000 — $ 2.520.000\n· Grifo de lavamanos Aqualinde monomando, cromo — 6 unidades × $ 320.000 — $ 1.920.000\n· Espejo Lumnia sin luz 80x60 cm, marco aluminio negro — 6 unidades × $ 340.000 — $ 2.040.000\n\nSubtotal: $ 6.480.000\nDescuento cliente profesional (8 %): − $ 518.400\nEnvío a Bucaramanga: sin costo\nTotal: $ 5.961.600\n\nSobre el descuento que nos consultan: como hotel, ustedes son cliente profesional, y al superar la compra los $ 5.000.000 les corresponde el 8 %, que ya está aplicado arriba. El siguiente tramo es del 12 % y comienza en $ 20.000.000; sobre esta cotización faltarían $ 13.520.000 para alcanzarlo, así que preferimos decírselo con claridad en lugar de dejar la expectativa abierta.\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Bucaramanga es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles. Al tratarse de 18 unidades de tres referencias, confirmamos la disponibilidad del lote completo antes de despachar; si alguna referencia no estuviera disponible en esa cantidad, se lo informamos de inmediato para que decidan si prefieren esperar o despachar en dos entregas.\n\nPara la facturación les pedimos un favor: confírmenos la razón social y el NIT exactos. Emitimos factura electrónica validada ante la DIAN y la enviamos al correo registrado, y conviene revisar esos datos antes, porque una vez emitida la factura los cambios de razón social o de NIT solo pueden hacerse dentro de las 24 horas siguientes; pasado ese plazo se requiere nota crédito.\n\nMedios de pago: PSE, tarjeta de crédito o débito, transferencia bancaria y financiación con nuestro aliado. No manejamos pago contraentrega. Si les interesa el crédito a 30 días para clientes profesionales, cuéntennos y lo tramitamos, teniendo en cuenta que requiere estudio previo y aprobación de nuestra área financiera.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Cordial saludo, equipo de Hotel Boutique La Ceiba.\n\n¡Con mucho gusto! Esta es la cotización formal para la renovación de las seis habitaciones:\n\n· Lavabo sobre encimera Cerámicas Quindío redondo 40 cm — 6 unidades × $ 420.000 — $ 2.520.000\n· Grifo de lavamanos Aqualinde monomando, cromo — 6 unidades × $ 320.000 — $ 1.920.000\n· Espejo Lumnia sin luz 80x60 cm, marco aluminio negro — 6 unidades × $ 340.000 — $ 2.040.000\n\nSubtotal: $ 6.480.000\nDescuento cliente profesional (8 %): − $ 518.400\nEnvío a Bucaramanga: sin costo\nTotal: $ 5.961.600\n\nSobre el descuento que nos consultan: como hotel, ustedes son cliente profesional, y al superar la compra los $ 5.000.000 les corresponde el 8 %, que ya está aplicado arriba. El siguiente tramo es del 12 % y comienza en $ 20.000.000; sobre esta cotización faltarían $ 13.520.000 para alcanzarlo, así que preferimos decírselo con claridad en lugar de dejar la expectativa abierta.\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Bucaramanga es zona A, de modo que el plazo estimado de entrega es de 3 a 8 días hábiles. Al tratarse de 18 unidades de tres referencias, confirmamos la disponibilidad del lote completo antes de despachar; si alguna referencia no estuviera disponible en esa cantidad, se lo informamos de inmediato para que decidan si prefieren esperar o despachar en dos entregas.\n\nPara la facturación les pedimos un favor: confírmenos la razón social y el NIT exactos. Emitimos factura electrónica validada ante la DIAN y la enviamos al correo registrado, y conviene revisar esos datos antes, porque una vez emitida la factura los cambios de razón social o de NIT solo pueden hacerse dentro de las 24 horas siguientes; pasado ese plazo se requiere nota crédito.\n\nMedios de pago: PSE, tarjeta de crédito o débito, transferencia bancaria y financiación con nuestro aliado. No manejamos pago contraentrega. Si les interesa el crédito a 30 días para clientes profesionales, cuéntennos y lo tramitamos, teniendo en cuenta que requiere estudio previo y aprobación de nuestra área financiera.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal correo",
+          "justificacion": "Cotización profesional de 6.480.000 COP que cae limpiamente en el tramo del 8 % de PRO-01: supera los 5.000.000 y no llega a los 20.000.000 del 12 %. El cliente es profesional pero su valor histórico es de 23.029.000 COP, muy por debajo de los 50.000.000 de H10, y no pide crédito, así que no debe activarse ningún criterio de escalado. Pone a prueba que el sistema aplique el tramo correcto y no el más alto.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Hotel profesional de Bucaramanga solicita cotización formal de seis unidades de tres referencias, con descuento profesional y plazo de entrega.",
+          "justificacion": "El mensaje pide una «cotización formal» con SKU, cantidades, valor total, descuento profesional y plazo, que es el caso canónico de cotizaciones. La subcategoría es cotizacion-profesional porque el maestro confirma que CLI-0010 es un cliente profesional de subtipo hotel. Se sube la prioridad a media, y no baja, porque de la cotización depende una compra B2B de seis habitaciones y el retraso en responder tiene coste comercial real. El tono es formal y neutro.",
+          "confianza": 0.96,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Subtotal de 6.480.000 COP con 8 % de PRO-01 (518.400 COP) y total de 5.961.600 COP, envío gratuito y entrega de 3 a 8 días hábiles en Bucaramanga.",
+          "justificacion": "Las seis unidades de cada referencia suman 6.480.000 COP (2.520.000 de BN-LAV-001, 1.920.000 de BN-GRI-001 y 2.040.000 de BN-ESP-004). El maestro confirma que CLI-0010 es profesional de subtipo hotel, de modo que PRO-01 aplica en su tramo del 8 % por superar los 5.000.000 COP y quedarse por debajo de los 20.000.000 COP: el descuento es de 518.400 COP y el total, 5.961.600 COP. ENV-01 deja el envío gratuito por superar 1.500.000 COP y fija de 3 a 8 días hábiles para Bucaramanga, que es zona A según la lista de DEV-08, plazo compatible con los 5 días hábiles del producto más lento. PQR-01 fija el máximo de 24 horas hábiles para responder.",
+          "confianza": null,
+          "reglas": [
+            "PRO-01",
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Cotización profesional de 5.961.600 COP con el 8 % de PRO-01 ya calculado: la responde la IA.",
+          "justificacion": "La cotización queda en 5.961.600 COP, lejos de los 15.000.000 de H01, y el cliente no solicita crédito en su mensaje. El descuento del 8 % del tramo de PRO-01 es una aplicación directa de la regla y no necesita que intervenga una persona. El hotel es profesional pero su valor histórico es de 23.029.000 COP, por debajo de los 50.000.000 que exige H10, y la confianza de 0,96 descarta H06.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La cotización se desglosa por referencia con cantidad, valor unitario y subtotal de línea, porque un cliente profesional con dieciocho unidades necesita poder contrastar cada partida. Se aplica el tramo del 8 % de PRO-01 por ser hotel y superar los $ 5.000.000, y se explica de forma anticipada que el tramo del 12 % queda a $ 13.520.000 de distancia, para no dejar una expectativa de descuento mayor. Se aplica ENV-01 (envío gratuito y plazo de 3 a 8 días hábiles en zona A) condicionando el despacho a la confirmación del inventario del lote completo, en lugar de prometer una fecha. Se pide razón social y NIT antes de emitir por FAC-01, advirtiendo la ventana de 24 horas, y el crédito a 30 días se menciona como posible pero sujeto a estudio previo, tal como exige PRO-01. No se ofrece instalación porque INS-01 no cubre Bucaramanga.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se recalcularon subtotal, descuento y total ($ 6.480.000, $ 518.400 y $ 5.961.600) y coinciden con el análisis de política. El descuento procede porque el cliente sí es profesional, y el texto no promete el 12 % ni el crédito a 30 días, solo los describe con sus condiciones. Se comprobó que no se ofrece instalación en una ciudad fuera de INS-01 y que el plazo se presenta como rango estimado sujeto a inventario. Aprobado en la primera iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0023",
+      "recibidaEn": "2026-09-17T09:05:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0058",
+        "nombre": "Paula Cárdenas Peña",
+        "ciudad": "Barranquilla",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Duda de medidas de la mampara Bruma de 120",
+      "mensaje": "hola buenas, tengo una pregunta antes de comprar. medi el hueco de la ducha y me da 118 cm de pared a pared. la mampara frontal bruma de 120 corredera con perfil cromado me sirve o me queda chiquita? no quiero pedirla y q despues no entre. gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.91,
+        "entidades": {
+          "sku": "BN-MAM-001",
+          "medidaHuecoCm": 118,
+          "ciudad": "Barranquilla",
+          "zona": "A",
+          "tipoCliente": "particular",
+          "previaALaCompra": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01",
+          "DEV-01",
+          "DEV-02",
+          "DEV-08"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "particular",
+          "zona": "A",
+          "sku": "BN-MAM-001",
+          "precioCOP": 1680000,
+          "rangoAjusteCm": [
+            115,
+            120
+          ],
+          "medidaHuecoCm": 118,
+          "dentroDelRangoAjuste": true,
+          "holguraAlMinimoCm": 3,
+          "holguraAlMaximoCm": 2,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoProductoDiasHabiles": 8,
+          "hayProductosAMedida": false,
+          "tipologiaDevolucion": "mamparas-con-flejes",
+          "gastoRecogidaSiDevuelveCOP": 248000,
+          "plazoDesistimientoDiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "La clienta midió un solo punto de pared a pared; los huecos de obra rara vez son paralelos y conviene pedirle la medida arriba, en medio y abajo antes de confirmar el pedido",
+          "118 cm deja solo 2 cm hasta el máximo del rango: si la medida real en algún punto supera los 120 cm, la mampara no entra",
+          "Si la medida falla y hay que devolver, DEV-02 exige que no esté instalada y DEV-08 descuenta 248.000 COP por tipología mamparas-con-flejes en zona A, dentro de los 14 días calendario de DEV-01",
+          "El plazo del producto es de 8 días hábiles, el tope de la zona A en ENV-01"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, Paula! Con mucho gusto le ayudamos.\n\nSí le sirve. La Mampara frontal Bruma 120 cm, corredera, perfil cromado tiene un rango de ajuste publicado de 115 a 120 cm, y sus 118 cm quedan dentro de ese rango sin problema.\n\nAhora, un consejo antes de que ordene, y es el que más devoluciones nos evita: mida el hueco en tres puntos, arriba, en la mitad y abajo. Los muros de obra rara vez quedan perfectamente paralelos, y las tres medidas deben quedar dentro del rango de 115 a 120 cm. Con 118 cm le quedan apenas 2 cm hasta el máximo, así que si en algún punto el hueco pasa de 120 cm la mampara ya no entra. Si nos comparte las tres medidas, se lo confirmamos con gusto.\n\nEl resto de condiciones, para que las tenga claras:\n\n· Valor de la mampara: $ 1.680.000. El envío es gratuito porque supera los $ 1.500.000.\n· Barranquilla es zona A: la entrega estimada es de 3 a 8 días hábiles.\n· Si finalmente la medida no coincide, usted tiene 14 días calendario desde que recibe el pedido para desistir, siempre y cuando la mampara no se haya instalado ni usado. Una mampara ya instalada, aunque se desmonte después, no es elegible.\n· En ese caso, del reembolso se descuentan los gastos de recogida, que para mamparas con flejes en zona A son de $ 248.000. Por eso insistimos tanto en medir antes: sale mucho más económico.\n\nQuedamos atentos a sus tres medidas. Los valores que le indicamos son los vigentes hoy; si desea una cotización formal, se la emitimos con una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador decía «lo que manda es la medida más pequeña», copiando una fórmula habitual que no se sostiene con un rango de ajuste de 115 a 120 cm: con este producto lo que importa es que las tres medidas caigan dentro del rango, y el riesgo real está en el máximo. Se reescribió el consejo para que refleje el rango publicado en el catálogo en lugar de una regla general."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, Paula! Con mucho gusto le ayudamos.\n\nSí le sirve. La Mampara frontal Bruma 120 cm, corredera, perfil cromado tiene un rango de ajuste publicado de 115 a 120 cm, y sus 118 cm quedan dentro de ese rango sin problema.\n\nAhora, un consejo antes de que ordene, y es el que más devoluciones nos evita: mida el hueco en tres puntos, arriba, en la mitad y abajo. Los muros de obra rara vez quedan perfectamente paralelos, y las tres medidas deben quedar dentro del rango de 115 a 120 cm. Con 118 cm le quedan apenas 2 cm hasta el máximo, así que si en algún punto el hueco pasa de 120 cm la mampara ya no entra. Si nos comparte las tres medidas, se lo confirmamos con gusto.\n\nEl resto de condiciones, para que las tenga claras:\n\n· Valor de la mampara: $ 1.680.000. El envío es gratuito porque supera los $ 1.500.000.\n· Barranquilla es zona A: la entrega estimada es de 3 a 8 días hábiles.\n· Si finalmente la medida no coincide, usted tiene 14 días calendario desde que recibe el pedido para desistir, siempre y cuando la mampara no se haya instalado ni usado. Una mampara ya instalada, aunque se desmonte después, no es elegible.\n· En ese caso, del reembolso se descuentan los gastos de recogida, que para mamparas con flejes en zona A son de $ 248.000. Por eso insistimos tanto en medir antes: sale mucho más económico.\n\nQuedamos atentos a sus tres medidas. Los valores que le indicamos son los vigentes hoy; si desea una cotización formal, se la emitimos con una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal whatsapp",
+          "justificacion": "Consulta previa a la compra de un solo tema, resoluble con el campo rangoAjusteCm del catálogo: la BN-MAM-001 ajusta de 115 a 120 cm, así que 118 cm entra sin problema. Está escrita en registro de WhatsApp, sin tildes ni signos de apertura, para comprobar que el clasificador no depende de un lenguaje cuidado para reconocer la intención.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Clienta pregunta, antes de comprar, si la mampara Bruma de 120 encaja en un hueco de ducha de 118 cm.",
+          "justificacion": "La clienta plantea una duda técnica de encaje sobre una referencia concreta y declara expresamente que es «antes de comprar», sin pedir precio ni cotización. Eso la sitúa en consultas/consulta-producto y no en cotizaciones. La prioridad es baja por ser previa a la compra y el sentimiento neutro, con una inquietud leve por equivocarse de medida. La confianza es alta porque no hay un segundo tema que compita.",
+          "confianza": 0.91,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "La mampara BN-MAM-001 sí encaja: su rango de ajuste publicado es de 115 a 120 cm y el hueco mide 118 cm.",
+          "justificacion": "El catálogo publica para BN-MAM-001 un rangoAjusteCm de [115, 120], de modo que un hueco de 118 cm queda dentro con 2 cm de holgura hasta el máximo. ENV-01 deja el envío gratuito porque los 1.680.000 COP superan el umbral de 1.500.000 COP y fija de 3 a 8 días hábiles para Barranquilla, zona A según DEV-08; el producto tarda 8 días hábiles, justo el tope. Si la medida resultara errónea, DEV-01 da 14 días calendario para desistir, DEV-02 exige que la mampara no esté instalada y la tabla de DEV-08 descuenta 248.000 COP por la tipología mamparas-con-flejes en zona A. PQR-01 fija 24 horas hábiles para responder la consulta.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01",
+            "DEV-01",
+            "DEV-02",
+            "DEV-08"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta previa a la compra sobre medidas: los 118 cm caben en el rango de ajuste, responde la IA.",
+          "justificacion": "Es una consulta informativa previa a la compra y la respuesta se deduce del propio catálogo: 118 cm está dentro del rango de ajuste de 115 a 120 cm de la mampara. No hay importe en juego que active H01, ni excepción a la política que justifique H04, y la confianza de 0,91 descarta H06. La recomendación de medir en tres puntos y la advertencia de DEV-08 sobre los 248.000 COP de recogida forman parte de la respuesta, no de un escalado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La clienta escribe por WhatsApp y antes de comprar, así que la respuesta abre resolviendo la duda de una vez: 118 cm cae dentro del rangoAjusteCm de 115 a 120 cm que publica el catálogo para BN-MAM-001. Se añade el consejo de medir en tres puntos y se le explica que solo quedan 2 cm hasta el máximo, porque midió un único punto de pared a pared y esa es la causa más frecuente de devolución en mamparas. Se anticipan las consecuencias económicas de equivocarse citando DEV-01 (14 días calendario), DEV-02 (sin instalar ni usar) y DEV-08 ($ 248.000 de recogida para mamparas con flejes en zona A), para que decida con la información completa. Se cierra con ENV-01: envío gratuito por superar los $ 1.500.000 y entrega estimada de 3 a 8 días hábiles en Barranquilla.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "El rango de ajuste, el precio, la tipología de devolución y la tarifa de recogida se contrastaron uno a uno con el catálogo y con DEV-08, sin cifras añadidas. Se corrigió el consejo de medición, que en la primera versión aplicaba una regla genérica en lugar del rango publicado. No se ofrece instalación, correctamente, porque Barranquilla no está entre las ciudades de INS-01, y no se promete fecha de entrega sino el rango de ENV-01. Aprobado en segunda iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0024",
+      "recibidaEn": "2026-09-17T09:38:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0137",
+        "nombre": "Diana Quintero Vargas",
+        "ciudad": "Manizales",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "¿El panel fijo Hidrosur de 120 trae antical?",
+      "mensaje": "Buenas. El panel fijo Hidrosur de 120 cm en vidrio de 10 mm viene con tratamiento antical? En mi casa el agua es muy dura y el vidrio se me mancha mucho.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.94,
+        "entidades": {
+          "sku": "BN-MAM-006",
+          "atributoConsultado": "tratamiento antical",
+          "ciudad": "Manizales",
+          "zona": "B",
+          "tipoCliente": "particular",
+          "mencionaAguaDura": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "GAR-01",
+          "PQR-01",
+          "DEV-05",
+          "CAN-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "particular",
+          "zona": "B",
+          "ciudad": "Manizales",
+          "sku": "BN-MAM-006",
+          "precioCOP": 1620000,
+          "atributoAnticalPublicadoEnCatalogo": false,
+          "unicaReferenciaConAnticalEnCatalogo": "BN-MAM-007",
+          "alternativaAntical": {
+            "sku": "BN-MAM-007",
+            "precioCOP": 2480000,
+            "aMedida": true,
+            "plazoEntregaDiasHabiles": 22
+          },
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "plazoProductoDiasHabiles": 8,
+          "plazoAMedidaDiasHabiles": [
+            20,
+            30
+          ],
+          "garantiaMamparasMeses": 24,
+          "calNoCubiertaPorGarantia": true,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El catálogo no publica ningún atributo de tratamiento antical para BN-MAM-006: no se puede afirmar ni negar que lo lleve, hay que decírselo a la clienta y verificarlo con Hidrosur en lugar de deducirlo",
+          "La única referencia del catálogo que declara antical en su ficha es BN-MAM-007, que es a medida: DEV-05 le impide la devolución y CAN-01 la cancelación una vez iniciada la fabricación, y su entrega sube a 20-30 días hábiles según ENV-01",
+          "GAR-01 excluye expresamente las incrustaciones de cal por agua dura de la garantía de 24 meses, justo el problema que describe la clienta: conviene advertirlo antes de la compra para no generar una reclamación futura",
+          "Responder que sí lleva antical sin confirmarlo con el fabricante sentaría un precedente de compromiso comercial no respaldado por la ficha"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, Diana! Gracias por preguntarnos antes de comprar.\n\nLe respondo con franqueza: en la ficha del Panel fijo Hidrosur 120 cm, vidrio templado 10 mm no tenemos publicado ningún tratamiento antical. Eso significa que hoy no le puedo afirmar que lo traiga, y tampoco quiero decírselo por deducción. Lo consultamos directamente con Hidrosur y le confirmamos por este mismo medio dentro de las próximas 24 horas hábiles.\n\nLo que sí le puedo confirmar es que la única referencia de nuestro catálogo que declara el tratamiento antical en su ficha es el Panel fijo a medida Hidrosur, hasta 140 cm, antical, con un valor de $ 2.480.000. Antes de que lo considere, hay tres cosas que debe saber, porque es un producto fabricado a medida:\n\n· No admite devolución ni desistimiento, por estar confeccionado según sus especificaciones.\n· Una vez iniciada la fabricación tampoco admite cancelación.\n· El plazo de entrega de los productos a medida es de 20 a 30 días hábiles.\n\nSobre el agua dura le debo una advertencia, justamente por lo que nos cuenta: la garantía de nuestras mamparas es de 24 meses, pero no cubre las incrustaciones de cal por agua dura ni los daños por el uso de productos químicos abrasivos. Se lo decimos antes de la compra para que no sea una sorpresa más adelante.\n\nY los datos de envío, por si le sirven para comparar: el Panel fijo Hidrosur 120 cm, vidrio templado 10 mm cuesta $ 1.620.000, y en los dos casos el envío es gratuito porque superan los $ 1.500.000. Manizales es zona B, así que la entrega del panel estándar se estima entre 8 y 15 días hábiles, y la del panel a medida, entre 20 y 30 días hábiles.\n\nQuedamos pendientes de confirmarle lo del antical con el fabricante antes de que tome cualquier decisión. Los valores indicados son los vigentes hoy; si desea una cotización formal, se la emitimos con una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador incluía la frase «el tratamiento antical ayuda a que el vidrio se limpie con más facilidad»: suena razonable, pero es una característica técnica que no consta en ninguna ficha del catálogo. Se eliminó y se dejó únicamente la exclusión de garantía de GAR-01, que sí está documentada. En el mismo repaso se sustituyó el plazo de 22 días hábiles de la ficha por el rango de 20 a 30 días hábiles de ENV-01, para no prometer una entrega más corta de la que garantiza la política."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, Diana! Gracias por preguntarnos antes de comprar.\n\nLe respondo con franqueza: en la ficha del Panel fijo Hidrosur 120 cm, vidrio templado 10 mm no tenemos publicado ningún tratamiento antical. Eso significa que hoy no le puedo afirmar que lo traiga, y tampoco quiero decírselo por deducción. Lo consultamos directamente con Hidrosur y le confirmamos por este mismo medio dentro de las próximas 24 horas hábiles.\n\nLo que sí le puedo confirmar es que la única referencia de nuestro catálogo que declara el tratamiento antical en su ficha es el Panel fijo a medida Hidrosur, hasta 140 cm, antical, con un valor de $ 2.480.000. Antes de que lo considere, hay tres cosas que debe saber, porque es un producto fabricado a medida:\n\n· No admite devolución ni desistimiento, por estar confeccionado según sus especificaciones.\n· Una vez iniciada la fabricación tampoco admite cancelación.\n· El plazo de entrega de los productos a medida es de 20 a 30 días hábiles.\n\nSobre el agua dura le debo una advertencia, justamente por lo que nos cuenta: la garantía de nuestras mamparas es de 24 meses, pero no cubre las incrustaciones de cal por agua dura ni los daños por el uso de productos químicos abrasivos. Se lo decimos antes de la compra para que no sea una sorpresa más adelante.\n\nY los datos de envío, por si le sirven para comparar: el Panel fijo Hidrosur 120 cm, vidrio templado 10 mm cuesta $ 1.620.000, y en los dos casos el envío es gratuito porque superan los $ 1.500.000. Manizales es zona B, así que la entrega del panel estándar se estima entre 8 y 15 días hábiles, y la del panel a medida, entre 20 y 30 días hábiles.\n\nQuedamos pendientes de confirmarle lo del antical con el fabricante antes de que tome cualquier decisión. Los valores indicados son los vigentes hoy; si desea una cotización formal, se la emitimos con una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal chat",
+          "justificacion": "Consulta de producto muy corta y de un solo tema. La respuesta está en el catálogo: la BN-MAM-006 no incluye antical y el único panel Hidrosur con ese tratamiento es el BN-MAM-007, que se fabrica a medida. Sirve para verificar que el sistema consulta la ficha en vez de improvisar, y que sabe proponer la alternativa correcta advirtiendo que es un producto a medida.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Clienta de Manizales pregunta si el panel fijo Hidrosur de 120 cm en vidrio de 10 mm incluye tratamiento antical.",
+          "justificacion": "La pregunta es sobre una característica de una referencia concreta del catálogo, sin pedido asociado ni solicitud de precio, lo que la ubica en consultas/consulta-producto. La mención del agua dura es contexto que motiva la duda, no una incidencia ni una reclamación. Prioridad baja por ser previa a la compra y sentimiento neutro. Confianza alta porque la intención es única y clara.",
+          "confianza": 0.94,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "El catálogo no publica tratamiento antical para BN-MAM-006; la única referencia con antical declarado es BN-MAM-007, que es a medida.",
+          "justificacion": "La ficha de BN-MAM-006 no incluye ningún campo de tratamiento antical, de modo que el dato no está publicado y no procede deducirlo; la única referencia cuyo catálogo declara antical es BN-MAM-007, a medida, con 2.480.000 COP y 22 días hábiles, dentro de la franja de 20 a 30 días hábiles que ENV-01 fija para los productos a medida, con DEV-05 impidiendo su devolución y CAN-01 su cancelación una vez iniciada la fabricación. Para BN-MAM-006, ENV-01 deja el envío gratuito por superar los 1.500.000 COP y sus 8 días hábiles caben en la franja de 8 a 15 de la zona B, donde está Manizales. GAR-01 es determinante en este caso porque excluye de la garantía las incrustaciones de cal por agua dura, que es exactamente la situación que describe la clienta. PQR-01 fija 24 horas hábiles de respuesta.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "GAR-01",
+            "PQR-01",
+            "DEV-05",
+            "CAN-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de atributo no publicado en la ficha: se responde con transparencia por ruta IA.",
+          "justificacion": "Que el catálogo no publique el tratamiento antical del panel es un dato que se le comunica a la clienta tal cual, junto con la exclusión de las incrustaciones de cal en GAR-01 y la alternativa a medida BN-MAM-007. Decirle que ese atributo no consta y que se verificará con el fabricante es una respuesta informativa, no una excepción a la política, así que H04 no aplica. Ningún importe alcanza el umbral de H01 y la confianza de 0,94 descarta H06.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La respuesta empieza admitiendo que el catálogo no publica el atributo antical para BN-MAM-006, en lugar de afirmarlo o negarlo por deducción, y se compromete la verificación con el fabricante dentro de las 24 horas hábiles de PQR-01. Se ofrece BN-MAM-007 como la única alternativa que sí declara antical en su ficha, pero acompañada de sus tres condiciones duras y por adelantado: DEV-05 impide la devolución, CAN-01 impide la cancelación una vez iniciada la fabricación y ENV-01 fija de 20 a 30 días hábiles para productos a medida. Como la clienta menciona agua dura, se advierte que GAR-01 excluye expresamente las incrustaciones de cal de la garantía de 24 meses: es preferible perder la venta a generar una reclamación futura. Se cierra con los datos de ENV-01 para zona B, sin ofrecer instalación porque INS-01 no cubre Manizales.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se comprobó que el texto no afirma en ningún punto que el panel de 10 mm traiga antical, que es el riesgo central señalado por el analista. Se eliminó la única frase con contenido técnico no respaldado por la ficha y se alineó el plazo del producto a medida con el rango de ENV-01. Las advertencias de DEV-05, CAN-01 y GAR-01 llegan antes de la compra, que es cuando sirven de algo, y los dos precios coinciden con el catálogo. Aprobado en segunda iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0025",
+      "recibidaEn": "2026-09-17T10:22:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0073",
+        "nombre": "Alejandro Peña Valencia",
+        "ciudad": "Medellín",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "¿Ofrecen servicio de instalación en Medellín?",
+      "mensaje": "Buen día. Antes de decidirme quisiera saber si ustedes prestan el servicio de instalación en Medellín. Me interesa el mueble suspendido Aracena de 80 cm en roble natural, pero no tengo quién me lo monte y prefiero que lo haga alguien que ustedes recomienden. ¿El servicio ya viene incluido en el precio del mueble o se cobra aparte? Gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-instalacion",
+        "prioridad": "baja",
+        "sentimiento": 1,
+        "confianza": 0.88,
+        "entidades": {
+          "sku": "BN-MUE-001",
+          "ciudad": "Medellín",
+          "zona": "A",
+          "tipoCliente": "particular",
+          "temasSecundarios": [
+            "cotizacion-proyecto"
+          ],
+          "preguntaSiInstalacionEstaIncluida": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "INS-01",
+          "ENV-01",
+          "GAR-01",
+          "DEV-02",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "tipoCliente": "particular",
+          "zona": "A",
+          "ciudad": "Medellín",
+          "ciudadCubiertaPorINS01": true,
+          "ciudadesINS01": [
+            "Bogotá",
+            "Medellín",
+            "Cali"
+          ],
+          "instalacionIncluidaEnPrecio": false,
+          "instalacionRequiereCotizacion": true,
+          "sku": "BN-MUE-001",
+          "precioCOP": 1890000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoProductoDiasHabiles": 8,
+          "hayProductosAMedida": false,
+          "garantiaMuebleMeses": 24,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "INS-01 no publica tarifas: el precio de la instalación no se puede dar en la respuesta y depende de una cotización previa del aliado certificado, así que el cliente se queda sin la cifra que pide",
+          "Hay que dejar claro que la instalación se cobra aparte y no está incluida en el precio del mueble, porque el cliente pregunta justamente eso",
+          "Una vez instalado el mueble, DEV-02 le cierra el desistimiento de DEV-01 aunque se desmonte después: conviene que revise medidas y acabado antes del montaje",
+          "GAR-01 no cubre los daños por mala instalación; instalar con el aliado certificado de INS-01 en lugar de por su cuenta protege los 24 meses de garantía del mueble"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buen día, señor Alejandro.\n\n¡Con mucho gusto! Le respondo las dos preguntas.\n\nSí, prestamos servicio de instalación en Medellín a través de aliados certificados. El servicio está disponible en Bogotá, Medellín y Cali, de modo que su ciudad queda cubierta.\n\nAhora bien, la instalación no está incluida en el precio del mueble: se cobra aparte y siempre se define con una cotización previa. No manejamos una tarifa publicada, así que hoy no le puedo dar una cifra; lo que hacemos es enviarle la cotización del montaje para que usted la revise antes de comprometerse con nada. Si desea que avancemos, respóndanos por este mismo medio indicándonos la dirección donde se haría la instalación y la gestionamos con el aliado.\n\nEl mueble que le interesa queda así:\n\n· Mueble suspendido Aracena 80 cm, dos cajones, roble natural — $ 1.890.000\n\nSubtotal: $ 1.890.000\nEnvío a Medellín: sin costo\nTotal: $ 1.890.000\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Medellín es zona A, así que el plazo estimado de entrega es de 3 a 8 días hábiles. Este total no incluye la instalación.\n\nDos recomendaciones antes de que ordene:\n\n1. Revise el mueble apenas lo reciba (medidas, acabado y estado) y hágalo antes de montarlo. Usted tiene 14 días calendario desde la recepción para desistir de la compra, pero un producto ya instalado, aunque se desmonte después, deja de ser elegible para devolución.\n2. Montarlo con el aliado certificado le protege la garantía. El mueble tiene 24 meses de garantía y esa garantía no cubre los daños ocasionados por una mala instalación.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "La primera versión justificaba la ausencia de tarifa diciendo que el precio de la instalación depende del punto hidráulico, del tipo de muro y de los accesos. INS-01 solo establece que el servicio requiere cotización previa y no está incluido en el precio: esos factores no constan en ninguna fuente y eran una explicación inventada. Se reemplazó por la formulación literal de la política, sin atribuir causas al precio."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buen día, señor Alejandro.\n\n¡Con mucho gusto! Le respondo las dos preguntas.\n\nSí, prestamos servicio de instalación en Medellín a través de aliados certificados. El servicio está disponible en Bogotá, Medellín y Cali, de modo que su ciudad queda cubierta.\n\nAhora bien, la instalación no está incluida en el precio del mueble: se cobra aparte y siempre se define con una cotización previa. No manejamos una tarifa publicada, así que hoy no le puedo dar una cifra; lo que hacemos es enviarle la cotización del montaje para que usted la revise antes de comprometerse con nada. Si desea que avancemos, respóndanos por este mismo medio indicándonos la dirección donde se haría la instalación y la gestionamos con el aliado.\n\nEl mueble que le interesa queda así:\n\n· Mueble suspendido Aracena 80 cm, dos cajones, roble natural — $ 1.890.000\n\nSubtotal: $ 1.890.000\nEnvío a Medellín: sin costo\nTotal: $ 1.890.000\n\nEl envío es gratuito porque la compra supera los $ 1.500.000. Medellín es zona A, así que el plazo estimado de entrega es de 3 a 8 días hábiles. Este total no incluye la instalación.\n\nDos recomendaciones antes de que ordene:\n\n1. Revise el mueble apenas lo reciba (medidas, acabado y estado) y hágalo antes de montarlo. Usted tiene 14 días calendario desde la recepción para desistir de la compra, pero un producto ya instalado, aunque se desmonte después, deja de ser elegible para devolución.\n2. Montarlo con el aliado certificado le protege la garantía. El mueble tiene 24 meses de garantía y esa garantía no cubre los daños ocasionados por una mala instalación.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal formulario",
+          "justificacion": "Pregunta previa a la compra que INS-01 resuelve de forma directa: hay aliados certificados en Bogotá, Medellín y Cali, el servicio requiere cotización previa y no está incluido en el precio del producto. Un solo tema, cliente particular de zona A y ningún importe en juego, así que es un caso rutinario de manual.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Particular de Medellín pregunta si hay servicio de instalación en su ciudad para el mueble Aracena de 80 cm y si va incluido en el precio.",
+          "justificacion": "La pregunta principal es si Bañolia presta el servicio de instalación en Medellín y con qué aliados, que es consultas/consulta-instalacion. La segunda parte, si el servicio va incluido o se cobra aparte, roza la cotización, por lo que se anota como tema secundario y la confianza baja levemente a 0,88, sin llegar al umbral de duda real entre categorías. Prioridad baja por ser previa a la compra y sentimiento ligeramente positivo por la confianza que expresa en la recomendación de la empresa.",
+          "confianza": 0.88,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Sí hay instalación en Medellín por INS-01, pero se cotiza aparte y no está incluida en los 1.890.000 COP del mueble BN-MUE-001.",
+          "justificacion": "INS-01 cubre Bogotá, Medellín y Cali con aliados certificados, de modo que la ciudad del cliente entra, pero la misma regla establece que el servicio requiere cotización previa y no está incluido en el precio de los productos. El mueble BN-MUE-001 cuesta 1.890.000 COP, con lo que ENV-01 deja el envío gratuito por superar los 1.500.000 COP y da de 3 a 8 días hábiles en zona A, plazo que se sostiene justo con los 8 días hábiles de la ficha. Conviene advertir que DEV-02 cierra el desistimiento en cuanto el mueble se instale y que GAR-01 excluye de sus 24 meses los daños por mala instalación. PQR-01 fija 24 horas hábiles para responder.",
+          "confianza": null,
+          "reglas": [
+            "INS-01",
+            "ENV-01",
+            "GAR-01",
+            "DEV-02",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de instalación en Medellín: ciudad cubierta por INS-01 y cobro aparte, responde la IA.",
+          "justificacion": "INS-01 cubre Medellín y responde con claridad las dos preguntas del cliente: hay aliado certificado y el servicio se cobra aparte del precio del mueble. Tener que decirle que la instalación no viene incluida y que la tarifa depende de una cotización previa es una respuesta informativa, no un motivo de escalado. No hay importe relevante para H01 y la confianza de 0,88 queda por encima del umbral de H06.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Respondí las dos preguntas del cliente en el orden en que las hizo: primero que sí hay cobertura en Medellín por INS-01, y enseguida que la instalación se cobra aparte y no está incluida en el precio, que es justo lo que él pregunta. No di ninguna cifra de instalación porque INS-01 no publica tarifas y solo prevé cotización previa. Añadí el precio del mueble con el nombre exacto del catálogo, el envío gratuito por ENV-01 al superar los $ 1.500.000 y el rango de 3 a 8 días hábiles de zona A, aclarando que el total no incluye el montaje para que no lo lea como precio cerrado. Cerré con los dos avisos que le evitan un problema: revisar antes de instalar, porque DEV-02 le cierra el desistimiento de DEV-01 aunque desmonte después, e instalar con el aliado certificado, porque GAR-01 excluye los daños por mala instalación de los 24 meses de garantía.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Verifiqué que el precio, la gratuidad del envío y el plazo coinciden con el catálogo y con los cálculos del analista, y que en ningún punto se insinúa un valor de instalación. Detecté y corregí una explicación inventada sobre de qué depende el precio del montaje, que no aparece en INS-01 ni en ninguna otra fuente. El resto cumple: trato de usted, español de Colombia, formato de moneda correcto, cero descuento ofrecido a un cliente particular y firma de marca.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0026",
+      "recibidaEn": "2026-09-17T11:10:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0075",
+        "nombre": "Ángela Duque Jiménez",
+        "ciudad": "Yopal",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "cotizacion mueble y espejo con envio a Yopal",
+      "mensaje": "Buenas tardes, quisiera que me coticen el mueble suspendido Camino de 60 cm de un cajon en grafito y el espejo Lumnia sin luz de 80x60 con marco de aluminio negro. Vivo en Yopal, Casanare. Lo que mas me preocupa es el envio: cuanto me cobran por traerlo hasta aca y en cuantos dias me llegaria? Es que la ultima vez que compre muebles por internet me cobraron el flete aparte y salio carisimo. Quedo pendiente, gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-proyecto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.84,
+        "entidades": {
+          "sku": [
+            "BN-MUE-003",
+            "BN-ESP-004"
+          ],
+          "ciudadDestino": "Yopal",
+          "zona": "B",
+          "temasSecundarios": [
+            "consulta-envio",
+            "consulta-plazo"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "B",
+          "clienteTipo": "particular",
+          "lineaMuebleSku": "BN-MUE-003",
+          "lineaMueblePrecioCOP": 1420000,
+          "lineaEspejoSku": "BN-ESP-004",
+          "lineaEspejoPrecioCOP": 340000,
+          "subtotalCOP": 1760000,
+          "descuentoProfesionalCOP": 0,
+          "totalCOP": 1760000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "costoEnvioCOP": 0,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "plazoProductoMuebleDiasHabiles": 6,
+          "plazoProductoEspejoDiasHabiles": 5,
+          "plazoProductoMaximoDiasHabiles": 6,
+          "algunProductoExcedeMaximoZona": false,
+          "plazoEstimadoDiasHabiles": [
+            8,
+            15
+          ],
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El envío gratis depende de mantener las dos líneas: si la clienta retira el espejo de 340.000 COP el pedido baja a 1.420.000 COP, queda por debajo del umbral de 1.500.000 COP de ENV-01 y el flete deja de ser gratuito",
+          "Yopal es zona B y el plazo comprometido debe darse como 8 a 15 días hábiles, no como los 5 y 6 días hábiles de preparación de los productos: prometer la cifra del catálogo generaría un incumplimiento de ENV-01",
+          "La clienta es particular, de modo que no procede ofrecerle ningún descuento de PRO-01"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Ángela.\n\n¡Con mucho gusto! Esta es la cotización de los dos productos que nos solicitó:\n\n· Mueble suspendido Camino 60 cm, un cajón, grafito — $ 1.420.000\n· Espejo Lumnia sin luz 80x60 cm, marco aluminio negro — $ 340.000\n\nSubtotal: $ 1.760.000\nEnvío a Yopal: sin costo\nTotal: $ 1.760.000\n\nSobre lo que más le preocupa, el envío: no le cobramos flete aparte. El envío es gratuito para pedidos desde $ 1.500.000 y el suyo queda en $ 1.760.000, así que el total que ve arriba es el que paga, sin cargos adicionales al final.\n\nUn detalle que conviene que tenga presente: ese envío gratuito depende de que el pedido se mantenga por encima de $ 1.500.000. Si retira el espejo y deja solo el mueble, el pedido baja a $ 1.420.000, queda por debajo del umbral y el flete pasa a tener costo. Si llega a ser el caso, se lo confirmamos con el valor exacto antes de que usted ordene.\n\nSobre el plazo: Yopal es zona B, de modo que el tiempo estimado de entrega es de 8 a 15 días hábiles. Preferimos darle el rango completo y no una fecha puntual, para no comprometer un día que después no podamos sostener.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "La primera versión decía que los 8 a 15 días hábiles se cuentan «desde la confirmación del pedido». ENV-01 fija el rango pero no define desde qué hito empieza a correr, así que ese punto de partida era un dato añadido. Se dejó el rango sin atribuirle un inicio concreto."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señora Ángela.\n\n¡Con mucho gusto! Esta es la cotización de los dos productos que nos solicitó:\n\n· Mueble suspendido Camino 60 cm, un cajón, grafito — $ 1.420.000\n· Espejo Lumnia sin luz 80x60 cm, marco aluminio negro — $ 340.000\n\nSubtotal: $ 1.760.000\nEnvío a Yopal: sin costo\nTotal: $ 1.760.000\n\nSobre lo que más le preocupa, el envío: no le cobramos flete aparte. El envío es gratuito para pedidos desde $ 1.500.000 y el suyo queda en $ 1.760.000, así que el total que ve arriba es el que paga, sin cargos adicionales al final.\n\nUn detalle que conviene que tenga presente: ese envío gratuito depende de que el pedido se mantenga por encima de $ 1.500.000. Si retira el espejo y deja solo el mueble, el pedido baja a $ 1.420.000, queda por debajo del umbral y el flete pasa a tener costo. Si llega a ser el caso, se lo confirmamos con el valor exacto antes de que usted ordene.\n\nSobre el plazo: Yopal es zona B, de modo que el tiempo estimado de entrega es de 8 a 15 días hábiles. Preferimos darle el rango completo y no una fecha puntual, para no comprometer un día que después no podamos sostener.\n\nPuede pagar con PSE, tarjeta de crédito o débito, transferencia o financiación con nuestro aliado. No manejamos pago contraentrega.\n\nEsta cotización tiene una vigencia de 15 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal correo",
+          "justificacion": "Cotización pequeña de 1.760.000 COP a una ciudad de zona B, con alguna falta de ortografía y sin tildes. Al superar los 1.500.000 COP el envío es gratuito por ENV-01 y el plazo es de 8 a 15 días hábiles. Comprueba que el sistema distingue la zona B de la A y que responde la preocupación real del cliente, que es el flete, sin escalar nada.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Cotización de dos referencias para Yopal con el costo y el plazo de envío como preocupación central.",
+          "justificacion": "La clienta pide expresamente que le coticen dos productos identificables del catálogo: el mueble suspendido Camino de 60 cm en grafito y el espejo Lumnia sin luz de 80x60 con marco negro. La intención de compra es previa y no hay pedido en curso, por lo que la prioridad es baja y el sentimiento neutro pese al mal recuerdo de una compra anterior en otra tienda. La confianza queda en 0,84 porque, aunque la petición de cotización manda con claridad, el peso real del mensaje está en dos preguntas de envío que rozan la categoría consultas.",
+          "confianza": 0.84,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Subtotal de 1.760.000 COP, envío gratuito por superar el umbral de ENV-01 y entrega estimada de 8 a 15 días hábiles a Yopal.",
+          "justificacion": "Las dos referencias del catálogo son BN-MUE-003 (1.420.000 COP) y BN-ESP-004 (340.000 COP), que suman 1.760.000 COP y superan los 1.500.000 COP que ENV-01 fija para el envío gratuito, justo el punto que más preocupa a la clienta. ENV-01 sitúa a Yopal en zona B, con 8 a 15 días hábiles, y ninguna de las dos referencias tiene un plazo de fabricación (6 y 5 días hábiles) que exceda ese máximo. Al ser cliente particular no aplica PRO-01, y PQR-01 obliga a contestar esta consulta en un máximo de 24 horas hábiles.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Cotización de 1.760.000 COP a Yopal con envío gratis y plazo de zona B: la responde la IA.",
+          "justificacion": "El total de 1.760.000 COP está muy por debajo de los 15.000.000 de H01 y no hay solicitud de crédito. La pregunta del flete se resuelve con ENV-01: supera el umbral de 1.500.000 COP, así que el envío es gratuito, y el plazo se promete como 8 a 15 días hábiles por ser zona B. La confianza de 0,84 queda por encima del 0,75 de H06 y no hay excepción a la política que active H04.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Desglosé las dos líneas con el nombre exacto del catálogo y sus precios, porque la clienta viene escaldada de una compra anterior y necesita poder contrastar cifra por cifra. Puse el envío en $ 0 por ENV-01, ya que el subtotal de $ 1.760.000 supera el umbral de $ 1.500.000, y respondí de frente su miedo al flete sorpresa. Advertí que el envío gratuito depende de mantener las dos líneas, porque si retira el espejo el pedido cae a $ 1.420.000 y pierde el beneficio, sin aventurar cuánto costaría ese flete, que no está publicado. Di el plazo como 8 a 15 días hábiles de zona B y no los 5 y 6 días de preparación del catálogo, y cerré con los medios de pago de PAG-01, incluida la ausencia de contraentrega. Al ser particular no le ofrecí ningún descuento de PRO-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Recalculé el desglose ($ 1.420.000 + $ 340.000 = $ 1.760.000) y confirmé que coincide con el catálogo y con el análisis de política, y que el escenario de pérdida del envío gratis está bien planteado sin inventar tarifa. Corregí el punto de partida del plazo de entrega, que no consta en ENV-01. Confirmé que no se ofrece descuento profesional a una clienta particular, que no se menciona instalación (Yopal no está entre las ciudades de INS-01) y que el tono y el español de Colombia son los de la marca.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0027",
+      "recibidaEn": "2026-09-17T12:03:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0033",
+        "nombre": "Diego Correa Castro",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Medios de pago",
+      "mensaje": "buenas, q medios de pago manejan? tienen pago contraentrega? es q nunca he comprado con uds y me da cosa pagar todo por adelantado",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-medios-pago",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.86,
+        "entidades": {
+          "solicitaContraentrega": true,
+          "clienteNuevo": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PAG-01",
+          "DEV-01",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "clienteTipo": "particular",
+          "pedidosPrevios": 0,
+          "mediosAdmitidos": [
+            "PSE",
+            "tarjeta",
+            "transferencia",
+            "financiación con aliado"
+          ],
+          "contraentregaAdmitida": false,
+          "plazoDesistimientoDiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Lo que el cliente pide, el pago contraentrega, no existe en Bañolia: la respuesta es necesariamente una negativa y conviene compensarla con los medios que sí hay y con la protección de DEV-01",
+          "Es un cliente sin ningún pedido previo y la desconfianza que expresa puede costar la venta si la negativa se da sin explicación",
+          "Ninguna respuesta puede insinuar excepciones de pago: PAG-01 no contempla contraentrega en ningún supuesto"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, señor Diego! Con mucho gusto le explico.\n\nLe respondo primero lo concreto: no manejamos pago contraentrega. No es algo que podamos gestionar como excepción, así que prefiero decírselo de una vez y no dejarlo con la duda.\n\nLos medios de pago que sí tenemos son cuatro:\n\n· PSE\n· Tarjeta de crédito o débito\n· Transferencia bancaria\n· Financiación con nuestro aliado financiero\n\nEntiendo la desconfianza de comprar por primera vez pagando por adelantado, así que le cuento qué lo respalda: usted tiene 14 días calendario desde que recibe el pedido para desistir de la compra. Es un plazo que mejoramos por decisión propia frente al mínimo legal de retracto de 5 días hábiles previsto en la Ley 1480 de 2011.\n\nPara que la información quede completa y no le queden sorpresas, ese desistimiento tiene condiciones: el producto no puede haber sido instalado ni usado, debe volver completo y en su embalaje original, y hay que escribirnos antes por el formulario web para que autoricemos la devolución. Los costos de la recogida se descuentan del reembolso, salvo que el producto llegue defectuoso o que el error sea nuestro, casos en los que los asumimos nosotros. El reembolso se emite por el mismo medio con el que usted pagó, en un máximo de 14 días calendario desde que recibimos y verificamos el producto.\n\nSi nos cuenta qué producto está mirando, le confirmamos precio, costo de envío y plazo de entrega a Cali antes de que tome la decisión.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "La primera versión compensaba la negativa diciendo que el cliente «puede devolver el producto dentro de los 14 días sin costo». Eso contradice DEV-08 y DEV-14: los gastos de recogida se descuentan del reembolso salvo error de Bañolia o producto defectuoso. Se reescribió el párrafo enunciando las condiciones reales de DEV-02, DEV-03, DEV-04, DEV-06 y DEV-08, y el plazo de reembolso de DEV-10."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, señor Diego! Con mucho gusto le explico.\n\nLe respondo primero lo concreto: no manejamos pago contraentrega. No es algo que podamos gestionar como excepción, así que prefiero decírselo de una vez y no dejarlo con la duda.\n\nLos medios de pago que sí tenemos son cuatro:\n\n· PSE\n· Tarjeta de crédito o débito\n· Transferencia bancaria\n· Financiación con nuestro aliado financiero\n\nEntiendo la desconfianza de comprar por primera vez pagando por adelantado, así que le cuento qué lo respalda: usted tiene 14 días calendario desde que recibe el pedido para desistir de la compra. Es un plazo que mejoramos por decisión propia frente al mínimo legal de retracto de 5 días hábiles previsto en la Ley 1480 de 2011.\n\nPara que la información quede completa y no le queden sorpresas, ese desistimiento tiene condiciones: el producto no puede haber sido instalado ni usado, debe volver completo y en su embalaje original, y hay que escribirnos antes por el formulario web para que autoricemos la devolución. Los costos de la recogida se descuentan del reembolso, salvo que el producto llegue defectuoso o que el error sea nuestro, casos en los que los asumimos nosotros. El reembolso se emite por el mismo medio con el que usted pagó, en un máximo de 14 días calendario desde que recibimos y verificamos el producto.\n\nSi nos cuenta qué producto está mirando, le confirmamos precio, costo de envío y plazo de entrega a Cali antes de que tome la decisión.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal whatsapp",
+          "justificacion": "La consulta más rutinaria que existe y la resuelve PAG-01 palabra por palabra: PSE, tarjeta, transferencia y financiación con aliado, y no hay pago contraentrega. El cliente no tiene pedidos previos y expresa una desconfianza leve, de modo que también sirve para medir si el redactor sabe dar una respuesta negativa sin sonar cortante.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Cliente nuevo pregunta qué medios de pago hay y si existe contraentrega.",
+          "justificacion": "Es una pregunta informativa previa a cualquier compra: no hay pedido, ni importe, ni incidencia, solo la duda sobre las formas de pago y la posibilidad de pagar contraentrega. La prioridad es baja por tratarse de una consulta de preventa y el sentimiento neutro, con una desconfianza leve propia de quien compra por primera vez. La confianza es 0,86: la categoría consultas es la que manda, aunque el asunto pagos también existe dentro de pedidos, que aquí no aplica porque no hay pedido.",
+          "confianza": 0.86,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "PAG-01 admite PSE, tarjeta, transferencia y financiación con aliado, pero no contraentrega, que es justo lo que el cliente pide.",
+          "justificacion": "PAG-01 enumera los cuatro medios admitidos (PSE, tarjeta de crédito o débito, transferencia bancaria y financiación con aliado financiero) y declara expresamente que no se ofrece pago contraentrega, por lo que la petición concreta del cliente no puede atenderse. Como argumento de confianza para un comprador primerizo sí es citable DEV-01, que le da 14 días calendario de desistimiento desde la recepción, por encima de los 5 días hábiles del mínimo legal. PQR-01 fija 24 horas hábiles para responder esta consulta.",
+          "confianza": null,
+          "reglas": [
+            "PAG-01",
+            "DEV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de medios de pago: no hay contraentrega, se explica PAG-01 por ruta IA.",
+          "justificacion": "La respuesta es una negativa clara pero informativa: PAG-01 no contempla el pago contraentrega en ningún supuesto y sí admite PSE, tarjeta, transferencia y financiación con aliado. Tener que decirle que no al cliente no activa H04, porque no se está estudiando ninguna excepción a la política. No hay importe en juego para H01, el cliente es nuevo y es su primer contacto, y la confianza de 0,86 descarta H06.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Empecé por la negativa, sin rodeos, porque PAG-01 no contempla contraentrega en ningún supuesto y dar largas solo alimentaría la expectativa de una excepción. Enseguida listé los cuatro medios que sí existen, para que la respuesta no se quede en un no. Como es un cliente sin pedidos previos que expresa desconfianza, compensé con la protección real que sí tiene: los 14 días calendario de desistimiento de DEV-01, que superan el mínimo legal de la Ley 1480 de 2011, pero enunciando también sus condiciones y quién asume los costos de recogida, para que la tranquilidad que le doy sea verdadera y no le genere un reclamo después. Cerré con una invitación a que nos diga qué producto mira, sin prometer precio ni plazo que todavía no puedo calcular.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Revisé que no quede ninguna insinuación de excepción de pago y que los cuatro medios coincidan literalmente con PAG-01. La corrección importante fue el párrafo de devoluciones: prometer un retorno sin costo habría sido una promesa fuera de política, contraria a DEV-08 y DEV-14, y justo el tipo de frase que genera una queja en la devolución. Comprobé además que no se anticipan precios ni plazos de entrega, que el tono se adapta al canal de WhatsApp sin perder el trato de usted y que se firma con la fórmula de marca.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0028",
+      "recibidaEn": "2026-09-17T13:41:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0008",
+        "nombre": "Constructora El Portal",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "profesional"
+      },
+      "pedido": null,
+      "asunto": "Cotización dotación de baños proyecto Altos de Pance, 12 apartamentos",
+      "mensaje": "Cordial saludo. Requerimos cotización para la dotación de baños del proyecto Altos de Pance, doce apartamentos en total. Por cada apartamento necesitamos: un mueble suspendido Aracena de 100 cm en blanco mate (BN-MUE-002), una mampara frontal Bruma de 120 cm corredera con perfil cromado (BN-MAM-001) y un inodoro suspendido Cerámicas Quindío con tapa amortiguada (BN-SAN-001). Es decir, doce unidades de cada referencia. Agradecemos indicar valor total con el descuento profesional que corresponda, disponibilidad de inventario y plazo de entrega a obra en Cali, y si es posible programar despachos parciales por torres. Atentamente, Departamento de Compras, Constructora El Portal.",
+      "adjuntos": [
+        {
+          "tipo": "documento",
+          "descripcion": "Listado de acabados del proyecto en PDF, con ubicación de obra y cronograma de entregas por torre"
+        }
+      ],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "cotizacion-profesional",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "sku": [
+            "BN-MUE-002",
+            "BN-MAM-001",
+            "BN-SAN-001"
+          ],
+          "unidadesPorReferencia": 12,
+          "proyecto": "Altos de Pance",
+          "ciudadDestino": "Cali",
+          "zona": "A",
+          "clienteProfesional": true,
+          "temasSecundarios": [
+            "consulta-disponibilidad",
+            "despachos-parciales"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PRO-01",
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "clienteTipo": "profesional",
+          "clienteSubtipo": "constructora",
+          "zona": "A",
+          "unidadesPorReferencia": 12,
+          "lineaMuebleSku": "BN-MUE-002",
+          "lineaMueblePrecioUnitarioCOP": 2240000,
+          "lineaMuebleSubtotalCOP": 26880000,
+          "lineaMamparaSku": "BN-MAM-001",
+          "lineaMamparaPrecioUnitarioCOP": 1680000,
+          "lineaMamparaSubtotalCOP": 20160000,
+          "lineaInodoroSku": "BN-SAN-001",
+          "lineaInodoroPrecioUnitarioCOP": 1180000,
+          "lineaInodoroSubtotalCOP": 14160000,
+          "subtotalCOP": 61200000,
+          "tramoPRO01": "12 %",
+          "umbralDescuento12COP": 20000000,
+          "porcentajeDescuento": 12,
+          "descuentoCOP": 7344000,
+          "totalCOP": 53856000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoProductoMuebleDiasHabiles": 8,
+          "plazoProductoMamparaDiasHabiles": 8,
+          "plazoProductoInodoroDiasHabiles": 8,
+          "algunProductoExcedeMaximoZona": false,
+          "plazoEstimadoDiasHabiles": 8,
+          "unidadesTotales": 36,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Las tres referencias tienen 8 días hábiles de plazo, exactamente el extremo superior de la zona A en ENV-01: no queda holgura y 36 unidades pueden estirar ese plazo",
+          "Los despachos parciales por torre que pide la constructora no están regulados en la política y alargarían la entrega de las últimas torres más allá del máximo de ENV-01",
+          "No existe dato de inventario en el catálogo, de modo que la disponibilidad de 36 unidades no puede confirmarse desde la política y debe verificarla una persona",
+          "El PDF de acabados con el cronograma por torre no ha sido revisado y puede alterar referencias, cantidades o fechas del cálculo",
+          "Es una cotización de 53.856.000 COP para un cliente de 22 pedidos previos: un error de precio o de plazo compromete un volumen alto y un cliente clave"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H01",
+          "H10"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "¿Se emite la cotización de 53.856.000 COP a Constructora El Portal comprometiendo despachos parciales por torre, y con qué plazo por torre, sabiendo que ENV-01 no regula esa modalidad y que no hay dato de inventario para las 36 unidades?",
+          "opciones": [
+            "Confirmar inventario de las 36 unidades y cotizar con un despacho único en el plazo de 3 a 8 días hábiles de ENV-01, sin despachos parciales",
+            "Aceptar despachos parciales por torre con un calendario pactado por escrito, indicando que las últimas torres se entregan fuera del máximo de ENV-01 por acuerdo expreso del cliente",
+            "Emitir la cotización con el precio y el 12 % de PRO-01 en firme, y dejar plazo y despachos sujetos a confirmación tras revisar el PDF de acabados y el cronograma por torre",
+            "Escalar la negociación a un comercial de cuentas profesionales antes de emitir cualquier cifra"
+          ],
+          "riesgos": [
+            "Los despachos parciales por torre no están regulados en ninguna regla de la política: comprometerlos crea un precedente para el resto de proyectos de obra",
+            "Las tres referencias tienen 8 días hábiles de preparación, el extremo superior de la zona A en ENV-01, y 36 unidades no dejan holgura alguna",
+            "El catálogo no publica existencias: prometer disponibilidad sin verificarla puede romper el cronograma de obra del cliente",
+            "El PDF de acabados con el cronograma por torre no ha sido revisado y puede alterar referencias, cantidades o fechas del cálculo",
+            "Es el cliente con mayor histórico del lote, 142.000.000 COP y 22 pedidos: un error de precio o de plazo compromete la relación comercial completa",
+            "Confirmar razón social y NIT antes de emitir, porque FAC-01 solo deja 24 horas para corregirlos tras la factura"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Cordial saludo, equipo de Compras de Constructora El Portal.\n\n¡Con mucho gusto! Estas son las cifras para la dotación de baños del proyecto Altos de Pance, calculadas sobre las tres referencias y las doce unidades que nos indican:\n\n· Mueble suspendido Aracena 100 cm, dos cajones, blanco mate (BN-MUE-002) — 12 unidades × $ 2.240.000 = $ 26.880.000\n· Mampara frontal Bruma 120 cm, corredera, perfil cromado (BN-MAM-001) — 12 unidades × $ 1.680.000 = $ 20.160.000\n· Inodoro suspendido Cerámicas Quindío con tapa amortiguada (BN-SAN-001) — 12 unidades × $ 1.180.000 = $ 14.160.000\n\nSubtotal: $ 61.200.000\nDescuento profesional 12 %: – $ 7.344.000\nEnvío a Cali: sin costo\nTotal: $ 53.856.000\n\nEl 12 % corresponde al tramo de clientes profesionales desde $ 20.000.000 y el envío es gratuito porque la compra supera los $ 1.500.000.\n\n[pendiente de validación comercial: confirmar si esta cotización se emite en firme con estas cifras o si el caso pasa antes a un comercial de cuentas profesionales. El PDF de acabados con el cronograma por torre aún no ha sido revisado y puede cambiar referencias, cantidades o fechas.]\n\nSobre la disponibilidad de inventario: [pendiente de verificación: existencias reales de las 36 unidades. No confirmar disponibilidad al cliente hasta tenerlas validadas, porque de ello depende su cronograma de obra.]\n\nSobre el plazo de entrega: Cali es zona A, con un estimado de 3 a 8 días hábiles para un despacho único. Le señalamos algo con franqueza: las tres referencias tienen un plazo de entrega de 8 días hábiles cada una, es decir el extremo superior de ese rango, de modo que un pedido de 36 unidades no deja holgura.\n\nSobre los despachos parciales por torre: [pendiente de decisión: los despachos parciales no son una modalidad contemplada en nuestras condiciones de envío. Si se aceptan, debe pactarse un calendario por escrito y advertir que las últimas torres quedarían fuera del rango de 3 a 8 días hábiles de la zona A, por acuerdo expreso del cliente.]\n\nUna recomendación práctica: antes de confirmar las cantidades de mampara, conviene medir el hueco de cada ducha en tres puntos (arriba, en la mitad y abajo) y quedarse con la medida menor. La referencia BN-MAM-001 se ajusta a huecos de entre 115 y 120 cm, y en doce apartamentos una diferencia de obra se multiplica por doce.\n\nCali es una de las ciudades donde trabajamos con aliados certificados de instalación. Si les interesa, cotizamos ese servicio aparte, ya que no está incluido en el precio de los productos.\n\nLos medios de pago disponibles son PSE, tarjeta de crédito o débito, transferencia y financiación con nuestro aliado financiero. No manejamos pago contraentrega.\n\nLes agradecemos confirmarnos la razón social y el NIT exactos antes de que se emita la factura electrónica: una vez emitida, solo disponemos de 24 horas para corregir esos datos; después se requiere nota crédito.\n\nEsta cotización tiene una vigencia de 15 días calendario. Los puntos que quedan por confirmar se los respondemos dentro de las 24 horas hábiles que establece nuestra política de atención.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera versión describía los 8 días hábiles como «plazo de preparación», término que no aparece en el catálogo; corregido a «plazo de entrega», que es el dato publicado (corregida).",
+          "Se verificó que ninguna de las tres referencias es a medida, de modo que no procede advertencia por DEV-05 (sin cambio)."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal correo",
+          "justificacion": "Caso límite por importe: la cotización suma 61.200.000 COP y supera con holgura los 15.000.000 de H01. Además entra en el tramo del 12 % de PRO-01 y el cliente acumula 142.000.000 COP de compras, así que la relación comercial pesa. Pone a prueba que el enrutador escale por dinero aunque el mensaje sea impecable y no haya ni queja ni urgencia.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Constructora profesional pide cotización con descuento, inventario y plazo para 36 unidades destinadas a doce apartamentos en Cali.",
+          "justificacion": "El mensaje es una solicitud de cotización formal de una constructora, con referencias, cantidades y destino de obra perfectamente identificados, y pide de forma explícita el descuento profesional que corresponda. La prioridad es media porque no hay plazo incumplido ni dinero retenido, solo una oportunidad comercial en curso. La confianza es 0,95 porque la intención es inequívoca; las preguntas de inventario y de despachos parciales son accesorias a la misma cotización.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Subtotal 61.200.000 COP, 12 % de descuento profesional (7.344.000 COP) y total de 53.856.000 COP con envío gratuito.",
+          "justificacion": "El maestro de clientes confirma que CLI-0008 es profesional de subtipo constructora, requisito que PRO-01 exige para cualquier descuento. Línea a línea: 12 × BN-MUE-002 a 2.240.000 = 26.880.000, 12 × BN-MAM-001 a 1.680.000 = 20.160.000 y 12 × BN-SAN-001 a 1.180.000 = 14.160.000, con un subtotal de 61.200.000 COP que supera el umbral de 20.000.000 COP y activa el tramo del 12 % de PRO-01: 7.344.000 COP de descuento y 53.856.000 COP de total. ENV-01 da envío gratuito por superar 1.500.000 COP y fija 3 a 8 días hábiles para Cali (zona A), plazo que ninguna de las tres referencias excede aunque las tres se sitúan justo en el tope de 8 días hábiles.",
+          "confianza": null,
+          "reglas": [
+            "PRO-01",
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Cotización de obra de 53.856.000 COP para el cliente más estratégico del lote: a la cola humana.",
+          "justificacion": "H01 se activa sin discusión: la cotización de 53.856.000 COP supera con mucho el umbral de 15.000.000 COP. Se suma H10, porque Constructora El Portal es cliente profesional con 142.000.000 COP de valor histórico, muy por encima de los 50.000.000 del criterio. Además hay un hueco real de política: los despachos parciales por torre que pide el cliente no están regulados en ninguna regla y alargarían la entrega de las últimas torres más allá del máximo de ENV-01, algo que no puede comprometer la IA. El SLA baja a 8 horas por tratarse de un cliente estratégico.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H01",
+            "H10"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se desglosa línea a línea con el nombre exacto del catálogo y se aplica el 12 % de PRO-01 porque es cliente profesional (constructora) y el subtotal supera los 20.000.000 COP, con envío gratuito y estimado de zona A por ENV-01. Se marcan entre corchetes las tres decisiones que el enrutador reservó a la persona: emisión en firme frente a escalado comercial, verificación de existencias y aceptación de despachos parciales, modalidad que ninguna regla regula. Se ofrece instalación por INS-01 al ser Cali ciudad cubierta, se recuerda la ventana de 24 horas de FAC-01 para razón social y NIT, se indican los medios de pago de PAG-01 y se cierra con la vigencia de 15 días y el plazo de respuesta de PQR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Las cifras coinciden una a una con el catálogo y con los cálculos del analista, y el rango de 115 a 120 cm de la mampara procede del campo rangoAjusteCm, no de una deducción. No se promete disponibilidad, ni fecha concreta, ni despachos parciales: los tres puntos quedan visiblemente abiertos entre corchetes, sin invadir lo que decide la persona. El tono es de marca, en español de Colombia y trato de usted, y no se ofrece ninguna condición fuera de PRO-01, ENV-01, PAG-01, FAC-01 e INS-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0029",
+      "recibidaEn": "2026-09-17T15:27:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0004",
+        "nombre": "Acabados del Llano",
+        "ciudad": "Pasto",
+        "zona": "B",
+        "tipo": "profesional"
+      },
+      "pedido": null,
+      "asunto": "Cotización cuatro baños y solicitud de crédito a 30 días",
+      "mensaje": "Buenas tardes. Estamos remodelando cuatro baños de una casa en Pasto y necesitamos cotización por cuatro muebles con patas Salento de 70 cm en blanco (BN-MUE-005) y cuatro lavabos bajo encimera Cerámicas Quindío de 50 cm en blanco (BN-LAV-003). Como ya hemos trabajado con ustedes en ocho pedidos anteriores, quisiéramos solicitar el pago a crédito a 30 días para este despacho, ya que el cliente final nos paga contra entrega de la obra. Por favor confirmarnos el valor con descuento profesional y si podemos manejar esa condición de pago. Gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "cotizaciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "cotizaciones",
+        "subcategoria": "solicitud-credito",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.92,
+        "entidades": {
+          "sku": [
+            "BN-MUE-005",
+            "BN-LAV-003"
+          ],
+          "unidadesPorReferencia": 4,
+          "ciudadDestino": "Pasto",
+          "zona": "B",
+          "clienteProfesional": true,
+          "pedidosPreviosDeclarados": 8,
+          "plazoCreditoSolicitadoDias": 30,
+          "temasSecundarios": [
+            "cotizacion-profesional"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PRO-01",
+          "PAG-01",
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "clienteTipo": "profesional",
+          "clienteSubtipo": "remodelador",
+          "zona": "B",
+          "unidadesPorReferencia": 4,
+          "lineaMuebleSku": "BN-MUE-005",
+          "lineaMueblePrecioUnitarioCOP": 1980000,
+          "lineaMuebleSubtotalCOP": 7920000,
+          "lineaLavaboSku": "BN-LAV-003",
+          "lineaLavaboPrecioUnitarioCOP": 480000,
+          "lineaLavaboSubtotalCOP": 1920000,
+          "subtotalCOP": 9840000,
+          "tramoPRO01": "8 %",
+          "umbralDescuento8COP": 5000000,
+          "umbralDescuento12COP": 20000000,
+          "porcentajeDescuento": 8,
+          "descuentoCOP": 787200,
+          "totalCOP": 9052800,
+          "faltaParaTramo12COP": 10160000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratis": true,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "plazoProductoMuebleDiasHabiles": 10,
+          "plazoProductoLavaboDiasHabiles": 5,
+          "algunProductoExcedeMaximoZona": false,
+          "plazoEstimadoDiasHabiles": [
+            8,
+            15
+          ],
+          "creditoSolicitadoDias": 30,
+          "creditoRequiereEstudioFinanciero": true,
+          "creditoAprobable": false,
+          "contraentregaAdmitida": false,
+          "pedidosPrevios": 8,
+          "valorHistoricoCOP": 23572000,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El crédito a 30 días no puede concederse desde atención al cliente: PRO-01 lo condiciona a estudio previo y aprobación del área financiera, y prometerlo sentaría un precedente difícil de retirar",
+          "Motivo atendible para tramitar el estudio con prioridad: CLI-0004 acumula 8 pedidos previos y 23.572.000 COP de histórico, coherente con los ocho pedidos que declara en el mensaje",
+          "El argumento de que su cliente final le paga contra entrega de la obra no traslada esa condición a Bañolia, porque PAG-01 no admite contraentrega en ningún caso",
+          "El subtotal queda 10.160.000 COP por debajo del tramo del 12 % de PRO-01, y el cliente puede pedir ampliar el pedido para alcanzarlo",
+          "Si el estudio financiero se demora, la fecha de despacho se corre y con ella el plazo de 8 a 15 días hábiles de ENV-01 hacia Pasto, con la obra ya programada"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H01"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "¿Se abre el estudio financiero para conceder a Acabados del Llano el crédito a 30 días sobre este despacho de 9.052.800 COP, o se le responde exigiendo pago anticipado y se tramita el crédito solo para pedidos futuros?",
+          "opciones": [
+            "Remitir el caso al área financiera para estudio de crédito a 30 días y responder al cliente con la cotización en firme y el crédito marcado como pendiente de aprobación",
+            "Responder que este despacho se factura con pago anticipado por PAG-01 y abrir en paralelo el estudio de crédito para los siguientes pedidos",
+            "Ofrecer la financiación con aliado de PAG-01 como alternativa inmediata, sin esperar al estudio financiero",
+            "Aprobar un pago fraccionado puntual solo si el área financiera lo autoriza por escrito"
+          ],
+          "riesgos": [
+            "PRO-01 condiciona el crédito a estudio previo y aprobación financiera: prometerlo desde atención al cliente sienta un precedente difícil de retirar",
+            "El cliente acumula 8 pedidos y 23.572.000 COP de histórico, coherente con lo que declara, lo que respalda tramitar el estudio con prioridad",
+            "Que su cliente final le pague contra entrega de la obra no traslada esa condición a Bañolia: PAG-01 no admite contraentrega en ningún caso",
+            "Si el estudio se demora, la fecha de despacho se corre y con ella los 8 a 15 días hábiles de ENV-01 hacia Pasto, con la obra ya programada",
+            "El subtotal queda 10.160.000 COP por debajo del tramo del 12 % de PRO-01 y el cliente puede pedir ampliar el pedido para alcanzarlo"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, equipo de Acabados del Llano.\n\n¡Con mucho gusto! Esta es la cotización para los cuatro baños de la casa en Pasto:\n\n· Mueble con patas Salento 70 cm, dos cajones, blanco (BN-MUE-005) — 4 unidades × $ 1.980.000 = $ 7.920.000\n· Lavabo bajo encimera Cerámicas Quindío 50 cm, blanco (BN-LAV-003) — 4 unidades × $ 480.000 = $ 1.920.000\n\nSubtotal: $ 9.840.000\nDescuento profesional 8 %: – $ 787.200\nEnvío a Pasto: sin costo\nTotal: $ 9.052.800\n\nEl 8 % es el tramo de clientes profesionales desde $ 5.000.000, y el envío es gratuito por superar los $ 1.500.000. Para su información: el siguiente tramo, del 12 %, aplica desde $ 20.000.000, y este pedido queda $ 10.160.000 por debajo de ese umbral.\n\nSobre el pago a crédito a 30 días: nuestras condiciones para clientes profesionales sí contemplan esa posibilidad, pero siempre sujeta a un estudio previo y a la aprobación del área financiera. No es algo que podamos confirmarle desde atención al cliente, y preferimos decírselo con claridad antes que darle por hecho un plazo que después no se sostenga.\n\n[pendiente de decisión interna: definir si este despacho de $ 9.052.800 se remite al área financiera para estudio de crédito a 30 días, o si se factura con pago anticipado y el estudio se tramita para pedidos siguientes. No confirmar ni negar el crédito al cliente antes de esa definición. A favor de tramitarlo con prioridad: 8 pedidos previos y $ 23.572.000 de histórico, coherentes con lo que declara en su mensaje.]\n\nSobre que su cliente final le pague contra entrega de la obra: lo entendemos, pero esa condición no se traslada a Bañolia, porque no manejamos pago contraentrega en ningún caso. Los medios disponibles son PSE, tarjeta de crédito o débito, transferencia y financiación con nuestro aliado financiero.\n\n[pendiente de decisión: si se le ofrece la financiación con nuestro aliado como alternativa inmediata mientras avanza el estudio de crédito, o si se espera a la respuesta del área financiera.]\n\nSobre el plazo de entrega: Pasto es zona B, con un estimado de 8 a 15 días hábiles. Ese conteo empieza cuando queden confirmados el pedido y la condición de pago, así que, si el estudio financiero toma tiempo, la fecha de despacho se corre con él. Se lo advertimos porque usted ya tiene la obra programada.\n\nEsta cotización tiene una vigencia de 15 días calendario. Sobre la condición de pago le damos respuesta dentro de las 24 horas hábiles que establece nuestra política de atención.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera versión decía «abrimos el estudio de crédito con el área financiera», lo que cerraba la decisión que el enrutador reservó a la persona; se reformuló como pendiente entre corchetes (corregida).",
+          "Se eliminó la mención al servicio de instalación: Pasto no está entre las ciudades de INS-01 (corregida)."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "cotizaciones por canal correo",
+          "justificacion": "Caso límite por un motivo distinto al importe: la cotización es de 9.840.000 COP y se queda muy por debajo del umbral de 15.000.000, pero el cliente pide crédito a 30 días, que H01 nombra de forma explícita y que PRO-01 condiciona a estudio previo del área financiera. Comprueba que el enrutador no decide solo mirando la cifra y que no promete una condición de pago que no puede aprobar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Remodelador profesional cotiza cuatro baños y pide además pago a crédito a 30 días.",
+          "justificacion": "El cliente pide cotización de dos referencias por cuatro unidades cada una y, en el mismo mensaje, solicita condición de pago a crédito a 30 días apoyándose en su historial de ocho pedidos. Se clasifica como solicitud-credito porque la condición de pago es lo que de verdad decide el caso; la cotización con descuento profesional queda como tema secundario. La confianza es 0,92 porque ambos temas caen dentro de cotizaciones y no hay competencia entre categorías, solo entre subcategorías.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Subtotal 9.840.000 COP con 8 % de descuento (787.200 COP) y total de 9.052.800 COP, pero el crédito a 30 días queda condicionado al estudio financiero.",
+          "justificacion": "CLI-0004 figura en el maestro como profesional de subtipo remodelador, así que procede PRO-01: 4 × BN-MUE-005 a 1.980.000 = 7.920.000 y 4 × BN-LAV-003 a 480.000 = 1.920.000, subtotal 9.840.000 COP, que supera los 5.000.000 COP del primer tramo y se queda lejos de los 20.000.000 COP del segundo, de modo que el descuento es del 8 % (787.200 COP) y el total 9.052.800 COP. Se marca cumple en false porque la segunda petición no puede resolverse aquí: PRO-01 somete el crédito a 30 días a estudio previo y aprobación del área financiera, y PAG-01 no admite contraentrega, por lo que el pago del cliente final contra entrega de obra no es una condición trasladable. ENV-01 da envío gratuito y 8 a 15 días hábiles para Pasto (zona B), plazo que ni el mueble (10 días hábiles) ni el lavabo (5) exceden.",
+          "confianza": null,
+          "reglas": [
+            "PRO-01",
+            "PAG-01",
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Solicitud de crédito a 30 días: escala por H01 con independencia del importe de la cotización.",
+          "justificacion": "H01 se activa por el tercer supuesto del criterio: cualquier solicitud de crédito va a una persona, sea del importe que sea, y aquí el cliente pide expresamente pago a 30 días. La cotización en sí, 9.052.800 COP con el 8 % de PRO-01, estaría por debajo del umbral y no habría escalado por ella. No se activa H10 porque su valor histórico de 23.572.000 COP no llega a los 50.000.000 del criterio, y la confianza de 0,92 descarta H06. El SLA queda en las 24 horas de PQR-01 al no concurrir H02, H03, H08 ni H10.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H01"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se cotiza línea a línea con precios de catálogo y se aplica el 8 % de PRO-01 por ser remodelador con subtotal superior a 5.000.000 COP, más envío gratuito y estimado de zona B por ENV-01. El crédito a 30 días queda explícitamente abierto porque PRO-01 lo condiciona a estudio y aprobación financiera, y esa es justamente la decisión escalada; en cambio sí se cierra lo que la política no deja a criterio: PAG-01 no admite contraentrega, y se dice sin rodeos. Se menciona el tramo del 12 % como dato informativo, sin empujar a ampliar el pedido, y se advierte que el plazo de ENV-01 corre desde la confirmación de la condición de pago, no desde hoy.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Todas las cifras coinciden con catálogo y con el cálculo del analista, incluidos los $ 10.160.000 que faltan para el tramo del 12 %. Ninguna de las dos decisiones reservadas —tramitar el crédito u ofrecer la financiación con aliado— aparece resuelta en el texto, y no se promete fecha de entrega ni aprobación alguna. No se ofrece instalación por no ser Pasto ciudad de INS-01, el tono es de marca y el español es de Colombia con trato de usted.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0030",
+      "recibidaEn": "2026-09-17T11:26:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0134",
+        "nombre": "Ximena Sánchez Cortés",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-105412",
+        "fecha": "2026-08-28",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-001",
+            "cantidad": 1,
+            "precioCOP": 780000
+          }
+        ],
+        "totalCOP": 780000,
+        "fechaEntrega": "2026-09-07"
+      },
+      "asunto": "Comentario sobre la demora en contestar mi consulta",
+      "mensaje": "Hola, buenos dias. Mas que un reclamo es un comentario para que lo tengan en cuenta. Antes de comprar les escribi preguntando si el espejo con luz servia para un baño sin ventana y me contestaron casi cinco dias despues, yo ya estaba pensando comprarlo en otro lado. El espejo me llego bien, el domicilio puntual y la verdad quedo hermoso, no tengo queja de eso. Solo les sugiero que mejoren los tiempos de respuesta porque uno se queda ahi esperando sin saber si le van a contestar. Gracias y feliz dia.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "reclamaciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "reclamaciones",
+        "subcategoria": "queja-servicio",
+        "prioridad": "baja",
+        "sentimiento": 1,
+        "confianza": 0.86,
+        "entidades": {
+          "numeroPedido": "BN-105412",
+          "sku": "BN-ESP-001",
+          "demoraRespuestaDiasAprox": 5,
+          "segundoContacto": false,
+          "mencionaSIC": false,
+          "riesgoFisico": false,
+          "solicitaCompensacion": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PQR-01",
+          "ENV-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "zona": "A",
+          "numeroPedido": "BN-105412",
+          "sku": "BN-ESP-001",
+          "importePagadoCOP": 780000,
+          "plazoConsultaHorasHabiles": 24,
+          "demoraRespuestaDiasCalendarioAprox": 5,
+          "demoraRespuestaDiasHabilesAprox": 3,
+          "demoraRespuestaHorasHabilesAprox": 72,
+          "excesoHorasHabilesAprox": 48,
+          "incumplimientoPQR01": true,
+          "fechaPedido": "2026-08-28",
+          "fechaEntrega": "2026-09-07",
+          "diasHabilesEntrega": 6,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "entregaDentroDePlazo": true,
+          "solicitaCompensacion": false
+        },
+        "riesgos": [
+          "Hay incumplimiento objetivo de PQR-01: incluso contando solo días hábiles, la consulta previa se respondió en unas 72 horas hábiles frente a las 24 que fija la regla, tres veces el plazo",
+          "La fecha exacta de aquella consulta no consta en el sistema y el cálculo se apoya en los cinco días que declara la clienta, de modo que la cifra debe presentarse como aproximada",
+          "La clienta no pide nada: ofrecerle una compensación de oficio sentaría un precedente para quejas de servicio sin perjuicio económico",
+          "Estuvo a punto de comprar en la competencia por la espera, así que pese al tono amable hay riesgo real de fuga si la queja se responde con una fórmula genérica"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H04"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "¿Se le ofrece de oficio algún gesto de compensación a una clienta que no pide nada pero a la que Bañolia incumplió objetivamente el plazo de 24 horas hábiles de PQR-01, o se responde solo con disculpa y explicación de la mejora?",
+          "opciones": [
+            "Responder con disculpa explícita, reconocimiento del incumplimiento de PQR-01 y explicación de las medidas tomadas, sin compensación económica",
+            "Añadir un gesto comercial acotado (por ejemplo, un cupón de descuento para su próxima compra) como excepción puntual documentada",
+            "Disculpa más seguimiento personalizado: asignarle un canal directo para sus próximas consultas previas a la compra",
+            "Registrar el caso como incidencia de servicio para métricas y responder solo con disculpa, dejando la compensación a criterio del responsable de calidad"
+          ],
+          "riesgos": [
+            "La política no regula qué hacer cuando Bañolia incumple su propio plazo de respuesta de PQR-01: no existe ninguna regla de compensación, así que cualquier gesto es una excepción",
+            "Compensar a quien no pide nada sienta un precedente para todas las quejas de servicio sin perjuicio económico",
+            "No compensar tiene riesgo real de fuga: la clienta reconoce que estuvo a punto de comprar en la competencia por la espera",
+            "El incumplimiento es objetivo, unas 72 horas hábiles frente a las 24 de PQR-01, pero la fecha exacta de aquella consulta no consta y debe presentarse como aproximada",
+            "El tono es amable y el pedido llegó bien: una respuesta genérica desaprovecharía una clienta satisfecha con el producto"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Ximena.\n\nGracias por tomarse el tiempo de escribirnos. Un comentario como el suyo, que no pide nada a cambio, es de los que más nos sirven.\n\nTiene toda la razón y le pedimos disculpas. Nuestra política nos compromete a responder cualquier consulta en un máximo de 24 horas hábiles (PQR-01), y en su caso la respuesta tardó alrededor de cinco días calendario: incluso descontando fines de semana, fueron unas 72 horas hábiles, el triple del plazo que nos fijamos. No fue una demora menor. Usted estuvo a punto de comprar en otra parte por no saber si le íbamos a contestar, y eso es responsabilidad nuestra, no suya.\n\nLe aclaramos un punto por transparencia: la fecha exacta de aquella consulta previa no consta en nuestro sistema, así que el cálculo se apoya en los cinco días que usted nos indica. Si conserva ese mensaje y nos lo hace llegar, podemos revisar el caso puntual y ver en qué parte se quedó.\n\n[DECISIÓN PARA QUIEN ATIENDA — medidas de mejora: aquí va, si corresponde, la explicación de qué se está haciendo con los tiempos de respuesta de las consultas previas a la compra. No se redactó ninguna porque en el sistema no consta ninguna medida adoptada y no podemos afirmarle a la clienta algo que no podamos sostener.]\n\n[DECISIÓN PARA QUIEN ATIENDA — compensación: PQR-01 fija el plazo de respuesta, pero ninguna regla dice qué hace Bañolia cuando es ella quien lo incumple. No existe regla de compensación, de modo que cualquier gesto (cupón para una próxima compra, canal directo para sus consultas, seguimiento personalizado) es una excepción que solo puede autorizar una persona. La clienta no pide nada. Este borrador no promete ni insinúa ningún gesto: si se decide otorgarlo, debe redactarse aquí con su alcance y su vigencia exactos.]\n\nNos alegra mucho que el espejo le haya gustado y que el domicilio saliera bien. Su comentario queda registrado y lo trasladamos al equipo de atención, que es donde tiene que corregirse.\n\nQué sigue. De su parte no hace falta ningún trámite: su pedido BN-105412 no requiere ninguna gestión adicional. Para sus próximas consultas antes de comprar sigue vigente el compromiso de responderle dentro de las 24 horas hábiles de PQR-01 y, si alguna vez se pasa de ese plazo sin respuesta, escríbanos por este mismo canal citando el pedido BN-105412 y lo revisamos.\n\nGracias de nuevo por decírnoslo en lugar de quedarse callada.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: el borrador citaba ENV-01 para señalar que la entrega se hizo dentro del plazo de 3 a 8 días hábiles de zona A. En una respuesta donde Bañolia reconoce un incumplimiento documentado de PQR-01, alegar lo que sí se cumplió suena defensivo, y además la clienta ya había dicho que el domicilio fue puntual. Se eliminó la referencia al plazo de ENV-01 y quedó solo el agradecimiento por el comentario sobre el producto.",
+          "Iteración 1: el cierre era un «quedamos atentos a cualquier cosa» que no decía qué pasa después. Se sustituyó por un siguiente paso concreto: la clienta no debe hacer ningún trámite, el compromiso de 24 horas hábiles de PQR-01 sigue vigente para sus próximas consultas previas a la compra y, si vuelve a superarse, puede escribir por el mismo canal citando el pedido BN-105412."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "reclamaciones por canal whatsapp",
+          "justificacion": "Queja de servicio leve y educada, deliberadamente en la misma categoría que la anterior para comprobar que el enrutador no escala por la etiqueta sino por los criterios. No exige nada, no menciona abogados ni organismos, no es segundo contacto y el pedido llegó bien y a tiempo, así que ningún criterio H se activa y una disculpa sincera de la IA resuelve el caso. Es el contraste que permite medir si el sistema distingue enfado real de un comentario constructivo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Clienta satisfecha con el producto y la entrega señala que su consulta de preventa tardó casi cinco días en ser respondida.",
+          "justificacion": "El contenido del mensaje es una queja sobre el tiempo de respuesta del servicio, aunque la clienta la presente como sugerencia y elogie el espejo y la puntualidad del domicilio. Encaja en reclamaciones/queja-servicio y no en consultas, porque no pregunta nada ni pide ninguna gestión sobre el pedido BN-105412, ya entregado. El sentimiento es +1 por el tono agradecido y la prioridad baja porque no hay nada exigido ni pendiente; la confianza es 0,86 por la mezcla deliberada de elogio y queja en el mismo texto.",
+          "confianza": 0.86,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Sí hubo incumplimiento de PQR-01 en la consulta de preventa (unas 72 horas hábiles frente a 24), mientras que la entrega cumplió ENV-01 con 6 días hábiles.",
+          "justificacion": "PQR-01 fija un máximo de 24 horas hábiles para responder consultas y la clienta declara haber esperado casi cinco días calendario, que equivalen a unos tres días hábiles o 72 horas hábiles: el incumplimiento es real y triplica el plazo, por eso cumple es false. En cambio la entrega sí respetó ENV-01: del pedido del 28 de agosto a la entrega del 7 de septiembre transcurrieron 6 días hábiles, dentro de los 3 a 8 de la zona A, sin festivos de por medio, lo que coincide con el elogio de la clienta al domicilio. No hay ninguna regla de devolución ni de garantía en juego porque el espejo BN-ESP-001 llegó en buen estado y la clienta no reclama nada sobre el pedido BN-105412.",
+          "confianza": null,
+          "reglas": [
+            "PQR-01",
+            "ENV-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Queja de servicio con incumplimiento probado de PQR-01 y sin regla que diga si se compensa: a la cola humana.",
+          "justificacion": "H04 se activa por error acreditado de la empresa: la consulta previa se respondió en unas 72 horas hábiles frente a las 24 que fija PQR-01, y la política no cierra qué hacer después de ese incumplimiento, de modo que ofrecer o no un gesto es una excepción que debe decidir una persona. No se activa H07 porque, aunque el criterio exige las dos condiciones, aquí no se da ninguna: el sentimiento es +1 y es su primer contacto por este tema. Tampoco hay compensación solicitada que acerque el caso al umbral de H01, y la confianza de 0,86 descarta H06. El SLA se mantiene en 24 horas conforme a PQR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H04"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se reconoce sin rodeos el incumplimiento de PQR-01 (unas 72 horas hábiles frente a las 24 comprometidas) porque negarlo o matizarlo empeoraría el caso, y se presenta la cifra como aproximada porque la fecha exacta de la consulta previa no consta y el cálculo se apoya en lo que declara la clienta. No se ofrece ni se insinúa compensación alguna: la política no regula qué hace Bañolia cuando incumple su propio plazo de PQR-01, así que cualquier gesto es una excepción reservada a la persona, y queda marcada entre corchetes junto con las medidas de mejora, que tampoco se inventan. Se verificó ENV-01 (entrega en 6 días hábiles, dentro del rango de 3 a 8 de zona A), pero se decidió no mencionarlo en el texto para no sonar defensivo. Se evitó el «¡Con mucho gusto!» de apertura por tratarse de un error propio y se cerró con el compromiso de 24 horas hábiles de PQR-01, que sí está respaldado por la política.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Aprobado en la segunda iteración. El borrador no promete ningún plazo, descuento ni compensación fuera de política, no inventa medidas correctivas ni cifras, mantiene el trato de usted y el español de Colombia, y firma como corresponde. Las dos decisiones que el enrutador reservó a la persona por H04 —el gesto comercial y la explicación de las medidas de mejora— quedan visibles entre corchetes y sin cerrar. Las dos observaciones de la primera iteración (referencia defensiva a ENV-01 y cierre sin siguiente paso concreto) fueron corregidas.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    }
+  ]
+}
