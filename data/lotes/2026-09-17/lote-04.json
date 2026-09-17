@@ -1,0 +1,1972 @@
+{
+  "id": "LOTE-20260917-04",
+  "fecha": "2026-09-17",
+  "origen": "programado",
+  "iniciadoEn": "2026-09-17T14:00:00-05:00",
+  "finalizadoEn": "2026-09-17T14:35:00-05:00",
+  "totales": {
+    "solicitudes": 10,
+    "ia": 6,
+    "humano": 4,
+    "descartado": 0
+  },
+  "alertas": [
+    "40 % a humano, fuera del rango orientativo del 25-35 %. No se ajustó ninguna decisión para cuadrar el porcentaje."
+  ],
+  "solicitudes": [
+    {
+      "id": "SOL-20260917-0031",
+      "recibidaEn": "2026-09-17T08:14:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0049",
+        "nombre": "Laura Naranjo Correa",
+        "ciudad": "Valledupar",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104612",
+        "fecha": "2026-09-11",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-ESP-001",
+            "cantidad": 1,
+            "precioCOP": 780000
+          }
+        ],
+        "totalCOP": 780000,
+        "fechaEntrega": null
+      },
+      "asunto": "La transportadora no me ha llamado",
+      "mensaje": "buenas, tengo el pedido BN-104612 y en la pagina dice q va en transito desde el viernes pasado pero de la transportadora no me han llamado ni nada. yo vivo en valledupar. sera q me pueden decir para cuando queda la entrega? es q necesito estar en la casa ese dia. gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "estado-pedido",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.91,
+        "entidades": {
+          "numeroPedido": "BN-104612",
+          "sku": "BN-ESP-001",
+          "estadoPedido": "En tránsito",
+          "zona": "B",
+          "ciudad": "Valledupar",
+          "fechaPedido": "2026-09-11",
+          "diasHabilesTranscurridos": 4,
+          "segundoContacto": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "B",
+          "ciudad": "Valledupar",
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "fechaPedido": "2026-09-11",
+          "diasHabilesTranscurridos": 4,
+          "diasHabilesHastaMinimoDelRango": 4,
+          "diasHabilesHastaMaximoDelRango": 11,
+          "fechaEntregaEstimadaMinima": "2026-09-23",
+          "fechaEntregaEstimadaMaxima": "2026-10-02",
+          "dentroDePlazo": true,
+          "plazoFabricanteProductoDiasHabiles": 6,
+          "importePedidoCOP": 780000,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratisAplicable": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El pedido va en plazo, pero la clienta espera una fecha concreta y ENV-01 solo autoriza dar un rango: si se le promete un día exacto y la transportadora falla, se crea un compromiso que la política no respalda",
+          "Vacío de política: ninguna regla obliga a la transportadora a llamar antes de entregar ni fija franja horaria ni agendamiento previo. ENV-01 solo regula días hábiles de tránsito, así que la petición de fondo (saber qué día estar en casa) no tiene norma que la resuelva",
+          "Valledupar es zona B y el rango llega hasta el 2 de octubre; si la clienta interpreta los 8 días hábiles como compromiso, habrá un segundo contacto hacia el 23 de septiembre",
+          "Clienta recurrente (5 pedidos previos, 6.734.000 COP de histórico): conviene un aviso proactivo de rastreo aunque no sea obligatorio"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "¡Hola, Laura! Gracias por escribirnos.\n\nSu pedido BN-104612 (Espejo Lumnia con luz LED 80x60 cm, antivaho), registrado el 11 de septiembre, figura en tránsito hacia Valledupar. Valledupar es zona B y, según nuestra política de envíos, el plazo de entrega es de 8 a 15 días hábiles. Desde entonces han transcurrido 4 días hábiles, así que su pedido va dentro del plazo previsto: la entrega se estima entre el 23 de septiembre y el 2 de octubre.\n\nLe respondemos con franqueza lo que nos pregunta, porque preferimos darle certeza y no una promesa: no podemos confirmarle un día exacto ni una franja horaria. El momento de la entrega lo define la transportadora y lo único que nosotros podemos comprometer es ese rango de días hábiles. Tampoco tenemos forma de asegurarle una llamada previa: a veces la transportadora se comunica antes de llegar, pero no es algo que podamos garantizarle.\n\nPor eso, si le es posible, le sugerimos dejar a alguien autorizado para recibir en la dirección registrada dentro de esas fechas. Se lo comentamos también por un tema de costos: cuando un pedido no se puede entregar porque el cliente está ausente tras más de dos intentos de entrega, o porque la dirección resulta errónea, incompleta o inaccesible para el vehículo de reparto, los gastos de envío y de devolución quedan a cargo del cliente.\n\nPor nuestra parte, seguimos el envío y le escribimos por este mismo medio en cuanto la transportadora reporte cualquier novedad. Y si llega el 2 de octubre sin que el espejo haya llegado, escríbanos: ese mismo día abrimos una incidencia de entrega y lo rastreamos con la transportadora.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador enunciaba DEV-11 como «si tras dos intentos de entrega no hay quien reciba», más estricto que la regla. Se corrigió a la formulación literal de DEV-11, «ausente tras más de dos intentos de entrega», para no endurecer una regla de costos en contra de la clienta. Nota: el texto de DEV-11 dice «más de dos intentos» y su parámetro se llama intentosEntregaMinimos con valor 2; se siguió el texto de la regla, que es el que ampara mejor a la clienta."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "¡Hola, Laura! Gracias por escribirnos.\n\nSu pedido BN-104612 (Espejo Lumnia con luz LED 80x60 cm, antivaho), registrado el 11 de septiembre, figura en tránsito hacia Valledupar. Valledupar es zona B y, según nuestra política de envíos, el plazo de entrega es de 8 a 15 días hábiles. Desde entonces han transcurrido 4 días hábiles, así que su pedido va dentro del plazo previsto: la entrega se estima entre el 23 de septiembre y el 2 de octubre.\n\nLe respondemos con franqueza lo que nos pregunta, porque preferimos darle certeza y no una promesa: no podemos confirmarle un día exacto ni una franja horaria. El momento de la entrega lo define la transportadora y lo único que nosotros podemos comprometer es ese rango de días hábiles. Tampoco tenemos forma de asegurarle una llamada previa: a veces la transportadora se comunica antes de llegar, pero no es algo que podamos garantizarle.\n\nPor eso, si le es posible, le sugerimos dejar a alguien autorizado para recibir en la dirección registrada dentro de esas fechas. Se lo comentamos también por un tema de costos: cuando un pedido no se puede entregar porque el cliente está ausente tras más de dos intentos de entrega, o porque la dirección resulta errónea, incompleta o inaccesible para el vehículo de reparto, los gastos de envío y de devolución quedan a cargo del cliente.\n\nPor nuestra parte, seguimos el envío y le escribimos por este mismo medio en cuanto la transportadora reporte cualquier novedad. Y si llega el 2 de octubre sin que el espejo haya llegado, escríbanos: ese mismo día abrimos una incidencia de entrega y lo rastreamos con la transportadora.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "pedidos por canal whatsapp",
+          "justificacion": "Seguimiento de entrega totalmente rutinario: el pedido lleva cuatro días hábiles despachado y el plazo de zona B de ENV-01 es de 8 a 15 días hábiles, así que la política lo resuelve sola. Escrito en registro de WhatsApp, sin tildes y con abreviaturas, para comprobar que el clasificador no depende de un lenguaje cuidado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos · estado-pedido · prioridad media",
+          "justificacion": "El cliente identifica el pedido BN-104612, constata que figura 'En tránsito' y pide una fecha concreta de entrega porque necesita estar en casa; es una petición de información sobre el estado de un envío en curso, no el reporte de una incidencia. No hay plazo incumplido: el pedido se despachó el viernes 11 de septiembre y a día de hoy llevan 4 días hábiles, dentro del rango de 8 a 15 días hábiles de zona B (ENV-01), de modo que la prioridad es media. El tono es cordial y sin hostilidad, con una inquietud puramente logística, por lo que el sentimiento es 0. La confianza es alta porque la intención es inequívoca; el único matiz es que un silencio prolongado de la transportadora podría leerse como incidencia de entrega, pero hoy no hay ningún hecho que lo sustente.",
+          "confianza": 0.91,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Pedido dentro de plazo: 4 días hábiles de los 8 a 15 que ENV-01 concede a la zona B; no hay incumplimiento.",
+          "justificacion": "ENV-01 fija de 8 a 15 días hábiles para la zona B, donde está Valledupar, y desde el pedido del 11 de septiembre solo han transcurrido 4 días hábiles (14, 15, 16 y 17), de modo que la ventana estimada de entrega va del 23 de septiembre al 2 de octubre y ni siquiera se ha alcanzado el extremo inferior del rango. El importe de 780.000 COP queda por debajo del umbral de 1.500.000 COP de ENV-01, así que el envío no era gratuito y no hay prestación adicional comprometida. La consulta debe responderse dentro de las 24 horas hábiles de PQR-01. Señalo expresamente un vacío: la política no regula el aviso previo, el agendamiento ni la franja horaria de la transportadora, que es justo lo que pide la clienta.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de estado en plazo: la responde la IA con el rango de ENV-01, sin prometer fecha exacta.",
+          "justificacion": "No se activa ningún criterio: el pedido va dentro del plazo de zona B de ENV-01 (día hábil 4 de 15), el importe de 780.000 COP queda muy lejos del umbral de H01 y la confianza de 0,91 descarta H06. El sentimiento es 0 y es primer contacto, así que H07 no aplica ni por asomo, y la clienta es particular con 6.734.000 COP de histórico, muy por debajo del umbral de H10. El vacío de política sobre el aviso previo de la transportadora no activa por sí solo ningún criterio H: la IA puede sostener la respuesta dando el rango estimado del 23 de septiembre al 2 de octubre y el enlace de rastreo, sin comprometer un día concreto que ENV-01 no respalda.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se aplica ENV-01 dando el rango de zona B (8 a 15 días hábiles, 4 transcurridos, ventana del 23 de septiembre al 2 de octubre) y se niega expresamente la fecha exacta que pide la clienta, porque ninguna regla la respalda. Se nombra el vacío de política sin disfrazarlo: no hay norma que obligue a la transportadora a llamar antes ni que fije franja horaria, así que se dice que no podemos garantizar el aviso previo en lugar de inventarlo. Se advierte de DEV-11 antes de que la clienta asuma el costo de una entrega fallida por ausencia, y se cierra con la puerta de salida de PQR-01: qué hacer el 2 de octubre si el espejo no ha llegado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se revisó que no hubiera fecha concreta de entrega, aviso previo ni agendamiento inventados, y que el cálculo de días hábiles y el rango coincidieran con ENV-01 y con el análisis. La única corrección fue la redacción de DEV-11, que en el primer borrador exigía menos intentos de entrega de los que fija el texto de la regla; con ese ajuste el texto queda aprobado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0032",
+      "recibidaEn": "2026-09-17T08:47:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0112",
+        "nombre": "Valentina Pineda Naranjo",
+        "ciudad": "Bogotá",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104598",
+        "fecha": "2026-09-09",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ACC-001",
+            "cantidad": 1,
+            "precioCOP": 245000
+          }
+        ],
+        "totalCOP": 245000,
+        "fechaEntrega": "2026-09-15"
+      },
+      "asunto": "Faltó una pieza en el juego de accesorios",
+      "mensaje": "Buenos días.\n\nEl lunes recibí el pedido BN-104598, el juego de accesorios Bruma de seis piezas. Al abrir la caja y revisar contra el empaque me di cuenta de que vienen cinco piezas: están las dos toalleras, el portarrollos, la jabonera y el gancho, pero no viene el vaso con su soporte. La caja llegó en buen estado, no parece que se hubiera abierto en el camino.\n\n¿Me podrían enviar la pieza que falta? Quedo atenta y les agradezco la gestión.\n\nValentina Pineda",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Las cinco piezas recibidas dispuestas sobre la mesa junto a la caja abierta"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-incompleto",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-104598",
+          "sku": "BN-ACC-001",
+          "fechaEntrega": "2026-09-15",
+          "piezasEsperadas": 6,
+          "piezasRecibidas": 5,
+          "piezaFaltante": "vaso con soporte",
+          "embalajeIntacto": true,
+          "tieneFoto": true,
+          "segundoContacto": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-14",
+          "DEV-01",
+          "DEV-08",
+          "ENV-02",
+          "GAR-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "A",
+          "ciudad": "Bogotá",
+          "sku": "BN-ACC-001",
+          "tipologiaDevolucion": "accesorios",
+          "piezasEsperadas": 6,
+          "piezasRecibidas": 5,
+          "piezaFaltante": "vaso con soporte",
+          "embalajeIntacto": true,
+          "fechaEntregaRegistrada": "2026-09-15",
+          "fechaEntregaSegunClienta": "2026-09-14",
+          "fechaHoraReporte": "2026-09-17T08:47:00-05:00",
+          "diasCalendarioDesdeEntregaRegistrada": 2,
+          "horasDesdeEntregaRegistradaMedianoche": 57,
+          "horasDesdeEntregaSegunClientaMedianoche": 81,
+          "plazoENV02Horas": 48,
+          "env02AplicaAlCaso": false,
+          "importePagadoCOP": 245000,
+          "plazoDEV01DiasCalendario": 14,
+          "diasRestantesDEV01": 12,
+          "gastoRecogidaDEV08ZonaAAccesoriosCOP": 68000,
+          "gastoRecogidaImputableAlClienteCOP": 0,
+          "plazoReembolsoDEV10DiasCalendario": 14,
+          "garantiaProductoMeses": 24
+        },
+        "riesgos": [
+          "Vacío de política: ninguna regla cubre el faltante de piezas con el embalaje intacto. ENV-02 regula daños del transporte y DEV-04 mira el caso inverso (lo que el cliente debe devolver completo), así que no hay norma directa para el envío incompleto",
+          "Si alguien aplicara ENV-02 por analogía, el reporte quedaría fuera de plazo: contando desde la medianoche del 15 registrado son unas 57 horas frente a las 48 permitidas, y desde el lunes 14 que menciona la clienta serían unas 81 horas. Rechazar por ese plazo sería un error, porque no hay daño de transporte",
+          "Discrepancia de fechas sin resolver: el pedido registra entrega el martes 15 y la clienta dice lunes. Sin la hora exacta de la guía no se puede fijar el momento de inicio de ningún plazo; conviene pedir el soporte de la transportadora antes de que el dato se vuelva litigioso",
+          "Precedente: reponer una pieza suelta sin norma escrita crea criterio para todos los juegos de accesorios; es la clase de decisión que debería quedar documentada",
+          "La foto muestra cinco piezas, pero no acredita por sí sola qué salió de bodega; falta el contraste con el control de empaque"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Valentina.\n\n¡Con mucho gusto le ayudamos! Tiene razón: el juego de accesorios Bruma se entrega con seis piezas y en el pedido BN-104598 llegaron cinco. Falta el vaso con su soporte. La fotografía que nos envió es suficiente para dar por acreditado el faltante; no necesitamos nada más de su parte.\n\nEl error es de nuestro empaque, no suyo ni del transporte, así que lo asumimos íntegramente: le enviamos la pieza faltante sin ningún costo para usted. No tiene que devolver nada ni volver a empacar las cinco piezas que ya recibió; puede instalarlas cuando quiera.\n\nCómo continuamos. Le pedimos confirmarnos, respondiendo a este correo, si enviamos la pieza a la misma dirección del pedido BN-104598 o a otra. Con esa confirmación solicitamos el despacho a nuestra bodega y le escribimos con el número de guía el mismo día en que salga. Como referencia, nuestros envíos a Bogotá (zona A) se estiman entre 3 y 8 días hábiles.\n\nLamentamos el inconveniente y le agradecemos habérnoslo reportado con tanto detalle.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: el borrador anunciaba «el envío a Bogotá (zona A) toma entre 3 y 8 días hábiles» como plazo comprometido para la reposición. ENV-01 fija ese rango para la entrega de un pedido, no para el despacho de una pieza de reposición, así que se estaba prometiendo un plazo sin respaldo. Corregido: se presenta el rango como referencia estimada de nuestros envíos a zona A y solo se compromete lo que Bañolia controla, el número de guía el mismo día del despacho."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señora Valentina.\n\n¡Con mucho gusto le ayudamos! Tiene razón: el juego de accesorios Bruma se entrega con seis piezas y en el pedido BN-104598 llegaron cinco. Falta el vaso con su soporte. La fotografía que nos envió es suficiente para dar por acreditado el faltante; no necesitamos nada más de su parte.\n\nEl error es de nuestro empaque, no suyo ni del transporte, así que lo asumimos íntegramente: le enviamos la pieza faltante sin ningún costo para usted. No tiene que devolver nada ni volver a empacar las cinco piezas que ya recibió; puede instalarlas cuando quiera.\n\nCómo continuamos. Le pedimos confirmarnos, respondiendo a este correo, si enviamos la pieza a la misma dirección del pedido BN-104598 o a otra. Con esa confirmación solicitamos el despacho a nuestra bodega y le escribimos con el número de guía el mismo día en que salga. Como referencia, nuestros envíos a Bogotá (zona A) se estiman entre 3 y 8 días hábiles.\n\nLamentamos el inconveniente y le agradecemos habérnoslo reportado con tanto detalle.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal correo",
+          "justificacion": "Faltante de una pieza en un artículo de 245.000 COP, reportado dos días después de la entrega y con foto. Es el caso de posventa más común que existe y se resuelve con una reposición estándar, sin activar ningún criterio de escalado. Sirve de contrapeso rutinario frente a los dos casos límite del lote.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias · producto-incompleto · prioridad media",
+          "justificacion": "La clienta enumera pieza por pieza lo recibido y concluye que del juego de seis llegaron cinco: falta el vaso con su soporte, con la caja íntegra y foto adjunta. Es el caso de manual de producto-incompleto y la petición es concreta: el envío de la pieza faltante. Prioridad media porque no hay plazo incumplido ni dinero retenido y el importe es bajo. El tono es formal y colaborativo, sin reproche, así que el sentimiento es 0. Confianza muy alta: la categoría no admite lectura alternativa. Dato para el siguiente agente: la clienta dice haber recibido 'el lunes' mientras el pedido registra entrega el martes 15, discrepancia menor que conviene verificar al contar el plazo de 48 horas de ENV-02.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Juego entregado incompleto con embalaje intacto: error imputable a Bañolia según DEV-14, sin costes para la clienta, aunque la política no regula el faltante de piezas.",
+          "justificacion": "El juego BN-ACC-001 es de seis piezas según el catálogo y llegaron cinco con la caja sin señales de apertura, lo que apunta a un error de preparación y no a una incidencia de transporte, de modo que ENV-02 y su plazo de 48 horas no son la regla aplicable pese a la discrepancia entre el lunes que menciona la clienta y el martes 15 que registra el pedido. Bajo DEV-14 el error es imputable a Bañolia y esta asume la totalidad de los costes, por lo que la tarifa de 68.000 COP que DEV-08 fija para accesorios en zona A (extremo superior del rango 27.000 a 68.000) no puede descontarse; GAR-01 ampara además el producto durante 24 meses conforme a la Ley 1480 de 2011. Si la clienta prefiriera devolver el juego completo, DEV-01 se lo permite hasta el día 14 desde la recepción, es decir con 12 días todavía disponibles, y DEV-10 obliga a reembolsar en 14 días calendario. Dejo constancia expresa de que ninguna regla de la política resuelve el envío incompleto con embalaje intacto: la decisión se apoya en DEV-14 por identidad de razón.",
+          "confianza": null,
+          "reglas": [
+            "DEV-14",
+            "DEV-01",
+            "DEV-08",
+            "ENV-02",
+            "GAR-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Faltante de una pieza con embalaje intacto: la IA envía la pieza sin coste amparándose en DEV-14.",
+          "justificacion": "Ningún criterio se activa: la confianza es de 0,95 (H06 descartado), el importe en juego son 245.000 COP frente a los 1.500.000 de H01 y no hay daño cuya responsabilidad haya que valorar, de modo que H05 tampoco entra. El vacío de política sobre envíos incompletos no obliga a escalar, porque el embalaje intacto sitúa el fallo en el empaque de origen y DEV-14 ya resuelve el caso: el error imputable a Bañolia hace que asuma la totalidad de los costes del envío de la pieza faltante. Tampoco hay que decidir excepción alguna, así que H04 no aplica: el plazo de 48 horas de ENV-02 no rige aquí por no tratarse de un daño de transporte, y la discrepancia de fechas del 14 frente al 15 es irrelevante para la solución que se ofrece.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La solución se apoya en DEV-14: el faltante de pieza con el embalaje intacto es un error de empaque imputable a Bañolia, y en esos casos Bañolia asume la totalidad de los costes, de modo que la pieza se envía sin cargo. Se evitó deliberadamente invocar ENV-02 y sus 48 horas, porque regula daños de transporte y aquí no los hay: aplicarla por analogía habría dejado el reporte fuera de plazo y habría llevado a negar un caso donde la clienta tiene razón. Tampoco se menciona la discrepancia entre el lunes que indica la clienta y el martes 15 registrado, porque no cambia la solución y convertirla en tema abriría una discusión innecesaria. No se citan DEV-01 ni DEV-08 en el texto porque no hay devolución ni recogida, y por tanto no hay dinero que desglosar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se verificó que el texto no invoca ENV-02 ni plazo alguno que pudiera volverse en contra de la clienta, que no menciona la discrepancia de fechas y que no promete reembolso ni compensación fuera de DEV-14. La única observación fue el plazo de envío presentado como compromiso, corregido en la segunda iteración. El cierre indica paso concreto (confirmar dirección), qué hará Bañolia (despachar y enviar guía) y cuándo, y la firma es la de marca.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0033",
+      "recibidaEn": "2026-09-17T09:22:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0148",
+        "nombre": "Iván Cortés Bedoya",
+        "ciudad": "Medellín",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104570",
+        "fecha": "2026-09-05",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-SAN-001",
+            "cantidad": 1,
+            "precioCOP": 1180000
+          }
+        ],
+        "totalCOP": 1180000,
+        "fechaEntrega": "2026-09-14"
+      },
+      "asunto": "Manual de instalación del inodoro",
+      "mensaje": "Hola, el inodoro suspendido del pedido BN-104570 llegó sin el manual de instalación. ¿Me lo pueden mandar en PDF al correo? El plomero viene el sábado.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-instalacion",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.64,
+        "entidades": {
+          "numeroPedido": "BN-104570",
+          "sku": "BN-SAN-001",
+          "fechaEntrega": "2026-09-14",
+          "documentoSolicitado": "manual de instalación en PDF",
+          "canalEntregaSolicitado": "correo",
+          "fechaLimiteCliente": "2026-09-19",
+          "temasSecundarios": [
+            "producto-incompleto"
+          ],
+          "segundoContacto": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "PQR-01",
+          "DEV-04",
+          "GAR-01",
+          "INS-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "A",
+          "ciudad": "Medellín",
+          "sku": "BN-SAN-001",
+          "importePedidoCOP": 1180000,
+          "fechaEntrega": "2026-09-14",
+          "diasCalendarioDesdeEntrega": 3,
+          "plazoRespuestaConsultaHorasHabiles": 24,
+          "fechaLimiteDelCliente": "2026-09-19",
+          "diasCalendarioHastaFechaLimiteDelCliente": 2,
+          "diasHabilesHastaFechaLimiteDelCliente": 1,
+          "fechaLimiteDelClienteEsDiaHabil": false,
+          "garantiaProductoMeses": 24,
+          "ciudadConInstalacionAliada": true,
+          "instalacionRequiereCotizacion": true,
+          "plazoDEV01DiasCalendario": 14,
+          "diasRestantesDEV01": 11
+        },
+        "riesgos": [
+          "Vacío de política: ninguna regla regula la entrega de documentación faltante ni obliga a suministrar el manual en PDF. DEV-04 solo menciona los manuales como parte de lo que el cliente debe devolver, no como obligación de entrega de Bañolia",
+          "El plomero llega el sábado 19, que no es día hábil: si las 24 horas hábiles de PQR-01 se interpretan como tres jornadas laborales, el plazo formal vence después de la necesidad real del cliente",
+          "GAR-01 excluye los daños por mala instalación: si el inodoro suspendido se instala sin manual y algo falla, Bañolia podría quedar sin cobertura y el cliente reclamaría alegando que la documentación nunca llegó. Es el riesgo económico principal sobre un producto de 1.180.000 COP",
+          "El clasificador marca 'producto-incompleto' como tema secundario con confianza de solo 0,64: si el manual faltante se tratara como suministro incompleto, el caso cambiaría de naturaleza y activaría DEV-14",
+          "INS-01 cubre Medellín, pero la instalación requiere cotización previa y no está incluida: ofrecerla sin aclararlo generaría una expectativa de gratuidad"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H06"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "Si el manual faltante se trata como una simple consulta de documentación (enviar el PDF) o como un suministro incompleto imputable a Bañolia bajo DEV-14, y si se compromete la entrega antes del sábado 19, que es cuando llega el plomero y no es día hábil.",
+          "opciones": [
+            "Enviar hoy mismo el PDF del fabricante al correo registrado y cerrar como consulta, advirtiendo que GAR-01 excluye los daños por mala instalación",
+            "Tratarlo como suministro incompleto por DEV-14: enviar el PDF de inmediato y despachar además el manual físico sin coste para el cliente",
+            "Enviar el PDF y ofrecer la instalación con aliado certificado de INS-01 en Medellín, aclarando expresamente que requiere cotización previa y no está incluida en el precio"
+          ],
+          "riesgos": [
+            "El clasificador duda entre consulta y producto incompleto: la calificación cambia quién asume costes si más adelante aparece un defecto",
+            "Si se responde dentro de las 24 horas hábiles de PQR-01 pero después del sábado 19, se cumple el plazo formal y se falla a la necesidad real del cliente",
+            "Instalar un inodoro suspendido de 1.180.000 COP sin manual y que algo falle: GAR-01 excluye la mala instalación, pero el cliente alegaría que la documentación nunca llegó, y ese es el riesgo económico principal",
+            "Ofrecer INS-01 sin aclarar que va con cotización aparte genera expectativa de gratuidad en un servicio que no lo es"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Iván.\n\nGracias por avisarnos. Lamentamos que el inodoro suspendido del pedido BN-104570, entregado el 14 de septiembre, le haya llegado sin el manual de instalación.\n\nAntes de cualquier otra cosa, una recomendación: le pedimos no iniciar el montaje hasta tener a la vista las instrucciones del fabricante. El producto tiene 24 meses de garantía, pero esa garantía no cubre los daños ocasionados por una instalación incorrecta, y no quisiéramos que un montaje hecho sin la documentación le deje sin respaldo un producto de $ 1.180.000.\n\nSu caso ya está en manos de una persona de nuestro equipo de posventa, que se comunicará con usted dentro del plazo máximo de 24 horas hábiles que aplicamos a las consultas. Hemos dejado anotado que su plomero llega el sábado 19 y que ese día no es hábil. No queremos comprometerle una fecha que todavía no le podemos garantizar, así que será esa persona quien le confirme el cuándo y el cómo.\n\n[Por resolver por quien atienda el caso: si el manual faltante se trata como una consulta de documentación o como un suministro incompleto imputable a Bañolia, y qué se envía en consecuencia: el PDF del fabricante al correo registrado, el manual físico sin costo, o ambos.]\n\n[Por resolver por quien atienda el caso: si se le compromete la entrega del manual antes del sábado 19, teniendo en cuenta que ese día no es hábil y que el plazo formal de 24 horas hábiles puede vencer después de esa fecha.]\n\n[Por resolver por quien atienda el caso: si se le ofrece la instalación con aliado certificado en Medellín. Si se ofrece, hay que aclararle expresamente que requiere cotización previa y que no está incluida en el precio del producto.]\n\nMientras tanto, le agradecemos conservar el embalaje y la totalidad de la tornillería y las piezas que vinieron con el inodoro.\n\nEn resumen: no inicie el montaje hasta contar con las instrucciones, y una persona de nuestro equipo le escribirá dentro de las próximas 24 horas hábiles con la respuesta definitiva.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: el borrador enlazaba la mención del plomero del sábado 19 con el plazo de 24 horas hábiles de PQR-01 y con la frase «lo trasladamos como prioridad», lo que se podía leer como una garantía implícita de que el manual llegaría antes del sábado. Ese compromiso de fecha es justamente lo que la ficha reserva a la persona. Corregido en la iteración 2 diciendo de forma expresa que no se compromete una fecha y que la confirma quien atienda el caso."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal chat",
+          "justificacion": "Petición de documentación en un mensaje de chat de tres líneas, con un solo tema y sin ninguna pretensión económica. El agente solo tiene que enviar el manual. Pone a prueba que el sistema no infle la complejidad de una solicitud trivial ni la confunda con una incidencia de producto.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "consultas · consulta-instalacion · prioridad media",
+          "justificacion": "El caso encaja igual de bien en dos categorías y por eso la confianza baja a 0,64: la ausencia del manual dentro de la caja es literalmente un faltante de la entrega (incidencias/producto-incompleto), pero lo que el cliente pide no es la reposición de una pieza sino documentación de instalación en PDF al correo, que es una consulta. Me inclino por consultas/consulta-instalacion porque el producto llegó funcionalmente completo y la petición se satisface con el envío de un archivo. La prioridad es media: hay una fecha que aprieta, el plomero llega el sábado, pero no hay plazo incumplido ni riesgo. El tono es breve y neutro, sentimiento 0. Ojo: la confianza es baja por ambigüedad real de categoría, no por dificultad de resolución.",
+          "confianza": 0.64,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Consulta atendible sobre documentación faltante: PQR-01 marca el plazo de respuesta, pero ninguna regla obliga expresamente a enviar el manual.",
+          "justificacion": "Se trata de una consulta y PQR-01 obliga a responderla en un máximo de 24 horas hábiles, plazo que colisiona con la fecha real que maneja el cliente, el sábado 19, que no es día hábil. DEV-04 reconoce que los manuales forman parte de lo entregado con el producto, aunque lo hace desde el ángulo de la devolución, y GAR-01 es la regla crítica del caso porque excluye de la garantía de 24 meses los daños por mala instalación: entregar el manual antes del sábado protege tanto al cliente como a Bañolia. INS-01 permite además ofrecer instalación con aliado certificado en Medellín, siempre con cotización previa y sin que el servicio esté incluido en el precio. Señalo un vacío real: la política no contempla el envío de documentación faltante, de modo que la respuesta se sostiene en PQR-01 y en la prevención de GAR-01, no en una regla específica.",
+          "confianza": null,
+          "reglas": [
+            "PQR-01",
+            "DEV-04",
+            "GAR-01",
+            "INS-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado por baja confianza del clasificador (0,64) sobre si es consulta o suministro incompleto.",
+          "justificacion": "H06 se activa de forma mecánica y sin margen de interpretación: la confianza del clasificador es de 0,64, por debajo del umbral de 0,75, y la propia clasificación arrastra 'producto-incompleto' como tema secundario, señal de que el caso no encaja con claridad en una sola categoría. No se activa H01 (no hay reembolso ni compensación en juego) ni H04, porque no se pide excepción a ningún plazo. El vacío de política sobre documentación faltante no escala por sí mismo, pero aquí coincide con la duda de clasificación, que sí es criterio, y el SLA se mantiene en 24 horas conforme a PQR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H06"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se antepone la advertencia de no instalar sin manual porque GAR-01 excluye los daños por mala instalación y ese es el riesgo económico real sobre un producto de $ 1.180.000: advertir antes, no después. Se da lo único seguro (los 24 meses de garantía del catálogo y el plazo de 24 horas hábiles de PQR-01) y se dejan entre corchetes las tres decisiones de la ficha: la calificación como consulta o como suministro incompleto bajo DEV-14, el compromiso de entrega antes del sábado 19 y el ofrecimiento de INS-01, que si se hace debe ir siempre con la aclaración de cotización previa. La petición de conservar embalaje y tornillería se apoya en DEV-04 por si el caso deriva en un trámite posterior, y no se promete el envío del PDF porque la obligación de entregar documentación faltante no está regulada por ninguna regla. Nota interna para quien atienda: el plazo de las 24 horas hábiles contado desde el jueves 17 puede vencer el lunes 21, después de la necesidad real del cliente.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se revisó que el texto no cerrara ninguno de los tres puntos de queDecidir y se detectó una insinuación de fecha que fue corregida en la segunda iteración. El borrador no promete PDF, ni manual físico, ni instalación, ni descuento, y todas las cifras (1.180.000, 24 meses, 24 horas hábiles, 14 de septiembre) están en el pedido, el catálogo o la política. La advertencia de GAR-01 se redactó como protección al cliente y no como escudo jurídico, y el mensaje cierra con un siguiente paso concreto y la firma reglamentaria.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0034",
+      "recibidaEn": "2026-09-17T09:58:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0067",
+        "nombre": "Liliana Hoyos Cárdenas",
+        "ciudad": "Florencia",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104633",
+        "fecha": "2026-09-08",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ACC-002",
+            "cantidad": 2,
+            "precioCOP": 68000
+          }
+        ],
+        "totalCOP": 136000,
+        "fechaEntrega": "2026-09-14"
+      },
+      "asunto": "Un portarrollos vino con el tornillo dañado",
+      "mensaje": "buenas tardes señores, compre dos portarrollos (pedido BN-104633) y uno de ellos trae el tornillito de la base con la cabeza toda barrida, no entra el destornillador y se quedo a medio camino. el otro quedo perfecto. no es nada grave pero sin ese tornillo no puedo dejarlo firme en la pared. me podrian mandar el repuesto? mil gracias",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Primer plano del tornillo con la cabeza desgastada al lado de la base del portarrollos"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-danado",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.84,
+        "entidades": {
+          "numeroPedido": "BN-104633",
+          "sku": "BN-ACC-002",
+          "cantidad": 2,
+          "unidadesAfectadas": 1,
+          "fechaEntrega": "2026-09-14",
+          "defectoReportado": "tornillo de la base con la cabeza barrida",
+          "piezaSolicitada": "tornillo de repuesto",
+          "tieneFoto": true,
+          "segundoContacto": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-02",
+          "GAR-01",
+          "DEV-14",
+          "DEV-01",
+          "DEV-08",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "zona": "B",
+          "ciudad": "Florencia",
+          "sku": "BN-ACC-002",
+          "tipologiaDevolucion": "accesorios",
+          "cantidad": 2,
+          "unidadesAfectadas": 1,
+          "fechaEntrega": "2026-09-14",
+          "fechaHoraReporte": "2026-09-17T09:58:00-05:00",
+          "plazoENV02Horas": 48,
+          "horasDesdeEntregaMedianoche": 82,
+          "excesoHorasMinimo": 10,
+          "excesoHorasMaximo": 34,
+          "dentroDePlazoENV02": false,
+          "novedadAnotadaEnGuia": false,
+          "tieneFotos": true,
+          "diasCalendarioDesdeEntrega": 3,
+          "plazoDEV01DiasCalendario": 14,
+          "diasRestantesDEV01": 11,
+          "valorUnidadAfectadaCOP": 68000,
+          "totalPedidoCOP": 136000,
+          "gastoRecogidaDEV08ZonaBAccesoriosCOP": 90000,
+          "excesoRecogidaSobreValorUnidadCOP": 22000,
+          "garantiaProductoMeses": 24,
+          "pedidosPreviosCliente": 4,
+          "valorHistoricoClienteCOP": 6977000
+        },
+        "riesgos": [
+          "Incumplimiento objetivo del plazo de ENV-02 si el caso se califica como daño de transporte: el reporte llega fuera de las 48 horas en cualquier hipótesis horaria del 14 de septiembre, con un exceso de entre 10 y 34 horas",
+          "Tampoco consta la novedad anotada en la guía, que ENV-02 declara imprescindible como prueba para reclamar al seguro: falla el segundo requisito, no solo el plazo",
+          "Responsabilidad en disputa: un tornillo con la cabeza barrida y 'a medio camino' es tan compatible con un defecto de fábrica como con haberse barrido durante la instalación. GAR-01 excluye expresamente los daños por mala instalación, y la foto no distingue entre ambos escenarios",
+          "Motivo atendible para el criterio H04: el exceso sobre las 48 horas es de horas, no de días; la clienta aportó foto, es recurrente (4 pedidos previos, 6.977.000 COP) y el objeto en disputa es un tornillo de una unidad de 68.000 COP",
+          "La aritmética desaconseja la devolución: DEV-08 cobraría 90.000 COP de recogida en zona B por una unidad de 68.000 COP, es decir 22.000 COP más de lo que vale el producto. Cualquier salida distinta al envío de un repuesto es económicamente absurda",
+          "Precedente: aceptar un reporte fuera de las 48 horas por su bajo importe fija un umbral de tolerancia que después habrá que sostener en casos de mayor valor",
+          "Vacío de política: no existe regla que regule el envío de repuestos o piezas sueltas de tornillería sin devolver el producto, que es exactamente lo que pide la clienta"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H04",
+          "H05"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "Si Bañolia acepta el reporte pese a llegar entre 10 y 34 horas fuera de las 48 de ENV-02 y sin novedad anotada en la guía, y envía el tornillo de repuesto sin devolver el producto, o si lo rechaza por incumplimiento del plazo.",
+          "opciones": [
+            "Enviar el tornillo de repuesto sin coste como gesto comercial, documentando que la excepción se concede por el importe y por la trayectoria de la clienta",
+            "Tramitarlo por GAR-01 como defecto de fábrica del tornillo (garantía de 24 meses del catálogo) y enviar el repuesto, sin invocar ENV-02",
+            "Rechazar el reporte por incumplimiento del plazo de ENV-02 y por falta de novedad en la guía, ofreciendo el desistimiento de DEV-01, que aún tiene 11 días",
+            "Enviar el repuesto y, en paralelo, fijar por escrito un umbral interno de tolerancia horaria para faltantes de tornillería de bajo importe"
+          ],
+          "riesgos": [
+            "La aritmética hace absurda cualquier devolución: DEV-08 cobraría 90.000 COP de recogida en zona B por una unidad de 68.000 COP, es decir 22.000 COP más de lo que vale el producto",
+            "Rechazar por plazo un caso de 68.000 COP con foto y clienta recurrente (4 pedidos, 6.977.000 COP) tiene un coste reputacional desproporcionado al ahorro",
+            "Aceptar fuera de las 48 horas fija un umbral de tolerancia que después habrá que sostener en casos de mayor valor: conviene dejar constancia de que la excepción se apoya en el importe",
+            "Un tornillo con la cabeza barrida es compatible tanto con defecto de fábrica como con haberse barrido al instalar, y GAR-01 excluye expresamente la mala instalación: la foto no distingue entre los dos escenarios"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Liliana.\n\nGracias por escribirnos y por la fotografía: en ella se ve con claridad la cabeza del tornillo barrida, y nos sirve mucho para revisar su caso.\n\nTomamos nota de que el inconveniente afecta a una sola de las dos unidades del pedido BN-104633, entregado el 14 de septiembre, y de que el otro portarrollos quedó bien instalado. El producto tiene 24 meses de garantía desde la entrega; si su caso corresponde a esa cobertura es justamente lo que está revisando nuestro equipo.\n\nPara tramitarlo por el camino correcto necesitamos un dato suyo, y le pedimos contárnoslo con toda tranquilidad: ¿el tornillo ya venía así dentro del empaque, o la cabeza se barrió en el momento de ajustarlo? Es la información que nuestro equipo necesita para valorar el caso.\n\nMientras tanto, le pedimos no seguir forzando el tornillo ni intentar sacarlo con otra herramienta, para no dañar la base del portarrollos, y conservar tanto la pieza como el empaque.\n\nSu solicitud ya está en manos de una persona de nuestro equipo, que le responderá por este mismo medio dentro del plazo máximo de 24 horas hábiles que aplicamos a las consultas. Hasta ese momento no podemos confirmarle qué solución se aplicará.\n\n[Por resolver por quien atienda el caso: si se acepta el reporte pese a haber llegado entre 10 y 34 horas por fuera de las 48 horas que fija la política para daños de transporte y sin novedad anotada en la guía, o si se rechaza por ese incumplimiento. Nada de esto se le ha anticipado a la clienta.]\n\n[Por resolver por quien atienda el caso: si se envía el tornillo de repuesto sin costo y bajo qué figura se documenta: gesto comercial apoyado en el importe de $ 68.000 y en la trayectoria de la clienta (4 pedidos previos, $ 6.977.000), o trámite de garantía por defecto de fábrica, que no procedería si el tornillo se barrió al instalar. En este borrador no se le promete ningún repuesto.]\n\n[Por resolver por quien atienda el caso: si, en caso de rechazo, se le ofrece el desistimiento, que todavía tiene 11 días de plazo. Tener presente que la recogida de accesorios en zona B cuesta $ 90.000, es decir $ 22.000 más de lo que vale la unidad afectada de $ 68.000.]\n\nEn resumen: cuéntenos si el tornillo venía así o se barrió al ajustarlo, conserve la pieza y el empaque, y una persona de nuestro equipo le escribirá dentro de las próximas 24 horas hábiles.\n\nEquipo de Servicio al Cliente Bañolia\n\n[Nota interna, no enviar: el catálogo describe el BN-ACC-002 como portarrollos adhesivo. Conviene verificar con el fabricante qué tornillería incluye la base antes de responder, porque de eso depende si la pieza forma parte del suministro.]",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: la frase sobre los 24 meses de garantía quedaba pegada a la descripción del defecto y se podía leer como que el caso ya se había aceptado por GAR-01, que es una de las opciones reservadas a la persona. Corregido en la iteración 2 separando el dato objetivo de la duración de la cobertura de la valoración del caso, que se declara pendiente.",
+          "Iteración 1: se decidió no reprochar a la clienta el incumplimiento de las 48 horas de ENV-02 ni la falta de novedad en la guía dentro del texto al cliente, porque invocar el plazo equivale a anticipar el rechazo, y aceptar o no ese desfase es exactamente lo que decide la persona. El punto quedó trasladado a un corchete."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal whatsapp",
+          "justificacion": "Defecto menor en un accesorio de 68.000 COP, dentro de la garantía de 24 meses y con foto. El importe es ridículo y la solución obvia: mandar el tornillo. Es exactamente el tipo de caso que el sistema debe automatizar sin dudar, y comprueba que la palabra «dañado» no dispara por sí sola un escalado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias · producto-danado · prioridad media",
+          "justificacion": "De dos portarrollos, uno llegó con el tornillo de la base con la cabeza barrida e inservible, con foto de primer plano adjunta; es un defecto de la mercancía recibida, no un fallo de instalación del cliente. Clasifico como incidencia por producto dañado y no como devolución porque el cliente pide expresamente el repuesto del tornillo, no devolver ni reembolsar. La prioridad es media: importe pequeño, sin riesgo y sin dinero retenido. El tono es abiertamente amable, relativiza el problema y agradece, por lo que el sentimiento es 0. La confianza es alta aunque no máxima, porque una pieza defectuosa a los tres días también podría encaminarse por devoluciones/devolucion-defecto o garantía. Para el analista: la entrega fue el 14 y el reporte llega el 17, fuera de las 48 horas de ENV-02, lo cual no afecta a la clasificación.",
+          "confianza": 0.84,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Reporte fuera de las 48 horas de ENV-02 y sin novedad en guía; el caso no cumple, aunque el exceso es de horas y el importe en juego es de 68.000 COP.",
+          "justificacion": "ENV-02 exige reportar los daños del transporte dentro de las 48 horas siguientes a la entrega y dejar la novedad anotada en la guía: la entrega fue el 14 de septiembre y el reporte llegó el 17 a las 09:58, de modo que el plazo se excedió en cualquier hipótesis horaria del día de entrega, entre 10 y 34 horas, y además no consta anotación en la guía, por lo que el caso no cumple. La calificación del defecto queda abierta, porque GAR-01 ampara el producto 24 meses pero excluye los daños por mala instalación y un tornillo barrido admite ambas lecturas; si se acreditara defecto de origen, DEV-14 obligaría a Bañolia a asumir la totalidad de los costes. DEV-01 todavía permitiría desistir hasta el día 14 desde la recepción, con 11 días disponibles, pero DEV-08 descontaría 90.000 COP por accesorios en zona B tomando el extremo superior del rango de 68.000 a 90.000, más que los 68.000 COP que vale la unidad afectada. La política no prevé el envío de repuestos sueltos, que es lo que la clienta solicita, y la respuesta está sujeta al plazo de PQR-01.",
+          "confianza": null,
+          "reglas": [
+            "ENV-02",
+            "GAR-01",
+            "DEV-14",
+            "DEV-01",
+            "DEV-08",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado por excepción de plazo con motivo atendible y por origen del defecto no determinable.",
+          "justificacion": "H04 se activa porque el caso está objetivamente fuera de política (el reporte llega entre 10 y 34 horas después de las 48 de ENV-02, es decir, menos de dos días) y concurren dos de los motivos atendibles del criterio: clienta recurrente con 4 pedidos previos y aportación de prueba fotográfica. Se activa además H05, porque un tornillo con la cabeza barrida es tan compatible con un defecto de fabricación como con la manipulación durante el montaje, y decidirlo exige valorar la foto frente a la exclusión de GAR-01. La confianza de 0,84 descarta H06 y el importe de 68.000 COP queda lejos de H01, pero conceder la excepción de ENV-02 no es una decisión que la IA pueda tomar sola. SLA de 24 horas por PQR-01, al no haber riesgo físico ni reclamación formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H04",
+            "H05"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "No se promete el repuesto ni se invoca GAR-01 como cobertura, porque el origen del tornillo barrido es indeterminable y GAR-01 excluye expresamente la mala instalación: en su lugar se le hace a la clienta la pregunta neutra que necesita quien decida, sin tono acusatorio. Tampoco se le menciona el desfase sobre las 48 horas de ENV-02 ni la ausencia de novedad en la guía, porque plantearlo sería anticipar el rechazo que corresponde decidir a la persona; queda en corchete junto con la opción de desistimiento de DEV-01, que aún tiene 11 días, y con el dato de que la recogida de accesorios en zona B por DEV-08 cuesta $ 90.000 frente a los $ 68.000 de la unidad. Se reconoce el valor de la foto aportada y se da un siguiente paso concreto con el plazo de PQR-01, sin comprometer solución.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se comprobó que el borrador no cierra ninguna de las cuatro opciones de la ficha: no envía repuesto, no acepta ni rechaza el reporte fuera de plazo, no califica el defecto y no ofrece la devolución. En la segunda iteración se corrigió la mención de la garantía, que rozaba el prejuzgamiento a favor de la clienta, y se confirmó que el texto no reprocha el plazo, que sería prejuzgar en contra. Todas las cifras proceden de los cálculos del analista o del catálogo, el tono es cercano y sin lenguaje defensivo, y la nota interna final va marcada como no enviable para que quien atienda el caso la borre antes de responder.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0035",
+      "recibidaEn": "2026-09-17T10:31:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0130",
+        "nombre": "Óscar Betancur Jiménez",
+        "ciudad": "Cartagena",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104655",
+        "fecha": "2026-09-14",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-PLA-001",
+            "cantidad": 1,
+            "precioCOP": 980000
+          }
+        ],
+        "totalCOP": 980000,
+        "fechaEntrega": null
+      },
+      "asunto": "¿Cómo reporto un daño si el plato llega golpeado?",
+      "mensaje": "Buenos días. Mi pedido BN-104655 (el plato de ducha de resina) está en camino y me avisaron que llega esta semana. Como es una pieza grande y pesada quiero dejar todo claro antes: si al abrir el empaque encuentro un golpe o una esquina partida, ¿cuál es el procedimiento? ¿Debo escribir algo en la guía cuando el señor de la transportadora me la ponga a firmar? ¿Cuánto tiempo tengo para reportarlo y qué fotos necesitan? Prefiero preguntarlo ahora y no cuando ya sea tarde. Muchas gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-procedimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.88,
+        "entidades": {
+          "numeroPedido": "BN-104655",
+          "sku": "BN-PLA-001",
+          "estadoPedido": "En tránsito",
+          "preguntaPorNovedadEnGuia": true,
+          "preguntaPorPlazoDeReporte": true,
+          "preguntaPorFotosRequeridas": true,
+          "temasSecundarios": [
+            "incidencia-entrega"
+          ],
+          "segundoContacto": false
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-02",
+          "ENV-01",
+          "PQR-01",
+          "DEV-14",
+          "DEV-07",
+          "DEV-01",
+          "DEV-08"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "A",
+          "ciudad": "Cartagena",
+          "sku": "BN-PLA-001",
+          "tipologiaDevolucion": "platos-ducha",
+          "importePedidoCOP": 980000,
+          "fechaPedido": "2026-09-14",
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "diasHabilesTranscurridos": 3,
+          "fechaEntregaEstimadaMinima": "2026-09-17",
+          "fechaEntregaEstimadaMaxima": "2026-09-24",
+          "dentroDePlazo": true,
+          "umbralEnvioGratisCOP": 1500000,
+          "envioGratisAplicable": false,
+          "plazoReporteDanioHoras": 48,
+          "requiereNovedadEnGuia": true,
+          "requiereFotos": true,
+          "productoRequiereEstiba": true,
+          "gastoRecogidaDEV08ZonaAPlatosDuchaCOP": 248000,
+          "reembolsoEstimadoSiDesistimientoCOP": 732000,
+          "reembolsoEstimadoSiDanioImputableCOP": 980000,
+          "plazoDEV01DiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El punto crítico es la firma de la guía: ENV-02 declara imprescindible anotar la novedad en el momento de recibir, y si el cliente firma conforme sin anotarla pierde la prueba para el seguro aunque reporte dentro de las 48 horas. Hay que decírselo sin ambigüedad",
+          "Vacío de política: ENV-02 no resuelve qué ocurre si la transportadora se niega a que se anote la novedad, si la entrega se recibe en portería sin presencia del cliente o si el empaque solo se abre días después. Es el escenario más probable con una pieza grande y pesada",
+          "Las 48 horas corren desde la entrega, no desde la apertura del empaque: un plato de ducha de 120x70 cm puede quedar embalado varios días antes de que el cliente lo revise, y ahí se pierde el plazo sin que medie mala fe",
+          "Precedente: lo que se conteste queda por escrito y funcionará como compromiso si después aparece un daño; conviene que el procedimiento descrito coincida literalmente con ENV-02 y no lo amplíe",
+          "Si el plato llega en buen estado y el cliente desiste igualmente, DEV-08 le descontaría 248.000 COP sobre 980.000: conviene anticiparlo para que no lo descubra después"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Óscar.\n\n¡Con mucho gusto le explicamos! Hace bien en preguntarlo antes: en los daños de transporte pesa más lo que se hace en el momento de recibir que lo que se haga después.\n\nSu pedido BN-104655, el plato de ducha en resina Tierravera de 120x70 cm, está en tránsito. El plazo estimado de entrega para Cartagena (zona A) es de 3 a 8 días hábiles desde la compra: en su caso, hasta el 24 de septiembre.\n\nEl procedimiento, si el plato llega golpeado, es este:\n\n1. Antes de firmar, revise el empaque y el producto. Si encuentra un golpe, una esquina partida o el embalaje maltratado, anote la novedad en la guía de la transportadora en ese mismo momento, antes de firmar. Esta anotación es imprescindible: es la prueba con la que se reclama al seguro de transporte. Si firma conforme y no queda nada anotado, la reclamación pierde su soporte aunque usted nos escriba enseguida.\n\n2. Tome fotografías del empaque tal como llegó y del daño. Le recomendamos conservar el empaque hasta que el caso quede resuelto.\n\n3. Repórtenos el daño dentro de las 48 horas siguientes a la entrega, con las fotografías y el número de pedido.\n\nDos advertencias que conviene tener presentes. Las 48 horas se cuentan desde la entrega, no desde el día en que usted abra el empaque: con una pieza de 120x70 cm es fácil dejarla embalada unos días y perder el plazo sin darse cuenta, así que le sugerimos revisarla el mismo día en que la reciba. Y si otra persona recibe por usted, pídale que revise y anote antes de firmar. Si la transportadora no le permite revisar o no acepta anotar la novedad, escríbanos ese mismo día: no reemplaza la anotación en la guía, pero deja registro del caso desde el primer momento.\n\nSi el daño se confirma como daño ocurrido en el transporte, los costes de la devolución no corren por su cuenta: usted no paga la recogida. En ese caso el plato debe viajar sobre estiba y necesitaremos fotografías antes y después de embalarlo; nosotros le indicamos cómo hacerlo antes de que empaque nada.\n\nDistinto es que el plato llegue en buen estado y usted decida devolverlo igualmente. Ahí dispone de 14 días calendario desde la entrega para desistir, y sí se descuentan los gastos de recogida:\n\n· Valor pagado: $ 980.000\n· Gastos de recogida (plato de ducha, zona A): $ 248.000\n· Total a reembolsar: $ 732.000\n\nQuedamos pendientes de su entrega. Si algo no sale como esperamos, escríbanos con las fotografías y el número de pedido: respondemos las consultas en un máximo de 24 horas hábiles.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: el cierre decía «lo atendemos de inmediato». Ninguna regla respalda una atención inmediata y el texto queda por escrito como compromiso si después aparece un daño. Sustituido por el plazo real de PQR-01, 24 horas hábiles para consultas."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Óscar.\n\n¡Con mucho gusto le explicamos! Hace bien en preguntarlo antes: en los daños de transporte pesa más lo que se hace en el momento de recibir que lo que se haga después.\n\nSu pedido BN-104655, el plato de ducha en resina Tierravera de 120x70 cm, está en tránsito. El plazo estimado de entrega para Cartagena (zona A) es de 3 a 8 días hábiles desde la compra: en su caso, hasta el 24 de septiembre.\n\nEl procedimiento, si el plato llega golpeado, es este:\n\n1. Antes de firmar, revise el empaque y el producto. Si encuentra un golpe, una esquina partida o el embalaje maltratado, anote la novedad en la guía de la transportadora en ese mismo momento, antes de firmar. Esta anotación es imprescindible: es la prueba con la que se reclama al seguro de transporte. Si firma conforme y no queda nada anotado, la reclamación pierde su soporte aunque usted nos escriba enseguida.\n\n2. Tome fotografías del empaque tal como llegó y del daño. Le recomendamos conservar el empaque hasta que el caso quede resuelto.\n\n3. Repórtenos el daño dentro de las 48 horas siguientes a la entrega, con las fotografías y el número de pedido.\n\nDos advertencias que conviene tener presentes. Las 48 horas se cuentan desde la entrega, no desde el día en que usted abra el empaque: con una pieza de 120x70 cm es fácil dejarla embalada unos días y perder el plazo sin darse cuenta, así que le sugerimos revisarla el mismo día en que la reciba. Y si otra persona recibe por usted, pídale que revise y anote antes de firmar. Si la transportadora no le permite revisar o no acepta anotar la novedad, escríbanos ese mismo día: no reemplaza la anotación en la guía, pero deja registro del caso desde el primer momento.\n\nSi el daño se confirma como daño ocurrido en el transporte, los costes de la devolución no corren por su cuenta: usted no paga la recogida. En ese caso el plato debe viajar sobre estiba y necesitaremos fotografías antes y después de embalarlo; nosotros le indicamos cómo hacerlo antes de que empaque nada.\n\nDistinto es que el plato llegue en buen estado y usted decida devolverlo igualmente. Ahí dispone de 14 días calendario desde la entrega para desistir, y sí se descuentan los gastos de recogida:\n\n· Valor pagado: $ 980.000\n· Gastos de recogida (plato de ducha, zona A): $ 248.000\n· Total a reembolsar: $ 732.000\n\nQuedamos pendientes de su entrega. Si algo no sale como esperamos, escríbanos con las fotografías y el número de pedido: respondemos las consultas en un máximo de 24 horas hábiles.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal formulario",
+          "justificacion": "Consulta preventiva sobre el procedimiento de daños en transporte, que ENV-02 responde punto por punto: novedad en la guía, 48 horas y fotografías. No hay incidencia todavía ni dinero en juego. Comprueba que el sistema distingue una pregunta de procedimiento de una reclamación real.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "consultas · consulta-procedimiento · prioridad media",
+          "justificacion": "No hay ningún daño ocurrido: el plato de ducha sigue en tránsito y el cliente pregunta por anticipado qué debe hacer si llega golpeado, si anotar la novedad en la guía, cuánto plazo tiene y qué fotos hacen falta. Es una consulta informativa sobre el procedimiento de ENV-02, no una incidencia, y por eso la categoría es clara pese a que el asunto hable de daños. Uso la subcategoría consulta-procedimiento porque ninguna de las tres habituales describe una pregunta sobre el trámite de reclamación. Prioridad media: sin urgencia real, aunque la entrega es esta semana y la respuesta pierde valor si llega tarde. Tono previsor y cortés, sentimiento 0.",
+          "confianza": 0.88,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Consulta preventiva sin incidencia abierta: el pedido va en plazo de ENV-01 y procede explicarle el procedimiento de ENV-02 antes de que reciba.",
+          "justificacion": "No hay todavía ningún daño ni incumplimiento: ENV-01 concede de 3 a 8 días hábiles en zona A y desde el pedido del 14 de septiembre han transcurrido 3, con entrega estimada entre el 17 y el 24 de septiembre, y el importe de 980.000 COP queda bajo el umbral de 1.500.000 COP para envío gratuito. La respuesta debe darse dentro de las 24 horas hábiles de PQR-01 y consiste en trasladar ENV-02 tal cual: 48 horas máximo desde la entrega para reportar, fotografías obligatorias y, sobre todo, novedad anotada en la guía en el momento de recibir, porque es la prueba que permite reclamar al seguro. Si el plato llegara efectivamente dañado, DEV-14 haría que Bañolia asumiera la totalidad de los costes y DEV-07 exigiría estiba y fotos antes y después de embalar, ya que el catálogo marca este producto como producto que requiere estiba; en cambio, un desistimiento sin daño bajo DEV-01 descontaría los 248.000 COP que DEV-08 fija para platos de ducha en zona A, dejando el reembolso en 732.000 COP. Advierto un vacío: la política no prevé la entrega en portería ni la negativa de la transportadora a admitir la anotación de la novedad.",
+          "confianza": null,
+          "reglas": [
+            "ENV-02",
+            "ENV-01",
+            "PQR-01",
+            "DEV-14",
+            "DEV-07",
+            "DEV-01",
+            "DEV-08"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta preventiva de procedimiento: la IA explica ENV-02 literalmente, sin ampliarlo.",
+          "justificacion": "No se activa ningún criterio: no hay incidencia todavía, el pedido va dentro del plazo de zona A de ENV-01, la confianza es de 0,88 (H06 descartado) y el sentimiento es 0 en un primer contacto. No hay daño que valorar, así que H05 no aplica, y no se pide ninguna excepción, luego tampoco H04. La IA puede responder con seguridad porque la respuesta correcta es transcribir ENV-02 sin ampliarlo: anotar la novedad en la guía en el momento de recibir, 48 horas desde la entrega y fotografías; conviene además anticipar el descuento de 248.000 COP de DEV-08 si el desistimiento llegara sin daño.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "El procedimiento se transcribe literalmente de ENV-02, sin ampliarlo: 48 horas desde la entrega, fotografías y, sobre todo, la novedad anotada en la guía en el momento de recibir, que se explica como la prueba de la que depende la reclamación al seguro. Se advierte que las 48 horas corren desde la entrega y no desde la apertura del empaque, porque con un plato de 120x70 cm ese es el escenario más probable de pérdida del plazo. Se anticipa el desglose de DEV-08 para platos de ducha en zona A ($ 248.000 sobre $ 980.000) para que no lo descubra después, junto con el plazo de DEV-01, y se contrapone con DEV-14, que deja los costes del lado de Bañolia si el daño es de transporte. Se mencionan los requisitos de estiba y fotografías de DEV-07 antes de que el cliente embale nada, el plazo estimado de ENV-01 para zona A y el plazo de respuesta de PQR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se contrastó el procedimiento descrito frase por frase con el texto de ENV-02 y no lo amplía en ningún punto: no se promete cobertura si falta la anotación en la guía ni se ofrece solución para el caso de que la transportadora no permita revisar, que es un vacío real de la política. La cifra de $ 248.000 corresponde a la tarifa de platos-ducha zona A de DEV-08 y el total de $ 732.000 cuadra. Se corrigió el compromiso de plazo sin respaldo del cierre. La única cifra de transporte que se menciona es el rango estimado de ENV-01, presentado como estimación y no como fecha comprometida, y no se nombra ninguna transportadora.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0036",
+      "recibidaEn": "2026-09-17T11:05:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0139",
+        "nombre": "Andrea Castro Valencia",
+        "ciudad": "Manizales",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104541",
+        "fecha": "2026-09-04",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-GRI-004",
+            "cantidad": 1,
+            "precioCOP": 390000
+          }
+        ],
+        "totalCOP": 390000,
+        "fechaEntrega": "2026-09-15"
+      },
+      "asunto": "Figura entregado y yo no he recibido nada",
+      "mensaje": "buenas, en la pagina me sale q el pedido BN-104541 fue entregado el martes pero aqui en la casa no ha llegado nada. estuvimos todo el dia y nadie timbro. tampoco lo dejaron en la porteria, ya pregunte. el grifo de la ducha es. me ayudan a averiguar con la transportadora porfa?",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Captura del seguimiento del pedido en la web con el estado Entregado del 15 de septiembre"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "incidencia-entrega",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.93,
+        "entidades": {
+          "numeroPedido": "BN-104541",
+          "sku": "BN-GRI-004",
+          "importeCOP": 390000,
+          "fechaEntregaRegistrada": "2026-09-15",
+          "estadoSistema": "Entregado",
+          "entregaRecibida": false,
+          "zona": "B",
+          "adjuntaPrueba": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "DEV-11",
+          "DEV-14",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "B",
+          "fechaPedido": "2026-09-04",
+          "fechaEntregaRegistrada": "2026-09-15",
+          "diasHabilesPedidoAEntregaRegistrada": 7,
+          "diasHabilesTranscurridosHoy": 9,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "fechaLimiteEntregaENV01": "2026-09-25",
+          "diasHabilesRestantesENV01": 6,
+          "dentroDePlazoENV01": true,
+          "diasCalendarioDesdeEntregaRegistrada": 2,
+          "intentosEntregaAcreditados": 0,
+          "intentosMinimosDEV11": 2,
+          "sku": "BN-GRI-004",
+          "tipologiaDevolucion": "griferia",
+          "requiereEstiba": false,
+          "importePagadoCOP": 390000,
+          "umbralEnvioGratisCOP": 1500000,
+          "aplicaEnvioGratis": false,
+          "plazoRespuestaConsultaHorasHabiles": 24,
+          "plazoReclamacionFormalDiasHabiles": 15,
+          "fechaLimiteReclamacionFormal": "2026-10-08"
+        },
+        "riesgos": [
+          "Vacío de política: ninguna regla de politica.json regula la entrega marcada como 'Entregado' en el sistema y no recibida por el cliente; no hay regla de extravío, prueba de entrega ni reposición. ENV-02 solo cubre daños en transporte, no faltas de entrega",
+          "DEV-11 podría invocarse en contra de la clienta si la transportadora acredita entrega en la dirección o en portería, pero hoy no consta ningún intento de entrega fallido y menos aún los 2 que exige DEV-11: sin prueba de entrega firmada, la responsabilidad recae en Bañolia por DEV-14",
+          "El plazo de ENV-01 todavía no ha vencido (día hábil 9 de 15, vence el 25 de septiembre), de modo que aún no hay incumplimiento objetivo que sostenga una cancelación con reembolso; si se repone o se reembolsa hoy se hace sin base en regla",
+          "Falta la prueba clave: guía firmada, foto de entrega y nombre de quien recibió. Sin ella no se puede cerrar el caso ni reclamar al seguro de la transportadora",
+          "Cliente recurrente (5 pedidos previos, 11.569.000 COP históricos) en zona B: reponer sin investigación sienta precedente de reposición por sola afirmación del cliente en un producto de 390.000 COP"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Andrea.\n\nLamentamos lo que está ocurriendo y entendemos su molestia. Que el sistema marque su pedido como entregado y usted no tenga nada en casa es una inconsistencia que nos corresponde aclarar a nosotros, no a usted.\n\nYa abrimos la verificación del pedido BN-104541, el grifo de ducha Aqualinde monomando, con la transportadora. Le estamos solicitando tres soportes: la guía firmada, la fotografía de la entrega y el nombre de quien figura recibiendo el 15 de septiembre. Con eso sabremos si hubo entrega, dónde se hizo y a quién, o si el pedido se extravió en el camino. La captura del seguimiento que nos envió ya quedó incorporada al caso.\n\nSabemos que ya preguntó en la portería y le agradecemos haberlo verificado. Para avanzar, le pedimos confirmarnos por este mismo chat la dirección exacta que registró para la entrega, con conjunto, torre y apartamento si aplica, y un celular de contacto.\n\nLe hablamos claro sobre los plazos. Su caso quedó abierto hoy como incidencia de entrega y le daremos respuesta dentro de las próximas 24 horas hábiles, con lo que hayamos logrado establecer hasta ese momento. Si más adelante la verificación no permitiera cerrarlo y hubiera que escalarlo a una reclamación formal, ese trámite tiene un plazo máximo de 15 días hábiles, pero hoy su caso no está en esa instancia. Le mencionamos también, para que tenga el panorama completo, que el plazo de entrega que corresponde a Manizales es de 8 a 15 días hábiles y vence el 25 de septiembre: eso no justifica de ninguna manera que su pedido figure como entregado, pero explica por qué hoy hablamos de investigación y no de cancelación.\n\nNo le vamos a prometer en este momento una reposición ni un reembolso, porque esa decisión depende de lo que arroje la verificación y preferimos no comprometer algo que después no podamos sostener. Lo que sí le aseguramos es que no cerraremos el caso dándolo por entregado sin el soporte de la transportadora.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Iteración 1: el borrador decía «Su caso queda registrado como reclamación formal y, conforme a nuestra política, se resuelve en un máximo de 15 días hábiles». El clasificador etiquetó el caso como incidencias / incidencia-entrega y el enrutador fijó slaHoras 24, de modo que el texto reetiquetaba el caso por su cuenta y le comunicaba a la clienta un plazo seis veces mayor que el que el sistema se comprometió a cumplir. PQR-01 distingue las dos figuras: 24 horas hábiles para consultas y 15 días hábiles para reclamaciones formales. La promesa posterior de escribir antes no lo compensaba, porque lo que quedaba por escrito era el plazo de 15 días. Corregido: se comunica el plazo de 24 horas hábiles como plazo del caso y el de 15 días hábiles aparece solo como escenario futuro condicional, con la aclaración expresa de que hoy el caso no está en esa instancia. No se modificó nada más del borrador."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señora Andrea.\n\nLamentamos lo que está ocurriendo y entendemos su molestia. Que el sistema marque su pedido como entregado y usted no tenga nada en casa es una inconsistencia que nos corresponde aclarar a nosotros, no a usted.\n\nYa abrimos la verificación del pedido BN-104541, el grifo de ducha Aqualinde monomando, con la transportadora. Le estamos solicitando tres soportes: la guía firmada, la fotografía de la entrega y el nombre de quien figura recibiendo el 15 de septiembre. Con eso sabremos si hubo entrega, dónde se hizo y a quién, o si el pedido se extravió en el camino. La captura del seguimiento que nos envió ya quedó incorporada al caso.\n\nSabemos que ya preguntó en la portería y le agradecemos haberlo verificado. Para avanzar, le pedimos confirmarnos por este mismo chat la dirección exacta que registró para la entrega, con conjunto, torre y apartamento si aplica, y un celular de contacto.\n\nLe hablamos claro sobre los plazos. Su caso quedó abierto hoy como incidencia de entrega y le daremos respuesta dentro de las próximas 24 horas hábiles, con lo que hayamos logrado establecer hasta ese momento. Si más adelante la verificación no permitiera cerrarlo y hubiera que escalarlo a una reclamación formal, ese trámite tiene un plazo máximo de 15 días hábiles, pero hoy su caso no está en esa instancia. Le mencionamos también, para que tenga el panorama completo, que el plazo de entrega que corresponde a Manizales es de 8 a 15 días hábiles y vence el 25 de septiembre: eso no justifica de ninguna manera que su pedido figure como entregado, pero explica por qué hoy hablamos de investigación y no de cancelación.\n\nNo le vamos a prometer en este momento una reposición ni un reembolso, porque esa decisión depende de lo que arroje la verificación y preferimos no comprometer algo que después no podamos sostener. Lo que sí le aseguramos es que no cerraremos el caso dándolo por entregado sin el soporte de la transportadora.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal whatsapp",
+          "justificacion": "Incidencia de entrega frecuentísima: el sistema marca entregado y el cliente no tiene el paquete. Con 390.000 COP, primer contacto y tono tranquilo, el agente solo debe abrir la averiguación con la transportadora y dar un plazo. Prueba que el sistema no escala por reflejo cuando aparece la palabra «no recibí».",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias · incidencia-entrega · prioridad alta",
+          "justificacion": "El sistema marca el pedido BN-104541 como entregado el 15 de septiembre, pero la clienta afirma que nadie timbró y que tampoco está en portería, que ya verificó. Es el patrón exacto de una entrega registrada sin recepción efectiva, así que corresponde a incidencias con subcategoría incidencia-entrega y no a un simple estado-pedido, porque el pedido no está en tránsito sino cerrado en falso. La prioridad es alta porque hay mercancía pagada sin entregar y una traza que hay que reclamar a la transportadora antes de que prescriba. La confianza es 0,93 porque la intención es inequívoca y no se mezcla con ningún otro tema.",
+          "confianza": 0.93,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Reclamación admisible y dentro de todos los plazos, pero la política no tiene regla para una entrega registrada y no recibida",
+          "justificacion": "La reclamación es admisible y llega en plazo: ENV-01 fija 8 a 15 días hábiles para la zona B y desde el pedido del 4 de septiembre solo han transcurrido 9 días hábiles, con vencimiento el 25 de septiembre, y PQR-01 obliga a responder la consulta en 24 horas hábiles y a resolver la reclamación formal en 15 días hábiles. DEV-11 no traslada los costes a la clienta porque no consta ninguno de sus supuestos (no hay dos intentos de entrega, ni dirección errónea, ni dirección inaccesible), de modo que si se confirma que el grifo BN-GRI-004 nunca se entregó el error es imputable a Bañolia y DEV-14 le impide cobrarle nada. Debe decirse expresamente que ninguna regla de la política resuelve el caso de fondo: no existe regla sobre entregas marcadas como entregadas y no recibidas, y ENV-02 no sirve porque regula daños de transporte, no extravíos.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "DEV-11",
+            "DEV-14",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "La IA abre la investigación con la transportadora y pide la prueba de entrega, sin decidir reposición.",
+          "justificacion": "Ningún criterio se activa: la confianza es de 0,93 (H06 descartado), el importe de 390.000 COP está muy por debajo de H01, el sentimiento de -1 no alcanza el -2 de H07 y además es primer contacto, de modo que le faltan las dos condiciones. H05 no aplica porque no hay un daño cuya causa haya que atribuir, sino una entrega no acreditada, y H08 tampoco: no hay señal alguna de fraude, solo una discrepancia entre el sistema y la clienta. El vacío de política sobre entregas marcadas como entregadas y no recibidas no escala por sí solo, porque la respuesta sostenible hoy no exige excepción: solicitar a la transportadora la guía firmada, la foto de entrega y el nombre de quien recibió, y recordar que el plazo de ENV-01 sigue vigente hasta el 25 de septiembre. Si la prueba de entrega no aparece o la clienta vuelve a escribir, ese segundo contacto sí deberá reevaluarse.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se reconoce sin rodeos que la inconsistencia entre el estado «Entregado» y lo que la clienta reporta es un problema de Bañolia, en línea con DEV-14, y se evita cualquier lenguaje que insinúe que la carga de la prueba es suya. Como no existe regla de extravío ni de prueba de entrega, solo se compromete lo que hoy se puede sostener: abrir la investigación y pedir la guía firmada, la foto de entrega y el nombre de quien recibió; no se promete reposición ni reembolso y se explica por qué, para que el silencio no se lea como evasiva. No se invoca DEV-11 en su contra, porque no consta ningún intento de entrega fallido y menos aún los dos que la regla exige. El plazo que se comunica es el de respuesta de PQR-01, 24 horas hábiles, que es el que fijó el enrutador; el plazo de 15 días hábiles de esa misma regla se menciona únicamente como escenario condicional de un eventual escalado, sin calificar hoy el caso como reclamación formal, porque esa calificación no le corresponde al redactor. Se menciona además el plazo de ENV-01, vigente hasta el 25 de septiembre, acompañado de la aclaración de que no justifica el estado del pedido, para que no funcione como excusa. Se omite todo plazo de gestión con la transportadora, porque nadie lo ha comprometido.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "En la segunda revisión se detectó que el borrador se atribuía una calificación reservada al clasificador y anunciaba 15 días hábiles frente a las 24 horas de la decisión del enrutador; corregido, el plazo del texto coincide ahora con el compromiso del sistema y la distinción de PQR-01 se respeta. Se comprobó además que no hay promesa de reposición, reembolso, compensación ni plazo de la transportadora, y que no se invoca ENV-02, que regula daños y no faltas de entrega. La mención de ENV-01 va inmediatamente desactivada como excusa, de modo que informa sin sonar defensiva. Se evitó repetir la sugerencia de preguntar en portería, que la clienta ya había hecho, y la petición de dirección se formula de manera neutral para no anticipar un reproche por DEV-11. El registro es apropiado al canal de WhatsApp, mantiene el trato de usted y no se abre con un «¡Con mucho gusto!» por tratarse de una clienta molesta.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0037",
+      "recibidaEn": "2026-09-17T11:49:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0076",
+        "nombre": "Adriana Pineda Restrepo",
+        "ciudad": "Bogotá",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104489",
+        "fecha": "2026-08-28",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-004",
+            "cantidad": 1,
+            "precioCOP": 340000
+          },
+          {
+            "sku": "BN-ACC-005",
+            "cantidad": 1,
+            "precioCOP": 95000
+          }
+        ],
+        "totalCOP": 435000,
+        "fechaEntrega": "2026-09-05"
+      },
+      "asunto": "Reenvío de la factura del pedido BN-104489",
+      "mensaje": "Buenas tardes.\n\nBorré por error el correo donde venía la factura electrónica del pedido BN-104489 y ahora la administración del edificio me la está pidiendo para el trámite de la reforma. ¿Me la pueden reenviar a este mismo correo, por favor? Los datos de facturación son los mismos que registré al comprar, no necesito cambiar nada.\n\nGracias por su tiempo.\n\nAdriana Pineda Restrepo",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "facturacion",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-104489",
+          "importeCOP": 435000,
+          "fechaEntrega": "2026-09-05",
+          "cambioDatosFacturacion": false,
+          "canalReenvio": "mismo correo del remitente"
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "FAC-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "zona": "A",
+          "fechaPedido": "2026-08-28",
+          "fechaEntrega": "2026-09-05",
+          "diasCalendarioDesdePedido": 20,
+          "diasCalendarioDesdeEntrega": 12,
+          "importeFacturadoCOP": 435000,
+          "lineasVerificadasContraCatalogo": true,
+          "solicitaCambioDatosFacturacion": false,
+          "ventanaCambioDatosHoras": 24,
+          "requiereNotaCredito": false,
+          "requiereGestionContable": false,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Hay que comprobar que el correo del remitente coincide con el registrado del cliente CLI-0076: FAC-01 ordena enviar la factura electrónica al correo registrado, y reenviar un documento tributario a una dirección distinta expondría datos fiscales a un tercero",
+          "La clienta menciona que la factura es para un trámite de la administración del edificio; si más adelante pide que salga a nombre de la copropiedad, entraría en el supuesto de cambio de razón social o NIT de FAC-01, ya fuera de la ventana de 24 horas, y exigiría nota crédito con validación contable"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Adriana. Gracias por escribirnos.\n\n¡Con mucho gusto le reenviamos la factura! Corresponde al pedido BN-104489 (Espejo Lumnia sin luz de 80x60 cm con marco de aluminio negro y sifón extraplano Tecnograf para plato de ducha), por un total de $ 435.000, entregado el 5 de septiembre. Como no hay ningún cambio en los datos de facturación, es un reenvío directo y no requiere trámite adicional.\n\nUn detalle que le conviene conocer: la factura está validada ante la DIAN y, por tratarse de un documento tributario con sus datos fiscales, nuestra política nos obliga a enviarla siempre al correo que usted registró en la compra, nunca a una dirección distinta. Se la reenviamos allí dentro de las próximas 24 horas hábiles. Si en ese plazo no la ve, le pedimos revisar la bandeja de correo no deseado y, si tampoco aparece, respondernos: lo más probable es que el correo desde el que nos escribe no sea el mismo que quedó registrado, y en ese caso actualizamos el dato antes de volver a enviarla.\n\nY le adelantamos algo por si le ahorra un correo: si la administración del edificio llega a pedirle que la factura salga a nombre de la copropiedad, con su razón social y su NIT, ese cambio ya no podemos hacerlo de forma directa. Solo cabe dentro de las 24 horas siguientes a la emisión de la factura, y la de su pedido del 28 de agosto quedó hace tiempo fuera de ese plazo. Haría falta emitir una nota crédito, que revisa y valida nuestra área contable. Si ese fuera el caso, escríbanos con la razón social completa y el NIT de la copropiedad y lo ponemos en trámite.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador aceptaba el reenvío «a este mismo correo» que pedía la clienta y, a la vez, prometía la gestión en 24 horas hábiles condicionándola a que ella confirmara su dirección: incompatible con FAC-01, que obliga a enviar al correo registrado, y además encadenaba un correo extra. Se reescribió para reenviar al correo registrado con plazo firme y dejar una salida clara si no coincide, sin reproducir en la respuesta la dirección registrada."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señora Adriana. Gracias por escribirnos.\n\n¡Con mucho gusto le reenviamos la factura! Corresponde al pedido BN-104489 (Espejo Lumnia sin luz de 80x60 cm con marco de aluminio negro y sifón extraplano Tecnograf para plato de ducha), por un total de $ 435.000, entregado el 5 de septiembre. Como no hay ningún cambio en los datos de facturación, es un reenvío directo y no requiere trámite adicional.\n\nUn detalle que le conviene conocer: la factura está validada ante la DIAN y, por tratarse de un documento tributario con sus datos fiscales, nuestra política nos obliga a enviarla siempre al correo que usted registró en la compra, nunca a una dirección distinta. Se la reenviamos allí dentro de las próximas 24 horas hábiles. Si en ese plazo no la ve, le pedimos revisar la bandeja de correo no deseado y, si tampoco aparece, respondernos: lo más probable es que el correo desde el que nos escribe no sea el mismo que quedó registrado, y en ese caso actualizamos el dato antes de volver a enviarla.\n\nY le adelantamos algo por si le ahorra un correo: si la administración del edificio llega a pedirle que la factura salga a nombre de la copropiedad, con su razón social y su NIT, ese cambio ya no podemos hacerlo de forma directa. Solo cabe dentro de las 24 horas siguientes a la emisión de la factura, y la de su pedido del 28 de agosto quedó hace tiempo fuera de ese plazo. Haría falta emitir una nota crédito, que revisa y valida nuestra área contable. Si ese fuera el caso, escríbanos con la razón social completa y el NIT de la copropiedad y lo ponemos en trámite.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal correo",
+          "justificacion": "Reenvío de factura electrónica sin ningún cambio de titular ni de NIT, que es justo lo que separa este caso rutinario del supuesto sensible de H08. FAC-01 lo cubre de forma directa. Sirve para comprobar que el sistema lee la diferencia entre reenviar y modificar una factura.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos · facturacion · prioridad media",
+          "justificacion": "La clienta pide únicamente el reenvío de la factura electrónica del pedido BN-104489 al mismo correo, y aclara de forma expresa que los datos de facturación no cambian. Es un trámite documental sobre un pedido identificado, por lo que encaja en pedidos/facturacion sin solaparse con devoluciones ni con incidencias. La prioridad es media: hay un trámite del edificio de por medio, pero no se menciona ninguna fecha límite. La confianza es 0,95 porque el mensaje es de tema único y está redactado sin ambigüedad.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Reenvío de factura procedente: no hay cambio de datos y no se activa la ventana de 24 horas de FAC-01",
+          "justificacion": "FAC-01 establece que Bañolia emite factura electrónica validada ante la DIAN y la envía al correo registrado, que es exactamente lo que pide la clienta: un reenvío del mismo documento, sin modificar nada. La ventana de 24 horas de FAC-01 y la exigencia de nota crédito solo se activan ante cambios de razón social o NIT, y aquí la propia clienta confirma que los datos de facturación no cambian, de modo que no hace falta gestión del área contable pese a que han pasado 20 días calendario desde el pedido del 28 de agosto. PQR-01 fija el plazo de respuesta en 24 horas hábiles por tratarse de una consulta y no de una reclamación formal.",
+          "confianza": null,
+          "reglas": [
+            "FAC-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Reenvío de factura sin cambio de datos: lo resuelve la IA al correo registrado.",
+          "justificacion": "No se activa ningún criterio. En particular H08 no aplica, porque la clienta dice expresamente que no necesita cambiar nada: no hay cambio de razón social ni de NIT posterior a la emisión, que es el supuesto de FAC-01 que activaría el criterio, ni cambio de cuenta de reembolso. La confianza de 0,95 descarta H06 y los 435.000 COP quedan lejos de H01. La única cautela es de ejecución, no de enrutamiento: FAC-01 obliga a reenviar al correo registrado de CLI-0076, así que la IA debe comprobar que coincide con el del remitente antes de enviar el documento tributario.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se confirma el reenvío porque FAC-01 solo restringe los cambios de razón social o NIT, no la reemisión del documento, y el análisis descarta nota crédito y gestión contable. Se explica sin rodeos que la factura viaja al correo registrado, exigencia de FAC-01, evitando reproducir la dirección de correo en la respuesta, y se fija el plazo de 24 horas hábiles de PQR-01 con una instrucción concreta por si no llega. Se anticipa el escenario de la copropiedad, que sí caería fuera de la ventana de 24 horas de FAC-01, y se piden de una vez razón social y NIT para no encadenar más correos.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se verificaron el importe de $ 435.000 y las dos líneas contra el catálogo, y que no se prometiera ni nota crédito ni cambio de datos. La corrección fue de fondo: el borrador inicial contradecía FAC-01 al dar por bueno el reenvío a la dirección del remitente; reescrito hacia el correo registrado, el texto queda aprobado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0038",
+      "recibidaEn": "2026-09-17T12:34:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0103",
+        "nombre": "Marcela Ceballos Muñoz",
+        "ciudad": "Pereira",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-104502",
+        "fecha": "2026-09-03",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-PLA-002",
+            "cantidad": 1,
+            "precioCOP": 1280000
+          }
+        ],
+        "totalCOP": 1280000,
+        "fechaEntrega": "2026-09-14"
+      },
+      "asunto": "Fisura en el plato de ducha que descubrí al desempacarlo",
+      "mensaje": "Buenas tardes.\n\nEl plato de ducha de 140x80 del pedido BN-104502 me lo entregaron el lunes 14 sobre las cuatro de la tarde. Lo recibí y firmé la guía sin anotar nada, porque venía en su embalaje y por fuera se veía bien, y lo dejamos recostado en el cuarto de la ropa hasta que llegara el maestro.\n\nAnoche lo desempacamos para instalarlo hoy y tiene una fisura de unos 15 centímetros en la esquina de abajo, del lado del desagüe. No sabría decirle si venía así de fábrica o si se golpeó en el camión; en la casa no se ha movido de donde lo dejamos. Sé que probablemente ya me pasé del tiempo para reportarlo y por eso les escribo apenas lo vi, a primera hora que pude.\n\n¿Qué podemos hacer? Les mando las fotos que alcancé a tomar.\n\nMarcela Ceballos",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Fisura de unos 15 cm en la esquina inferior del plato, junto al desagüe"
+        },
+        {
+          "tipo": "foto",
+          "descripcion": "Embalaje de cartón del plato, sin roturas visibles por fuera"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-danado",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.84,
+        "entidades": {
+          "numeroPedido": "BN-104502",
+          "sku": "BN-PLA-002",
+          "importeCOP": 1280000,
+          "fechaEntrega": "2026-09-14",
+          "horaEntregaAprox": "16:00",
+          "horasDesdeEntrega": 68,
+          "novedadAnotadaEnGuia": false,
+          "aportaFotos": true,
+          "defectoReportado": "fisura de unos 15 cm en la esquina inferior del plato, junto al desagüe",
+          "productoInstalado": false,
+          "temasSecundarios": [
+            "devolucion-defecto"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-02",
+          "GAR-01",
+          "DEV-14",
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-08",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "zona": "A",
+          "sku": "BN-PLA-002",
+          "tipologiaDevolucion": "platos-ducha",
+          "fechaEntrega": "2026-09-14",
+          "horaEntregaAprox": "16:00",
+          "fechaReporte": "2026-09-17T12:34:00-05:00",
+          "horasDesdeEntregaAlReporte": 68,
+          "plazoReporteENV02Horas": 48,
+          "excesoHorasENV02": 20,
+          "dentroDePlazoENV02": false,
+          "novedadAnotadaEnGuia": false,
+          "aportaFotos": true,
+          "requisitosENV02Cumplidos": 1,
+          "requisitosENV02Totales": 3,
+          "productoInstalado": false,
+          "embalajeOriginalConservado": true,
+          "diasCalendarioDesdeEntrega": 3,
+          "plazoDEV01DiasCalendario": 14,
+          "fechaLimiteDEV01": "2026-09-28",
+          "diasRestantesDEV01": 11,
+          "gastoRecogidaDEV08COP": 248000,
+          "importePagadoCOP": 1280000,
+          "reembolsoSiDesistimientoCOP": 1032000,
+          "reembolsoSiDefectoDeFabricaCOP": 1280000,
+          "garantiaMesesCatalogo": 24,
+          "requiereEstiba": true,
+          "plazoReclamacionFormalDiasHabiles": 15
+        },
+        "riesgos": [
+          "Incumplimiento de ENV-02 por partida doble: 68 horas frente a las 48 del plazo y, sobre todo, sin la novedad anotada en la guía, que ENV-02 califica de imprescindible porque es la prueba con la que se reclama al seguro de la transportadora. Sin ella, la reclamación al transportista está prácticamente perdida aunque se acepte el caso",
+          "Incumplimiento leve y con motivo atendible: el exceso es de unas 20 horas, la clienta explica que desempacó anoche y escribió a primera hora, y el producto llevaba tres días sin moverse. Es el supuesto típico de excepción por buena fe, pero la decisión no corresponde al análisis",
+          "El origen del daño está en disputa y no es determinable con lo aportado: defecto de fábrica, golpe en el camión o manipulación en el domicilio. La foto del embalaje sin roturas externas apunta a defecto de fábrica o a daño interno no visible, pero no lo prueba",
+          "Si se califica como defecto de fábrica, GAR-01 y DEV-14 obligan a Bañolia a asumir la totalidad de los costes; si se califica como golpe posterior a la entrega, GAR-01 lo excluye expresamente y no hay cobertura. La calificación decide 1.280.000 COP",
+          "GAR-01 enumera muebles y mamparas, grifería y LED de espejos, pero no nombra los platos de ducha: la garantía de 24 meses de este SKU sale del catálogo, no de la regla. Es un vacío menor de redacción de GAR-01 que conviene no exponer al cliente",
+          "La vía alternativa del desistimiento (DEV-01, aún en el día 3 de 14) es mala para la clienta: descontaría 248.000 COP de recogida por DEV-08 y un plato fisurado difícilmente pasa la verificación de DEV-03, con riesgo de depreciación adicional",
+          "Cliente con un solo pedido previo (2.787.000 COP históricos): poca trayectoria en la que apoyar una excepción por fidelidad"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H04",
+          "H05"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "Si Bañolia asume la fisura del plato de 1.280.000 COP pese a que el reporte llega a las 68 horas y la clienta firmó la guía conforme sin anotar novedad, y bajo qué calificación lo hace: defecto de fábrica cubierto por GAR-01 y DEV-14, daño de transporte fuera de plazo de ENV-02, o daño posterior a la entrega no cubierto.",
+          "opciones": [
+            "Aceptar la excepción y reponer el plato sin coste, calificándolo como defecto de fábrica por DEV-14, asumiendo que la reclamación al seguro de la transportadora está perdida",
+            "Peritaje previo con fotos adicionales o visita técnica (patrón de la fisura, marcas internas del embalaje) y decidir la cobertura según el resultado",
+            "Rechazar por incumplimiento de ENV-02 y ofrecer únicamente el desistimiento de DEV-01, advirtiendo el descuento de 248.000 COP de DEV-08 y el riesgo de depreciación por DEV-03",
+            "Solución intermedia: reponer la pieza y repartir el coste de recogida y estiba, dejando documentado que es un acuerdo singular y no un criterio general"
+          ],
+          "riesgos": [
+            "Sin la novedad anotada en la guía se pierde la prueba que ENV-02 califica de imprescindible: Bañolia asumiría el coste íntegro sin poder repercutirlo al seguro del transportista",
+            "El exceso es de solo unas 20 horas y la clienta explica que desempacó anoche y escribió a primera hora, con el producto sin mover durante tres días: rechazar por plazo en estas condiciones es defendible en la letra y frágil en la relación",
+            "La calificación del origen decide 1.280.000 COP: si es defecto de fábrica, GAR-01 y DEV-14 obligan a Bañolia; si es golpe posterior a la entrega, GAR-01 lo excluye expresamente",
+            "GAR-01 no nombra los platos de ducha y la garantía de 24 meses de este SKU sale del catálogo, no de la regla: conviene no exponer ese vacío de redacción al cliente",
+            "La vía del desistimiento es mala para la clienta y para Bañolia: 248.000 COP de recogida y un plato fisurado que difícilmente pasa la verificación de DEV-03",
+            "La clienta tiene un solo pedido previo (2.787.000 COP): hay poca trayectoria en la que apoyar una excepción por fidelidad, luego el argumento debe ser la buena fe acreditada, no el histórico"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Marcela.\n\nLamentamos lo que ocurrió con el plato de ducha y le agradecemos que nos escribiera apenas lo vio y que nos enviara las fotografías. Su caso quedó registrado con el pedido BN-104502 y ya está en manos de una persona de nuestro equipo.\n\nAntes de nada, tres cosas que le pedimos hacer desde hoy, porque pueden ser determinantes para su caso:\n\n· No instale el plato ni permita que el maestro lo intervenga o lo recorte.\n· Conserve el embalaje de cartón completo, con los refuerzos y las esquineras internas, sin desecharlo.\n· Si le es posible, tómenos unas fotografías adicionales: la fisura de cerca y de lejos, el plato completo por sus dos caras y el interior del embalaje en la zona que corresponde a la esquina del desagüe.\n\nLo que sí podemos confirmarle hoy. El pedido BN-104502 se entregó el 14 de septiembre, el plato de ducha en resina Tierravera de 140x80 cm no está instalado y las dos fotografías que nos envió ya forman parte del expediente. La ficha del producto contempla 24 meses de garantía; que esta fisura quede o no amparada depende de cuál sea su origen, porque la garantía no cubre los golpes posteriores a la entrega. Esa calificación es precisamente lo que está en revisión y no queremos adelantarle un resultado que todavía no tenemos.\n\nLo que tenemos que revisar, y se lo decimos con claridad. Nuestra política de daños ocasionados en el transporte pide dos cosas: que el reporte se haga dentro de las 48 horas siguientes a la entrega y que la novedad quede anotada en la guía de la transportadora en el momento de recibir, porque esa anotación es la prueba con la que se reclama al seguro del transporte. En su caso el reporte llegó a las 68 horas y la guía se firmó conforme, sin novedad. Tomamos nota de lo que nos cuenta: que desempacaron anoche, que usted escribió a primera hora y que el plato no se movió del cuarto de la ropa en esos tres días. Es un elemento que la persona que revise su caso va a tener presente.\n\n[PENDIENTE DE DECISIÓN HUMANA — no enviar este bloque tal cual. Aquí se define si Bañolia asume la fisura de $ 1.280.000 pese al incumplimiento de ENV-02 (68 horas frente a 48 y guía firmada sin novedad), bajo qué calificación lo hace (defecto de fábrica, daño de transporte fuera de plazo o daño posterior a la entrega), si antes se pide peritaje o fotografías adicionales, y qué solución concreta se le ofrece a la clienta. A la clienta no se le ha anticipado ninguna reposición, ningún reembolso ni ninguna excepción.]\n\nCómo continuamos. Una persona de nuestro equipo se comunicará con usted dentro de las próximas 24 horas hábiles, sea para darle el resultado de la revisión o para pedirle lo que falte. Si el caso pasa a reclamación formal, el plazo máximo de resolución es de 15 días hábiles. Mientras tanto, le reiteramos lo esencial: no instale el plato y consérvelo con su embalaje tal como está.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera versión: la frase «el plato figura con 24 meses de garantía, así que está cubierto» cerraba la cobertura, que es justamente lo que la ficha reserva a la persona, y se apoyaba en GAR-01, que no enumera los platos de ducha. Corregida: ahora se dice que la ficha del producto contempla 24 meses y que la cobertura de esta fisura depende del origen del daño, sin citar GAR-01 ante la clienta."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal correo",
+          "justificacion": "Caso límite deliberado: el reporte llega unas dieciocho horas después de vencer las 48 horas de ENV-02, la guía se firmó sin novedad y el embalaje está intacto, así que no se puede saber si el daño es de transporte, de fábrica o de la manipulación en la casa. Activa H05 por responsabilidad dudosa y H04 por incumplimiento del plazo por muy poco, con un cliente de buena fe. El importe, 1.280.000 COP, queda por debajo del umbral de H01 a propósito, para que el escalado tenga que apoyarse en el criterio y no en el dinero.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias · producto-danado · prioridad alta",
+          "justificacion": "La clienta reporta una fisura de unos 15 cm en un plato de ducha recibido el 14 de septiembre y aporta fotos del daño y del embalaje, que por fuera se ve íntegro. La señal dominante es el reporte de un producto que llega dañado, lo que sitúa el caso en incidencias/producto-danado; la vía de devolución por defecto es solo la salida posible, no lo que la clienta plantea. La prioridad es alta por el importe retenido y porque el plazo de reporte corre. La confianza baja a 0,84 y no más porque la frontera con devoluciones/devolucion-defecto es real, aunque el encuadre como incidencia de entrega es claramente el mejor; no la bajo por el hecho de que superó las 48 horas de ENV-02 ni por la falta de novedad en la guía, que es materia del analista de política.",
+          "confianza": 0.84,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "No cumple ENV-02: 68 horas frente a 48 y sin novedad en la guía, aunque sí aporta fotos y el producto no está instalado",
+          "justificacion": "ENV-02 exige tres cosas para los daños de transporte y solo se cumple una: el reporte llega 68 horas después de la entrega del lunes 14 hacia las 16:00, frente al máximo de 48 horas, y no hay novedad anotada en la guía, requisito que la propia regla considera imprescindible para reclamar al seguro; sí aporta las fotografías exigidas. Si la fisura se calificara como defecto de fábrica y no como daño de transporte, la vía sería GAR-01, con los 24 meses que el catálogo asigna al BN-PLA-002, y DEV-14 obligaría a Bañolia a asumir la totalidad de los costes, con reembolso íntegro de 1.280.000 COP; conviene advertir que GAR-01 no enumera expresamente los platos de ducha y excluye los golpes posteriores a la entrega. Como vía alternativa queda el desistimiento, porque DEV-01 sigue abierto hasta el 28 de septiembre y se cumplen DEV-02 (sin instalar) y DEV-03 (embalaje original conservado), pero es peor para la clienta: la tarifa de DEV-08 para la tipología platos de ducha en zona A descuenta 248.000 COP y dejaría el reembolso en 1.032.000 COP. PQR-01 fija 15 días hábiles para resolver la reclamación formal.",
+          "confianza": null,
+          "reglas": [
+            "ENV-02",
+            "GAR-01",
+            "DEV-14",
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-08",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado por excepción de plazo de 20 horas con motivo atendible y por origen del daño en disputa.",
+          "justificacion": "H04 se activa porque el caso incumple ENV-02 por partida doble (68 horas frente a 48 y sin novedad en la guía) pero el exceso es de menos de un día y la clienta aporta un motivo atendible y verosímil: el embalaje exterior estaba intacto, el plato no se movió y escribió apenas lo desempacó. Se activa también H05, porque la fisura de 15 centímetros junto al desagüe es compatible con un defecto de fábrica, un golpe en el camión o una manipulación en el domicilio, y decidirlo exige valorar las dos fotografías frente a GAR-01. El importe de 1.280.000 COP no alcanza el umbral de H01 y la confianza de 0,84 descarta H06, pero conceder la excepción no le corresponde a la IA. SLA de 24 horas conforme a PQR-01, al no haber riesgo físico ni reclamación formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H04",
+            "H05"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se abre sin «¡Con mucho gusto!» porque hay un daño de por medio y la clienta está preocupada, y se ponen primero las instrucciones de conservación (no instalar por DEV-02, conservar el embalaje por DEV-03 y ampliar el material fotográfico), que es lo único urgente y que protege todas las vías posibles antes de que ella toque nada. Se explica el incumplimiento de ENV-02 en sus dos partidas —las 68 horas frente a las 48 y la guía firmada sin novedad— sin usarlo para negar el caso, y se recoge su explicación de buena fe como elemento a valorar. La calificación del origen del daño, que decide los $ 1.280.000, queda marcada entre corchetes junto con la vía de DEV-01 y DEV-08, que no se le ofrece porque también es decisión de la persona. Se cierra con los plazos de PQR-01: 24 horas hábiles de contacto y 15 días hábiles si pasa a reclamación formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se verificó que el texto no promete reposición, reembolso ni excepción, y que no cuantifica nada distinto del importe ya conocido por la clienta. La observación registrada era real: la primera versión afirmaba la cobertura de garantía como hecho seguro, lo que anticipaba la calificación reservada a la persona y además se apoyaba en GAR-01, regla que enumera muebles, mamparas, grifería y LED de espejos pero no los platos de ducha. Corregido esto, el borrador da solo hechos verificables (fecha de entrega, producto sin instalar, fotos recibidas) y deja abierta la decisión.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0039",
+      "recibidaEn": "2026-09-17T14:06:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0024",
+        "nombre": "Taller El Roble",
+        "ciudad": "Santa Marta",
+        "zona": "B",
+        "tipo": "profesional"
+      },
+      "pedido": {
+        "numero": "BN-104660",
+        "fecha": "2026-09-02",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-MAM-001",
+            "cantidad": 3,
+            "precioCOP": 1680000
+          },
+          {
+            "sku": "BN-GRI-001",
+            "cantidad": 4,
+            "precioCOP": 320000
+          }
+        ],
+        "totalCOP": 6320000,
+        "fechaEntrega": "2026-09-16"
+      },
+      "asunto": "Faltante en la entrega del pedido BN-104660 — obra en Santa Marta",
+      "mensaje": "Cordial saludo.\n\nAyer recibimos en la obra el pedido BN-104660. Al hacer el conteo con el maestro encontramos tres bultos de grifería completos y únicamente dos mamparas Bruma de 120, cuando el pedido y la factura relacionan tres. El conductor nos dijo que él entregaba lo que le cargaron y firmamos la guía anotando «pendiente verificar cantidades».\n\nLes cuento el contexto porque nos aprieta: la obra tiene entrega de los tres baños el 30 de septiembre y la mampara faltante corresponde al baño principal, que es el que ya está enchapado y esperando. Si el despacho de la pieza faltante toma el plazo normal de zona B no alcanzamos.\n\nAgradezco que nos confirmen hoy mismo qué pasó con la tercera mampara y qué alternativa tienen para que llegue antes. Hemos trabajado con ustedes muchos años y nunca nos había pasado.\n\nTaller El Roble",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Las dos mamparas recibidas, estibadas en el patio de la obra"
+        },
+        {
+          "tipo": "documento",
+          "descripcion": "Copia de la guía de la transportadora firmada con la anotación de cantidades pendientes de verificar"
+        }
+      ],
+      "_referencia": {
+        "categoria": "incidencias",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "incidencias",
+        "subcategoria": "producto-incompleto",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.92,
+        "entidades": {
+          "numeroPedido": "BN-104660",
+          "sku": "BN-MAM-001",
+          "cantidadFacturada": 3,
+          "cantidadRecibida": 2,
+          "unidadesFaltantes": 1,
+          "importeCOP": 1680000,
+          "totalPedidoCOP": 6320000,
+          "fechaEntrega": "2026-09-16",
+          "fechaLimiteObra": "2026-09-30",
+          "zona": "B",
+          "clienteProfesional": true,
+          "novedadAnotadaEnGuia": true,
+          "aportaPruebas": true,
+          "temasSecundarios": [
+            "modificacion-plazo-entrega"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "ENV-02",
+          "DEV-14",
+          "PRO-01",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "zona": "B",
+          "clienteProfesional": true,
+          "fechaPedido": "2026-09-02",
+          "fechaEntrega": "2026-09-16",
+          "diasHabilesPedidoAEntrega": 10,
+          "plazoZonaBDiasHabiles": [
+            8,
+            15
+          ],
+          "entregaDentroDePlazoENV01": true,
+          "totalPedidoCOP": 6320000,
+          "totalVerificadoContraCatalogo": true,
+          "detalleVerificacion": "3 x BN-MAM-001 a 1.680.000 = 5.040.000 mas 4 x BN-GRI-001 a 320.000 = 1.280.000",
+          "unidadesFaltantes": 1,
+          "importeFaltanteCOP": 1680000,
+          "tipologiaDevolucionMampara": "mamparas-con-flejes",
+          "novedadAnotadaEnGuia": true,
+          "horasMaximasDesdeEntregaAlReporte": 38,
+          "plazoReporteENV02Horas": 48,
+          "dentroDeLas48Horas": true,
+          "umbralEnvioGratisCOP": 1500000,
+          "aplicaEnvioGratis": true,
+          "umbralDescuento8PRO01COP": 5000000,
+          "descuentoPRO01Porcentaje": 8,
+          "descuentoPRO01EstimadoCOP": 505600,
+          "totalConDescuentoPRO01COP": 5814400,
+          "totalSiSeAnulaLaMamparaFaltanteCOP": 4640000,
+          "quedariaBajoUmbralPRO01": true,
+          "fechaLimiteObra": "2026-09-30",
+          "diasHabilesHastaFechaLimiteObra": 9,
+          "reposicionConPlazoMinimoZonaB": "2026-09-29",
+          "reposicionConPlazoMaximoZonaB": "2026-10-08",
+          "plazoRespuestaConsultaHorasHabiles": 24,
+          "plazoReclamacionFormalDiasHabiles": 15,
+          "fechaLimiteReclamacionFormal": "2026-10-08"
+        },
+        "riesgos": [
+          "Vacío de política real y doble: ninguna regla fija el plazo de despacho de una unidad faltante ni contempla un despacho acelerado o un envío urgente. ENV-01 solo conoce el plazo ordinario y no hay excepción por fecha de obra",
+          "Segundo vacío: ENV-02 regula los daños de transporte, no los faltantes. La política no tiene regla propia de entrega incompleta, aunque el cliente sí satisfizo la exigencia probatoria equivalente (novedad en la guía y reporte a menos de 38 horas)",
+          "El calendario no da margen: quedan 9 días hábiles hasta el 30 de septiembre. Con el plazo mínimo de zona B (8 días hábiles) la mampara llegaría el 29 de septiembre, un día antes del límite, y con el máximo (15 días hábiles) el 8 de octubre, seis días hábiles tarde. Cualquier demora de un día rompe la obra",
+          "El total del pedido (6.320.000 COP) coincide exactamente con la suma bruta de las líneas del catálogo, lo que sugiere que no se aplicó el 8 % de PRO-01 al que este cliente profesional tiene derecho por superar los 5.000.000 COP: hay que verificarlo, porque son 505.600 COP",
+          "Si se resuelve anulando y reembolsando la mampara faltante, el pedido baja a 4.640.000 COP y cae por debajo del umbral de 5.000.000 COP de PRO-01, con lo que el cliente perdería el descuento profesional sobre el resto. Reponer la unidad es preferible a anularla también por esta razón",
+          "Falta determinar dónde se perdió la pieza: no consta el manifiesto de cargue ni el peso de la guía, y sin eso no se sabe si la mampara no salió de bodega o se extravió en ruta. De ello depende la reclamación a la transportadora",
+          "Discrepancia menor por aclarar: el cliente habla de tres bultos de grifería cuando el pedido son cuatro unidades de BN-GRI-001; puede ser un empaque agrupado, pero conviene confirmarlo antes de dar por cerrado el conteo",
+          "Cliente profesional con 40 pedidos previos y 125.000.000 COP de valor histórico, el segundo mayor en su zona: cualquier respuesta sienta precedente para toda la cuenta y el deterioro de la relación es un riesgo mayor que el importe en disputa"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H01",
+          "H04",
+          "H10"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "Cómo y en qué plazo se repone la tercera mampara de 1.680.000 COP para que llegue a la obra antes del 30 de septiembre, quién asume el sobrecoste del despacho acelerado que ninguna regla contempla, y si se reconoce el 8 % de PRO-01 que aparentemente no se aplicó al pedido.",
+          "opciones": [
+            "Despacho urgente con transportadora expresa a cargo de Bañolia, con compromiso de fecha cierta anterior al 30 de septiembre, y reclamación posterior a la transportadora habitual",
+            "Reposición desde el stock o el aliado más cercano a Santa Marta para acortar el tránsito por debajo de los 8 días hábiles mínimos de zona B",
+            "Nota crédito por la unidad faltante de 1.680.000 COP, manteniendo por decisión comercial el 8 % de PRO-01 sobre el resto del pedido aunque baje a 4.640.000 COP",
+            "Reposición urgente más compensación comercial sobre el próximo pedido, cerrando el episodio con la cuenta"
+          ],
+          "riesgos": [
+            "Con el plazo mínimo de zona B la mampara llegaría el 29 de septiembre, un día antes del límite de obra, y con el máximo el 8 de octubre, seis días hábiles tarde: prometer la fecha sin confirmar el despacho acelerado es comprometerse a algo que ENV-01 no respalda",
+            "Anular y reembolsar la unidad deja el pedido en 4.640.000 COP y lo hace caer por debajo del umbral de 5.000.000 COP de PRO-01, con lo que el cliente perdería el descuento profesional sobre el resto: reponer es preferible también por esto",
+            "El total de 6.320.000 COP coincide con la suma bruta del catálogo, lo que sugiere que no se aplicó el 8 % de PRO-01: son 505.600 COP que hay que verificar antes de responder, porque si el cliente lo detecta después el problema se duplica",
+            "No consta el manifiesto de cargue ni el peso de la guía, así que no se sabe si la mampara no salió de bodega o se extravió en ruta: de ello depende poder reclamar a la transportadora",
+            "Cliente profesional con 40 pedidos y 125.000.000 COP de histórico: cualquier respuesta sienta precedente para toda la cuenta y el deterioro de la relación pesa más que el importe en disputa",
+            "Queda por aclarar la discrepancia menor de los tres bultos de grifería frente a las cuatro unidades de BN-GRI-001 antes de dar el conteo por cerrado"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, equipo de Taller El Roble.\n\nTienen razón y el error es nuestro: la factura del pedido BN-104660 relaciona tres mamparas frontales Bruma de 120 cm y en la obra llegaron dos. Lo sentimos, y más tratándose de una obra con fecha comprometida y del baño que ya está enchapado esperando la pieza.\n\nLo que ya está acreditado y no vamos a discutirles. Ustedes dejaron la salvedad anotada en la guía en el momento de recibir, nos reportaron dentro de las primeras 48 horas y nos enviaron la copia de la guía firmada y las fotografías de lo recibido. Con eso el faltante de una unidad de $ 1.680.000 queda plenamente soportado. Cuando el error es imputable a Bañolia, es Bañolia quien asume la totalidad de los costes de la solución: la pieza faltante no les va a representar ningún coste adicional.\n\nQué estamos haciendo en este momento:\n\n· Verificación del manifiesto de cargue y del peso de la guía, para establecer si la tercera mampara no salió de nuestra bodega o se extravió en ruta.\n· Revisión de la liquidación del pedido frente a sus condiciones de cliente profesional, para confirmar que se aplicaron como corresponde. Si detectamos alguna diferencia, se la informamos nosotros.\n· Búsqueda de la alternativa de despacho más rápida disponible hacia Santa Marta.\n\nSobre el calendario les hablamos con transparencia. Con el plazo ordinario de entrega de zona B, que va de 8 a 15 días hábiles, no podemos garantizarles que la pieza esté en la obra antes del 30 de septiembre. Por eso preferimos no darles hoy una fecha que no podamos sostener: su caso está escalado para que se resuelva con una alternativa de despacho concreta y con una fecha que sí podamos cumplir.\n\nUna aclaración menor que nos ayuda a cerrar el conteo: ustedes mencionan tres bultos de grifería y el pedido relaciona cuatro unidades del grifo de lavamanos Aqualinde monomando cromo. ¿Nos confirman si vienen agrupados en los bultos o si también falta una unidad? Con eso revisamos todo de una vez y no los volvemos a molestar.\n\n[PENDIENTE DE DECISIÓN HUMANA — no enviar este bloque tal cual. Quedan por definir tres cosas: (1) la forma de la solución, es decir reposición con despacho acelerado y quién asume ese sobrecoste que ninguna regla contempla, o nota crédito por los $ 1.680.000 —teniendo en cuenta que anular la unidad deja el pedido por debajo del umbral de PRO-01—; (2) la fecha que se compromete frente al 30 de septiembre; y (3) el resultado de la verificación del 8 % de PRO-01 y si se reconoce. Al cliente no se le ha anticipado ninguna de las tres: ni forma de solución, ni fecha, ni descuento.]\n\nCómo continuamos. Una persona de nuestro equipo se comunica hoy con ustedes, dentro de un máximo de 8 horas hábiles, para confirmarles la solución concreta y el detalle del despacho. Si mientras tanto necesitan algo para coordinar con el maestro, escríbannos a este mismo correo y les respondemos de inmediato.\n\nGracias por el aviso tan documentado y por avisarnos con el margen que había: ayuda, y mucho.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera versión: decía «procedemos con la reposición de la tercera mampara», con lo que cerraba la forma de la solución cuando la ficha de escalado contempla también la nota crédito por $ 1.680.000. Corregida: ahora se reconoce el faltante y se asume el coste por DEV-14, pero la forma concreta (reposición acelerada o nota crédito) queda marcada entre corchetes."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "incidencias por canal correo",
+          "justificacion": "Segundo caso límite del lote: faltante de entrega en un cliente profesional con 125.000.000 COP de valor histórico, lo que activa H10 por sí solo ante cualquier incidencia. Además hay una fecha de obra comprometida que puede exigir un despacho urgente fuera del plazo estándar de zona B, decisión comercial que ninguna política cubre. Comprueba que el enrutador mira el maestro de clientes y no solo el texto del mensaje, que es cordial y sin amenazas.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "incidencias · producto-incompleto · prioridad alta",
+          "justificacion": "Taller El Roble recibió dos mamparas Bruma de 120 de las tres facturadas y dejó anotada la salvedad de cantidades en la guía, con foto de lo estibado y copia del documento. Es un faltante de despacho puro, por lo que corresponde a incidencias/producto-incompleto. La prioridad es alta porque la pieza faltante bloquea el baño principal de una obra con entrega el 30 de septiembre y el plazo normal de zona B (8 a 15 días hábiles, ENV-01) no alcanza; queda constancia de que además pide una alternativa de despacho acelerado. La confianza es 0,92 porque el hecho reportado es único y está documentado, sin competencia entre categorías.",
+          "confianza": 0.92,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Entrega incompleta imputable a Bañolia, con prueba en regla, pero la política no prevé ningún despacho acelerado para el faltante",
+          "justificacion": "La entrega llegó dentro de plazo (10 días hábiles del 2 al 16 de septiembre, frente a los 8 a 15 de zona B que fija ENV-01, con envío gratuito por superar el umbral de 1.500.000 COP), pero fue incompleta: faltó una de las tres mamparas BN-MAM-001, por valor de 1.680.000 COP verificado contra el catálogo. El cliente satisfizo la carga probatoria de ENV-02 —novedad anotada en la guía y reporte a menos de 38 horas de la entrega, dentro de las 48 previstas—, si bien debe señalarse que ENV-02 regula daños de transporte y no faltantes, de modo que el caso de fondo no está resuelto por ninguna regla; el error es de Bañolia y DEV-14 le impide repercutirle coste alguno. El vacío más importante es el de la solución: ni ENV-01 ni ninguna otra regla contemplan un despacho acelerado, y con el plazo ordinario de zona B la reposición llegaría entre el 29 de septiembre y el 8 de octubre frente a una obra que cierra el 30, por lo que la decisión excede la política. Por último, PRO-01 da a este cliente profesional un 8 % desde 5.000.000 COP que el total facturado no parece reflejar, y anular la línea faltante dejaría el pedido en 4.640.000 COP, por debajo de ese umbral; PQR-01 obliga a responder en 24 horas hábiles y a resolver en 15 días hábiles.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "ENV-02",
+            "DEV-14",
+            "PRO-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado prioritario: cliente profesional estratégico con faltante de 1.680.000 COP y fecha de obra en riesgo.",
+          "justificacion": "Se activan tres criterios. H10 de forma inequívoca: Taller El Roble es cliente profesional con 125.000.000 COP de valor histórico, muy por encima de los 50.000.000 del umbral, y el criterio opera ante cualquier incidencia. H01 porque la reposición o el reembolso de la mampara faltante asciende a 1.680.000 COP, por encima del umbral de 1.500.000. Y H04, porque el cliente pide un despacho acelerado que ENV-01 no contempla y todo apunta a un error de Bañolia en el cargue, que es precisamente un motivo atendible para estudiar la excepción. El SLA baja a 8 horas por tratarse de un cliente estratégico, y el cliente pidió confirmación el mismo día.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H01",
+            "H04",
+            "H10"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se reconoce el error sin rodeos desde la primera frase, porque el incumplimiento está documentado y negarlo con un cliente de esta trayectoria sería peor que el importe en disputa. Se cierra la carga probatoria a favor del cliente (novedad en la guía y reporte dentro de las 48 horas) y se afirma lo único que la política sí garantiza: que con error imputable a Bañolia, DEV-14 obliga a Bañolia a asumir la totalidad de los costes. No se da fecha alguna: se explica que el plazo ordinario de zona B de ENV-01, de 8 a 15 días hábiles, no asegura llegar al 30 de septiembre, y se remite la fecha a la persona. El 8 % de PRO-01 se presenta solo como una verificación en curso, sin cifra ni reconocimiento, y se aprovecha para pedir la aclaración de los bultos de grifería y evitar un segundo contacto. Cierra con el plazo de contacto de 8 horas que fijó el enrutador, más exigente que las 24 horas hábiles de PQR-01 por la urgencia de obra.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se comprobó punto por punto la ficha de escalado: el texto no compromete fecha de reposición, no elige entre reposición y nota crédito, no anuncia el 8 % de PRO-01 como reconocido ni menciona los $ 505.600, y no nombra transportadora alguna. La observación registrada era real: la primera versión daba por hecha la reposición, que es una de las cuatro opciones abiertas. Tras la corrección solo se afirma lo respaldado por DEV-14 —que el coste lo asume Bañolia— y el rango de ENV-01 se usa para advertir del riesgo de calendario, nunca para prometerlo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0040",
+      "recibidaEn": "2026-09-17T15:12:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0143",
+        "nombre": "Luis Cortés Ospina",
+        "ciudad": "Bucaramanga",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-105507",
+        "fecha": "2026-09-15",
+        "estado": "En preparación",
+        "lineas": [
+          {
+            "sku": "BN-GRI-001",
+            "cantidad": 1,
+            "precioCOP": 320000
+          },
+          {
+            "sku": "BN-ACC-002",
+            "cantidad": 2,
+            "precioCOP": 68000
+          }
+        ],
+        "totalCOP": 456000,
+        "fechaEntrega": null
+      },
+      "asunto": "¿Puedo recoger yo mismo el pedido en la bodega?",
+      "mensaje": "Buenas tardes. Tengo el pedido BN-105507, el grifo y los dos portarrollos. Yo trabajo cerca y quisiera saber si puedo pasar a recogerlo directamente en la bodega en vez de esperar el domicilio. Si no se puede, me confirman por favor la dirección de entrega que quedó registrada, para estar seguro de que es la de mi casa y no la de la oficina. Muchas gracias.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "pedidos",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "pedidos",
+        "subcategoria": "modificacion-pedido",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.83,
+        "entidades": {
+          "numeroPedido": "BN-105507",
+          "sku": [
+            "BN-GRI-001",
+            "BN-ACC-002"
+          ],
+          "importeCOP": 456000,
+          "estadoPedido": "En preparación",
+          "zona": "A",
+          "solicitaRecogidaEnBodega": true,
+          "temasSecundarios": [
+            "confirmacion-direccion-entrega"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "CAN-01",
+          "PQR-01"
+        ],
+        "cumple": null,
+        "calculos": {
+          "zona": "A",
+          "fechaPedido": "2026-09-15",
+          "estadoPedido": "En preparación",
+          "pedidoDespachado": false,
+          "diasHabilesDesdePedido": 2,
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoCatalogoMayorDiasHabiles": 4,
+          "detallePlazosCatalogo": "BN-GRI-001 4 dias habiles, BN-ACC-002 3 dias habiles",
+          "fechaEntregaEstimadaSegunCatalogo": "2026-09-21",
+          "fechaLimiteZonaAENV01": "2026-09-25",
+          "totalPedidoCOP": 456000,
+          "totalVerificadoContraCatalogo": true,
+          "detalleVerificacion": "1 x BN-GRI-001 a 320.000 mas 2 x BN-ACC-002 a 68.000 = 456.000",
+          "umbralEnvioGratisCOP": 1500000,
+          "aplicaEnvioGratis": false,
+          "lineasAMedida": 0,
+          "reembolsoSiCancelaAntesDelDespachoCOP": 456000,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Vacío de política expreso: ninguna regla de politica.json contempla la recogida del pedido en bodega ni el retiro en punto. La política solo conoce la entrega por transportadora (ENV-01) y la recogida de devoluciones (DEV-07 a DEV-09), que es el movimiento inverso y no sirve de apoyo. No hay regla que lo autorice ni que lo prohíba",
+          "Segundo vacío: tampoco hay regla sobre la modificación de la dirección o del modo de entrega de un pedido en preparación. CAN-01 solo regula la cancelación antes del despacho, no la modificación",
+          "El pedido no alcanza el umbral de envío gratuito de ENV-01 (456.000 frente a 1.500.000 COP), luego lleva un flete cobrado; si se autorizara la recogida en bodega habría que decidir si se devuelve ese flete, y ninguna regla dice qué hacer",
+          "Confirmar por chat la dirección de entrega registrada implica revelar un dato personal: hace falta verificar la identidad antes de responder, y este cliente no tiene historial (CLI-0143, 0 pedidos previos, 0 COP de valor histórico)",
+          "Ventana temporal estrecha: quedan 2 días hábiles de los 4 que el catálogo estima para el SKU más lento. Si el pedido se despacha antes de resolver la consulta, deja de aplicar el reembolso total de CAN-01 y cualquier marcha atrás pasaría a regirse por DEV-01 a DEV-14, con gastos de recogida a cargo del cliente",
+          "Autorizar la recogida en bodega sienta precedente operativo para todos los pedidos de zona A y afecta a seguros, horarios y responsabilidad sobre la mercancía entregada en mano: es una decisión de negocio, no de atención al cliente"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Luis. Gracias por escribirnos.\n\nVamos por partes con sus dos preguntas.\n\n1. Recoger el pedido en la bodega. No es posible, y preferimos decírselo de una vez en lugar de dejarlo en veremos: Bañolia no tiene habilitada la recogida en bodega ni la entrega en mano. Nuestras condiciones de envío contemplan un único modo de entrega, el domicilio por transportadora, así que su pedido BN-105507 (grifo de lavamanos Aqualinde monomando en cromo y dos portarrollos Bruma adhesivos en acero inoxidable, por un total de $ 456.000) saldrá por ese medio. Bucaramanga es zona A y el plazo de entrega es de 3 a 8 días hábiles desde el pedido, que quedó registrado el 15 de septiembre.\n\nSi aun así prefiere no esperar el domicilio, la alternativa real que sí podemos ofrecerle es la cancelación: mientras el pedido siga en preparación, cancelar da lugar al reembolso total de los $ 456.000. Eso sí, le pedimos decidirlo pronto, porque el pedido ya está en preparación y puede despacharse en cualquier momento de estos días. Una vez despachado deja de aplicar esa cancelación con reembolso total y el caso pasaría a regirse por nuestra política de devoluciones, en la que los gastos de recogida se descuentan del importe a reembolsar. Si quiere cancelar, respóndanos por este chat y lo tramitamos.\n\n2. La dirección de entrega registrada. Por tratarse de un dato personal, no la reproducimos por chat. Lo que hacemos es enviársela al correo registrado en el pedido para que la verifique usted mismo. Si al leerla ve que no corresponde a su casa, respóndanos a ese mismo correo lo antes posible y la revisamos enseguida. No le anticipamos que el cambio quede hecho: se lo confirmamos solo cuando esté efectivamente aplicado al pedido y, si para entonces ya salió de bodega, dependerá de que la transportadora acepte la redirección.\n\nLe agradecemos revisarlo con calma, porque tiene efecto en los costos: si un pedido se entrega en una dirección errónea, incompleta o inaccesible para el vehículo de reparto, o el cliente está ausente tras más de dos intentos de entrega, los gastos de envío y de devolución corren por cuenta del cliente.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-pedidos",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "El primer borrador cerraba el punto de la dirección con «lo revisamos con logística antes del despacho», que el cliente podía leer como un cambio de dirección ya concedido. Se reformuló para dejar claro que la corrección solo se confirma cuando esté aplicada y que, si el pedido ya salió de bodega, depende de que la transportadora acepte la redirección."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señor Luis. Gracias por escribirnos.\n\nVamos por partes con sus dos preguntas.\n\n1. Recoger el pedido en la bodega. No es posible, y preferimos decírselo de una vez en lugar de dejarlo en veremos: Bañolia no tiene habilitada la recogida en bodega ni la entrega en mano. Nuestras condiciones de envío contemplan un único modo de entrega, el domicilio por transportadora, así que su pedido BN-105507 (grifo de lavamanos Aqualinde monomando en cromo y dos portarrollos Bruma adhesivos en acero inoxidable, por un total de $ 456.000) saldrá por ese medio. Bucaramanga es zona A y el plazo de entrega es de 3 a 8 días hábiles desde el pedido, que quedó registrado el 15 de septiembre.\n\nSi aun así prefiere no esperar el domicilio, la alternativa real que sí podemos ofrecerle es la cancelación: mientras el pedido siga en preparación, cancelar da lugar al reembolso total de los $ 456.000. Eso sí, le pedimos decidirlo pronto, porque el pedido ya está en preparación y puede despacharse en cualquier momento de estos días. Una vez despachado deja de aplicar esa cancelación con reembolso total y el caso pasaría a regirse por nuestra política de devoluciones, en la que los gastos de recogida se descuentan del importe a reembolsar. Si quiere cancelar, respóndanos por este chat y lo tramitamos.\n\n2. La dirección de entrega registrada. Por tratarse de un dato personal, no la reproducimos por chat. Lo que hacemos es enviársela al correo registrado en el pedido para que la verifique usted mismo. Si al leerla ve que no corresponde a su casa, respóndanos a ese mismo correo lo antes posible y la revisamos enseguida. No le anticipamos que el cambio quede hecho: se lo confirmamos solo cuando esté efectivamente aplicado al pedido y, si para entonces ya salió de bodega, dependerá de que la transportadora acepte la redirección.\n\nLe agradecemos revisarlo con calma, porque tiene efecto en los costos: si un pedido se entrega en una dirección errónea, incompleta o inaccesible para el vehículo de reparto, o el cliente está ausente tras más de dos intentos de entrega, los gastos de envío y de devolución corren por cuenta del cliente.\n\nQuedamos atentos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "pedidos por canal chat",
+          "justificacion": "Caso rutinario y aburrido a propósito: un solo tema, importe bajo de 456.000 COP, cliente particular y pedido recién tomado que sigue en preparación. La política de envíos resuelve la respuesta de forma limpia y no se activa ningún criterio de escalado. Sirve de lastre sano del lote, que es lo que evita que la muestra parezca una sucesión de dramas.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "pedidos · modificacion-pedido · prioridad media",
+          "justificacion": "El cliente pide cambiar la modalidad de entrega de su pedido BN-105507, que sigue en preparación, para recogerlo él mismo en bodega, y de forma subsidiaria pide que le confirmen la dirección registrada. Ambas peticiones giran sobre un pedido concreto todavía modificable, así que la categoría pedidos es firme y la subcategoría que manda es modificacion-pedido. La prioridad es media: conviene resolver antes de que el pedido se despache, pero no hay plazo incumplido ni dinero retenido. La confianza es 0,83 porque el mensaje contiene dos peticiones y la segunda podría leerse como consulta sobre datos del pedido, aunque ambas caen dentro de la misma categoría.",
+          "confianza": 0.83,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Ninguna regla resuelve la recogida en bodega: es un vacío de política, aunque el pedido sigue sin despachar y admite cambios",
+          "justificacion": "Debe declararse expresamente que la petición principal no la resuelve ninguna regla: la política solo prevé la entrega mediante transportadora en los plazos de ENV-01 (3 a 8 días hábiles en zona A, y el catálogo estima 4 días hábiles para el SKU más lento del pedido, el BN-GRI-001, con entrega en torno al 21 de septiembre y límite el 25), y no contempla la recogida en bodega ni el cambio del modo de entrega de un pedido en preparación. Lo único cierto es que el pedido de 456.000 COP, verificado línea a línea contra el catálogo, no está despachado y no incluye productos a medida, de modo que CAN-01 permitiría todavía la cancelación con reembolso total si la recogida no fuera posible y el cliente prefiriera desistir; conviene además tener presente que con 456.000 COP no se alcanza el umbral de envío gratuito de 1.500.000 COP de ENV-01, por lo que hay un flete de por medio cuyo tratamiento tampoco está regulado. PQR-01 obliga a responder esta consulta en 24 horas hábiles, plazo relevante porque el pedido puede despacharse en los próximos días hábiles y cerrar la ventana de CAN-01. No se declara cumplimiento ni incumplimiento porque el cliente no infringe ninguna regla y la política no ofrece regla que aplicar a lo que pide.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "CAN-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "La IA declina la recogida en bodega por no estar contemplada y ofrece la salida de CAN-01.",
+          "justificacion": "No se activa ningún criterio: la confianza es de 0,83 (H06 descartado), el importe es de 456.000 COP, el sentimiento es 0 y no hay incidencia ni daño. H08 no aplica, porque el cliente no pide cambiar titular, NIT ni cuenta de reembolso y no hay señal de fraude: la cautela de no revelar la dirección registrada por chat sin verificar identidad es de ejecución, y se resuelve confirmándola al correo registrado del pedido. Los dos vacíos de política (recogida en bodega y cambio del modo de entrega) no escalan por sí solos, y aquí no obligan a decidir nada nuevo: la IA puede sostener que ENV-01 solo contempla la entrega por transportadora y que la recogida en bodega no está habilitada, sin inventar una autorización que ninguna regla le da. Como alternativa real, CAN-01 permite cancelar con reembolso total de los 456.000 COP mientras el pedido siga en preparación, y conviene responder pronto porque quedan 2 días hábiles de los 4 estimados.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-pedidos",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La recogida en bodega se rechaza apoyándose en lo único que la política dice de verdad: ENV-01 solo conoce la entrega por transportadora, y no se invoca ninguna autorización ni prohibición inventada para un supuesto que la política no regula. Como alternativa real se ofrece CAN-01, con el reembolso total de $ 456.000 mientras el pedido siga en preparación, advirtiendo de la ventana estrecha y de que tras el despacho aplicarían las devoluciones con los gastos de recogida descontados (DEV-08). La dirección registrada no se reproduce en el chat por ser un dato personal de un cliente sin historial y se ofrece confirmarla al correo del pedido, cerrando con la advertencia de costos de DEV-11 y dentro del plazo de respuesta de PQR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se comprobó que el total de $ 456.000 cuadra con el catálogo, que no se autoriza la recogida ni se inventa una regla que la prohíba, y que no se revela la dirección registrada. La corrección aplicada evita el error típico de la categoría: dar por hecho un cambio que depende de un tercero. Con ese ajuste el texto queda aprobado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    }
+  ]
+}
