@@ -1,0 +1,1923 @@
+{
+  "id": "LOTE-20260917-02",
+  "fecha": "2026-09-17",
+  "origen": "programado",
+  "iniciadoEn": "2026-09-17T10:00:00-05:00",
+  "finalizadoEn": "2026-09-17T10:35:00-05:00",
+  "totales": {
+    "solicitudes": 10,
+    "ia": 7,
+    "humano": 3,
+    "descartado": 0
+  },
+  "alertas": [],
+  "solicitudes": [
+    {
+      "id": "SOL-20260917-0011",
+      "recibidaEn": "2026-09-17T08:14:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0092",
+        "nombre": "Luis Castro Peña",
+        "ciudad": "Medellín",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107412",
+        "fecha": "2026-09-02",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-004",
+            "cantidad": 1,
+            "precioCOP": 340000
+          }
+        ],
+        "totalCOP": 340000,
+        "fechaEntrega": "2026-09-10"
+      },
+      "asunto": "Desistimiento de la compra del espejo del pedido BN-107412",
+      "mensaje": "Buenos días.\n\nEl pasado 10 de septiembre recibí el espejo sin luz de 80x60 cm correspondiente al pedido BN-107412. Después de probarlo contra la pared me doy cuenta de que el marco negro no combina con el resto del baño, así que deseo desistir de la compra.\n\nEl espejo sigue sin instalar, dentro de su caja original, con las escuadras, la tornillería y el manual completos. No lo he colgado en ningún momento.\n\nAgradezco me confirmen el procedimiento y, sobre todo, cuánto dinero me sería devuelto una vez descontados los gastos de recogida, para saber si me conviene.\n\nCordialmente,\nLuis Castro Peña\nCelular +57 316 555 6136",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.96,
+        "entidades": {
+          "numeroPedido": "BN-107412",
+          "sku": "BN-ESP-004",
+          "importeCOP": 340000,
+          "fechaRecepcion": "2026-09-10",
+          "productoInstalado": false,
+          "embalajeOriginal": true,
+          "piezasCompletas": true,
+          "preguntaImporteReembolso": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-09",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaRecepcion": "2026-09-10",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 7,
+          "plazoDEV01": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 7,
+          "fechaLimiteDesistimiento": "2026-09-24",
+          "sku": "BN-ESP-004",
+          "tipologiaDevolucion": "espejos-sin-led",
+          "aMedida": false,
+          "zona": "A",
+          "ciudad": "Medellín",
+          "tarifaDEV08Rango": [
+            113000,
+            113000
+          ],
+          "gastoRecogidaCOP": 113000,
+          "importePagadoCOP": 340000,
+          "reembolsoEstimadoCOP": 227000,
+          "porcentajeGastoSobrePagado": 33,
+          "requiereEstiba": true,
+          "plazoReembolsoDiasCalendario": 14
+        },
+        "riesgos": [
+          "El gasto de recogida de 113.000 COP se lleva el 33 % de los 340.000 pagados: el cliente pregunta justamente por el neto y puede desistir del desistimiento o reclamar al conocerlo",
+          "Quedan 7 de los 14 días de DEV-01 (vence el 24 de septiembre): si la respuesta se demora o el cliente tarda en confirmar, el derecho se pierde",
+          "El espejo requiere estiba y fotos antes y después de embalar según DEV-07; sin ellas el seguro no cubre daños y no procedería el reembolso si llega roto",
+          "Conviene ofrecerle también la opción B de DEV-09, porque gestionando él el envío podría pagar menos que los 113.000 COP"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Luis.\n\n¡Con mucho gusto le confirmamos el procedimiento y la cifra exacta!\n\nSu desistimiento sí procede: recibió el pedido BN-107412 el 10 de septiembre, han transcurrido 7 de los 14 días calendario que damos para desistir y le quedan otros 7, así que tiene plazo hasta el 24 de septiembre. El espejo sigue sin instalar, dentro de su caja original y con las escuadras, la tornillería y el manual completos, que es justo lo que se necesita.\n\nCuánto se le reembolsaría:\n\n· Valor pagado: $ 340.000\n· Gastos de recogida (espejo sin luz, Medellín, zona A): $ 113.000\n· Total a reembolsar: $ 227.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso. Se lo decimos con la cifra delante, que es lo que usted nos pidió para decidir.\n\nAntes de que embale, dos requisitos importantes: el espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin fotos el seguro de transporte no cubre los daños y, si el espejo llega roto, no podríamos emitir el reembolso.\n\nTambién puede gestionar usted mismo el envío, si le resulta más conveniente. En ese caso le enviamos la dirección y las instrucciones, usted contrata la transportadora y el seguro, y no se le descuentan los $ 113.000 de recogida. El paquete debe ir rotulado «Devolución – Bañolia – BN-107412», con fotografías del embalaje y avisándonos el mismo día del envío. Según lo que le coticen desde Medellín, esta opción puede salirle más económica.\n\nCómo continuamos. Si decide devolver, diligencie el formulario de devolución en nuestra web indicando el número de pedido BN-107412 y cuéntenos cuál de las dos opciones prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario. Si al revisarlo encontráramos alguna anomalía que dé lugar a depreciación, se lo informaríamos antes de emitir el reembolso.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Luis.\n\n¡Con mucho gusto le confirmamos el procedimiento y la cifra exacta!\n\nSu desistimiento sí procede: recibió el pedido BN-107412 el 10 de septiembre, han transcurrido 7 de los 14 días calendario que damos para desistir y le quedan otros 7, así que tiene plazo hasta el 24 de septiembre. El espejo sigue sin instalar, dentro de su caja original y con las escuadras, la tornillería y el manual completos, que es justo lo que se necesita.\n\nCuánto se le reembolsaría:\n\n· Valor pagado: $ 340.000\n· Gastos de recogida (espejo sin luz, Medellín, zona A): $ 113.000\n· Total a reembolsar: $ 227.000\n\nLos gastos de recogida se descuentan del reembolso porque la devolución no se origina en un error nuestro ni en un producto defectuoso. Se lo decimos con la cifra delante, que es lo que usted nos pidió para decidir.\n\nAntes de que embale, dos requisitos importantes: el espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin fotos el seguro de transporte no cubre los daños y, si el espejo llega roto, no podríamos emitir el reembolso.\n\nTambién puede gestionar usted mismo el envío, si le resulta más conveniente. En ese caso le enviamos la dirección y las instrucciones, usted contrata la transportadora y el seguro, y no se le descuentan los $ 113.000 de recogida. El paquete debe ir rotulado «Devolución – Bañolia – BN-107412», con fotografías del embalaje y avisándonos el mismo día del envío. Según lo que le coticen desde Medellín, esta opción puede salirle más económica.\n\nCómo continuamos. Si decide devolver, diligencie el formulario de devolución en nuestra web indicando el número de pedido BN-107412 y cuéntenos cuál de las dos opciones prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario. Si al revisarlo encontráramos alguna anomalía que dé lugar a depreciación, se lo informaríamos antes de emitir el reembolso.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal correo",
+          "justificacion": "Desistimiento de manual: día 7 de los 14 de DEV-01, producto sin instalar, embalaje y piezas completos, importe muy por debajo del umbral de H01. Es el caso más aburrido y más frecuente de una devolución, y sirve para comprobar que el sistema calcula bien el reembolso (340.000 menos 113.000 de recogida de espejos sin LED en zona A) sin escalar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Desistimiento voluntario de un espejo sin luz recibido el 10 de septiembre, sin instalar y en su caja, con pregunta por el reembolso neto.",
+          "justificacion": "El cliente declara de forma explícita que desea desistir de la compra del pedido BN-107412 por un motivo estético, sin alegar defecto ni error de la empresa. Describe con detalle que el producto no se instaló y conserva caja, escuadras, tornillería y manual, señales inequívocas de desistimiento y no de incidencia. El tono es formal y sereno, por lo que el sentimiento es 0. La confianza es muy alta porque la intención es única y está nombrada en el propio asunto.",
+          "confianza": 0.96,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Desistimiento procedente en el día 7 de 14; reembolso estimado de 227.000 COP tras descontar 113.000 de recogida.",
+          "justificacion": "DEV-01 se cumple con holgura: la recepción fue el 10 de septiembre y hoy 17 es el día 7 de los 14 días calendario, con vencimiento el 24 de septiembre. El cliente acredita DEV-02 (sin instalar), DEV-03 (embalaje original) y DEV-04 (escuadras, tornillería y manual), y DEV-05 no aplica porque BN-ESP-004 no es a medida. Según la tabla de DEV-08 la tipología espejos-sin-led en zona A (Medellín) descuenta 113.000 COP, de modo que sobre los 340.000 pagados el reembolso queda en 227.000, que DEV-14 confirma a cargo del cliente al no existir error de Bañolia ni defecto; DEV-10 fija 14 días calendario para emitirlo desde la verificación.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-09",
+            "DEV-10",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Desistimiento dentro de plazo que cumple la política: la IA confirma procedimiento y reembolso neto de 227.000 COP.",
+          "justificacion": "El desistimiento cumple DEV-01 a DEV-09 y el reembolso estimado de 227.000 COP queda muy por debajo del umbral de 1.500.000 de H01. No hace falta ninguna excepción, porque el caso está dentro de política, así que H04 no aplica. La confianza de 0,96 descarta H06 y el sentimiento neutro en primer contacto descarta H07. Es un caso de cálculo y procedimiento, perfectamente resoluble desde la ruta ia.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se confirma que el desistimiento procede con las tres condiciones que el cliente mismo acreditó (sin instalar, embalaje original, piezas completas) y se responde a su pregunta concreta desglosando los $ 340.000 pagados, los $ 113.000 de recogida y los $ 227.000 netos, para que decida con la cifra delante. Los requisitos de estiba y fotografías se dan antes de que embale, no después, porque de ellos depende que el seguro cubra el trayecto. Se ofrece la opción B de envío gestionado por él, que con $ 113.000 de recogida puede resultarle más económica y evita un segundo contacto.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se verificó la aritmética contra los cálculos del analista: $ 340.000 menos $ 113.000 dan los $ 227.000 anunciados, y la tarifa corresponde a espejos sin LED en zona A. Las fechas del borrador (recepción el 10 de septiembre, 7 días transcurridos, límite el 24) coinciden con el pedido y con el plazo de desistimiento. El plazo de reembolso se enuncia como máximo de 14 días calendario desde la verificación, sin acortarlo, y no hay ninguna promesa fuera de política.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0012",
+      "recibidaEn": "2026-09-17T09:02:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0080",
+        "nombre": "Juliana Sánchez Moreno",
+        "ciudad": "Pasto",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107188",
+        "fecha": "2026-08-28",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-SAN-002",
+            "cantidad": 1,
+            "precioCOP": 760000
+          }
+        ],
+        "totalCOP": 760000,
+        "fechaEntrega": "2026-09-14"
+      },
+      "asunto": "Pregunta por plazo de devolución",
+      "mensaje": "hola buenas, el lunes me llego el sanitario del pedido BN-107188 pero todavia no lo he instalado xq el maestro viene la otra semana. cuantos dias tengo para devolverlo si al final no me sirve? gracias",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.85,
+        "entidades": {
+          "numeroPedido": "BN-107188",
+          "sku": "BN-SAN-002",
+          "importeCOP": 760000,
+          "fechaRecepcion": "2026-09-14",
+          "productoInstalado": false,
+          "instalacionPrevista": "la próxima semana",
+          "preguntaPlazoDevolucion": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-08",
+          "DEV-09",
+          "DEV-10",
+          "DEV-14",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaRecepcion": "2026-09-14",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 3,
+          "plazoDEV01": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 11,
+          "fechaLimiteDesistimiento": "2026-09-28",
+          "sku": "BN-SAN-002",
+          "tipologiaDevolucion": "inodoros",
+          "aMedida": false,
+          "zona": "B",
+          "ciudad": "Pasto",
+          "tarifaDEV08Rango": [
+            248000,
+            248000
+          ],
+          "gastoRecogidaCOP": 248000,
+          "importePagadoCOP": 760000,
+          "reembolsoEstimadoSiDevuelveCOP": 512000,
+          "porcentajeGastoSobrePagado": 33,
+          "requiereEstiba": true,
+          "plazoReembolsoDiasCalendario": 14,
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "El maestro instala la próxima semana: en cuanto el sanitario se instale, DEV-02 anula el desistimiento aunque el plazo de DEV-01 siga abierto. Hay que advertirlo de forma explícita",
+          "La fecha límite del 28 de septiembre puede quedar muy cerca de la instalación prevista; si prueba el inodoro y luego decide devolverlo, la negativa será segura y mal recibida",
+          "La clienta aún no conoce que la recogida a Pasto (zona B) cuesta 248.000 COP, un tercio de lo pagado: dar el dato ahora evita una reclamación después"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señora Juliana.\n\n¡Con mucho gusto le respondemos!\n\nUsted tiene 14 días calendario desde que recibió el pedido para desistir de la compra. Como el inodoro del pedido BN-107188 le llegó el lunes 14 de septiembre, han transcurrido 3 días y le quedan 11: su plazo va hasta el lunes 28 de septiembre.\n\nHay un punto que preferimos decirle desde ahora, antes de que venga el maestro. La devolución solo procede mientras el producto no haya sido instalado ni usado. Si el inodoro se instala, aunque después se desmonte, deja de ser elegible para desistimiento, incluso estando todavía dentro de los 14 días. Dicho de otra manera: hoy su devolución sí procede, pero dejaría de proceder en el momento en que se instale. Por eso, si tiene alguna duda sobre si el sanitario le sirve, lo más seguro es resolverla antes de que el maestro lo monte.\n\nSi finalmente decidiera devolverlo, esto es lo que recibiría:\n\n· Valor pagado: $ 760.000\n· Gastos de recogida (inodoro, Pasto, zona B): $ 248.000\n· Total a reembolsar: $ 512.000\n\nLos gastos de recogida se descuentan porque la devolución no se originaría en un error nuestro ni en un producto defectuoso. Le damos la cifra desde ahora para que pueda decidir con toda la información y no se lleve una sorpresa después.\n\nDos cosas más que conviene saber antes de embalar: el inodoro debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo, porque sin eso el seguro de transporte no cubre los daños del trayecto. Y si prefiere gestionar usted misma el envío, también puede: le enviamos la dirección y las instrucciones, usted contrata la transportadora y no se le descuentan los $ 248.000 de recogida.\n\nCómo continuamos. Si decide devolver, diligencie el formulario de devolución en nuestra web con el número de pedido BN-107188 antes del 28 de septiembre; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el inodoro, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario. Y si le queda alguna duda sobre el modelo, escríbanos por este mismo canal antes de instalarlo y con gusto se la resolvemos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señora Juliana.\n\n¡Con mucho gusto le respondemos!\n\nUsted tiene 14 días calendario desde que recibió el pedido para desistir de la compra. Como el inodoro del pedido BN-107188 le llegó el lunes 14 de septiembre, han transcurrido 3 días y le quedan 11: su plazo va hasta el lunes 28 de septiembre.\n\nHay un punto que preferimos decirle desde ahora, antes de que venga el maestro. La devolución solo procede mientras el producto no haya sido instalado ni usado. Si el inodoro se instala, aunque después se desmonte, deja de ser elegible para desistimiento, incluso estando todavía dentro de los 14 días. Dicho de otra manera: hoy su devolución sí procede, pero dejaría de proceder en el momento en que se instale. Por eso, si tiene alguna duda sobre si el sanitario le sirve, lo más seguro es resolverla antes de que el maestro lo monte.\n\nSi finalmente decidiera devolverlo, esto es lo que recibiría:\n\n· Valor pagado: $ 760.000\n· Gastos de recogida (inodoro, Pasto, zona B): $ 248.000\n· Total a reembolsar: $ 512.000\n\nLos gastos de recogida se descuentan porque la devolución no se originaría en un error nuestro ni en un producto defectuoso. Le damos la cifra desde ahora para que pueda decidir con toda la información y no se lleve una sorpresa después.\n\nDos cosas más que conviene saber antes de embalar: el inodoro debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo, porque sin eso el seguro de transporte no cubre los daños del trayecto. Y si prefiere gestionar usted misma el envío, también puede: le enviamos la dirección y las instrucciones, usted contrata la transportadora y no se le descuentan los $ 248.000 de recogida.\n\nCómo continuamos. Si decide devolver, diligencie el formulario de devolución en nuestra web con el número de pedido BN-107188 antes del 28 de septiembre; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el inodoro, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario. Y si le queda alguna duda sobre el modelo, escríbanos por este mismo canal antes de instalarlo y con gusto se la resolvemos.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal whatsapp",
+          "justificacion": "Consulta pura de plazo que DEV-01 responde con un número: 14 días calendario desde la recepción. No hay reembolso pedido ni reclamo, solo información. Pone a prueba que el clasificador no confunda una pregunta previa con una devolución ya iniciada, y está escrita en el registro de WhatsApp sin tildes.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta sobre cuántos días le quedan para devolver un sanitario recibido el lunes 14 de septiembre y todavía sin instalar.",
+          "justificacion": "La pregunta es el plazo de devolución de un producto ya recibido de un pedido identificado, así que el marco aplicable es el de devoluciones y la subcategoría desistimiento, aunque todavía no haya una devolución solicitada. La confianza se queda en 0,85 y no más alta porque el mensaje también podría leerse como consulta informativa pura, si bien el vínculo con un pedido concreto inclina la clasificación con claridad. El tono es neutro y cotidiano.",
+          "confianza": 0.85,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Le quedan 11 de los 14 días de DEV-01 (hasta el 28 de septiembre), pero instalar el sanitario le haría perder el derecho por DEV-02.",
+          "justificacion": "DEV-01 concede 14 días calendario desde la recepción del 14 de septiembre, así que hoy es el día 3 y el plazo vence el 28 de septiembre. La advertencia decisiva es DEV-02: el producto no puede haber sido instalado ni usado, y la clienta anuncia que el maestro viene la semana próxima. Si devolviera, DEV-08 descuenta 248.000 COP por la tipología inodoros en zona B (Pasto) y el reembolso quedaría en 512.000 de los 760.000 pagados, a su cargo según DEV-14, con los 14 días calendario de DEV-10 para emitirlo; PQR-01 fija 24 horas hábiles para contestar esta consulta.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-08",
+            "DEV-09",
+            "DEV-10",
+            "DEV-14",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de plazo de devolución: la IA informa los 14 días de DEV-01, la exclusión por instalación de DEV-02 y el costo de recogida a Pasto.",
+          "justificacion": "Es una consulta informativa previa a cualquier devolución, sin dinero comprometido todavía, de modo que H01 no aplica. No hay excepción que estudiar ni error de la empresa, así que tampoco H04. La confianza de 0,85 está por encima del umbral de H06 y no hay desacuerdo entre agentes. La IA puede responder con la fecha límite del 28 de septiembre y advertir del efecto de DEV-02 en cuanto el maestro instale el sanitario.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La pregunta era solo por el plazo, pero responder «tiene hasta el 28 de septiembre» a secas habría sido una respuesta técnicamente cierta y prácticamente inútil, porque la clienta anuncia que el maestro instala la próxima semana y la instalación anula el desistimiento aunque el plazo siga abierto. Por eso se dice con claridad que hoy procede y que deja de proceder en cuanto se instale, formulado como un dato útil y no como una advertencia alarmista. Se adelanta el desglose de los $ 760.000, los $ 248.000 de recogida hasta Pasto y los $ 512.000 netos, aunque no lo pidió, porque conocer el costo antes de decidir evita una reclamación posterior.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se comprobó la resta con los cálculos del analista: $ 760.000 menos $ 248.000 son los $ 512.000 del borrador, y $ 248.000 es la tarifa de inodoros en zona B. Las fechas cuadran: recepción el 14 de septiembre, 3 días transcurridos, 11 restantes y límite el 28. El punto delicado, la exclusión por producto instalado, está expuesto sin ambigüedad y sin cerrar la puerta antes de tiempo, y el plazo de reembolso se mantiene en los 14 días calendario desde la verificación.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0013",
+      "recibidaEn": "2026-09-17T09:47:00-05:00",
+      "canal": "chat",
+      "cliente": {
+        "id": "CLI-0033",
+        "nombre": "Diego Correa Castro",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": null,
+      "asunto": "Garantía de la grifería",
+      "mensaje": "buenas. la griferia de ustedes cuantos meses de garantia trae? estoy comparando antes de comprar",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "consultas",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "consultas",
+        "subcategoria": "consulta-producto",
+        "prioridad": "baja",
+        "sentimiento": 0,
+        "confianza": 0.88,
+        "entidades": {
+          "familiaProducto": "griferia",
+          "temaConsultado": "garantia",
+          "clientePotencial": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "GAR-01",
+          "PQR-01"
+        ],
+        "cumple": true,
+        "calculos": {
+          "familiaProducto": "griferia",
+          "garantiaGriferiaMeses": 36,
+          "garantiaMueblesYMamparasMeses": 24,
+          "garantiaLedEspejosMeses": 24,
+          "normaLegal": "Ley 1480 de 2011",
+          "plazoRespuestaConsultaHorasHabiles": 24
+        },
+        "riesgos": [
+          "Al ser una consulta previa a la compra, cualquier cifra que se dé se convierte en promesa comercial: debe citarse exactamente 36 meses y no redondearse a tres años sin matiz",
+          "Hay que mencionar las exclusiones de GAR-01 (mala instalación, incrustaciones de cal por agua dura, químicos abrasivos y golpes posteriores a la entrega) para no generar una expectativa que luego se niegue",
+          "El cliente no tiene pedidos previos: una respuesta incompleta cuesta la primera venta"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, Diego.\n\n¡Con mucho gusto le ayudamos!\n\nNuestra grifería tiene 36 meses de garantía contados desde la entrega. Son 36 meses exactos, conforme a la Ley 1480 de 2011, y aplican a toda la familia de grifería.\n\nComo nos cuenta que está comparando, le dejamos el cuadro completo:\n\n· Grifería: 36 meses\n· Muebles de baño y mamparas: 24 meses\n· Sistema LED de los espejos: 24 meses\n\nQué cubre y qué no. La garantía responde por defectos del producto. No cubre cuatro cosas, y le conviene saberlas antes de comprar y no después:\n\n1. Daños por mala instalación.\n2. Incrustaciones de cal por agua dura.\n3. Uso de productos químicos abrasivos en la limpieza.\n4. Golpes posteriores a la entrega.\n\nDe las cuatro, la primera es la más frecuente. Si le sirve, en Cali trabajamos con aliados certificados y podemos cotizarle la instalación: es un servicio que se cotiza aparte y no está incluido en el precio de los productos.\n\nSi nos cuenta qué grifería está mirando (de ducha, de lavamanos, empotrada), le pasamos la ficha y el precio.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-comercial",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, Diego.\n\n¡Con mucho gusto le ayudamos!\n\nNuestra grifería tiene 36 meses de garantía contados desde la entrega. Son 36 meses exactos, conforme a la Ley 1480 de 2011, y aplican a toda la familia de grifería.\n\nComo nos cuenta que está comparando, le dejamos el cuadro completo:\n\n· Grifería: 36 meses\n· Muebles de baño y mamparas: 24 meses\n· Sistema LED de los espejos: 24 meses\n\nQué cubre y qué no. La garantía responde por defectos del producto. No cubre cuatro cosas, y le conviene saberlas antes de comprar y no después:\n\n1. Daños por mala instalación.\n2. Incrustaciones de cal por agua dura.\n3. Uso de productos químicos abrasivos en la limpieza.\n4. Golpes posteriores a la entrega.\n\nDe las cuatro, la primera es la más frecuente. Si le sirve, en Cali trabajamos con aliados certificados y podemos cotizarle la instalación: es un servicio que se cotiza aparte y no está incluido en el precio de los productos.\n\nSi nos cuenta qué grifería está mirando (de ducha, de lavamanos, empotrada), le pasamos la ficha y el precio.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "consultas por canal chat",
+          "justificacion": "Consulta previa a la compra, de ahí que el pedido sea null. GAR-01 la resuelve de forma limpia: 36 meses para grifería, frente a 24 de muebles y mamparas. Comprueba que el sistema distingue el plazo por tipo de producto en lugar de dar una cifra genérica.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Cliente sin pedido pregunta cuántos meses de garantía trae la grifería mientras compara antes de comprar.",
+          "justificacion": "El cliente dice expresamente que está comparando antes de comprar y no tiene ningún pedido asociado, de modo que se trata de una consulta comercial previa a la venta y no de una reclamación de garantía. La palabra garantía podría empujar hacia devoluciones/garantia, pero esa subcategoría corresponde a un producto ya comprado con fallo, que aquí no existe. Por esa tensión la confianza queda en 0,88 en lugar de más alta.",
+          "confianza": 0.88,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "La grifería tiene 36 meses de garantía legal según GAR-01, frente a los 24 de muebles, mamparas y LED.",
+          "justificacion": "GAR-01 fija la garantía legal por tipo de producto conforme a la Ley 1480 de 2011 y asigna 36 meses a la grifería, cifra que coincide con el campo garantiaMeses de todas las referencias BN-GRI del catálogo. La misma regla excluye los daños por mala instalación, cal, químicos abrasivos y golpes posteriores a la entrega, matiz que debe acompañar a la cifra. PQR-01 obliga a responder esta consulta en un máximo de 24 horas hábiles. No hay pedido asociado, de modo que ninguna regla de la serie DEV entra en juego.",
+          "confianza": null,
+          "reglas": [
+            "GAR-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta previa a la compra sobre garantía de grifería: la IA responde 36 meses según GAR-01 con sus exclusiones.",
+          "justificacion": "Consulta comercial sin pedido, sin importe en juego y sin conflicto: no se activa ningún criterio de escalado. La confianza de 0,88 descarta H06 y el sentimiento neutro en primer contacto descarta H07. No es un mensaje fuera de ámbito, sino una pregunta de producto propia de atención al cliente, así que H11 tampoco aplica. La respuesta está enteramente contenida en GAR-01.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-comercial",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se da la cifra exacta de GAR-01, 36 meses para grifería, sin redondearla a tres años, porque en una consulta previa a la compra la cifra se convierte en promesa comercial. Como el cliente dice que está comparando, se añaden los otros dos plazos de la misma regla, 24 meses para muebles y mamparas y 24 para el sistema LED de los espejos, que es información suya y evita una expectativa equivocada más adelante. Se enumeran las cuatro exclusiones literales de GAR-01 antes de la compra y no después, y se enlaza la primera de ellas con la instalación por aliados de INS-01, que cubre Cali, advirtiendo de que se cotiza aparte. No se menciona el descuento de PRO-01, por tratarse de un cliente particular, ni se nombra ningún modelo concreto de grifería, porque el cliente no indicó cuál está mirando.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se contrastaron las tres cifras con GAR-01: 36 meses para grifería, 24 para muebles y mamparas y 24 para el sistema LED de los espejos, correctas, junto con la referencia a la Ley 1480 de 2011. Las cuatro exclusiones citadas son exactamente las de la regla, sin añadir ninguna, y no se inventa ninguna característica de producto ni se nombra un modelo del catálogo que el cliente no haya mencionado. La instalación se ofrece solo para Cali, que es una de las tres ciudades de INS-01, y con la advertencia de cotización previa. No se ofrece el descuento de PRO-01 a un cliente particular. Se aprueba sin observaciones.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0014",
+      "recibidaEn": "2026-09-17T10:23:00-05:00",
+      "canal": "formulario",
+      "cliente": {
+        "id": "CLI-0128",
+        "nombre": "Adriana Pineda Quintero",
+        "ciudad": "Cali",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107533",
+        "fecha": "2026-09-07",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ACC-001",
+            "cantidad": 1,
+            "precioCOP": 245000
+          },
+          {
+            "sku": "BN-ACC-002",
+            "cantidad": 1,
+            "precioCOP": 68000
+          }
+        ],
+        "totalCOP": 313000,
+        "fechaEntrega": "2026-09-13"
+      },
+      "asunto": "Devolución del juego de accesorios del pedido BN-107533",
+      "mensaje": "Buenas tardes. Del pedido BN-107533 quiero devolver únicamente el juego de accesorios de seis piezas en cromo, porque los herrajes del baño quedaron en negro mate y no hacen juego. El portarrollos sí me lo quedo, ese ya lo pegué.\n\nEl juego de accesorios está tal como llegó, en su caja, sin abrir las bolsas de tornillos. Quedo atenta a los pasos a seguir.",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.95,
+        "entidades": {
+          "numeroPedido": "BN-107533",
+          "sku": "BN-ACC-001",
+          "skuQueConserva": "BN-ACC-002",
+          "importeCOP": 245000,
+          "fechaRecepcion": "2026-09-13",
+          "devolucionParcial": true,
+          "productoInstalado": false,
+          "embalajeOriginal": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-09",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaRecepcion": "2026-09-13",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 4,
+          "plazoDEV01": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 10,
+          "fechaLimiteDesistimiento": "2026-09-27",
+          "skuDevuelto": "BN-ACC-001",
+          "skuConservado": "BN-ACC-002",
+          "devolucionParcial": true,
+          "tipologiaDevolucion": "accesorios",
+          "aMedida": false,
+          "zona": "A",
+          "ciudad": "Cali",
+          "tarifaDEV08Rango": [
+            27000,
+            68000
+          ],
+          "gastoRecogidaCOP": 68000,
+          "criterioTarifa": "extremo superior del rango",
+          "importePagadoLineaDevueltaCOP": 245000,
+          "importeTotalPedidoCOP": 313000,
+          "reembolsoEstimadoCOP": 177000,
+          "porcentajeGastoSobreLineaDevuelta": 28,
+          "requiereEstiba": false,
+          "plazoReembolsoDiasCalendario": 14
+        },
+        "riesgos": [
+          "El reembolso se calcula solo sobre la línea devuelta (245.000 COP), no sobre el total del pedido de 313.000: conviene decirlo para que no espere el reembolso completo",
+          "La tarifa de accesorios en zona A es un rango de 27.000 a 68.000 COP y se ha tomado el extremo superior; si la transportadora aplica el tramo bajo, el reembolso subiría hasta 218.000 COP y hay que informarlo antes según DEV-13",
+          "DEV-04 exige que el juego de seis piezas vuelva completo: si falta alguna pieza o las bolsas de tornillos están abiertas, se abre depreciación por DEV-09",
+          "Con 68.000 COP de recogida sobre 245.000, la opción B de DEV-09 (envío gestionado por la clienta) puede resultarle más favorable"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Adriana.\n\n¡Con mucho gusto le indicamos los pasos!\n\nSu devolución parcial sí procede: recibió el pedido BN-107533 el 13 de septiembre, han transcurrido 4 de los 14 días calendario que damos para desistir y le quedan 10, así que tiene plazo hasta el 27 de septiembre. El juego de accesorios sigue sin instalar, en su caja y con las bolsas de tornillos sin abrir. El portarrollos que ya quedó pegado no entra en la devolución, tal como usted lo plantea: un producto ya instalado no es elegible para desistimiento.\n\nCuánto se le reembolsa. El cálculo se hace solo sobre la línea que devuelve, no sobre el total de $ 313.000 del pedido:\n\n· Valor pagado por el juego de accesorios: $ 245.000\n· Gastos de recogida (accesorios, Cali, zona A): $ 68.000\n· Total a reembolsar: $ 177.000\n\nUna precisión sobre esa cifra: la tarifa de recogida de accesorios en zona A va de $ 27.000 a $ 68.000 y hemos tomado el extremo superior para no darle una expectativa que luego no se cumpla. El costo definitivo lo confirma la transportadora. Si resulta menor dentro de ese rango, su reembolso sería mayor en esa misma diferencia, y se lo informaríamos antes de emitirlo.\n\nAntes de embalar, dos cosas. El juego debe volver completo: las seis piezas, la tornillería y los manuales. Si faltara alguna pieza podría aplicarse una depreciación sobre el importe, que siempre le informaríamos antes de emitir el reembolso. Y necesitamos fotografías del producto antes y después de embalarlo, porque sin ellas el seguro de transporte no cubre los daños del trayecto.\n\nTambién puede gestionar usted misma el envío, si le conviene más: le enviamos la dirección y las instrucciones, usted contrata la transportadora y no se le descuentan los gastos de recogida. Con $ 68.000 sobre $ 245.000, puede que le resulte más favorable. El paquete debe ir rotulado «Devolución – Bañolia – BN-107533», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nCómo continuamos. Diligencie el formulario de devolución en nuestra web indicando el pedido BN-107533 y el juego de accesorios de seis piezas, y cuéntenos cuál de las dos opciones prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el juego, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "La primera versión anunciaba que «si aplica el tramo bajo el reembolso subiría hasta $ 218.000». Esa cifra no está en los cálculos del analista, que fijan el reembolso en $ 177.000, y crea una expectativa de importe superior que depende de la transportadora y que Bañolia no controla. Corregido: se conserva el rango de $ 27.000 a $ 68.000 y el compromiso de informar la variación antes de aplicarla, sin dar un importe final alternativo."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señora Adriana.\n\n¡Con mucho gusto le indicamos los pasos!\n\nSu devolución parcial sí procede: recibió el pedido BN-107533 el 13 de septiembre, han transcurrido 4 de los 14 días calendario que damos para desistir y le quedan 10, así que tiene plazo hasta el 27 de septiembre. El juego de accesorios sigue sin instalar, en su caja y con las bolsas de tornillos sin abrir. El portarrollos que ya quedó pegado no entra en la devolución, tal como usted lo plantea: un producto ya instalado no es elegible para desistimiento.\n\nCuánto se le reembolsa. El cálculo se hace solo sobre la línea que devuelve, no sobre el total de $ 313.000 del pedido:\n\n· Valor pagado por el juego de accesorios: $ 245.000\n· Gastos de recogida (accesorios, Cali, zona A): $ 68.000\n· Total a reembolsar: $ 177.000\n\nUna precisión sobre esa cifra: la tarifa de recogida de accesorios en zona A va de $ 27.000 a $ 68.000 y hemos tomado el extremo superior para no darle una expectativa que luego no se cumpla. El costo definitivo lo confirma la transportadora. Si resulta menor dentro de ese rango, su reembolso sería mayor en esa misma diferencia, y se lo informaríamos antes de emitirlo.\n\nAntes de embalar, dos cosas. El juego debe volver completo: las seis piezas, la tornillería y los manuales. Si faltara alguna pieza podría aplicarse una depreciación sobre el importe, que siempre le informaríamos antes de emitir el reembolso. Y necesitamos fotografías del producto antes y después de embalarlo, porque sin ellas el seguro de transporte no cubre los daños del trayecto.\n\nTambién puede gestionar usted misma el envío, si le conviene más: le enviamos la dirección y las instrucciones, usted contrata la transportadora y no se le descuentan los gastos de recogida. Con $ 68.000 sobre $ 245.000, puede que le resulte más favorable. El paquete debe ir rotulado «Devolución – Bañolia – BN-107533», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nCómo continuamos. Diligencie el formulario de devolución en nuestra web indicando el pedido BN-107533 y el juego de accesorios de seis piezas, y cuéntenos cuál de las dos opciones prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el juego, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal formulario",
+          "justificacion": "Devolución parcial de un accesorio barato, dentro de plazo y con el producto intacto. El único matiz es que el pedido tiene dos líneas y solo se devuelve una, lo que obliga a calcular el reembolso sobre 245.000 y no sobre el total. Sigue siendo rutinario: ningún criterio de escalado se activa.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Desistimiento parcial: devuelve el juego de accesorios en cromo del pedido BN-107533 y conserva el portarrollos, que ya instaló.",
+          "justificacion": "La clienta pide devolver una línea concreta del pedido por incompatibilidad de acabado, un motivo estético propio del desistimiento, y precisa que el juego está en su caja con las bolsas de tornillos sin abrir. Distingue con claridad la línea que devuelve de la que conserva por haberla pegado ya. La confianza es alta porque no hay ambigüedad de categoría; el carácter parcial de la devolución es un detalle de cálculo, no de clasificación.",
+          "confianza": 0.95,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Devolución parcial procedente en el día 4 de 14; reembolso estimado de 177.000 COP sobre la línea del juego de accesorios.",
+          "justificacion": "DEV-01 sitúa el caso en el día 4 de los 14 días calendario desde la recepción del 13 de septiembre, con vencimiento el 27 de septiembre. Se cumplen DEV-02, DEV-03 y DEV-04 respecto de BN-ACC-001, que llega en su caja con las bolsas de tornillos sin abrir, y DEV-05 no aplica porque no es a medida; el portarrollos BN-ACC-002 ya instalado queda fuera de la devolución y no la contamina. DEV-08 fija para la tipología accesorios en zona A (Cali) un rango de 27.000 a 68.000 COP y se toma el extremo superior, 68.000, de modo que el reembolso sobre los 245.000 de la línea devuelta queda en 177.000, a cargo de la clienta según DEV-14 y emitido en los 14 días calendario de DEV-10.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-09",
+            "DEV-10",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Devolución parcial de accesorios dentro de plazo: la IA confirma el procedimiento y el reembolso de 177.000 COP sobre la línea devuelta.",
+          "justificacion": "La devolución parcial cumple DEV-01 a DEV-09 y el reembolso de 177.000 COP está muy lejos del umbral de H01. No hay excepción que autorizar, porque la política ampara la solicitud tal cual, de modo que H04 no aplica. La confianza de 0,95 descarta H06 y no hay antecedente de contacto previo por el mismo tema. La única sutileza es explicar que el cálculo se hace sobre los 245.000 de la línea devuelta y no sobre el total del pedido, y eso es redactable.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "Se deja claro desde el principio que el reembolso se calcula sobre los $ 245.000 de la línea devuelta y no sobre los $ 313.000 del pedido, porque es la confusión más probable en una devolución parcial, y se confirma de paso que el portarrollos ya pegado queda fuera por estar instalado. Como la tarifa de accesorios en zona A es un rango y se tomó el extremo superior, se avisa de que el costo definitivo lo confirma la transportadora y de que cualquier variación se le informará antes de aplicarla. En la segunda versión se retiró el importe alternativo de $ 218.000 que señaló el supervisor, manteniendo el aviso del rango.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "En la primera revisión la aritmética principal era correcta —$ 245.000 menos $ 68.000 dan los $ 177.000— y las fechas coincidían con el pedido, pero el borrador introducía un segundo importe de reembolso que no figura en los cálculos y que la transportadora podría no confirmar, así que se devolvió. La segunda versión mantiene el aviso de variación de costos con el rango real de tarifa y ya no promete ningún importe distinto de $ 177.000. Se verificó además que exige el juego completo antes de embalar y que respeta los 14 días calendario de reembolso.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0015",
+      "recibidaEn": "2026-09-17T11:05:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0067",
+        "nombre": "Liliana Hoyos Cárdenas",
+        "ciudad": "Florencia",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107205",
+        "fecha": "2026-08-31",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-ESP-001",
+            "cantidad": 1,
+            "precioCOP": 780000
+          }
+        ],
+        "totalCOP": 780000,
+        "fechaEntrega": "2026-09-12"
+      },
+      "asunto": "Quién paga la recogida de una devolución",
+      "mensaje": "buenas tardes, una pregunta antes de decidirme. si devuelvo el espejo con luz del pedido BN-107205 xq no me gusto el tamaño, quien paga la recogida, ustedes o yo? y si la pago yo cuanto me saldria hasta Florencia? el espejo esta sin abrir todavia",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.85,
+        "entidades": {
+          "numeroPedido": "BN-107205",
+          "sku": "BN-ESP-001",
+          "importeCOP": 780000,
+          "fechaRecepcion": "2026-09-12",
+          "ciudadRecogida": "Florencia",
+          "productoAbierto": false,
+          "preguntaGastoRecogida": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-09",
+          "DEV-10",
+          "DEV-13",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaRecepcion": "2026-09-12",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 5,
+          "plazoDEV01": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 9,
+          "fechaLimiteDesistimiento": "2026-09-26",
+          "sku": "BN-ESP-001",
+          "tipologiaDevolucion": "espejos-led",
+          "aMedida": false,
+          "zona": "B",
+          "ciudad": "Florencia",
+          "tarifaDEV08Rango": [
+            315000,
+            315000
+          ],
+          "gastoRecogidaCOP": 315000,
+          "importePagadoCOP": 780000,
+          "reembolsoEstimadoCOP": 465000,
+          "porcentajeGastoSobrePagado": 40,
+          "asumeCosteCliente": true,
+          "requiereEstiba": true,
+          "plazoReembolsoDiasCalendario": 14
+        },
+        "riesgos": [
+          "Los 315.000 COP de recogida equivalen al 40 % de los 780.000 pagados: es la cifra que más quejas genera y la clienta la está pidiendo antes de decidir, así que debe darse sin rodeos",
+          "La devolución es por gusto de tamaño, no por defecto ni error de Bañolia, de modo que DEV-14 no permite eximirla del coste; cualquier gesto comercial sería una excepción que sienta precedente",
+          "Quedan 9 de los 14 días de DEV-01 (vence el 26 de septiembre) y la clienta todavía está decidiendo: el plazo puede agotarse mientras lo piensa",
+          "El espejo LED requiere estiba y fotos antes y después según DEV-07; sin ellas el seguro no cubre daños en el trayecto desde Florencia",
+          "Florencia es zona B y DEV-13 advierte que la tarifa puede variar por factores externos, así que el importe debe darse como estimado y confirmarse antes de aplicarlo"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Liliana.\n\nLe damos la respuesta directa, que es lo que le sirve para decidir.\n\nQuién paga la recogida. En una devolución por cambio de opinión —en su caso, el tamaño del espejo— los costos de la devolución los asume el cliente. Bañolia los asume únicamente cuando hay un error nuestro, como enviar un producto equivocado o una referencia distinta a la pedida, o cuando el producto viene defectuoso. No es su caso, así que la recogida corre por su cuenta.\n\nCuánto le quedaría:\n\n· Valor pagado: $ 780.000\n· Gastos de recogida (espejo con luz LED, Florencia, zona B): $ 315.000\n· Total a reembolsar: $ 465.000\n\nNo se lo endulzamos: son $ 315.000 sobre $ 780.000. Es la tarifa que corresponde a un espejo con LED hacia zona B, y se la damos ahora justamente para que decida con el número delante y no después de haber devuelto. Ese valor es estimado: puede variar por factores externos como el precio del combustible o las tarifas de la transportadora, y cualquier variación se la informaríamos antes de aplicarla.\n\nTambién puede gestionar usted misma el envío, y en su caso vale la pena mirarlo: le enviamos la dirección y las instrucciones, usted contrata la transportadora y le recomendamos un seguro todo riesgo, y no se le descuentan los $ 315.000. Según lo que le coticen desde Florencia, esta opción puede salirle mejor. El paquete debe ir rotulado «Devolución – Bañolia – BN-107205», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nEn cualquiera de las dos opciones, y antes de que embale: el espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin fotos el seguro de transporte no cubre los daños del trayecto y, si el espejo llega roto, no podríamos emitir el reembolso.\n\nEl plazo. Recibió el espejo el 12 de septiembre, han transcurrido 5 de los 14 días calendario y le quedan 9: tiene hasta el 26 de septiembre para desistir. Le pedimos tenerlo presente mientras lo piensa, porque pasada esa fecha ya no podríamos aceptar la devolución.\n\nCómo continuamos. Si decide devolverlo, diligencie el formulario de devolución en nuestra web con el número de pedido BN-107205 y cuéntenos qué opción prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señora Liliana.\n\nLe damos la respuesta directa, que es lo que le sirve para decidir.\n\nQuién paga la recogida. En una devolución por cambio de opinión —en su caso, el tamaño del espejo— los costos de la devolución los asume el cliente. Bañolia los asume únicamente cuando hay un error nuestro, como enviar un producto equivocado o una referencia distinta a la pedida, o cuando el producto viene defectuoso. No es su caso, así que la recogida corre por su cuenta.\n\nCuánto le quedaría:\n\n· Valor pagado: $ 780.000\n· Gastos de recogida (espejo con luz LED, Florencia, zona B): $ 315.000\n· Total a reembolsar: $ 465.000\n\nNo se lo endulzamos: son $ 315.000 sobre $ 780.000. Es la tarifa que corresponde a un espejo con LED hacia zona B, y se la damos ahora justamente para que decida con el número delante y no después de haber devuelto. Ese valor es estimado: puede variar por factores externos como el precio del combustible o las tarifas de la transportadora, y cualquier variación se la informaríamos antes de aplicarla.\n\nTambién puede gestionar usted misma el envío, y en su caso vale la pena mirarlo: le enviamos la dirección y las instrucciones, usted contrata la transportadora y le recomendamos un seguro todo riesgo, y no se le descuentan los $ 315.000. Según lo que le coticen desde Florencia, esta opción puede salirle mejor. El paquete debe ir rotulado «Devolución – Bañolia – BN-107205», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nEn cualquiera de las dos opciones, y antes de que embale: el espejo debe viajar sobre estiba y necesitamos fotografías del producto antes y después de embalarlo. Sin estiba o sin fotos el seguro de transporte no cubre los daños del trayecto y, si el espejo llega roto, no podríamos emitir el reembolso.\n\nEl plazo. Recibió el espejo el 12 de septiembre, han transcurrido 5 de los 14 días calendario y le quedan 9: tiene hasta el 26 de septiembre para desistir. Le pedimos tenerlo presente mientras lo piensa, porque pasada esa fecha ya no podríamos aceptar la devolución.\n\nCómo continuamos. Si decide devolverlo, diligencie el formulario de devolución en nuestra web con el número de pedido BN-107205 y cuéntenos qué opción prefiere; sin esa autorización previa no podemos recibir el envío. Una vez recibamos y verifiquemos el espejo, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal whatsapp",
+          "justificacion": "Pregunta directa sobre quién asume los costes de la recogida, que DEV-14 resuelve sin ambigüedad: los asume el cliente cuando no hay error de Bañolia ni producto defectuoso. La tarifa concreta sale de DEV-08 para espejos LED en zona B. Incluye zona B a propósito, para comprobar que el sistema no aplica la tarifa de zona A por defecto.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Consulta previa a decidir: quién asume la recogida de un espejo LED sin abrir y cuánto costaría hasta Florencia.",
+          "justificacion": "La clienta plantea una devolución por tamaño sobre un pedido identificado y pregunta por la asignación y el importe de los gastos de recogida, materia propia de la política de devoluciones. La confianza es 0,85 porque el mensaje aún es una consulta y no una devolución formalizada, lo que abre una lectura alternativa como consulta, pero el anclaje a un pedido entregado y a un desistimiento concreto la resuelve. El tono es neutro.",
+          "confianza": 0.85,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "La recogida la paga la clienta: 315.000 COP a Florencia (zona B), con reembolso estimado de 465.000 de los 780.000 pagados.",
+          "justificacion": "DEV-14 responde directamente a la pregunta: el cliente asume los costes directos de la devolución salvo error imputable a Bañolia o producto defectuoso, y aquí el motivo es el tamaño, así que los asume ella. La tabla de DEV-08 fija 315.000 COP para la tipología espejos-led en zona B, donde está Florencia, de modo que sobre los 780.000 pagados el reembolso estimado queda en 465.000, emitido en los 14 días calendario de DEV-10. El plazo de DEV-01 está vivo: es el día 5 de 14 desde la recepción del 12 de septiembre y vence el 26 de septiembre; DEV-13 obliga a presentar la tarifa como estimada y DEV-09 le ofrece la alternativa de gestionar ella el envío.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-09",
+            "DEV-10",
+            "DEV-13",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta sobre quién asume la recogida: la IA responde que la asume la clienta según DEV-08, con la tarifa estimada de 315.000 COP a Florencia.",
+          "justificacion": "Es una consulta previa a decidir, sin reembolso aprobado, y aunque la cifra de recogida sea alta en proporción, no hay reembolso ni compensación por encima de 1.500.000 que active H01. La devolución sería por gusto, no por defecto ni error de Bañolia, así que no hay excepción atendible que estudiar y H04 no aplica: que la respuesta no le guste a la clienta no es por sí solo motivo de escalado. La confianza de 0,85 supera el umbral de H06 y el sentimiento es neutro en primer contacto. La IA debe dar la cifra sin rodeos y como estimada, conforme a DEV-13.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "La clienta pregunta antes de decidir, así que la respuesta abre con quién paga y por qué: la devolución es por gusto de tamaño, no por defecto ni error nuestro, y eso no admite excepción. Los $ 315.000 sobre $ 780.000 son el 40 % y se dan sin rodeos, porque ocultar la cifra a quien la está pidiendo expresamente solo aplaza la queja. Se marca como estimado por la variabilidad de tarifas hacia zona B, se ofrece la opción de que ella gestione el envío desde Florencia y se anticipan los requisitos de estiba y fotografías antes de que embale.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se contrastó el cálculo con la tabla de tarifas y con el analista: $ 780.000 menos $ 315.000 son los $ 465.000 del borrador, y $ 315.000 es la tarifa de espejos con LED en zona B. El borrador no ofrece ningún gesto comercial ni exime del costo, que era el riesgo principal, y presenta el importe como estimado sujeto a confirmación en lugar de darlo por cerrado. Las fechas (recepción el 12 de septiembre, 9 días restantes, límite el 26) y los 14 días calendario de reembolso son correctos.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0016",
+      "recibidaEn": "2026-09-17T12:38:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0116",
+        "nombre": "Juan Valencia Peña",
+        "ciudad": "Bucaramanga",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107460",
+        "fecha": "2026-09-04",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-GRI-004",
+            "cantidad": 2,
+            "precioCOP": 390000
+          }
+        ],
+        "totalCOP": 780000,
+        "fechaEntrega": "2026-09-11"
+      },
+      "asunto": "¿Cómo devuelvo los dos grifos de ducha del pedido BN-107460?",
+      "mensaje": "Buenos días.\n\nPedí dos grifos de ducha monomando en cromo, pero finalmente la remodelación solo contempla una ducha, así que me sobra uno y prefiero devolver los dos y pedir después el modelo termostático.\n\nLos dos grifos están sin abrir. Mi pregunta es de procedimiento: ¿debo enviarlos yo por mi cuenta a alguna dirección o ustedes mandan la transportadora a recogerlos? ¿Tengo que llenar algún formulario antes?\n\nGracias por su tiempo.\nJuan Valencia Peña",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.93,
+        "entidades": {
+          "numeroPedido": "BN-107460",
+          "sku": "BN-GRI-004",
+          "cantidad": 2,
+          "importeCOP": 780000,
+          "fechaEntrega": "2026-09-11",
+          "productoSinAbrir": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-04",
+          "DEV-05",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-09",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaEntrega": "2026-09-11",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 6,
+          "plazoDEV01DiasCalendario": 14,
+          "dentroDePlazo": true,
+          "diasRestantes": 8,
+          "fechaLimiteDesistimiento": "2026-09-25",
+          "sku": "BN-GRI-004",
+          "aMedida": false,
+          "unidades": 2,
+          "tipologiaDevolucion": "griferia",
+          "zona": "A",
+          "ciudad": "Bucaramanga",
+          "gastoRecogidaCOP": 113000,
+          "importePagadoCOP": 780000,
+          "reembolsoEstimadoCOP": 667000,
+          "requiereEstiba": false,
+          "plazoReembolsoDiasCalendario": 14
+        },
+        "riesgos": [
+          "El cliente no ha enviado todavía el formulario de DEV-06: sin autorización previa no se acepta ningún envío de devolución",
+          "Quedan 8 días de plazo de DEV-01 (vence el 25 de septiembre), pero el cliente aún tiene que decidir entre la opción A y la opción B",
+          "El reembolso no será de 780.000 sino de 667.000 COP si elige la recogida de DEV-07, y conviene decírselo antes de que autorice",
+          "El cliente anuncia que después pedirá el modelo termostático (BN-GRI-005, 890.000 COP): no es una garantía de recompra y no debe condicionar el cálculo"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Juan.\n\n¡Con mucho gusto le explicamos el procedimiento!\n\nEmpecemos por el formulario, porque es el primer paso en cualquiera de los dos caminos: sí, debe diligenciar el formulario de devolución en nuestra web indicando el número de pedido BN-107460 y los dos grifos que desea devolver. Sin esa autorización previa no podemos recibir el envío.\n\nA partir de ahí usted elige cómo se hace el envío.\n\nOpción A, nosotros mandamos la transportadora a recogerlos. En este caso el gasto de recogida se descuenta del reembolso:\n\n· Valor pagado por los dos grifos: $ 780.000\n· Gastos de recogida (grifería, Bucaramanga, zona A): $ 113.000\n· Total a reembolsar: $ 667.000\n\nOpción B, usted gestiona el envío por su cuenta. Le enviamos la dirección y las instrucciones, usted contrata la transportadora y le recomendamos un seguro todo riesgo. Aquí no se le descuentan los $ 113.000, así que si le cotizan por debajo de esa cifra le conviene. El paquete debe ir rotulado «Devolución – Bañolia – BN-107460», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nEn ambos casos, y antes de que embale: necesitamos fotografías de los grifos antes y después de embalarlos, porque sin ellas el seguro de transporte no cubre los daños del trayecto. Los dos grifos deben volver completos y sin abrir, con toda su tornillería y sus manuales.\n\nEl plazo. Recibió el pedido el 11 de septiembre, han transcurrido 6 de los 14 días calendario y le quedan 8: tiene hasta el 25 de septiembre para desistir, así que hay margen para que lo decida con calma.\n\nSobre el modelo termostático que menciona: sería un pedido nuevo e independiente. No condiciona esta devolución ni al revés, y el reembolso se le emite igual aunque finalmente no lo pida. Cuando lo tenga decidido, escríbanos y le ayudamos con la referencia y la disponibilidad.\n\nCómo continuamos. Diligencie el formulario y cuéntenos cuál de las dos opciones prefiere. Una vez recibamos y verifiquemos los dos grifos, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": []
+      },
+      "respuestaFinal": {
+        "texto": "Buenos días, señor Juan.\n\n¡Con mucho gusto le explicamos el procedimiento!\n\nEmpecemos por el formulario, porque es el primer paso en cualquiera de los dos caminos: sí, debe diligenciar el formulario de devolución en nuestra web indicando el número de pedido BN-107460 y los dos grifos que desea devolver. Sin esa autorización previa no podemos recibir el envío.\n\nA partir de ahí usted elige cómo se hace el envío.\n\nOpción A, nosotros mandamos la transportadora a recogerlos. En este caso el gasto de recogida se descuenta del reembolso:\n\n· Valor pagado por los dos grifos: $ 780.000\n· Gastos de recogida (grifería, Bucaramanga, zona A): $ 113.000\n· Total a reembolsar: $ 667.000\n\nOpción B, usted gestiona el envío por su cuenta. Le enviamos la dirección y las instrucciones, usted contrata la transportadora y le recomendamos un seguro todo riesgo. Aquí no se le descuentan los $ 113.000, así que si le cotizan por debajo de esa cifra le conviene. El paquete debe ir rotulado «Devolución – Bañolia – BN-107460», con fotografías del embalaje y avisándonos el mismo día del envío.\n\nEn ambos casos, y antes de que embale: necesitamos fotografías de los grifos antes y después de embalarlos, porque sin ellas el seguro de transporte no cubre los daños del trayecto. Los dos grifos deben volver completos y sin abrir, con toda su tornillería y sus manuales.\n\nEl plazo. Recibió el pedido el 11 de septiembre, han transcurrido 6 de los 14 días calendario y le quedan 8: tiene hasta el 25 de septiembre para desistir, así que hay margen para que lo decida con calma.\n\nSobre el modelo termostático que menciona: sería un pedido nuevo e independiente. No condiciona esta devolución ni al revés, y el reembolso se le emite igual aunque finalmente no lo pida. Cuando lo tenga decidido, escríbanos y le ayudamos con la referencia y la disponibilidad.\n\nCómo continuamos. Diligencie el formulario y cuéntenos cuál de las dos opciones prefiere. Una vez recibamos y verifiquemos los dos grifos, el reembolso se emite por el mismo medio de pago en un máximo de 14 días calendario.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal correo",
+          "justificacion": "Pregunta de procedimiento, no de dinero: DEV-06 exige el contacto previo por el formulario y DEV-07 y DEV-09 describen las dos opciones de envío. Deliberadamente parecido al caso 0011 pero desplazado hacia el cómo en lugar del cuánto, para que el lote no repita dos veces el mismo ejercicio de cálculo.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Desistimiento de dos grifos de ducha sin abrir: el cliente pregunta por el procedimiento de recogida.",
+          "justificacion": "El cliente pide devolver dos grifos que ya recibió porque le sobran, sin alegar defecto alguno, lo que es un desistimiento de manual. Sus dos preguntas son de procedimiento: quién gestiona el transporte y si hay formulario previo. El tono es cordial y neutro, sin queja ni urgencia, de ahí sentimiento 0 y prioridad media. La confianza es alta porque la intención es inequívoca y no se mezcla con ningún otro tema.",
+          "confianza": 0.93,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Desistimiento procedente en el día 6 de 14; con recogida de Bañolia el reembolso queda en $ 667.000 tras descontar $ 113.000 de grifería en zona A.",
+          "justificacion": "El plazo de DEV-01 se cumple con holgura: 6 días calendario desde la entrega del 11 de septiembre, con vencimiento el 25, y se satisfacen DEV-02, DEV-03 y DEV-04 porque los dos grifos siguen sin abrir en su embalaje. DEV-05 no excluye nada aquí, ya que BN-GRI-004 no es un producto a medida. La respuesta a su pregunta de procedimiento es DEV-06 (formulario previo obligatorio) y la elección entre DEV-07, recogida por Bañolia, y DEV-09, envío por su cuenta. Según la tabla de DEV-08, la tipología griferia en zona A descuenta 113.000 COP sobre los 780.000 pagados, y ese cargo lo asume el cliente conforme a DEV-14 al no existir error de Bañolia; el reembolso se emite en un máximo de 14 días calendario por DEV-10.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-04",
+            "DEV-05",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-09",
+            "DEV-10",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de procedimiento de devolución de dos grifos sin abrir: la IA explica el formulario de DEV-06 y las opciones A y B de DEV-09.",
+          "justificacion": "La pregunta es puramente de procedimiento y el caso cumple la política sin necesidad de excepción, de modo que H04 no aplica. El reembolso estimado de 667.000 COP queda por debajo del umbral de H01 y el anuncio de una recompra futura no es una cotización que active ese criterio. La confianza de 0,93 descarta H06 y el sentimiento neutro en primer contacto descarta H07. Basta con encaminarlo al formulario previo y darle el neto antes de que autorice.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "El cliente hizo tres preguntas de procedimiento —formulario, quién envía y a dónde— y la respuesta las contesta en ese orden, empezando por el formulario porque es requisito previo en los dos caminos. Las dos opciones se presentan comparables: con la recogida gestionada por Bañolia recibe $ 667.000 de los $ 780.000, y gestionando él el envío no se le descuentan los $ 113.000, de modo que puede comparar con lo que le coticen. Se aclara que el futuro pedido del modelo termostático es independiente y no condiciona el reembolso, sin mencionar precios ni referencias que el cliente no ha solicitado.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se comprobó la resta contra los cálculos: $ 780.000 pagados por las dos unidades menos $ 113.000 de recogida de grifería en zona A dan los $ 667.000 del borrador. El borrador responde a las tres preguntas del cliente, incluida la del formulario previo obligatorio, que era el punto que podía hacerle enviar la mercancía sin autorización. No se anticipa precio ni disponibilidad del modelo termostático ni se condiciona la devolución a esa recompra, y el plazo de reembolso se mantiene en 14 días calendario desde la verificación.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0017",
+      "recibidaEn": "2026-09-17T14:12:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0107",
+        "nombre": "Gustavo Hoyos Jiménez",
+        "ciudad": "Pereira",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107094",
+        "fecha": "2026-08-27",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-SAN-006",
+            "cantidad": 1,
+            "precioCOP": 540000
+          }
+        ],
+        "totalCOP": 540000,
+        "fechaEntrega": "2026-09-05"
+      },
+      "asunto": "En cuánto tiempo llega el reembolso",
+      "mensaje": "buenas, ya llene el formulario y la transportadora recogio el bide el martes. en cuanto me devuelven la plata? es del pedido BN-107094",
+      "adjuntos": [],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "ia"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "reembolso",
+        "prioridad": "media",
+        "sentimiento": 0,
+        "confianza": 0.89,
+        "entidades": {
+          "numeroPedido": "BN-107094",
+          "sku": "BN-SAN-006",
+          "importeCOP": 540000,
+          "fechaEntrega": "2026-09-05",
+          "fechaRecogida": "2026-09-15",
+          "formularioEnviado": true
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-06",
+          "DEV-07",
+          "DEV-08",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": true,
+        "calculos": {
+          "fechaEntrega": "2026-09-05",
+          "fechaRecogida": "2026-09-15",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioEntregaARecogida": 10,
+          "plazoDEV01DiasCalendario": 14,
+          "dentroDePlazo": true,
+          "diasCalendarioDesdeLaRecogida": 2,
+          "plazoReembolsoDiasCalendario": 14,
+          "fechaLimiteReembolsoSiSeVerificaElDiaDeLaRecogida": "2026-09-29",
+          "sku": "BN-SAN-006",
+          "tipologiaDevolucion": "bides",
+          "zona": "A",
+          "ciudad": "Pereira",
+          "gastoRecogidaCOP": 203000,
+          "importePagadoCOP": 540000,
+          "reembolsoEstimadoCOP": 337000
+        },
+        "riesgos": [
+          "El cliente pregunta por 'la plata' dando por hecho los 540.000 COP: aún no sabe que DEV-08 descuenta 203.000 y el reembolso será de 337.000",
+          "El plazo de DEV-10 no corre desde la recogida sino desde que Bañolia recibe y verifica el bidé, y esa fecha todavía no consta en el pedido",
+          "Si en la recogida no se tomaron las fotografías de DEV-07 y el bidé llega dañado, el seguro no cubre y no procedería el reembolso"
+        ]
+      },
+      "decision": {
+        "ruta": "ia",
+        "criterios": [],
+        "slaHoras": 24,
+        "fichaEscalado": null
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Gustavo.\n\n¡Con mucho gusto le contamos cómo va!\n\nConfirmamos que su solicitud del pedido BN-107094 está registrada y que la transportadora recogió el bidé el martes 15 de septiembre.\n\nCuándo llega el dinero. El plazo de reembolso es de máximo 14 días calendario, pero no se cuenta desde la recogida: empieza a correr desde que el bidé llega a nuestras instalaciones y verificamos su estado. Esa fecha de recepción todavía no está registrada porque el bidé sigue en tránsito. En cuanto llegue y lo verifiquemos le escribimos para confirmarle desde qué día corren esos 14 días calendario.\n\nCuánto se le reembolsa. Conviene que lo sepa desde ahora, porque no es el valor completo del pedido:\n\n· Valor pagado: $ 540.000\n· Gastos de recogida (bidé, Pereira, zona A): $ 203.000\n· Total a reembolsar: $ 337.000\n\nLos gastos de recogida se descuentan porque la devolución no se origina en un error nuestro ni en un producto defectuoso.\n\nEl reembolso se emite por el mismo medio de pago que usted usó en la compra. Si al verificar el bidé encontráramos alguna anomalía, se lo informaríamos antes de emitirlo.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "La primera versión daba el 29 de septiembre como fecha límite hipotética del reembolso. Aunque iba condicionada, planta una fecha que depende de cuándo la transportadora entregue el bidé en Bañolia y que el cliente puede leer como un compromiso. Corregido: se retiró la fecha.",
+          "«Lo más probable es que sea unos días después» era una estimación del tiempo de tránsito que no está respaldada por ninguna regla ni por los datos del pedido. Corregido: se sustituyó por el compromiso de avisarle en cuanto se reciba y verifique el bidé, indicando desde qué día corren los 14 días calendario."
+        ]
+      },
+      "respuestaFinal": {
+        "texto": "Buenas tardes, señor Gustavo.\n\n¡Con mucho gusto le contamos cómo va!\n\nConfirmamos que su solicitud del pedido BN-107094 está registrada y que la transportadora recogió el bidé el martes 15 de septiembre.\n\nCuándo llega el dinero. El plazo de reembolso es de máximo 14 días calendario, pero no se cuenta desde la recogida: empieza a correr desde que el bidé llega a nuestras instalaciones y verificamos su estado. Esa fecha de recepción todavía no está registrada porque el bidé sigue en tránsito. En cuanto llegue y lo verifiquemos le escribimos para confirmarle desde qué día corren esos 14 días calendario.\n\nCuánto se le reembolsa. Conviene que lo sepa desde ahora, porque no es el valor completo del pedido:\n\n· Valor pagado: $ 540.000\n· Gastos de recogida (bidé, Pereira, zona A): $ 203.000\n· Total a reembolsar: $ 337.000\n\nLos gastos de recogida se descuentan porque la devolución no se origina en un error nuestro ni en un producto defectuoso.\n\nEl reembolso se emite por el mismo medio de pago que usted usó en la compra. Si al verificar el bidé encontráramos alguna anomalía, se lo informaríamos antes de emitirlo.\n\nEquipo de Servicio al Cliente Bañolia",
+        "autor": "ia"
+      },
+      "estado": "resuelto_ia",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal whatsapp",
+          "justificacion": "Seguimiento de una devolución ya autorizada. DEV-10 da la respuesta exacta: hasta 14 días calendario desde que Bañolia recibe y verifica el producto, y por el mismo medio de pago. Es corto, sin emoción y perfectamente automatizable; justo el tipo de mensaje que debería dominar cualquier lote.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Devolución ya recogida el 15 de septiembre: el cliente pregunta cuándo recibe el dinero.",
+          "justificacion": "El mensaje se refiere a una devolución ya en curso, con formulario enviado y bidé recogido por la transportadora, y la única pregunta es el plazo del reembolso. Por eso la categoría es devoluciones y la subcategoría reembolso, no estado-pedido. El tono es escueto pero neutro, sin reproche. La confianza es alta porque no hay ambigüedad de categoría, solo la elección de subcategoría dentro de devoluciones.",
+          "confianza": 0.89,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Devolución en curso y dentro de plazo: el reembolso vence 14 días calendario tras la verificación, y quedará en $ 337.000 tras el descuento de recogida.",
+          "justificacion": "La devolución se inició dentro del plazo de DEV-01, ya que la recogida del martes 15 de septiembre cae en el día 10 de los 14 contados desde la entrega del 5 de septiembre, y se cumplió DEV-06 porque el cliente llenó el formulario antes. DEV-10 fija el reembolso en un máximo de 14 días calendario desde que Bañolia recibe y verifica el producto, no desde la recogida: si la verificación se hubiera hecho el mismo día 15, el límite sería el 29 de septiembre. Por DEV-07 la recogida la gestionó la transportadora de Bañolia y por DEV-08 la tipología bides en zona A, Pereira, descuenta 203.000 COP, de modo que sobre los 540.000 pagados el reembolso estimado es de 337.000. DEV-14 confirma que ese coste lo asume el cliente, porque la devolución no obedece a defecto ni a error de la empresa.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-06",
+            "DEV-07",
+            "DEV-08",
+            "DEV-10",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Consulta de plazo de reembolso tras la recogida: la IA explica los 14 días de DEV-10 desde la verificación y el neto de 337.000 COP.",
+          "justificacion": "Es un seguimiento de un reembolso ya en curso, con 337.000 COP en juego, muy por debajo del umbral de H01. No hay excepción que valorar ni error de la empresa acreditado, así que H04 no aplica, y la confianza de 0,89 descarta H06. Aunque el cliente se llevará la sorpresa del descuento de recogida de 203.000, comunicar DEV-08 y DEV-10 es una tarea de redacción, no una decisión de negocio.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar",
+          "resultado": "Borrador de respuesta al cliente",
+          "justificacion": "El cliente pregunta cuándo le devuelven el dinero y da por hecho que serán los $ 540.000 completos, así que la respuesta corrige las dos cosas: explica que los 14 días calendario no corren desde la recogida sino desde que Bañolia recibe y verifica el bidé, y desglosa los $ 203.000 de recogida para que los $ 337.000 no le lleguen como sorpresa. En la segunda versión se retiraron, siguiendo las observaciones del supervisor, tanto la fecha hipotética del 29 de septiembre como la estimación del tiempo de tránsito, y se sustituyeron por el compromiso de avisarle en cuanto se verifique el producto.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "En la primera revisión las cifras eran correctas —$ 540.000 menos $ 203.000 de tarifa de bidés en zona A dan los $ 337.000— pero el borrador introducía una fecha de reembolso y una estimación de tránsito que dependen de la transportadora, así que se devolvió por comprometer algo que Bañolia no controla. La segunda versión explica correctamente que el plazo de 14 días calendario arranca con la recepción y verificación, sin acortarlo ni fijar día, y mantiene el desglose que evita que el cliente espere los $ 540.000 completos.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0018",
+      "recibidaEn": "2026-09-17T15:30:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0139",
+        "nombre": "Andrea Castro Valencia",
+        "ciudad": "Manizales",
+        "zona": "B",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-106871",
+        "fecha": "2026-08-05",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-MAM-007",
+            "cantidad": 1,
+            "precioCOP": 2480000
+          }
+        ],
+        "totalCOP": 2480000,
+        "fechaEntrega": "2026-09-08"
+      },
+      "asunto": "Solicitud de devolución del panel fijo a medida BN-106871",
+      "mensaje": "Buenas tardes.\n\nEl 8 de septiembre recibí el panel fijo a medida con tratamiento antical del pedido BN-106871. Estamos dentro de los 14 días, el panel está sin instalar y en su embalaje original, tal como llegó.\n\nEl problema es que el enchape del baño subió casi tres centímetros respecto al plano que le pasé a su asesor en agosto y el panel ya no encaja. Entiendo que el ancho lo pedí yo, pero la medida se la di sobre el plano que ustedes mismos me pidieron, así que no siento que el error sea solo mío.\n\nLlevo cinco pedidos con Bañolia y siempre ha ido todo bien. Les pido que estudien la devolución, o en su defecto que me digan si se puede recortar el vidrio o cambiarlo por otra medida pagando la diferencia. Son 2.480.000 pesos que no puedo dar por perdidos.\n\nQuedo pendiente.\nAndrea Castro Valencia",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Panel fijo embalado, de pie contra la pared del baño, con el precinto sin abrir"
+        },
+        {
+          "tipo": "documento",
+          "descripcion": "Plano del baño enviado al asesor en agosto con las medidas del hueco"
+        }
+      ],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.9,
+        "entidades": {
+          "numeroPedido": "BN-106871",
+          "sku": "BN-MAM-007",
+          "importeCOP": 2480000,
+          "fechaEntrega": "2026-09-08",
+          "productoAMedida": true,
+          "productoSinInstalar": true,
+          "temasSecundarios": [
+            "modificacion-pedido"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-05",
+          "DEV-08",
+          "DEV-14",
+          "CAN-01",
+          "GAR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "fechaEntrega": "2026-09-08",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 9,
+          "plazoDEV01DiasCalendario": 14,
+          "dentroDePlazoDEV01": true,
+          "diasRestantesDEV01": 5,
+          "fechaLimiteDEV01": "2026-09-22",
+          "sku": "BN-MAM-007",
+          "aMedida": true,
+          "excluidoPorDEV05": true,
+          "cumpleDEV02": true,
+          "cumpleDEV03": true,
+          "tipologiaDevolucion": "mamparas-sin-flejes",
+          "zona": "B",
+          "ciudad": "Manizales",
+          "gastoRecogidaSiProcedieraCOP": 531000,
+          "importePagadoCOP": 2480000,
+          "reembolsoHipoteticoSiProcedieraCOP": 1949000,
+          "garantiaMeses": 24,
+          "pedidosPreviosCliente": 5,
+          "valorHistoricoClienteCOP": 11569000
+        },
+        "riesgos": [
+          "El cliente cree estar en su derecho porque cumple el plazo, el no instalado y el embalaje original: la negativa de DEV-05 le va a resultar contraintuitiva y hay que explicarla, no solo citarla",
+          "La responsabilidad de la medida está en disputa: el ancho lo fijó el cliente, pero sobre un plano que el propio asesor de Bañolia le pidió, y ese correo de agosto es prueba que él conserva",
+          "Recortar el vidrio no es viable técnicamente: un panel templado de 8 a 10 mm no admite corte posterior al templado, así que esa alternativa no debe ofrecerse sin confirmación de Hidrosur",
+          "Cliente recurrente con 5 pedidos y 11.569.000 COP de histórico, y 2.480.000 COP en juego: es un caso de excepción comercial que debe valorar una persona, no el sistema",
+          "GAR-01 no ofrece salida alternativa: no hay defecto de fabricación, solo un hueco de obra que cambió"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H01",
+          "H04"
+        ],
+        "slaHoras": 24,
+        "fichaEscalado": {
+          "queDecidir": "¿Se acepta, como excepción a DEV-05, la devolución del panel fijo a medida de 2.480.000 COP, o se le ofrece en su lugar una solución intermedia de fabricación de una pieza nueva a la medida correcta con una compensación parcial?",
+          "opciones": [
+            "Aceptar la devolución como excepción comercial por corresponsabilidad en la toma de medidas, con reembolso de 1.949.000 COP tras descontar los 531.000 de recogida a Manizales",
+            "Aceptar la devolución como excepción y asumir además el costo de recogida, con reembolso íntegro de 2.480.000 COP, por tratarse de una clienta con cinco pedidos y 11.569.000 COP de histórico",
+            "Mantener la exclusión de DEV-05 y ofrecer la fabricación de un panel nuevo a la medida correcta pagando solo la diferencia, previa confirmación técnica con Hidrosur",
+            "Mantener la exclusión de DEV-05 sin alternativa y explicar el carácter de producto a medida, asumiendo la pérdida de la clienta"
+          ],
+          "riesgos": [
+            "La medida la fijó la clienta, pero sobre un plano que el propio asesor de Bañolia le pidió en agosto: esa corresponsabilidad es real y la clienta conserva el correo como prueba",
+            "Aceptar la devolución de un producto a medida sienta precedente frente a DEV-05 y frente al fabricante, que no readmite piezas cortadas a medida",
+            "Recortar el vidrio no es viable: un panel templado de 8 a 10 mm no admite corte posterior al templado, así que esa alternativa no debe ofrecerse sin confirmación de Hidrosur",
+            "Negarse en seco arriesga una clienta recurrente de 11.569.000 COP de histórico y puede escalar a reclamación formal, dado que ella cumple plazo, no instalación y embalaje original"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señora Andrea.\n\nGracias por escribirnos y por explicarnos el caso con tanto detalle. Recibimos su solicitud del pedido BN-106871, la fotografía del panel embalado y el plano que le entregó a nuestro asesor en agosto.\n\nEmpezamos por lo que ya está verificado:\n\n· El panel le fue entregado el 8 de septiembre. Han transcurrido 9 de los 14 días calendario que damos para desistir, así que le quedan 5 días: su plazo vence el 22 de septiembre.\n· Por la fotografía, el panel está sin instalar y en su embalaje original, que son las otras dos condiciones que pedimos.\n\nTambién tenemos que decirle con claridad cuál es el punto que complica su solicitud, y preferimos que lo sepa desde ahora: nuestra política de devoluciones excluye expresamente los productos fabricados a medida o personalizados, porque se confeccionan conforme a las especificaciones del cliente. El panel fijo Hidrosur de su pedido se fabricó con la medida que usted nos indicó, así que entra en esa exclusión. Es la regla general y no se la vamos a esconder.\n\nDicho eso, su caso no queda cerrado con esa regla. Lo entendemos tal como usted lo plantea: la medida la dio usted, pero sobre un plano que nuestro propio asesor le pidió, y eso es precisamente lo que debe valorar una persona y no un procedimiento automático. Por eso lo hemos escalado.\n\nSobre recortar el vidrio o cambiarlo por otra medida pagando la diferencia, no le vamos a adelantar un sí ni un no. Es una pregunta técnica que debemos confirmar con el fabricante, porque no todo vidrio admite manipulación después de fabricado, y preferimos decírselo así antes que darle una respuesta que luego no podamos sostener.\n\nQué sigue. Una persona de nuestro equipo va a revisar su caso completo, incluidos el plano de agosto y su historial de cinco pedidos con nosotros, y se comunicará con usted dentro de las próximas 24 horas hábiles.\n\nMientras tanto le pedimos conservar el panel tal como está, embalado y precintado, sin abrirlo ni desecharlo, para que cualquier salida que se decida siga siendo posible.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Aprobado como borrador de partida para la persona que atienda el caso, no para envío automático: la decisión sobre la excepción a DEV-05 sigue abierta."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal correo",
+          "justificacion": "Caso límite de verdad: DEV-05 prohíbe devolver productos a medida, pero la clienta es recurrente, aporta un plano que insinúa una responsabilidad compartida y el importe de 2.480.000 supera el umbral de H01. Se cruzan H01 y H04, y además propone una alternativa comercial (recortar o cambiar pagando la diferencia) que ningún agente automático debería negociar.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Solicitud de devolución de un panel fijo a medida de $ 2.480.000 que ya no encaja por un cambio de obra.",
+          "justificacion": "La petición principal y explícita es que se estudie la devolución del panel, sin instalar y embalado, invocando los 14 días. Las alternativas que plantea (recortar el vidrio o cambiar la medida pagando la diferencia) quedan como tema secundario dentro del mismo asunto, por lo que no hay mezcla de categorías. La prioridad es alta por el importe en juego y porque el plazo de desistimiento está corriendo. La confianza se mantiene alta: que la política probablemente le dé la negativa por ser un producto a medida no es asunto del clasificador.",
+          "confianza": 0.9,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "El panel es a medida, así que DEV-05 excluye la devolución aunque el plazo de DEV-01 siga vivo hasta el 22 de septiembre (día 9 de 14).",
+          "justificacion": "El cálculo de DEV-01 da 9 días calendario desde la entrega del 8 de septiembre, con 5 días restantes y vencimiento el 22, y DEV-02 y DEV-03 se cumplen porque el panel está sin instalar y precintado; aun así, DEV-05 excluye expresamente de devolución y desistimiento los productos fabricados a medida, y BN-MAM-007 figura en el catálogo con aMedida en true, de modo que el plazo vigente no abre ningún derecho. En la misma línea, CAN-01 impide la cancelación de un producto a medida una vez iniciada la fabricación, y GAR-01 tampoco ampara el caso porque no hay defecto sino un cambio de la obra. Si la empresa decidiera aceptarlo como excepción comercial, la tabla de DEV-08 para mamparas sin flejes en zona B descuenta 531.000 COP, con lo que el reembolso quedaría en 1.949.000 sobre los 2.480.000 pagados, y esos gastos los asumiría el cliente por DEV-14 al no existir error imputable a Bañolia.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-05",
+            "DEV-08",
+            "DEV-14",
+            "CAN-01",
+            "GAR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado: devolución de panel a medida excluida por DEV-05, con 2.480.000 COP en juego y corresponsabilidad de Bañolia en la medida.",
+          "justificacion": "H01 se activa porque el importe en discusión es de 2.480.000 COP y el reembolso hipotético de 1.949.000 supera el umbral de 1.500.000. H04 se activa con motivo atendible de verdad: no es solo que la política diga que no, sino que la medida se dio sobre un plano que el propio asesor de Bañolia solicitó, lo que apunta a corresponsabilidad de la empresa, y además es una clienta recurrente con cinco pedidos y 11.569.000 COP de histórico. No se activa H05, porque no hay ningún daño físico cuya responsabilidad haya que atribuir, ni H10, porque es particular y no profesional. El SLA se mantiene en 24 horas conforme a PQR-01, al no concurrir H02, H03, H08 ni H10.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H01",
+            "H04"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se confirman primero los tres hechos verificables del análisis (9 de 14 días calendario de DEV-01, vencimiento el 22 de septiembre, producto sin instalar y en embalaje original conforme a DEV-02 y DEV-03) y solo después se explica la exclusión de DEV-05 para productos a medida, que es un hecho de política y no una decisión. No se niega la devolución en firme ni se anuncia excepción alguna, porque eso corresponde a la persona escalada por H01 y H04, y por la misma razón no se cita ninguna cifra de reembolso ni el costo de recogida a Manizales. La alternativa de recortar o cambiar el vidrio se deja expresamente sin respuesta hasta confirmarla con Hidrosur, en lugar de ofrecerla o descartarla. Se cierra con el plazo de contacto de 24 horas hábiles y con la instrucción de conservar el panel embalado, que mantiene abiertas todas las salidas.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se contrastaron las fechas y los conteos con los cálculos del analista: entrega el 8 de septiembre, 9 días calendario transcurridos, 5 restantes y vencimiento el 22 de septiembre, todos correctos. La exclusión de DEV-05 se enuncia con el alcance literal de la regla (productos fabricados a medida o personalizados) sin convertirla en una negativa en firme, y no aparece ninguna promesa de excepción ni cifra de reembolso o de recogida, coherente con la ruta humano. Se verificó también que no se ofrece el recorte del vidrio, que el analista marca como no confirmado técnicamente. Se aprueba en primera iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0019",
+      "recibidaEn": "2026-09-17T16:41:00-05:00",
+      "canal": "whatsapp",
+      "cliente": {
+        "id": "CLI-0102",
+        "nombre": "Ricardo Bedoya López",
+        "ciudad": "Cartagena",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-107021",
+        "fecha": "2026-08-25",
+        "estado": "Entregado",
+        "lineas": [
+          {
+            "sku": "BN-PLA-002",
+            "cantidad": 1,
+            "precioCOP": 1280000
+          }
+        ],
+        "totalCOP": 1280000,
+        "fechaEntrega": "2026-09-03"
+      },
+      "asunto": "Devolución del plato de ducha ya instalado",
+      "mensaje": "Buenas. El plato de ducha gris del pedido BN-107021 me llego el 3 de septiembre y el maestro me lo instalo el fin de semana. Ya instalado y con la luz del baño prendida el gris se ve azuloso, no es el color de la foto de la pagina de ustedes. Quiero devolverlo.\n\nSe que hoy se me cumplen los 14 dias, por eso escribo hoy mismo. Y les aviso desde ya que si me salen con que no se puede porque ya esta instalado, pongo la queja en la SIC, porque el problema es que la foto de la pagina no corresponde al producto real.",
+      "adjuntos": [
+        {
+          "tipo": "foto",
+          "descripcion": "Plato de ducha instalado y siliconado, con la iluminación del baño encendida"
+        }
+      ],
+      "_referencia": {
+        "categoria": "devoluciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "devoluciones",
+        "subcategoria": "desistimiento",
+        "prioridad": "alta",
+        "sentimiento": -1,
+        "confianza": 0.88,
+        "entidades": {
+          "numeroPedido": "BN-107021",
+          "sku": "BN-PLA-002",
+          "importeCOP": 1280000,
+          "fechaEntrega": "2026-09-03",
+          "productoInstalado": true,
+          "mencionaSIC": true,
+          "plazoInvocadoDias": 14
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "DEV-01",
+          "DEV-02",
+          "DEV-03",
+          "DEV-08",
+          "DEV-14",
+          "GAR-01",
+          "PQR-01"
+        ],
+        "cumple": false,
+        "calculos": {
+          "fechaEntrega": "2026-09-03",
+          "fechaHoy": "2026-09-17",
+          "diasCalendarioTranscurridos": 14,
+          "plazoDEV01DiasCalendario": 14,
+          "diaDelPlazo": 14,
+          "ultimoDiaDePlazoDEV01": "2026-09-17",
+          "dentroDePlazoDEV01": true,
+          "productoInstalado": true,
+          "excluidoPorDEV02": true,
+          "sku": "BN-PLA-002",
+          "aMedida": false,
+          "tipologiaDevolucion": "platos-ducha",
+          "zona": "A",
+          "ciudad": "Cartagena",
+          "gastoRecogidaSiProcedieraCOP": 248000,
+          "importePagadoCOP": 1280000,
+          "garantiaMeses": 24,
+          "garantiaVigenteHasta": "2028-09-03",
+          "plazoRespuestaConsultaHorasHabiles": 24,
+          "plazoReclamacionFormalDiasHabiles": 15
+        },
+        "riesgos": [
+          "El cliente escribe justo el día 14, el último del plazo, así que percibirá la negativa por instalación como una excusa de última hora",
+          "Anuncia queja ante la SIC y su argumento no es el color del producto sino que la foto de la web no corresponde al real, lo que apunta a información al consumidor y excede lo que puede decidir el sistema",
+          "El plato está siliconado: el desmontaje sería destructivo y en ningún caso permitiría devolverlo en las condiciones de DEV-03",
+          "GAR-01 cubre 24 meses, pero una diferencia de tono percibida bajo la luz del baño difícilmente constituye defecto: hay que verificar la ficha y la foto de la web antes de responder",
+          "Si la foto del catálogo efectivamente no corresponde al BN-PLA-002 real, el riesgo deja de ser de este caso y pasa a ser de toda la referencia"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H02"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "¿Se mantiene la negativa de DEV-02 por producto ya instalado y siliconado, o se ofrece una salida comercial antes de que el cliente presente la queja ante la SIC por presunta discrepancia entre la foto del catálogo y el producto real?",
+          "opciones": [
+            "Verificar primero la ficha y la fotografía de la web del BN-PLA-002 y responder según el resultado: si la imagen no corresponde al producto real, ofrecer devolución o compensación; si corresponde, mantener DEV-02 con la explicación documentada",
+            "Mantener la negativa de DEV-02 por desmontaje destructivo y ofrecer un gesto comercial acotado, como un bono o un descuento en una futura compra, sin aceptar la devolución",
+            "Aceptar la devolución excepcional de los 1.280.000 COP para evitar la queja ante la SIC, asumiendo el desmontaje y el precedente"
+          ],
+          "riesgos": [
+            "El argumento del cliente no es el color en sí sino que la foto de la web no corresponde al producto real, lo que entra en información al consumidor y no en el desistimiento ordinario",
+            "Si la fotografía del catálogo efectivamente no corresponde al BN-PLA-002, el problema deja de ser de este caso y afecta a toda la referencia y a las ventas ya hechas",
+            "El plato está instalado y siliconado: el desmontaje sería destructivo y nunca permitiría devolverlo en las condiciones de DEV-03, así que aceptar la devolución supone asumir la pérdida íntegra de la pieza",
+            "El cliente escribe justo el día 14, el último del plazo, y percibirá la negativa por instalación como una excusa de última hora",
+            "Cliente con cinco pedidos previos y 15.725.000 COP de histórico: la relación comercial pesa además del caso concreto"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenas tardes, señor Ricardo.\n\nGracias por escribirnos y lamentamos que el plato de ducha no le haya quedado como esperaba. Su caso ya está en manos de una persona de nuestro equipo, con prioridad, y se comunicará con usted dentro de las próximas 8 horas hábiles.\n\nEmpezamos por lo que sí podemos confirmarle hoy:\n\n· Usted está dentro del plazo. El plato le fue entregado el 3 de septiembre y hoy, 17 de septiembre, es el día 14 de los 14 días calendario que damos para desistir. Escribió el último día, pero dentro, y así queda registrado en su caso: eso no se lo vamos a discutir.\n· El plato tiene 24 meses de garantía por defectos del producto, vigente hasta el 3 de septiembre de 2028.\n\nY le decimos también, de frente, cuál es la regla que aplica a un producto ya instalado: solo aceptamos la devolución si el producto no ha sido instalado, usado ni manipulado, y un producto ya instalado no es elegible para desistimiento aunque se desmonte después. Por la fotografía que nos envió, el plato está instalado y siliconado. Se lo decimos porque es la regla, no para cerrarle el caso.\n\nSobre lo que usted plantea de fondo, que la fotografía de nuestra página no corresponde al producto real: no le vamos a dar hoy una respuesta, ni para darle la razón ni para quitársela. Eso hay que verificarlo contrastando la ficha y la imagen que tenemos publicadas con el producto que usted recibió, y lo hará la persona que atienda su caso. Si quiere ayudarnos a ir más rápido, envíenos una foto del plato con luz natural y otra de la pantalla donde vio la imagen del catálogo.\n\nEstá por supuesto en su derecho de acudir a la Superintendencia de Industria y Comercio. Lo que le pedimos es la oportunidad de revisarlo antes, y por eso su caso va con prioridad y no con las 24 horas hábiles ordinarias.\n\nMientras tanto, le pedimos no desmontar el plato ni retirar la silicona hasta que esa persona se comunique con usted.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 1
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Aprobado como borrador de partida para la persona que atienda el caso, no para envío automático: queda pendiente la verificación de la foto del catálogo y la decisión comercial."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "devoluciones por canal whatsapp",
+          "justificacion": "Segundo caso límite, construido sobre tres tensiones a la vez: llega el día 14 exacto de DEV-01, el producto ya está instalado y siliconado (DEV-02 lo excluye) y el cliente menciona la SIC, que activa H02. Además alega discrepancia de color con la ficha web, lo que convertiría una negativa automática en material para una queja formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Quiere devolver un plato de ducha ya instalado y siliconado por discrepancia de color con la foto de la web, y anticipa queja ante la SIC.",
+          "justificacion": "El cliente pide expresamente devolver el producto y él mismo invoca el plazo de los 14 días, lo que sitúa el caso en devoluciones y subcategoría desistimiento. El motivo que alega, que la foto de la web no corresponde al producto real, tiene aire de falta de conformidad, pero la petición y el marco temporal que usa son los del desistimiento. El anuncio de acudir a la SIC eleva la prioridad a alta, no la confianza. La confianza baja levemente solo por el solape entre desistimiento y devolución por no conformidad, no por lo espinoso del caso.",
+          "confianza": 0.88,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Día 14 de 14, el último, pero el plato ya está instalado y siliconado: DEV-02 excluye el desistimiento y el caso se reconduce a garantía por GAR-01.",
+          "justificacion": "Desde la entrega del 3 de septiembre han transcurrido exactamente 14 días calendario, de modo que hoy 17 de septiembre es el último día del plazo de DEV-01 y el cliente acierta al decir que se le cumplen hoy. Sin embargo, DEV-02 es explícita: un producto ya instalado, aunque se desmonte después, no es elegible para desistimiento, y la propia foto aportada muestra el plato instalado y siliconado. La vía que queda es GAR-01, con 24 meses de garantía legal vigentes hasta el 3 de septiembre de 2028 conforme a la Ley 1480 de 2011, que no cubre la mala instalación pero sí obliga a examinar si existe falta de conformidad del producto. A efectos informativos, si la devolución procediera, DEV-08 descontaría 248.000 COP por platos de ducha en zona A sobre los 1.280.000 pagados y DEV-14 los pondría a cargo del cliente salvo que se acredite error de Bañolia; el plazo de respuesta lo marca PQR-01, 24 horas hábiles para la consulta y 15 días hábiles si formaliza la reclamación.",
+          "confianza": null,
+          "reglas": [
+            "DEV-01",
+            "DEV-02",
+            "DEV-03",
+            "DEV-08",
+            "DEV-14",
+            "GAR-01",
+            "PQR-01"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado: anuncia queja ante la SIC alegando que la foto del catálogo no corresponde al producto real, con el plato ya instalado.",
+          "justificacion": "H02 se activa de forma inequívoca, porque el cliente anuncia expresamente la queja ante la SIC y la respuesta puede acabar siendo una prueba. No se activa H01, porque los 1.280.000 COP quedan por debajo del umbral de 1.500.000, ni H04, ya que el supuesto error de la empresa es una alegación sin verificar y una diferencia de tono percibida bajo la luz del baño no basta para calificarlo de probable. Tampoco H07: el sentimiento es -1 y es su primer contacto por este tema. El SLA baja a 8 horas por tratarse de una reclamación formal con riesgo reputacional.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H02"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se reconoce de entrada lo que es cierto y verificable, que el cliente escribió el día 14 y por tanto dentro del plazo de DEV-01, para que la respuesta no parezca una excusa de última hora, y se confirma la cobertura de 24 meses de GAR-01 vigente hasta el 3 de septiembre de 2028. La exclusión de DEV-02 se explica con el texto de la regla, incluido el matiz de que desmontarlo después no lo hace elegible, pero sin cerrar el caso. Sobre la alegación de que la foto del catálogo no corresponde al producto real no se toma posición en ningún sentido, porque exige verificar la ficha publicada, y se pide al cliente material que acorte esa verificación. No se ofrece ninguna salida comercial ni se cuantifica compensación, y se le pide no desmontar el plato para no destruir prueba ni producto antes de que decida la persona.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Aprobado en la primera iteración",
+          "justificacion": "Se comprobó contra los cálculos del analista que hoy es efectivamente el día 14 de los 14 de DEV-01 y que la garantía de GAR-01 son 24 meses hasta el 3 de septiembre de 2028: ambas cifras del borrador son exactas. La cita de DEV-02 reproduce el alcance real de la regla y no se convierte en negativa definitiva, no hay bono, descuento ni devolución excepcional anunciados, y la alegación sobre la fotografía del catálogo queda expresamente sin prejuzgar, que era el riesgo principal de este caso. El tono no es jurídico defensivo pese a la mención de la SIC. Se aprueba en primera iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    },
+    {
+      "id": "SOL-20260917-0020",
+      "recibidaEn": "2026-09-17T08:41:00-05:00",
+      "canal": "correo",
+      "cliente": {
+        "id": "CLI-0130",
+        "nombre": "Óscar Betancur Jiménez",
+        "ciudad": "Cartagena",
+        "zona": "A",
+        "tipo": "particular"
+      },
+      "pedido": {
+        "numero": "BN-105318",
+        "fecha": "2026-08-26",
+        "estado": "En tránsito",
+        "lineas": [
+          {
+            "sku": "BN-PLA-002",
+            "cantidad": 1,
+            "precioCOP": 1280000
+          },
+          {
+            "sku": "BN-ACC-005",
+            "cantidad": 1,
+            "precioCOP": 95000
+          }
+        ],
+        "totalCOP": 1375000,
+        "fechaEntrega": null
+      },
+      "asunto": "Reclamación formal por incumplimiento del plazo de entrega del pedido BN-105318",
+      "mensaje": "Señores Bañolia, buenos días.\n\nMe dirijo a ustedes por segunda vez y en esta ocasión lo hago de manera formal, como reclamación. El 26 de agosto compré el plato de ducha y el sifón del pedido BN-105318, y en la confirmación ustedes mismos me informaron un plazo de ocho días hábiles. Ese plazo venció el 7 de septiembre y hoy, 17 de septiembre, el pedido sigue apareciendo \"en tránsito\" sin una sola fecha concreta.\n\nEl 10 de septiembre escribí por este mismo medio y la respuesta que recibí fue que \"estaban verificando con la transportadora\". Han pasado otros siete días y nadie me ha vuelto a contactar. Entretanto tengo el baño desarmado, el maestro ya cobró dos visitas perdidas y mi familia lleva tres semanas sin ducha en la casa. Me parece una falta de seriedad absoluta.\n\nPor lo anterior solicito que en un plazo máximo de cinco días hábiles me den una respuesta escrita con la fecha cierta de entrega o con la devolución total del dinero. De no recibirla, acudiré a la Superintendencia de Industria y Comercio para presentar la queja que corresponda.\n\nQuedo atento a su pronta respuesta.\n\nÓscar Betancur Jiménez\nC.C. y datos de contacto registrados en el pedido",
+      "adjuntos": [
+        {
+          "tipo": "documento",
+          "descripcion": "Correo del 10 de septiembre con la respuesta anterior de Bañolia"
+        },
+        {
+          "tipo": "foto",
+          "descripcion": "Captura del seguimiento en línea con el estado \"en tránsito\" sin fecha estimada"
+        }
+      ],
+      "_referencia": {
+        "categoria": "reclamaciones",
+        "rutaEsperada": "humano"
+      },
+      "clasificacion": {
+        "categoria": "reclamaciones",
+        "subcategoria": "reclamacion-formal",
+        "prioridad": "critica",
+        "sentimiento": -2,
+        "confianza": 0.94,
+        "entidades": {
+          "numeroPedido": "BN-105318",
+          "importeCOP": 1375000,
+          "fechaPedido": "2026-08-26",
+          "plazoInformadoDiasHabiles": 8,
+          "fechaVencimientoPlazo": "2026-09-07",
+          "segundoContacto": true,
+          "mencionaSIC": true,
+          "plazoExigidoDiasHabiles": 5,
+          "temasSecundarios": [
+            "estado-pedido",
+            "cancelacion"
+          ]
+        }
+      },
+      "analisisPolitica": {
+        "reglasAplicables": [
+          "ENV-01",
+          "PQR-01",
+          "CAN-01",
+          "DEV-10",
+          "DEV-14"
+        ],
+        "cumple": false,
+        "calculos": {
+          "fechaPedido": "2026-08-26",
+          "fechaHoy": "2026-09-17",
+          "zona": "A",
+          "ciudad": "Cartagena",
+          "plazoZonaADiasHabiles": [
+            3,
+            8
+          ],
+          "plazoMaximoDiasHabiles": 8,
+          "fechaVencimientoPlazoEntrega": "2026-09-07",
+          "diasHabilesTranscurridos": 16,
+          "excesoDiasHabiles": 8,
+          "dentroDePlazo": false,
+          "fechaSegundoContacto": "2026-09-10",
+          "diasHabilesSinRespuestaDesdeElSegundoContacto": 5,
+          "plazoConsultaHorasHabiles": 24,
+          "plazoReclamacionFormalDiasHabiles": 15,
+          "fechaLimiteRespuestaPQR01": "2026-10-08",
+          "plazoExigidoPorElClienteDiasHabiles": 5,
+          "importePagadoCOP": 1375000,
+          "envioGratisDesdeCOP": 1500000,
+          "aplicaEnvioGratis": false,
+          "reembolsoTotalSiSeCancelaCOP": 1375000,
+          "plazoReembolsoDiasCalendario": 14
+        },
+        "riesgos": [
+          "Incumplimiento objetivo de ENV-01: 16 días hábiles transcurridos frente a los 8 máximos de zona A, un exceso de 8 días hábiles, justo el doble del plazo comprometido",
+          "Segundo incumplimiento encadenado: han pasado 5 días hábiles desde la respuesta del 10 de septiembre sin volver a contactarlo, muy por encima de las 24 horas hábiles de PQR-01",
+          "El pedido sigue 'en tránsito' sin fecha estimada: prometer una fecha cierta sin confirmación de la transportadora expone a un tercer incumplimiento ante un cliente que ya anunció la SIC",
+          "El cliente exige 5 días hábiles y PQR-01 concede 15 (hasta el 8 de octubre): la brecha entre ambos plazos hay que gestionarla de forma expresa, no ignorarla",
+          "Daño colateral acreditado: baño desarmado, dos visitas perdidas del maestro y tres semanas sin ducha, lo que puede derivar en reclamación de perjuicios además del reembolso",
+          "Cliente con 5 pedidos previos y 10.463.000 COP de histórico, hoy en su segundo contacto y con reclamación formal en curso"
+        ]
+      },
+      "decision": {
+        "ruta": "humano",
+        "criterios": [
+          "H02",
+          "H04",
+          "H07"
+        ],
+        "slaHoras": 8,
+        "fichaEscalado": {
+          "queDecidir": "¿Qué se le responde por escrito antes de los cinco días hábiles que exige: fecha cierta de entrega confirmada por la transportadora, cancelación con reembolso de los 1.375.000 COP, o ambas a elección del cliente, y se acompaña de alguna compensación por las dos visitas perdidas del maestro?",
+          "opciones": [
+            "Localizar el pedido con la transportadora y comprometer una fecha cierta de entrega por escrito dentro de los cinco días hábiles solicitados, sin compensación adicional",
+            "Ofrecerle la elección entre fecha cierta confirmada o cancelación inmediata con reembolso total de 1.375.000 COP en el plazo de DEV-10",
+            "Cancelar de oficio con reembolso total y añadir una compensación comercial por las dos visitas perdidas del maestro y las tres semanas sin ducha",
+            "Reponer el pedido con envío urgente desde otra bodega, sin costo y con fecha comprometida, manteniendo el precio original"
+          ],
+          "riesgos": [
+            "El incumplimiento de ENV-01 es objetivo: 16 días hábiles frente a los 8 máximos de zona A, justo el doble del plazo comprometido, y está documentado por el propio cliente",
+            "Ya hubo un segundo incumplimiento encadenado: cinco días hábiles sin volver a contactarlo tras la respuesta del 10 de septiembre, muy por encima de las 24 horas hábiles de PQR-01",
+            "Prometer una fecha sin confirmación de la transportadora expone a un tercer incumplimiento ante un cliente que ya anunció la SIC, y sería el peor desenlace posible",
+            "El cliente exige 5 días hábiles y PQR-01 concede 15, hasta el 8 de octubre: la brecha hay que gestionarla de forma expresa, no ignorarla, aunque responder dentro de su plazo es lo que desactiva la queja",
+            "Hay daño colateral acreditado (baño desarmado, dos visitas perdidas del maestro, tres semanas sin ducha), lo que puede derivar en reclamación de perjuicios además del reembolso",
+            "Cliente con cinco pedidos previos y 10.463.000 COP de histórico, en riesgo de pérdida definitiva"
+          ]
+        }
+      },
+      "borrador": {
+        "texto": "Buenos días, señor Óscar.\n\nTiene usted razón y le pedimos disculpas. No le vamos a dar rodeos:\n\n· El plazo de entrega que aplica a Cartagena es de máximo 8 días hábiles. Ese plazo venció el 7 de septiembre y hoy llevamos 16 días hábiles desde su compra, justo el doble de lo comprometido. El incumplimiento es nuestro y está documentado.\n· Su mensaje del 10 de septiembre debió tener seguimiento en un máximo de 24 horas hábiles y han pasado cinco días hábiles sin que nadie lo volviera a contactar. Ese segundo fallo es tan nuestro como el primero.\n\nSu reclamación queda registrada formalmente como tal, con la fecha de hoy, y su solicitud queda anotada en los términos exactos en que usted la hizo: respuesta escrita con fecha cierta de entrega o devolución total del dinero.\n\nLo que no vamos a hacer es contestarle otra vez que estamos verificando con la transportadora. Su caso está en manos de una persona de nuestro equipo, con prioridad, y esa persona se comunicará con usted dentro de las próximas 8 horas hábiles. Hoy no le comprometemos una fecha de entrega, porque no la tenemos confirmada: prometerle una tercera fecha que después no podamos cumplir sería la peor forma de responderle.\n\nSobre los plazos. Usted pide respuesta en un máximo de cinco días hábiles y queremos ser exactos con lo que le decimos: nuestra política de reclamaciones formales fija un máximo de 15 días hábiles para resolverlas, y su caso está marcado para que una persona le escriba hoy mismo, dentro de esas 8 horas hábiles. Será esa persona quien le confirme por escrito en qué términos se resuelve y con qué fechas. No le fijamos desde aquí una fecha de resolución que no nos corresponde comprometer.\n\nTomamos nota, además, de lo que este retraso le ha costado: el baño desarmado, las dos visitas perdidas del maestro y tres semanas sin ducha en su casa. Está recogido en el caso y la persona que lo atienda lo tiene a la vista.\n\nEquipo de Servicio al Cliente Bañolia",
+        "redactadoPor": "redactor-posventa",
+        "iteraciones": 2
+      },
+      "revision": {
+        "aprobado": true,
+        "observaciones": [
+          "Primera versión: la frase «y para resolverse muy por dentro del plazo que usted pide» comprometía una resolución dentro de los cinco días hábiles que exige el cliente. Ese compromiso no lo respalda PQR-01, que fija 15 días hábiles, y además es la decisión reservada a la persona. Corregido en la segunda versión, que solo compromete el contacto dentro de las 8 horas hábiles del SLA y remite la fecha de resolución a esa persona.",
+          "Aprobado como borrador de partida para la persona que atienda el caso, no para envío automático: la elección entre fecha cierta, cancelación con reembolso y cualquier compensación sigue abierta."
+        ]
+      },
+      "respuestaFinal": null,
+      "estado": "pendiente_humano",
+      "traza": [
+        {
+          "orden": 1,
+          "agente": "generador-solicitudes",
+          "accion": "generar",
+          "resultado": "reclamaciones por canal correo",
+          "justificacion": "Reclamación formal auténtica: el cliente se autodeclara en reclamación, exige respuesta en un plazo y anuncia acudir a la SIC, además de ser su segundo contacto por el mismo asunto y estar visiblemente molesto. El importe de 1.375.000 COP queda por debajo del umbral de H01 a propósito, para que el escalado se justifique por H02 y H07 y no por el dinero. Prueba que el enrutador detecte el riesgo reputacional aunque la plata sea modesta, y el incumplimiento real del plazo de ENV-01 le da fundamento a la queja.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 2,
+          "agente": "clasificador",
+          "accion": "clasificar",
+          "resultado": "Reclamación formal por incumplimiento del plazo de entrega, con exigencia de fecha cierta o reembolso total en cinco días hábiles y anuncio de queja ante la SIC.",
+          "justificacion": "El cliente se declara textualmente en segundo contacto y presenta el escrito como reclamación formal, fija un plazo de cinco días hábiles y anuncia la Superintendencia de Industria y Comercio, que es exactamente el perfil de reclamacion-formal. El retraso de entrega y la posible devolución del dinero son temas subordinados a ese marco formal. La prioridad es crítica por tratarse de una reclamación formal en curso y el sentimiento -2 por la hostilidad explícita. La confianza es muy alta porque el propio mensaje se autocalifica.",
+          "confianza": 0.94,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 3,
+          "agente": "analista-politica",
+          "accion": "contrastar-politica",
+          "resultado": "Incumplimiento de ENV-01 de 8 días hábiles: 16 transcurridos frente al máximo de 8 de la zona A, y el plazo venció el 7 de septiembre.",
+          "justificacion": "ENV-01 fija de 3 a 8 días hábiles para la zona A, donde está Cartagena, de modo que el plazo venció el 7 de septiembre y hoy 17 se han cumplido 16 días hábiles desde el pedido del 26 de agosto: un exceso exacto de 8 días hábiles, el doble del máximo comprometido. PQR-01 se incumple por partida doble, ya que la consulta debe responderse en 24 horas hábiles y llevan 5 días hábiles sin contactarlo desde el 10 de septiembre; como reclamación formal, el plazo máximo de resolución es de 15 días hábiles y vence el 8 de octubre, más tarde que los 5 días que el cliente exige. CAN-01 remite a la política de devolución al estar el pedido ya despachado, pero DEV-14 impide cobrarle gasto alguno porque el incumplimiento es imputable a Bañolia, de manera que la devolución total de los 1.375.000 COP es viable y DEV-10 la sitúa en un máximo de 14 días calendario desde la recuperación de la mercancía.",
+          "confianza": null,
+          "reglas": [
+            "ENV-01",
+            "PQR-01",
+            "CAN-01",
+            "DEV-10",
+            "DEV-14"
+          ],
+          "criterios": []
+        },
+        {
+          "orden": 4,
+          "agente": "enrutador",
+          "accion": "enrutar",
+          "resultado": "Escalado: reclamación formal con anuncio de la SIC por incumplimiento de ENV-01 de ocho días hábiles y segundo contacto sin respuesta.",
+          "justificacion": "H02 se activa porque presenta el escrito como reclamación formal y anuncia acudir a la Superintendencia de Industria y Comercio. H07 se activa con sus dos condiciones a la vez: el sentimiento es -2 y es su segundo contacto por el mismo tema, tras la respuesta del 10 de septiembre que quedó sin seguimiento. H04 también aplica, porque el incumplimiento de ENV-01 es un error acreditado de la empresa y cualquier compensación por las visitas perdidas del maestro o el ajuste al plazo de cinco días que exige queda fuera de lo que amparan PQR-01 y CAN-01. No se activa H01, porque el reembolso máximo de 1.375.000 COP queda por debajo del umbral de 1.500.000, ni H10, al tratarse de un cliente particular. El SLA se fija en 8 horas por la reclamación formal.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": [
+            "H02",
+            "H04",
+            "H07"
+          ]
+        },
+        {
+          "orden": 5,
+          "agente": "redactor-posventa",
+          "accion": "redactar-borrador-sugerido",
+          "resultado": "Borrador sugerido para la persona que atienda el caso",
+          "justificacion": "Se reconoce el incumplimiento sin rodeos y con las cifras del analista, porque está documentado por el propio cliente y negarlo empeoraría el caso: 16 días hábiles frente a los 8 máximos de ENV-01 en zona A y cinco días hábiles de silencio frente a las 24 horas hábiles de PQR-01. No se compromete fecha de entrega, porque el pedido sigue en tránsito sin confirmación, ni reembolso ni compensación, que son las decisiones de la persona escalada por H02, H04 y H07. Se evita repetir la fórmula de que estamos verificando con la transportadora, que es justamente la respuesta que ya falló. Atendiendo la observación del supervisor, la segunda versión mantiene la brecha de plazos explicada, pero solo compromete el contacto dentro de las 8 horas hábiles y deja la fecha de resolución a la persona.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        },
+        {
+          "orden": 6,
+          "agente": "supervisor-calidad",
+          "accion": "revisar",
+          "resultado": "Devuelto una vez y aprobado en la segunda iteración",
+          "justificacion": "Se verificaron las cifras contra los cálculos del analista: 16 días hábiles transcurridos frente al máximo de 8 de ENV-01, vencimiento el 7 de septiembre y cinco días hábiles sin respuesta desde el 10 de septiembre, todas exactas. La primera versión comprometía además una resolución dentro de los cinco días hábiles exigidos por el cliente, promesa que ni respalda PQR-01 ni corresponde al sistema, y por eso se devolvió. La segunda versión corrige ese punto, mantiene el reconocimiento del incumplimiento, no fija fecha de entrega, no anuncia reembolso ni compensación y no nombra a la transportadora. Se aprueba en la segunda iteración.",
+          "confianza": null,
+          "reglas": [],
+          "criterios": []
+        }
+      ]
+    }
+  ]
+}
