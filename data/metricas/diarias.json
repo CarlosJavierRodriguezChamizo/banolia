@@ -1,32 +1,63 @@
 {
-  "actualizadoEn": "2026-09-16T09:41:00-05:00",
+  "actualizadoEn": "2026-09-17T17:05:00-05:00",
   "dias": [
     {
       "fecha": "2026-09-16",
-      "recibidas": 10,
-      "ia": 6,
-      "humano": 3,
-      "descartado": 1,
+      "recibidas": 20,
+      "ia": 13,
+      "humano": 5,
+      "descartado": 2,
       "respondidasPorHumano": 0,
       "porCategoria": {
-        "pedidos": 3,
-        "incidencias": 2,
-        "devoluciones": 1,
-        "consultas": 1,
-        "cotizaciones": 1,
+        "pedidos": 5,
+        "incidencias": 3,
+        "devoluciones": 3,
+        "consultas": 4,
+        "cotizaciones": 2,
         "reclamaciones": 1,
-        "ruido": 1
+        "ruido": 2
       },
       "criteriosFrecuentes": {
         "H03": 1,
-        "H05": 1,
+        "H05": 2,
         "H02": 1,
         "H07": 1,
         "H08": 1,
         "H10": 1,
-        "D01": 1
+        "D01": 2,
+        "H04": 1,
+        "H06": 1
       },
       "precisionClasificador": 1,
+      "tasaAprobacionBorrador": null
+    },
+    {
+      "fecha": "2026-09-17",
+      "recibidas": 40,
+      "ia": 26,
+      "humano": 13,
+      "descartado": 1,
+      "respondidasPorHumano": 0,
+      "porCategoria": {
+        "pedidos": 9,
+        "consultas": 8,
+        "incidencias": 7,
+        "ruido": 1,
+        "devoluciones": 8,
+        "reclamaciones": 2,
+        "cotizaciones": 5
+      },
+      "criteriosFrecuentes": {
+        "H06": 2,
+        "H01": 6,
+        "H04": 8,
+        "H05": 3,
+        "H10": 3,
+        "H07": 2,
+        "D01": 1,
+        "H02": 2
+      },
+      "precisionClasificador": 0.9,
       "tasaAprobacionBorrador": null
     }
   ]
