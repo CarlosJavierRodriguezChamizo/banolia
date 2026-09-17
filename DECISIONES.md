@@ -294,3 +294,46 @@ lo que envíe el cliente.
 **D-41. La lectura en vivo degrada, nunca rompe.** Si GitHub falla o falta el token, la web
 devuelve lo que venía en el build y sigue funcionando. La lectura en vivo es una mejora para
 que las respuestas se vean sin desplegar, no un requisito para que la página cargue.
+
+## Fase 5 — Métricas, aprendizaje y documentación
+
+**D-42. Las métricas se calculan desde los lotes, no desde `data/metricas/diarias.json`.**
+Ese archivo lo escribe la rutina y sigue siendo el histórico, pero la página no lo lee.
+Calcular en el momento garantiza dos cosas: que las cifras nunca se desfasen respecto de los
+datos que se muestran en el resto de la web, y que incorporen las respuestas humanas leídas
+en vivo, que la rutina todavía no ha visto cuando escribe su archivo.
+
+**D-43. La automatización se mide excluyendo las descartadas.** El spam no se responde, así
+que contarlo como «resuelto» inflaría la cifra. El denominador son las solicitudes que de
+verdad requerían una respuesta.
+
+**D-44. La paleta de las gráficas se validó, no se eligió a ojo.** Los colores de estado que
+ya usaba la web (esmeralda, ámbar, cielo, gris) fallaron la comprobación: el gris se lee como
+gris (sin croma suficiente) y quedaba por debajo de 3:1 de contraste. El conjunto definitivo
+para las series —`#047857` IA, `#b45309` persona, `#6d28d9` descartado— pasa todas las
+comprobaciones, incluida la de todos los pares. El par verde-ámbar queda en la banda de aviso
+para daltonismo, lo que obliga a codificación secundaria: por eso hay leyenda, etiquetas
+directas y separación entre segmentos, y no solo color.
+
+**D-45. SVG sin `viewBox`, con anchos en porcentaje.** Un SVG con `viewBox` escala también el
+texto: en un móvil de 390 px, una fuente de 14 px se quedaría en 8. Sin `viewBox`, el sistema
+de coordenadas del SVG son píxeles CSS, los anchos de barra pueden ir en porcentaje y el
+texto conserva su tamaño real. El gráfico es responsive y legible a la vez.
+
+**D-46. Etiqueta y valor en HTML; solo la barra en SVG.** Primera versión: todo en SVG. Al
+medirlo en el navegador, dos etiquetas de criterio se cortaban en móvil, porque el texto de
+un SVG no sabe truncarse. En HTML se trunca con puntos suspensivos a cualquier ancho, el
+texto completo queda en el `title` y en la tabla, y el arreglo vale para cualquier etiqueta
+futura, no solo para esas dos.
+
+**D-47. Las fechas sin hora se mostraban un día antes.** `new Date('2026-09-16')` se
+interpreta como medianoche UTC, que en Bogotá son las 19:00 del día anterior. La columna del
+gráfico decía 15/09 para un lote del 16, y **las fechas de pedido del detalle contradecían el
+texto de la propia respuesta**, que citaba la fecha correcta. Se corrigió en `formato.ts`
+fijando la medianoche de Bogotá a toda cadena `AAAA-MM-DD`. Lo encontró la captura de
+pantalla, no el código: por eso la guía de visualización insiste en mirar el resultado.
+
+**D-48. La precisión sale 100 % y eso no es representativo.** Con un lote semilla escrito a
+mano y un segundo lote regenerado, el clasificador acierta las 20 de 20. Conviene decirlo en
+clase: la cifra bajará en cuanto haya volumen real, y una métrica perfecta sobre veinte casos
+no demuestra nada. Sirve para ver que la medición funciona, no para presumir del resultado.

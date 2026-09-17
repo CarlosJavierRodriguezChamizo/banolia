@@ -68,6 +68,12 @@ npm run crear-hash -- "clave"    # hash bcrypt para src/config/usuarios.ts
   `scripts/validar.mjs` (Node 22 importa TypeScript directamente).
 - `src/lib/datos.ts` — carga los JSON con `import.meta.glob` (se incorporan al bundle;
   el sistema de archivos de Vercel es de solo lectura en ejecución).
+- `src/lib/vivo.ts` — lectura en vivo de las respuestas humanas desde GitHub, con caché de
+  30 segundos. Degrada a lo del build si GitHub falla: nunca rompe la página.
+- `src/lib/metricas.ts` — calcula las métricas desde los lotes, NO desde
+  `data/metricas/diarias.json`, para que no puedan desfasarse de lo que se muestra.
+- `src/lib/formato.ts` — formato de moneda y fechas. Ojo: `aInstante()` trata las fechas sin
+  hora como medianoche de Bogotá; sin eso se mostraban un día antes.
 - `data/config/politica.json` — reglas con ID (`DEV-01`…). Los agentes **deben citar los
   IDs** en su justificación; `validar.mjs` falla si citan uno que no existe.
 - `data/config/criterios-hitl.json` — criterios de escalado `H01`…`H11` y descarte `D01`.
@@ -80,4 +86,4 @@ npm run crear-hash -- "clave"    # hash bcrypt para src/config/usuarios.ts
 - [x] **Fase 2** — los ocho subagentes, `orquestador/RUTINA.md` y las plantillas de salida.
 - [x] **Fase 3** — web completa (filtros, secciones, cola humana, lotes, cómo funciona).
 - [x] **Fase 4** — login, HITL con API de GitHub y botón de lanzar lote. **MVP cerrado.**
-- [ ] **Fase 5** — métricas, bucle de aprendizaje y documentación.
+- [x] **Fase 5** — métricas, bucle de aprendizaje y documentación. **Proyecto completo.**

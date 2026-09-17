@@ -1,0 +1,123 @@
+---
+/**
+ * Columnas apiladas: volumen por día, repartido entre lo que resolvió la IA, lo
+ * que pasó a una persona y lo que se descartó.
+ *
+ * Los tres colores están validados para daltonismo. El par verde-ámbar queda en
+ * la banda de aviso, lo que obliga a codificación secundaria: por eso hay leyenda,
+ * etiquetas directas y una separación de 2 px entre segmentos.
+ */
+import { fechaCorta } from '../lib/formato.ts';
+import type { VolumenDia } from '../lib/metricas.ts';
+
+interface Props { dias: VolumenDia[]; }
+const { dias } = Astro.props;
+
+const SERIES = [
+  { clave: 'ia', etiqueta: 'Resuelto por IA', color: '#047857' },
+  { clave: 'humano', etiqueta: 'A una persona', color: '#b45309' },
+  { clave: 'descartado', etiqueta: 'Descartado', color: '#6d28d9' },
+] as const;
+
+const ALTO = 180;
+// Espacio reservado ARRIBA para la etiqueta del total: la columna más alta llega al
+// borde del área de trazado, y sin este margen su número se dibujaría fuera del lienzo.
+const MARGEN = 20;
+const HUECO = 2;                       // separación en la superficie entre segmentos
+const maximo = Math.max(1, ...dias.map((d) => d.total));
+const anchoColumna = dias.length > 0 ? 100 / dias.length : 100;
+// Las columnas no llenan su banda: el aire sobrante las mantiene legibles.
+const grosor = Math.min(anchoColumna * 0.55, 8);
+
+const resumen = `Volumen diario. ${dias.map((d) =>
+  `${d.fecha}: ${d.total} solicitudes, ${d.ia} por IA, ${d.humano} a una persona, ${d.descartado} descartadas`).join('. ')}.`;
+---
+
+<figure class="min-w-0 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+  <figcaption>
+    <h3 class="text-sm font-semibold text-slate-900">Volumen por día</h3>
+    <p class="mt-0.5 text-xs text-slate-500">
+      Cada columna es un día. El reparto muestra cuánto resolvió la IA y cuánto necesitó a una persona.
+    </p>
+  </figcaption>
+
+  <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+    {SERIES.map((s) => (
+      <li class="flex items-center gap-1.5 text-xs text-slate-600">
+        <span class="inline-block h-2.5 w-2.5 rounded-sm" style={`background:${s.color}`} aria-hidden="true"></span>
+        {s.etiqueta}
+      </li>
+    ))}
+  </ul>
+
+  {dias.length === 0 ? (
+    <p class="mt-4 rounded-lg border border-dashed border-slate-300 px-3 py-8 text-center text-xs text-slate-400">
+      Todavía no hay lotes publicados.
+    </p>
+  ) : (
+    <>
+      <svg class="mt-3 block w-full" height={MARGEN + ALTO + 34} role="img" aria-label={resumen}>
+        {/* Línea base: fina, sólida y discreta. */}
+        <line x1="0" y1={MARGEN + ALTO} x2="100%" y2={MARGEN + ALTO} class="stroke-slate-200" stroke-width="1" />
+
+        {dias.map((d, i) => {
+          const centro = anchoColumna * (i + 0.5);
+          let acumulado = 0;
+          const segmentos = SERIES.map((s) => {
+            const valor = d[s.clave];
+            const altoSeg = (valor / maximo) * ALTO;
+            const y = MARGEN + ALTO - acumulado - altoSeg;
+            acumulado += altoSeg;
+            return { ...s, valor, y, altoSeg };
+          }).filter((s) => s.valor > 0);
+
+          return (
+            <g>
+              <title>{fechaCorta(d.fecha)}: {d.total} solicitudes · {d.ia} IA · {d.humano} persona · {d.descartado} descartadas</title>
+
+              {segmentos.map((s) => (
+                <rect
+                  x={`${centro - grosor / 2}%`} y={s.y}
+                  width={`${grosor}%`} height={Math.max(s.altoSeg - HUECO, 1)}
+                  fill={s.color} rx="1" />
+              ))}
+
+              {/* Etiqueta directa del total, sobre la columna. */}
+              <text x={`${centro}%`} y={MARGEN + ALTO - acumulado - 6} text-anchor="middle"
+                class="fill-slate-900" style="font-size:12px;font-weight:600">{d.total}</text>
+
+              <text x={`${centro}%`} y={MARGEN + ALTO + 16} text-anchor="middle"
+                class="fill-slate-500" style="font-size:11px">{fechaCorta(d.fecha).slice(0, 5)}</text>
+            </g>
+          );
+        })}
+      </svg>
+
+      <details class="mt-2">
+        <summary class="cursor-pointer text-xs text-slate-500 hover:text-marca">Ver los datos en tabla</summary>
+        <table class="mt-2 w-full text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+              <th scope="col" class="py-1 font-medium">Día</th>
+              <th scope="col" class="py-1 text-right font-medium">IA</th>
+              <th scope="col" class="py-1 text-right font-medium">Persona</th>
+              <th scope="col" class="py-1 text-right font-medium">Descartado</th>
+              <th scope="col" class="py-1 text-right font-medium">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dias.map((d) => (
+              <tr class="border-b border-slate-100">
+                <td class="py-1 text-slate-700">{fechaCorta(d.fecha)}</td>
+                <td class="py-1 text-right text-slate-900">{d.ia}</td>
+                <td class="py-1 text-right text-slate-900">{d.humano}</td>
+                <td class="py-1 text-right text-slate-900">{d.descartado}</td>
+                <td class="py-1 text-right font-medium text-slate-900">{d.total}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </details>
+    </>
+  )}
+</figure>

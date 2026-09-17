@@ -79,7 +79,17 @@ Este es el bucle que hace que el sistema mejore con el uso.
 5. Actualiza `ultimaRespuestaHumanaIncorporada` con el `respondidaEn` más reciente que hayas
    incorporado.
 
+Si una respuesta tiene la acción `reclasificar`, además de guardarla como ejemplo **anota
+en el motivo la categoría correcta**: es la corrección más valiosa que existe, porque señala
+un error del clasificador y no solo del redactor.
+
 Si no hay respuestas humanas nuevas, deja el archivo como está y continúa.
+
+**Cómo saber si el bucle está sirviendo.** La página `/metricas` muestra qué hacen las
+personas con el borrador. Si la proporción de `aprobar_borrador` sube con el tiempo, los
+ejemplos están funcionando; si la mayoría se reescribe desde cero, el problema no está en los
+ejemplos sino en la ficha del redactor, y conviene revisarla en lugar de acumular más
+ejemplos.
 
 ---
 

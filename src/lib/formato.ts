@@ -4,6 +4,19 @@
 
 const ZONA_HORARIA = 'America/Bogota';
 
+/**
+ * Convierte una cadena de fecha en un instante interpretable.
+ *
+ * Cuidado con las fechas SIN hora, como `2026-09-16`: JavaScript las interpreta
+ * como medianoche UTC, que en Bogotá son las 19:00 del día ANTERIOR. Sin esto,
+ * toda fecha sin hora se mostraba un día antes de lo que decían los datos.
+ *
+ * Para evitarlo se les fija explícitamente la medianoche de Bogotá.
+ */
+function aInstante(iso: string): Date {
+  return new Date(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T00:00:00-05:00` : iso);
+}
+
 /** Formato de moneda del proyecto: `$ 1.250.000` (sin decimales). */
 export function pesos(valor: number): string {
   return `$ ${Math.round(valor).toLocaleString('es-CO')}`;
@@ -11,21 +24,21 @@ export function pesos(valor: number): string {
 
 /** `16 de septiembre de 2026` */
 export function fechaLarga(iso: string): string {
-  return new Date(iso).toLocaleDateString('es-CO', {
+  return aInstante(iso).toLocaleDateString('es-CO', {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: ZONA_HORARIA,
   });
 }
 
 /** `16/09/2026` */
 export function fechaCorta(iso: string): string {
-  return new Date(iso).toLocaleDateString('es-CO', {
+  return aInstante(iso).toLocaleDateString('es-CO', {
     day: '2-digit', month: '2-digit', year: 'numeric', timeZone: ZONA_HORARIA,
   });
 }
 
 /** `16/09/2026, 9:05 a. m.` */
 export function fechaHora(iso: string): string {
-  return new Date(iso).toLocaleString('es-CO', {
+  return aInstante(iso).toLocaleString('es-CO', {
     day: '2-digit', month: '2-digit', year: 'numeric',
     hour: 'numeric', minute: '2-digit', timeZone: ZONA_HORARIA,
   });
@@ -33,7 +46,7 @@ export function fechaHora(iso: string): string {
 
 /** `9:05 a. m.` */
 export function hora(iso: string): string {
-  return new Date(iso).toLocaleTimeString('es-CO', {
+  return aInstante(iso).toLocaleTimeString('es-CO', {
     hour: 'numeric', minute: '2-digit', timeZone: ZONA_HORARIA,
   });
 }

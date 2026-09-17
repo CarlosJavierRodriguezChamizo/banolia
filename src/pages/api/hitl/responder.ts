@@ -42,10 +42,10 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
   const solicitud = solicitudPorId.get(idSolicitud);
   if (!solicitud) return redirect('/?error=solicitud-desconocida', 303);
 
-  const cfg = configGithub();
-  if (!cfg) return redirect(`${volver}?error=sin-github`, 303);
-
   // --- Construcción y validación de la respuesta ---------------------------
+  // Se valida ANTES de mirar la configuración: si la persona se equivocó, es más
+  // útil decirle en qué que hablarle de variables de entorno que no controla. Y
+  // así un despliegue mal configurado no enmascara los errores de validación.
   const accion = AccionHumana.safeParse(String(datos.get('accion') ?? ''));
   if (!accion.success) return redirect(`${volver}?error=accion`, 303);
 
@@ -78,6 +78,9 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
   }
 
   // --- Escritura en GitHub ------------------------------------------------
+  const cfg = configGithub();
+  if (!cfg) return redirect(`${volver}?error=sin-github`, 303);
+
   const mes = validada.data.respondidaEn.slice(0, 7);          // AAAA-MM
   const ruta = `data/respuestas-humanas/${mes}/${idSolicitud}.json`;
   const contenido = `${JSON.stringify(validada.data, null, 2)}\n`;
