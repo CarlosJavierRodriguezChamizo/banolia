@@ -89,9 +89,9 @@
   {
     "id": "DEV-11",
     "titulo": "Incidencias de entrega no imputables a Bañolia",
-    "texto": "Cuando la devolución se origina por una incidencia de entrega no imputable a Bañolia (cliente ausente tras más de dos intentos de entrega, dirección errónea o incompleta, o dirección inaccesible para el vehículo de reparto), los gastos de envío y devolución los asume el cliente.",
+    "texto": "Cuando la devolución se origina por una incidencia de entrega no imputable a Bañolia (cliente ausente tras más de dos intentos de entrega, es decir a partir del tercer intento fallido, dirección errónea o incompleta, o dirección inaccesible para el vehículo de reparto), los gastos de envío y devolución los asume el cliente.",
     "fuente": "original-adaptada",
-    "parametros": { "intentosEntregaMinimos": 2 }
+    "parametros": { "intentosFallidosParaImputarAlCliente": 3 }
   },
   {
     "id": "DEV-12",
@@ -135,9 +135,25 @@
   {
     "id": "GAR-01",
     "titulo": "Garantía legal por tipo de producto",
-    "texto": "Garantía legal conforme a la Ley 1480 de 2011: muebles de baño y mamparas 24 meses; grifería 36 meses; sistema LED de espejos 24 meses. La garantía no cubre daños por mala instalación, incrustaciones de cal por agua dura, uso de productos químicos abrasivos ni golpes posteriores a la entrega.",
+    "texto": "Garantía legal conforme a la Ley 1480 de 2011: grifería 36 meses, incluidas las columnas de hidromasaje; el resto de familias 24 meses, es decir muebles de baño y columnas auxiliares, mamparas, platos de ducha, lavabos, sanitarios, bañeras, espejos con y sin sistema LED, accesorios y toalleros eléctricos. La garantía no cubre daños por mala instalación, incrustaciones de cal por agua dura, uso de productos químicos abrasivos ni golpes posteriores a la entrega.",
     "fuente": "inventada-razonada",
-    "parametros": { "mueblesYMamparasMeses": 24, "griferiaMeses": 36, "ledEspejosMeses": 24, "normaLegal": "Ley 1480 de 2011" }
+    "parametros": {
+      "griferiaMeses": 36,
+      "restoDeFamiliasMeses": 24,
+      "porCategoria": {
+        "griferia": 36,
+        "muebles-bano": 24,
+        "mamparas": 24,
+        "platos-ducha": 24,
+        "lavabos": 24,
+        "sanitarios": 24,
+        "baneras": 24,
+        "espejos": 24,
+        "accesorios": 24,
+        "toalleros-electricos": 24
+      },
+      "normaLegal": "Ley 1480 de 2011"
+    }
   },
   {
     "id": "PAG-01",

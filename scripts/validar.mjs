@@ -99,6 +99,24 @@ if (politica && catalogo) {
   }
 }
 
+// La garantia declarada en GAR-01 debe coincidir con la ficha de cada producto.
+// Sin esta comprobacion la regla y el catalogo se desfasan sin que nadie lo note,
+// y los agentes citan meses de garantia que la politica no respalda.
+if (politica && catalogo) {
+  const gar01 = politica.find((r) => r.id === 'GAR-01');
+  const porCategoria = gar01?.parametros?.porCategoria ?? {};
+  for (const p of catalogo) {
+    const meses = porCategoria[p.categoria];
+    if (meses === undefined) {
+      errores.push(`GAR-01: no declara garantia para la categoria "${p.categoria}" usada en el catalogo`);
+    } else if (meses !== p.garantiaMeses) {
+      errores.push(
+        `GAR-01: declara ${meses} meses para "${p.categoria}" pero ${p.sku} trae ${p.garantiaMeses}`,
+      );
+    }
+  }
+}
+
 /* --- 2. Lotes ----------------------------------------------------------- */
 const idsSolicitudGlobal = new Map();
 const lotes = [];
